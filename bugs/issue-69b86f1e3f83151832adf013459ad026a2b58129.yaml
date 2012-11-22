@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: SSL support
+desc: Obligatory for admin and stats
+type: :task
+component: lakaxita
+release: Production
+reporter: Unai Zalakain <unai@gisa-elkartea.org>
+status: :unstarted
+disposition: 
+creation_time: 2012-11-22 15:02:04.901309 Z
+references: []
+
+id: 69b86f1e3f83151832adf013459ad026a2b58129
+log_events: 
+- - 2012-11-22 15:02:04.901309 Z
+  - Unai Zalakain <unai@gisa-elkartea.org>
+  - created
+  - ""

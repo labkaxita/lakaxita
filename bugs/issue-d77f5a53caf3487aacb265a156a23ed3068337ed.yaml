@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: robots.txt
+desc: ""
+type: :task
+component: lakaxita
+release: Fixing
+reporter: Unai Zalakain <unai@gisa-elkartea.org>
+status: :unstarted
+disposition: 
+creation_time: 2012-11-22 15:02:04.901309 Z
+references: []
+
+id: d77f5a53caf3487aacb265a156a23ed3068337ed
+log_events: 
+- - 2012-11-22 15:02:04.901309 Z
+  - Unai Zalakain <unai@gisa-elkartea.org>
+  - created
+  - ""

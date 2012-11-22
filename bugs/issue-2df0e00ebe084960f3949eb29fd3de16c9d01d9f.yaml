@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: example_data.json
+desc: ""
+type: :task
+component: lakaxita
+release: Development
+reporter: Unai Zalakain <unai@gisa-elkartea.org>
+status: :unstarted
+disposition: 
+creation_time: 2012-11-22 15:02:04.901309 Z
+references: []
+
+id: 2df0e00ebe084960f3949eb29fd3de16c9d01d9f
+log_events: 
+- - 2012-11-22 15:02:04.901309 Z
+  - Unai Zalakain <unai@gisa-elkartea.org>
+  - created
+  - ""

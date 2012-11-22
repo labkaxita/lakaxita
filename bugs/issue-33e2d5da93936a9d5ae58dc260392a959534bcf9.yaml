@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: Stats
+desc: Normally with piwik
+type: :task
+component: lakaxita
+release: Production
+reporter: Unai Zalakain <unai@gisa-elkartea.org>
+status: :unstarted
+disposition: 
+creation_time: 2012-11-22 15:02:04.901309 Z
+references: []
+
+id: 33e2d5da93936a9d5ae58dc260392a959534bcf9
+log_events: 
+- - 2012-11-22 15:02:04.901309 Z
+  - Unai Zalakain <unai@gisa-elkartea.org>
+  - created
+  - ""

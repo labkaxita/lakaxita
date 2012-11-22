@@ -1,0 +1,5 @@
+.ditz-config
+bin
+fabfile.py
+*.pyc
+webfaction.ini

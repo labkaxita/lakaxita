@@ -1,0 +1,40 @@
+{% load static compress i18n %}
+
+<!doctype html/>
+
+html
+    head
+        title lakaxita{% block title %}{% endblock title %}
+        {% compress css %}
+        link
+            - rel stylesheet
+            - type text/x-sass
+            - href {% static 'css/main.sass' %}
+        {% endcompress %}
+        {% compress js %}
+        script
+            - type text/javascript
+            - src {% static 'js/jquery.min.js' %}
+        script
+            - type text/javascript
+            - src {% static 'feedback/jquery.form.js' %}
+        script
+            - type text/javascript
+            - src {% static 'feedback/main.js' %}
+        script [type="text/javascript"]
+            $(function(){
+                feedback.init({
+                    'button':$('a#feedback'),
+                    'drop':$('#feedback_drop'),
+                    'popup':$('#feedback_popup')
+                });
+            });
+        {% endcompress %}
+
+        {% block extra_headers %}{% endblock extra_headers %}
+
+    body
+        header
+        nav
+        aside
+        footer

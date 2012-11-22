@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: favicon
+desc: ""
+type: :task
+component: lakaxita
+release: Fixing
+reporter: Unai Zalakain <unai@gisa-elkartea.org>
+status: :unstarted
+disposition: 
+creation_time: 2012-11-22 15:02:04.901309 Z
+references: []
+
+id: 0c600838e4ced640da89c65099eb1e978c9fc09c
+log_events: 
+- - 2012-11-22 15:02:04.901309 Z
+  - Unai Zalakain <unai@gisa-elkartea.org>
+  - created
+  - ""
