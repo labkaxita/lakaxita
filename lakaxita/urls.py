@@ -10,7 +10,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
         url(r'^lost_found/', include('lakaxita.lost_found.urls', 
-            app_name='lost_found')),
+            namespace='lost_found')),
 
         url(r'^grappelli/', include('grappelli.urls')),
         url(r'^admin/', include(admin.site.urls)),
