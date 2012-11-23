@@ -21,7 +21,7 @@ LOCALE_PATHS = ( os.path.join(DIR, 'locale'), )
 
 MEDIA_ROOT = os.path.join(DIR, 'media')
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(DIR, 'static')
+STATIC_ROOT = os.path.join(DIR, 'assets')
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/grappelli/'
 STATICFILES_DIRS = [os.path.join(DIR, 'static')]
@@ -89,12 +89,18 @@ INSTALLED_APPS = (
     'preferences',
     'monkey_team',
     'django_badbrowser',
+    'adminfiles',
+    'oembed',
+    'markitup',
+    'djcelery',
+    'infinite_pagination',
 
     'grappelli.dashboard',
     'grappelli',
     'django.contrib.admin',
     
     'lakaxita',
+    'lakaxita.lost_found',
 )
 
 LOGGING = {
@@ -119,6 +125,11 @@ LOGGING = {
 THUMBNAIL_EXTENSION = 'png'
 JQUERY_URL = 'js/jquery.min.js'
 
+MARKITUP_FILTER = ('lakaxita.utils.markup_filter', {})
+MARKITUP_SET = 'markitup/sets/markdown'
+MARKITUP_SKIN = 'markitup/skins/markitup'
+MARKITUP_AUTO_PREVIEW = True
+OEMBED_DEFAULT_PARSE_HTML = False
 
 SASS = os.path.join(os.path.dirname(DIR), 'bin/sass')
 COMPRESS_OUTPUT_DIR = 'cache'
@@ -135,3 +146,10 @@ BADBROWSER_REQUIREMENTS = (
     ('chrome', '3.0'),
     ('microsoft internet explorer', '8'),
 )
+
+# add to WSGI too
+import djcelery
+djcelery.setup_loader()
+
+BROKER_URL = 'django://'
+CELERY_IMPORTS = ('lakaxita.lost_found.tasks',)
