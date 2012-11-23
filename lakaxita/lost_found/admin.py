@@ -21,14 +21,14 @@ class ItemAdmin(AdminImageMixin, admin.ModelAdmin):
     search_fields = ('name', 'description')
     date_hierarchy = 'lost'
     fields = ('name', ('lost', 'found'), 'image', 'description')
-    list_display = ('name', 'lost', 'found', 'returned')
+    list_display = ('name', 'lost', 'found', 'has_been_returned')
     inlines = [NotificationInline]
     actions = ['mark_returned', 'mark_not_returned']
 
-    def returned(self, obj):
-        return obj.returned
-    returned.boolean = True
-    returned.short_description = _('returned')
+    def has_been_returned(self, obj):
+        return obj.has_been_returned
+    has_been_returned.boolean = True
+    has_been_returned.short_description = _('has been returned')
 
     def mark_returned(self, request, queryset):
         queryset.update(found=date.today())

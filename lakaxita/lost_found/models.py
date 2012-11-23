@@ -37,7 +37,7 @@ class Item(models.Model):
         return self.name
 
     @property
-    def returned(self):
+    def has_been_returned(self):
         return self.found is not None
 
     @models.permalink
