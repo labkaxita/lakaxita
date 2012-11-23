@@ -3,3 +3,9 @@ bin
 fabfile.py
 *.pyc
 webfaction.ini
+.installed.cfg
+.mr.developer.cfg
+develop-eggs
+db.sqlite
+parts
+src
