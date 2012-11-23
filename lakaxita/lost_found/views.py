@@ -21,7 +21,7 @@ class ItemDetail(DetailView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(ItemDetail, self).get_context_data(*args, **kwargs)
-        context['form'] = NotificatinForm
+        context['form'] = NotificationForm()
         return context
 
 
