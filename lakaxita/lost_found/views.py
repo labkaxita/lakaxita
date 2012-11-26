@@ -1,4 +1,7 @@
+import json
 from django.views.generic import ListView, DetailView, CreateView
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 
 from infinite_pagination import InfinitePaginator
 
@@ -26,10 +29,19 @@ class ItemDetail(DetailView):
 
 
 class CreateNotification(CreateView):
+    template_name = 'lost_found/notify.yammy'
     form_class = NotificationForm
 
-    def form_valid(self, form):
-        return super(CreateNotification, self).form_valid(form)
+    def get_object(self):
+        return get_object_or_404(Item, slug=self.kwargs['slug'])
 
-    def form_invalid(self, form):
-        return super(CreateNotification, self).form_invalid(form)
+    def get_context_data(self, **kwargs):
+        context = super(CreateNotification, self).get_context_data(**kwargs)
+        context['item'] = self.get_object()
+        return context
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.item = self.get_object()
+        self.object.save()
+        return HttpResponse()

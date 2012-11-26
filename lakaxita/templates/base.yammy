@@ -29,6 +29,7 @@ html
                     'popup':$('#feedback_popup')
                 });
             });
+        {% block extra_js %}{% endblock extra_js %}
         {% endcompress %}
 
         {% block extra_headers %}{% endblock extra_headers %}
@@ -37,4 +38,6 @@ html
         header
         nav
         aside
+        section#content
+            {% block content %}{% endblock content %}
         footer
