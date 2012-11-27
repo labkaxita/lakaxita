@@ -92,6 +92,7 @@ INSTALLED_APPS = (
     'markitup',
     'djcelery',
     'infinite_pagination',
+    'polymorphic',
 
     'grappelli.dashboard',
     'grappelli',

@@ -6,7 +6,6 @@ from lakaxita.attachments.models import File
 
 class FileProvider(DjangoProvider):
     resource_type = 'rich'
-    regex = r'(https?:\/\/(?:www[^\.]*\.)?localhost:8000)/attachments/file/(?P<pk>\d+)/$'
 
     class Meta:
         model = File
