@@ -105,3 +105,6 @@ class File(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return self.file.url

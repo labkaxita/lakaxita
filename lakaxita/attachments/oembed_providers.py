@@ -1,11 +1,12 @@
 from oembed.providers import DjangoProvider
-from oembed import site
+import oembed
 
 from lakaxita.attachments.models import File
 
 
 class FileProvider(DjangoProvider):
     resource_type = 'rich'
+    regex = r'(https?:\/\/(?:www[^\.]*\.)?localhost:8000)/attachments/file/(?P<pk>\d+)/$'
 
     class Meta:
         model = File
@@ -20,4 +21,4 @@ class FileProvider(DjangoProvider):
         self.resource_type = obj.type
         return super(FileProvider, self).request_resource(url, **kwargs)
 
-site.register(FileProvider)
+oembed.site.register(FileProvider)
