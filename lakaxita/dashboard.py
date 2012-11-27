@@ -24,6 +24,13 @@ class Dashboard(Dashboard):
         ))
 
         self.children.append(modules.ModelList(
+            _('Attachments'),
+            column=1,
+            collapsible=True,
+            models=('lakaxita.attachments.*',),
+        ))
+
+        self.children.append(modules.ModelList(
             _('Feeds'),
             column=1,
             collapsible=True,
@@ -34,7 +41,7 @@ class Dashboard(Dashboard):
             _('Others'),
             column=1,
             collapsible=True,
-            models=('adminfiles.*', 'feedback.*',),
+            models=('oembed.*', 'feedback.*',),
         ))
 
 #       # append an app list module for "Applications"

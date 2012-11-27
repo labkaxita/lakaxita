@@ -7,11 +7,17 @@ from django.conf.urls.static import static
 from django.contrib import admin
 admin.autodiscover()
 
+import oembed
+oembed.autodiscover()
+
 
 urlpatterns = patterns('',
         url(r'^lost_found/', include('lakaxita.lost_found.urls', 
             namespace='lost_found')),
+        url(r'^attachments/', include('lakaxita.attachments.urls', 
+            namespace='attachments')),
 
+        url(r'^oembed/', include('oembed.urls')),
         url(r'^grappelli/', include('grappelli.urls')),
         url(r'^admin/', include(admin.site.urls)),
         url(r'^feedback/', include('feedback.urls')),

@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 import os
 
 
@@ -89,7 +88,6 @@ INSTALLED_APPS = (
     'preferences',
     'monkey_team',
     'django_badbrowser',
-    'adminfiles',
     'oembed',
     'markitup',
     'djcelery',
@@ -101,6 +99,7 @@ INSTALLED_APPS = (
     
     'lakaxita',
     'lakaxita.lost_found',
+    'lakaxita.attachments',
 )
 
 LOGGING = {
@@ -125,7 +124,7 @@ LOGGING = {
 THUMBNAIL_EXTENSION = 'png'
 JQUERY_URL = 'js/jquery.min.js'
 
-MARKITUP_FILTER = ('lakaxita.utils.markup_filter', {})
+MARKITUP_FILTER = ('markdown.markdown', {})
 MARKITUP_SET = 'markitup/sets/markdown'
 MARKITUP_SKIN = 'markitup/skins/markitup'
 MARKITUP_AUTO_PREVIEW = True
