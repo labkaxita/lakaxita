@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: tests
+desc: ""
+type: :task
+component: lakaxita
+release: Fixing
+reporter: Unai Zalakain <unai@gisa-elkartea.org>
+status: :unstarted
+disposition: 
+creation_time: 2012-11-28 01:46:43.792511 Z
+references: []
+
+id: c950c67b1fb109e3a94b498fb24240f1f01adcbe
+log_events: 
+- - 2012-11-28 01:46:44.872849 Z
+  - Unai Zalakain <unai@gisa-elkartea.org>
+  - created
+  - ""
