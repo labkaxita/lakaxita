@@ -1,4 +1,5 @@
-lakaxita
-========
+Lakaxita Gaztetxea's web page
+=============================
 
-Webpage of Lakaxita squad house
+In short, it needs:
+- 
