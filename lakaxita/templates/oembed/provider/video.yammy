@@ -1,0 +1,23 @@
+{% load static compress %}
+
+{% compress css %}
+link
+    - rel stylesheet
+    - type text/css
+    - href {% static 'mediaelement/mediaelementplayer.css' %}
+{% endcompress %}
+
+{% compress js %}
+script
+    - type text/javascript
+    - src {% static 'mediaelement/jquery.js' %}
+script
+    - type text/javascript
+    - src {% static 'mediaelement/mediaelement-and-player.min.js' %}
+script [type="text/javascript"]
+    $(function(){
+        $('video').mediaelement();
+    });
+{% endcompress %}
+
+video [src="{{ object.file.url }}"][width="{{ width }}"][height="{{ height }}"]
