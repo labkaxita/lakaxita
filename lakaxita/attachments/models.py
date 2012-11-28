@@ -8,6 +8,7 @@ from django.contrib.sites.models import Site
 import oembed
 from oembed.consumer import OEmbedConsumer
 from polymorphic import PolymorphicModel
+from autoslug import AutoSlugField
 
 oembed_consumer = OEmbedConsumer()
 
@@ -17,16 +18,13 @@ class Attachment(PolymorphicModel):
         verbose_name = _('attachment')
         verbose_name_plural = _('attachments')
 
-    name = models.CharField(blank=True, max_length=100, verbose_name=_('name'))
+    name = models.CharField(max_length=100, verbose_name=_('name'))
     oembed = models.CharField(max_length=100, verbose_name=_('oembed'))
 
+    slug = AutoSlugField(populate_from='name', unique=True)
+
     def __unicode__(self):
-        if self.name:
-            return self.name
-        elif self.title:
-            return self.title
-        else:
-            return self.oembed
+        return self.name
 
     @models.permalink
     def get_absolute_url(self):
