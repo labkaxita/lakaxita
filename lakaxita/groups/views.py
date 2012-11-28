@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView
 
 from infinite_pagination import InfinitePaginator
 
-from lakaxita.group.models import Group
+from lakaxita.groups.models import Group
 
 
 class GroupList(ListView):
