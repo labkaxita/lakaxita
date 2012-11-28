@@ -7,6 +7,6 @@ from lakaxita.groups.models import Group
 
 class GroupAdmin(AdminImageMixin, admin.ModelAdmin):
     search_fields = ('name', 'description')
-    fields = ('name', 'image', 'description')
+    fields = (('name', 'group'), 'image', 'description')
 
 admin.site.register(Group, GroupAdmin)

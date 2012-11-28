@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import Group
 from django.utils.translation import ugettext as _
 
 from markitup.fields import MarkupField
@@ -16,6 +17,7 @@ class Group(models.Model):
             verbose_name=_('description'))
     image = ImageField(blank=True, upload_to='groups', verbose_name=_('image'))
 
+    group = models.OneToOneField(Group, verbose_name=_('group'))
     slug = AutoSlugField(populate_from='name', unique=True)
 
     def __unicode__(self):
