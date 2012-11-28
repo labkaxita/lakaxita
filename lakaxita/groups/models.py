@@ -12,7 +12,7 @@ class Group(models.Model):
         verbose_name = _('group')
         verbose_name_plural = _('groups')
 
-    name = models.TextField(max_length=50, verbose_name=_('name'))
+    name = models.CharField(max_length=50, verbose_name=_('name'))
     description = MarkupField(max_length=500, blank=True, 
             verbose_name=_('description'))
     image = ImageField(blank=True, upload_to='groups', verbose_name=_('image'))
