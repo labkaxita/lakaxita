@@ -1,0 +1,18 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: JS for capturing video frame
+desc: http://stackoverflow.com/questions/8128571/html5-video-frame-capture-to-bitmap
+type: :task
+component: lakaxita
+release: Development
+reporter: Unai Zalakain <unai@gisa-elkartea.org>
+status: :unstarted
+disposition: 
+creation_time: 2012-11-28 17:38:57.113090 Z
+references: []
+
+id: 6ef8cd515b6faafd019df64ce8f434695fbb2a01
+log_events: 
+- - 2012-11-28 17:38:58.089769 Z
+  - Unai Zalakain <unai@gisa-elkartea.org>
+  - created
+  - ""
