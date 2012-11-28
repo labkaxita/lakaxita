@@ -1,0 +1,7 @@
+{% extends 'base.yammy' %}
+{% load oembed_tags %}
+
+{% block content %}
+{{ attachment }}
+{% oembed %}{{ attachment.oembed }}{% endoembed %}
+{% endblock %}
