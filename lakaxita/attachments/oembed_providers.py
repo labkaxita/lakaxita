@@ -23,9 +23,9 @@ class FileProvider(DjangoProvider):
 
     def request_resource(self, url, **kwargs):
         obj = self.get_object(url)
-        self.resource_type = obj.type
+        self.resource_type = obj.oembed_type
         self._meta.template_name = self._meta.resource_template_names.get(
-                self.resource_type,
+                obj.type,
                 self._meta.template_name,
                 )
         return super(FileProvider, self).request_resource(url, **kwargs)

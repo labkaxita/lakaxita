@@ -78,6 +78,7 @@ class File(Attachment):
             ('link', _('link')),
             ('photo', _('photo')),
             ('video', _('video')),
+            ('audio', _('audio')),
             ('rich', _('rich')),
             )
 
@@ -89,11 +90,15 @@ class File(Attachment):
     def save(self, *args, **kwargs):
         super(File, self).save(*args, **kwargs)
         if not self.oembed:
-            self.oembed = self.get_oembed()
+            self.oembed = self.get_oembed_url()
         return super(File, self).save(*args, **kwargs)
 
-    def get_oembed(self):
+    def get_oembed_url(self):
         return 'http://{domain}{path}'.format(
                 domain=Site.objects.get_current().domain,
                 path=reverse('attachments:file', kwargs={'pk': self.pk}),
                 )
+
+    @property
+    def oembed_type(self):
+        return 'video' if self.type == 'audio' else unicode(self.type)
