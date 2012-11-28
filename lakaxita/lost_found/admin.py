@@ -17,11 +17,29 @@ class NotificationInline(admin.TabularInline):
         return False
 
 
+class ReturnedItemFilter(admin.SimpleListFilter):
+    title = _('has been returned')
+    parameter_name = 'returned'
+
+    def lookups(self, request, model_admin):
+        return (
+                ('returned', _('Returned')),
+                ('not_returned', _('Not returned')),
+                )
+
+    def queryset(self, request, queryset):
+        if self.value() == 'returned':
+            return queryset.filter(found__isnull=False)
+        elif self.value() == 'not_returned':
+            return queryset.filter(found__isnull=True)
+
+
 class ItemAdmin(AdminImageMixin, admin.ModelAdmin):
     search_fields = ('name', 'description')
     date_hierarchy = 'lost'
     fields = ('name', ('lost', 'found'), 'image', 'description')
     list_display = ('name', 'lost', 'found', 'has_been_returned')
+    list_filter = (ReturnedItemFilter,)
     inlines = [NotificationInline]
     actions = ['mark_returned', 'mark_not_returned']
 
