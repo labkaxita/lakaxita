@@ -12,6 +12,8 @@ oembed.autodiscover()
 
 
 urlpatterns = patterns('',
+        url(r'^groups/', include('lakaxita.groups.urls', 
+            namespace='groups')),
         url(r'^lost_found/', include('lakaxita.lost_found.urls', 
             namespace='lost_found')),
         url(r'^attachments/', include('lakaxita.attachments.urls', 
