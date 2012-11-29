@@ -15,12 +15,14 @@ oembed_consumer = OEmbedConsumer()
 
 class Attachment(PolymorphicModel):
     class Meta:
+        ordering = ('-creation',)
         verbose_name = _('attachment')
         verbose_name_plural = _('attachments')
 
     name = models.CharField(max_length=100, verbose_name=_('name'))
     oembed = models.CharField(max_length=100, verbose_name=_('oembed'))
 
+    creation = models.DateTimeField(editable=False, auto_now=True)
     slug = AutoSlugField(populate_from='name', unique=True)
 
     def __unicode__(self):
