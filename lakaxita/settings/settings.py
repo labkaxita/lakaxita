@@ -99,6 +99,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     
     'lakaxita',
+    'lakaxita.news',
     'lakaxita.groups',
     'lakaxita.lost_found',
     'lakaxita.attachments',

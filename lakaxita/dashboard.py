@@ -10,10 +10,10 @@ class Dashboard(Dashboard):
         site_name = get_admin_site_name(context)
         
         self.children.append(modules.ModelList(
-            _('Articles'),
+            _('News'),
             column=1,
             collapsible=True,
-            models=('project.articles.*',),
+            models=('lakaxita.news.*',),
         ))
 
         self.children.append(modules.ModelList(
