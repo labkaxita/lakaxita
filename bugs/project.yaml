@@ -16,10 +16,13 @@ releases:
     - initial project setup done
 - !ditz.rubyforge.org,2008-03-06/release 
   name: Prooves
-  status: :unreleased
-  release_time: 
-  log_events: []
-
+  status: :released
+  release_time: 2012-11-29 08:41:35.304037 Z
+  log_events: 
+  - - 2012-11-29 08:41:35.304056 Z
+    - Unai Zalakain <unai@gisa-elkartea.org>
+    - released
+    - everything is more or less tied together
 - !ditz.rubyforge.org,2008-03-06/release 
   name: Development
   status: :unreleased
