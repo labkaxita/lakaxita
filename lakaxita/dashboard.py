@@ -24,10 +24,10 @@ class Dashboard(Dashboard):
         ))
 
         self.children.append(modules.ModelList(
-            _('Attachments'),
+            _('Multimedia'),
             column=1,
             collapsible=True,
-            models=('lakaxita.attachments.*',),
+            models=('lakaxita.gallery.*', 'lakaxita.attachments.*',),
         ))
 
         self.children.append(modules.ModelList(

@@ -93,6 +93,7 @@ INSTALLED_APPS = (
     'djcelery',
     'infinite_pagination',
     'polymorphic',
+    'mptt',
 
     'grappelli.dashboard',
     'grappelli',
@@ -101,6 +102,7 @@ INSTALLED_APPS = (
     'lakaxita',
     'lakaxita.news',
     'lakaxita.groups',
+    'lakaxita.gallery',
     'lakaxita.lost_found',
     'lakaxita.attachments',
 )
