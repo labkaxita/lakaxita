@@ -27,11 +27,29 @@ class PublishedNewsFilter(admin.SimpleListFilter):
 class NewsAdmin(AdminImageMixin, admin.ModelAdmin):
     search_fields = ('name', 'description')
     date_hierarchy = 'published'
-    fields = ('title', ('frontpage', 'published'), ('event', 'group'), 'image', 
-            'description', 'text')
     list_display = ('title', 'frontpage', 'published', 'has_been_published', 
             'group')
     list_filter = ('frontpage', 'published', PublishedNewsFilter, 'group')
+    filter_horizontal = ('attachments',)
+    fieldsets = (
+            (None, {
+                'fields': (
+                    'title',
+                    )}),
+            (_('Meta'), {
+                'fields': (
+                    ('frontpage', 'published'), ('event', 'group'),
+                    )}),
+            (_('Media'), {
+                'fields': (
+                    'image', 'attachments'
+                    )}),
+            (None, {
+                'fields': (
+                    'description', 'text'
+                    )}),
+                )
+
 
     def has_been_published(self, obj):
         return obj.is_published

@@ -7,6 +7,7 @@ from autoslug import AutoSlugField
 from sorl.thumbnail import ImageField
 
 from lakaxita.groups.models import Group
+from lakaxita.attachments.models import Attachment
 
 
 class QuerySetManager(models.Manager):
@@ -41,16 +42,19 @@ class News(models.Model):
 
     title = models.CharField(max_length=100, verbose_name=_('title'))
     description = MarkupField(max_length=500, blank=True, 
-            verbose_name=_('description'))
+            verbose_name=_('description'), 
+            help_text=_('gotten from text if not defined'))
     text = MarkupField(verbose_name=_('text'))
     image = ImageField(blank=True, upload_to='news', verbose_name=_('image'))
+    attachments = models.ManyToManyField(Attachment, blank=True, null=True,
+            verbose_name=_('attachments'))
 
-    published = models.DateField(default=date.today, verbose_name=_('published'))
-    frontpage = models.BooleanField(default=True, verbose_name=_('frontpage'))
+    published = models.DateField(default=date.today, verbose_name=_('publish on'))
+    frontpage = models.BooleanField(default=True, verbose_name=_('on frontpage'))
     group = models.ForeignKey(Group, blank=True, null=True, 
-            verbose_name=_('group'))
+            verbose_name=_('group it belongs to'))
     event = models.DateTimeField(blank=True, null=True, 
-            verbose_name=_('event'))
+            verbose_name=_('event date'))
 
     slug = AutoSlugField(populate_from='title', unique=True)
 
