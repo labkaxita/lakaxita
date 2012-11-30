@@ -1,5 +1,6 @@
 from datetime import date
 from django.utils import unittest
+from django.test import Client
 
 from milkman.dairy import milkman
 
@@ -59,3 +60,31 @@ class NotificationTestCase(unittest.TestCase):
                 list(Notification.objects.all()), 
                 [self.hello, self.hi]
                 )
+
+    def tearDown(self):
+        self.hi.delete()
+        self.hello.delete()
+
+
+class ItemListTestCase(unittest.TestCase):
+    def setUp(self):
+        self.url = '/lost_found/'
+        self.client = Client()
+        self.jacket = milkman.deliver(Item, lost=date(1, 1, 1))
+        self.trousers = milkman.deliver(Item, lost=date(1, 1, 2))
+        self.response = self.client.get(self.url)
+
+    def test_status(self):
+        self.response.status_code == '200'
+
+    def test_template(self):
+        self.assertEqual(self.response.template[0].name, 
+                'lost_found/item_list.yammy')
+
+    def test_context(self):
+        self.assertEqual(self.response.context['item_list'], 
+                [self.trousers, self.jacket])
+
+    def tearDown(self):
+        self.jacket.delete()
+        self.trousers.delete()
