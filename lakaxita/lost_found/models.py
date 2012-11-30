@@ -14,10 +14,11 @@ class ItemManager(models.Manager):
 
     def returned(self):
         q = self.get_query_set()
-        return q.filter(found_isnull=False)
+        return q.filter(found__isnull=False)
 
 
 class Item(models.Model):
+    objects = ItemManager()
     class Meta:
         ordering = ['-lost']
         verbose_name = _('Item')
