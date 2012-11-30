@@ -45,4 +45,17 @@ class ItemTestCase(unittest.TestCase):
 
 class NotificationTestCase(unittest.TestCase):
     def setUp(self):
-        pass
+        self.hi = milkman.deliver(Notification)
+        self.hello = milkman.deliver(Notification)
+
+    def test_last_ones_first(self):
+        self.hi.date = date(1, 1, 1)
+        self.hi.save()
+
+        self.hello.date = date(1, 1, 2)
+        self.hello.save()
+
+        self.assertEqual(
+                list(Notification.objects.all()), 
+                [self.hello, self.hi]
+                )
