@@ -107,7 +107,7 @@ class ItemDetailTestCase(unittest.TestCase):
 
     def test_context(self):
         self.assertEqual(self.response.context['item'], self.jacket)
-        self.assertEqual(type(self.response.context['form']), NotificationForm)
+        self.assertIsInstance(self.response.context['form'], NotificationForm)
 
     def tearDown(self):
         self.jacket.delete()
