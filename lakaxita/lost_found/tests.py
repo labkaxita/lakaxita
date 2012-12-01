@@ -75,7 +75,7 @@ class ItemListTestCase(unittest.TestCase):
         self.response = self.client.get(self.url)
 
     def test_status(self):
-        self.response.status_code == '200'
+        self.assertEqual(self.response.status_code, 200)
 
     def test_template(self):
         self.assertEqual(self.response.template[0].name, 
