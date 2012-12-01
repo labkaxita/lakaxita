@@ -111,3 +111,49 @@ class ItemDetailTestCase(unittest.TestCase):
 
     def tearDown(self):
         self.jacket.delete()
+
+
+class CreateNotificationTestCase(unittest.TestCase):
+    def setUp(self):
+        self.jacket = milkman.deliver(Item, name='jacket')
+        self.url = '/lost_found/jacket/notify/'
+        self.client = Client()
+        self.response = self.client.get(self.url)
+
+    def test_status(self):
+        self.assertEqual(self.response.status_code, 200)
+
+    def test_template(self):
+        self.assertEqual(self.response.template.name,
+                'lost_found/notify.yammy')
+
+    def test_context(self):
+        self.assertEqual(self.response.context['item'], self.jacket)
+        self.assertIsInstance(self.response.context['form'], NotificationForm)
+
+    def test_correct_post(self):
+        data = {
+                'title': 'mine',
+                'reply_to': 'test@mail.com',
+                'text': 'how are you?',
+                'date': '0001-01-01',
+                }
+        post_response = self.client.post(self.url, data=data)
+        self.assertEqual(post_response.status_code, 200)
+        self.assertEqual(post_response.content, '')
+        self.assertEqual(Notification.objects.filter(
+            title='mine', item=self.jacket).count(), 1)
+
+    def test_incorrect_post(self):
+        data = {
+                'title': 'mine',
+                'reply_to': 'NO CORRECT EMAIL',
+                'text': 'how are you?',
+                'date': '0001-01-01',
+                }
+        post_response = self.client.post(self.url, data=data)
+        self.assertEqual(post_response.status_code, 200)
+        self.assertNotEqual(post_response.content, '')
+
+    def tearDown(self):
+        self.jacket.delete()
