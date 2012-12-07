@@ -10,8 +10,10 @@ admin.autodiscover()
 import oembed
 oembed.autodiscover()
 
+from lakaxita.views import BaseView
 
 urlpatterns = patterns('',
+        url(r'^$', BaseView.as_view(), name='base'),
         url(r'^news/', include('lakaxita.news.urls', 
             namespace='news')),
         url(r'^groups/', include('lakaxita.groups.urls', 

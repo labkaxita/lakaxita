@@ -36,8 +36,38 @@ html
 
     body
         header
+            div#logo
+                img
+                    - src {% static 'imgs/lakaxita.svg' %}
+                    - alt lakaxita
+                h1 lakaxita gaztetxea
+            ul#license
+                li
+                    | edukia
+                    img
+                li
+                    | webgunea
+                    img
+
         nav
-        aside
+            ul
+                li
+                    | objetos perdidos
+                    img
+                li
+                    | kontaktua
+                    img
+                li
+                    | galeria
+                    img
+                li
+                    | berriak
+                    img
+                li
+                    | kontaktua
+                    img
+                
+
+
         section#content
             {% block content %}{% endblock content %}
-        footer
