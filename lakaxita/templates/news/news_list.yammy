@@ -1,0 +1,16 @@
+{% extends 'base.yammy' %}
+{% load thumbnail %}
+
+{% block content %}
+{% for news in news_list %}
+
+article
+    a [href="{{ news.get_absolute_url }}"] {{ news }}
+    {{ news.group }}
+
+    {% thumbnail news.image '200x200' crop='center' as image %}
+    img [src="{{ image.url }}"]
+    {% endthumbnail %}
+
+{% endfor %}
+{% endblock %}

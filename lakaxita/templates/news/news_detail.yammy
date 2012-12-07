@@ -1,0 +1,20 @@
+{% extends 'base.yammy' %}
+{% load static i18n thumbnail %}
+
+{% block content %}
+
+{{ news }}
+{{ news.published }}
+{{ news.group }}
+{{ news.event }}
+{{ news.text }}
+
+{% thumbnail news.image '200x200' crop='center' as image %}
+img [src="{{ image.url }}"]
+{% endthumbnail %}
+
+{% for attachment in news.attachments %}
+{{ attachment }}
+{% endfor %}
+
+{% endblock content %}
