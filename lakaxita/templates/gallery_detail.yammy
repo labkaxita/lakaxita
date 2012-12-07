@@ -1,0 +1,9 @@
+{% extends "base.yammy" %}
+{% load static compress i18n %}
+
+{% block content %}
+ul.list
+    li
+        h3
+        img
+{% endblock content %}

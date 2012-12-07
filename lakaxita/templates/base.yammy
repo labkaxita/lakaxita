@@ -43,28 +43,28 @@ html
                 h1 lakaxita gaztetxea
             ul#license
                 li
-                    | edukia
+                    | {% trans 'edukia' %}
                     img
                 li
-                    | webgunea
+                    | {% trans 'webgunea' %}
                     img
 
         nav
             ul
                 li
-                    | objetos perdidos
+                    | {% trans 'objetos perdidos' %}
                     img
                 li
-                    | kontaktua
+                    | {% trans 'eragileak' %}
                     img
                 li
-                    | galeria
+                    | {% trans 'galeria' %}
                     img
                 li
-                    | berriak
+                    | {% trans 'berriak' %}
                     img
                 li
-                    | kontaktua
+                    | {% trans 'kontaktua' %}
                     img
                 
 

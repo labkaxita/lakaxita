@@ -1,0 +1,27 @@
+{% extends "base.yammy" %}
+{% load static compress i18n %}
+
+{% block content %}
+div#about
+    h2
+    p
+    img
+
+div.slide
+    h2
+    ul.list
+        li
+            h3
+            img
+            p.date
+            img.group
+div.slide
+    h2
+    ul.list
+        li
+            h3
+            img
+            p.date
+            img.group
+
+{% endblock content %}

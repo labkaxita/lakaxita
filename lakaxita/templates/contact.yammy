@@ -1,0 +1,14 @@
+{% extends "base.yammy" %}
+{% load static compress i18n %}
+
+{% block content %}
+ul.square
+    li
+        {% trans 'Helbidea:' %} Anaka 20, Irun
+    li
+        {% trans 'ePosta' %} lakaxita@gaztetxea.org
+
+div#openstreetmaps
+div#eraikin
+
+{% endblock content %}
