@@ -2,15 +2,22 @@
 {% load thumbnail %}
 
 {% block content %}
-{% for news in news_list %}
 
-article
-    a [href="{{ news.get_absolute_url }}"] {{ news }}
-    {{ news.group }}
+ul.list
+    {% for news in news_list %}
+    li
+        h3
+            a [href="{{ news.get_absolute_url }}"] {{ news }}
+        
+        {% thumbnail news.group.image '200x200' crop='center' as image %}
+        img 
+            - src {{ image.url }}
+            - alt {{ news.group }}
+        {% endthumbnail %}
 
-    {% thumbnail news.image '200x200' crop='center' as image %}
-    img [src="{{ image.url }}"]
-    {% endthumbnail %}
+        {% thumbnail news.image '200x200' crop='center' as image %}
+        img [src="{{ image.url }}"]
+        {% endthumbnail %}
 
-{% endfor %}
+    {% endfor %}
 {% endblock %}

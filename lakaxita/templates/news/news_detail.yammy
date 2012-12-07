@@ -2,19 +2,30 @@
 {% load static i18n thumbnail %}
 
 {% block content %}
+article
+    h2 {{ news }}
+    p {{ news.published }}
 
-{{ news }}
-{{ news.published }}
-{{ news.group }}
-{{ news.event }}
-{{ news.text }}
+    {% thumbnail news.group.image '200x200' crop='center' as image %}
+    img 
+        - src {{ image.url }}
+        - alt {{ news.group }}
+    {% endthumbnail %}
 
-{% thumbnail news.image '200x200' crop='center' as image %}
-img [src="{{ image.url }}"]
-{% endthumbnail %}
+    {% if event %}
+    {{ news.event }}
+    {% endif %}
 
-{% for attachment in news.attachments %}
-{{ attachment }}
-{% endfor %}
+    section.body
+        {{ news.text }}
+
+    {% thumbnail news.image '200x200' crop='center' as image %}
+    img [src="{{ image.url }}"]
+    {% endthumbnail %}
+
+section.attachments
+    {% for attachment in news.attachments %}
+    {{ attachment }}
+    {% endfor %}
 
 {% endblock content %}
