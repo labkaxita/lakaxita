@@ -24,7 +24,7 @@ class QuerySetManager(models.Manager):
 
 class QuerySet(models.query.QuerySet):
     def frontpage(self):
-        return self.filter(frontpage=True)
+        return self.published().filter(frontpage=True)
 
     def published(self):
         return self.filter(published__gte=date.today())
