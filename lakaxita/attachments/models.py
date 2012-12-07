@@ -13,11 +13,9 @@ from autoslug import AutoSlugField
 oembed_consumer = OEmbedConsumer()
 
 
-class Attachment(PolymorphicModel):
+class MetaAttachment(PolymorphicModel):
     class Meta:
         ordering = ('-creation',)
-        verbose_name = _('attachment')
-        verbose_name_plural = _('attachments')
 
     name = models.CharField(max_length=100, verbose_name=_('name'))
     oembed = models.CharField(max_length=100, verbose_name=_('oembed'))
@@ -71,7 +69,13 @@ class Attachment(PolymorphicModel):
             return self.metadata['thumbnail']
 
 
-class File(Attachment):
+class Attachment(MetaAttachment):
+    class Meta:
+        verbose_name = _('attachment')
+        verbose_name_plural = _('attachments')
+
+
+class File(MetaAttachment):
     class Meta:
         verbose_name = _('file')
         verbose_name_plural = _('files')

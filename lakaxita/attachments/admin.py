@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin
 
-from lakaxita.attachments.models import Attachment, File
+from lakaxita.attachments.models import MetaAttachment, Attachment, File
 
 
 class AttachmentAdmin(PolymorphicChildModelAdmin):
@@ -14,7 +14,7 @@ class FileAdmin(AttachmentAdmin):
 
 
 class AttachmentAdmin(PolymorphicParentModelAdmin):
-    base_model = Attachment
+    base_model = MetaAttachment
     child_models = (
             (Attachment, AttachmentAdmin),
             (File, FileAdmin),
