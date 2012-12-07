@@ -25,7 +25,7 @@ class PublishedNewsFilter(admin.SimpleListFilter):
 
 
 class NewsAdmin(AdminImageMixin, admin.ModelAdmin):
-    search_fields = ('name', 'description')
+    search_fields = ('name',)
     date_hierarchy = 'published'
     list_display = ('title', 'frontpage', 'published', 'has_been_published', 
             'group')
@@ -46,7 +46,7 @@ class NewsAdmin(AdminImageMixin, admin.ModelAdmin):
                     )}),
             (None, {
                 'fields': (
-                    'description', 'text'
+                    'text',
                     )}),
                 )
 

@@ -41,9 +41,6 @@ class News(models.Model):
         verbose_name_plural = _('news ')
 
     title = models.CharField(max_length=100, verbose_name=_('title'))
-    description = MarkupField(max_length=500, blank=True, 
-            verbose_name=_('description'), 
-            help_text=_('gotten from text if not defined'))
     text = MarkupField(verbose_name=_('text'))
     image = ImageField(blank=True, upload_to='news', verbose_name=_('image'))
     attachments = models.ManyToManyField(Attachment, blank=True, null=True,
