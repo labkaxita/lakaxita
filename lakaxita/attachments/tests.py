@@ -34,3 +34,31 @@ class FileTestCase(unittest.TestCase):
     def tearDown(self):
         self.att_file.file.delete()
         self.att_file.delete()
+
+
+class AttachmentTestCase(unittest.TestCase):
+    def setUp(self):
+        self.att_file = File(name='photo', type='photo')
+        self.att_file.file.name = random_image(self.att_file.file.field)
+        self.att_file.save()
+
+        self.hey = Attachment(name='hey', oembed=self.att_file.oembed)
+        self.hey.save()
+
+        self.bingo = Attachment(name='bingo', oembed=self.att_file.oembed)
+        self.bingo.save()
+
+    def test_ordering(self):
+        self.hey.creation = date(1, 1, 1)
+        self.hey.save()
+
+        self.bingo.creation = date(1, 1, 2)
+        self.bingo.save()
+
+        self.assertEqual(list(Attachment.objects.all()), [self.bingo, self.hey])
+
+    def tearDown(self):
+        self.att_file.file.delete()
+        self.att_file.delete()
+        self.hey.delete()
+        self.bingo.delete()
