@@ -14,7 +14,7 @@ html
         {% compress js %}
         script
             - type text/javascript
-            - src {% static 'js/jquery.min.js' %}
+            - src {% static 'js/jquery.js' %}
         script
             - type text/javascript
             - src {% static 'feedback/jquery.form.js' %}
