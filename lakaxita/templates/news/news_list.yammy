@@ -1,4 +1,4 @@
-{% extends 'base.yammy' %}
+{% extends 'scroll.yammy' %}
 {% load thumbnail %}
 
 {% block content %}

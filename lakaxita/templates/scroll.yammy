@@ -1,0 +1,31 @@
+{% extends 'base.yammy' %}
+{% load static %}
+
+{% block extra_css %}
+link
+    - rel stylesheet
+    - type text/css
+    - href {% static 'css/smooth_div_scroll.css' %}
+{% endblock extra_css %}
+
+{% block extra_js %}
+script
+    - type text/javascript
+    - src {% static 'js/jquery.ui.js' %}
+script
+    - type text/javascript
+    - src {% static 'js/jquery.kinetic.js' %}
+script
+    - type text/javascript
+    - src {% static 'js/jquery.mousewheel.js' %}
+script
+    - type text/javascript
+    - src {% static 'js/jquery.smoothdivscroll.js' %}
+script [type="text/javascript"]
+    $(function(){
+        $('.scroll').smoothDivScroll({
+            touchScrolling: true,
+            mousewheelScrolling: true
+        });
+    });
+{% endblock extra_js %}
