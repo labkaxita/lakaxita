@@ -5,12 +5,15 @@
 html
     head
         title lakaxita{% block title %}{% endblock title %}
+        
         {% compress css %}
         link
             - rel stylesheet
             - type text/x-sass
             - href {% static 'css/main.sass' %}
+        {% block extra_css %}{% endblock extra_css %}
         {% endcompress %}
+
         {% compress js %}
         script
             - type text/javascript
