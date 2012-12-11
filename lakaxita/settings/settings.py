@@ -97,6 +97,7 @@ INSTALLED_APPS = (
 
     'grappelli.dashboard',
     'grappelli',
+    'filebrowser',
     'django.contrib.admin',
     
     'lakaxita',
@@ -141,6 +142,7 @@ COMPRESS_PRECOMPILERS = (
                 ('text/x-sass', '%s {infile} {outfile}' % SASS),
                 )
 
+FILEBROWSER_DIRECTORY = ''
 GRAPPELLI_INDEX_DASHBOARD = 'lakaxita.dashboard.Dashboard'
 GRAPPELLI_ADMIN_TITLE = 'lakaxita'
 

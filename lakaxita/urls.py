@@ -7,10 +7,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 admin.autodiscover()
 
+from filebrowser.sites import site
 import oembed
 oembed.autodiscover()
 
 from lakaxita.views import BaseView
+
 
 urlpatterns = patterns('',
         url(r'^$', BaseView.as_view(), name='base'),
@@ -22,13 +24,15 @@ urlpatterns = patterns('',
             namespace='lost_found')),
         url(r'^attachments/', include('lakaxita.attachments.urls', 
             namespace='attachments')),
+        #url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 
         url(r'^oembed/', include('oembed.urls')),
-        url(r'^grappelli/', include('grappelli.urls')),
-        url(r'^admin/', include(admin.site.urls)),
         url(r'^feedback/', include('feedback.urls')),
         url(r'^badbrowser/', include('django_badbrowser.urls')),
-        #url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+
+        url(r'^admin/filebrowser/', include(site.urls)),
+        url(r'^grappelli/', include('grappelli.urls')),
+        url(r'^admin/', include(admin.site.urls)),
 )
 
 
