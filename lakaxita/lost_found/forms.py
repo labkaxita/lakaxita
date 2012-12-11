@@ -6,4 +6,4 @@ from lakaxita.lost_found.models import Notification
 class NotificationForm(ModelForm):
     class Meta:
         model = Notification
-        exclude = ('item',)
+        exclude = ('item', 'date')
