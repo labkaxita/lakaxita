@@ -1,5 +1,6 @@
 from datetime import date
 from django.contrib import admin
+from django.core import urlresolvers
 from django.utils.translation import ugettext as _
 
 from sorl.thumbnail.admin import AdminImageMixin
@@ -56,4 +57,23 @@ class ItemAdmin(AdminImageMixin, admin.ModelAdmin):
         queryset.update(found=None)
     mark_not_returned.short_description = _('Mark as not returned')
 
+
+class NotificationAdmin(admin.ModelAdmin):
+    search_fields = ('title', 'reply_to', 'text')
+    date_hierarchy = 'date'
+    fields = ('title', 'item', 'reply_to', 'date', 'text')
+    readonly_fields = ('title', 'item', 'reply_to', 'date', 'text')
+    list_display = ('title', 'item_link', 'reply_to', 'date')
+    list_filter = ('date',)
+
+    def has_add_permission(self, request):
+        return False
+
+    def item_link(self, obj):
+        return '<a href="{link}">{item}</a>'.format(link=urlresolvers.reverse(
+            'admin:lost_found_item_change', args=(obj.item.pk,)), item=obj.item)
+    item_link.allow_tags = True
+    item_link.short_description = _('item')
+
 admin.site.register(Item, ItemAdmin)
+admin.site.register(Notification, NotificationAdmin)
