@@ -29,7 +29,7 @@ class MetaAttachment(PolymorphicModel):
 
     @models.permalink
     def get_absolute_url(self):
-        return 'attachments:detail', (), {'pk': self.pk}
+        return 'attachments:detail', (), {'slug': self.slug}
 
     @property
     def metadata(self):
@@ -99,7 +99,7 @@ class File(MetaAttachment):
     def get_oembed_url(self):
         return 'http://{domain}{path}'.format(
                 domain=Site.objects.get_current().domain,
-                path=reverse('attachments:file', kwargs={'pk': self.pk}),
+                path=reverse('attachments:file', kwargs={'slug': self.slug}),
                 )
 
     @property

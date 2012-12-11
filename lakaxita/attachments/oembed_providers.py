@@ -11,7 +11,7 @@ class FileProvider(DjangoProvider):
     class Meta:
         model = File
         named_view = 'attachments:file'
-        fields_to_match = {'pk': 'pk'}
+        fields_to_match = {'slug': 'slug'}
         resource_template_names = {
                 'video': 'oembed/provider/video.yammy',
                 'audio': 'oembed/provider/audio.yammy',

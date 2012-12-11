@@ -14,5 +14,5 @@ class FileRedirect(RedirectView):
     permanent = True
 
     def get_redirect_url(self, **kwargs):
-        file_obj = get_object_or_404(File, pk=self.kwargs['pk'])
+        file_obj = get_object_or_404(File, slug=self.kwargs['slug'])
         return file_obj.file.url
