@@ -19,6 +19,7 @@ LOCALE_PATHS = ( os.path.join(DIR, 'locale'), )
 
 
 MEDIA_ROOT = os.path.join(DIR, 'media')
+FILEBROWSER_DIRECTORY = 'filebrowser'
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(DIR, 'assets')
 STATIC_URL = '/static/'
@@ -142,7 +143,6 @@ COMPRESS_PRECOMPILERS = (
                 ('text/x-sass', '%s {infile} {outfile}' % SASS),
                 )
 
-FILEBROWSER_DIRECTORY = ''
 GRAPPELLI_INDEX_DASHBOARD = 'lakaxita.dashboard.Dashboard'
 GRAPPELLI_ADMIN_TITLE = 'lakaxita'
 
