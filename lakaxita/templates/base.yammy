@@ -55,20 +55,25 @@ html
         nav
             ul
                 li
-                    | {% trans 'objetos perdidos' %}
-                    img
+                    a [href="{% url lost_found:list %}"]
+                        | {% trans 'objetos perdidos' %}
+                        img
                 li
-                    | {% trans 'eragileak' %}
-                    img
+                    a [href=""]
+                        | {% trans 'eragileak' %}
+                        img
                 li
-                    | {% trans 'galeria' %}
-                    img
+                    a [href=""]
+                        | {% trans 'galeria' %}
+                        img
                 li
-                    | {% trans 'berriak' %}
-                    img
+                    a [href="{% url news:list %}"]
+                        | {% trans 'berriak' %}
+                        img
                 li
-                    | {% trans 'kontaktua' %}
-                    img
+                    a [href=""]
+                        | {% trans 'kontaktua' %}
+                        img
                 
 
 
