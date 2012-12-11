@@ -17,25 +17,19 @@ class Dashboard(Dashboard):
         ))
 
         self.children.append(modules.ModelList(
+            _('Gallery'),
+            column=1,
+            collapsible=True,
+            models=('lakaxita.gallery.*',),
+        )),
+
+        self.children.append(modules.ModelList(
             _('Lost and Found'),
             column=1,
             collapsible=True,
             models=('lakaxita.lost_found.*',),
         ))
 
-        self.children.append(modules.ModelList(
-            _('Multimedia'),
-            column=1,
-            collapsible=True,
-            models=('lakaxita.gallery.*', 'lakaxita.attachments.*',),
-        ))
-
-        self.children.append(modules.ModelList(
-            _('Feeds'),
-            column=1,
-            collapsible=True,
-            models=('project.feeds.*',),
-        ))
 
         self.children.append(modules.ModelList(
             _('Others'),
@@ -60,7 +54,16 @@ class Dashboard(Dashboard):
             models=('django.contrib.*', 'monkey_team.*'),
         ))
         
-        # append another link list module for "support".
+        self.children.append(modules.LinkList(
+            _('Multimedia'), 
+            layout='inline',
+            column=2,
+            children=(
+                [_('Internal Attachments'), '/admin/filebrowser/browse', False],
+                [_('External Attachments'), '/admin/attachments/attachment', False],
+                ),
+        ))
+
         self.children.append(modules.LinkList(
             _('Support'),
             column=2,
