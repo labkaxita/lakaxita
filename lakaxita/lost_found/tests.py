@@ -148,8 +148,10 @@ class CreateNotificationTestCase(unittest.TestCase):
         post_response = self.client.post(self.url, data=data)
         self.assertEqual(post_response.status_code, 200)
         self.assertEqual(post_response.content, '')
-        self.assertEqual(Notification.objects.filter(
-            title='mine', item=self.jacket).count(), 1)
+        notifications = Notification.objects.filter(
+                title='mine', item=self.jacket)
+        self.assertEqual(notifications.count(), 1)
+        self.assertEqual(notifications[0].date, date.today())
 
     def test_incorrect_post(self):
         data = {
