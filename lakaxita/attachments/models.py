@@ -18,14 +18,10 @@ class MetaAttachment(PolymorphicModel):
     class Meta:
         ordering = ('-creation',)
 
-    name = models.CharField(max_length=100, verbose_name=_('name'))
     oembed = models.CharField(max_length=100, verbose_name=_('oembed'))
 
     creation = models.DateTimeField(editable=False, auto_now=True)
     slug = AutoSlugField(populate_from='name', unique=True)
-
-    def __unicode__(self):
-        return self.name
 
     @models.permalink
     def get_absolute_url(self):
@@ -75,6 +71,9 @@ class Attachment(MetaAttachment):
         verbose_name = _('attachment')
         verbose_name_plural = _('attachments')
 
+    def __unicode__(self):
+        return self.title if self.title else self.oembed
+
 
 class File(MetaAttachment):
     class Meta:
@@ -89,6 +88,9 @@ class File(MetaAttachment):
             }
 
     file = FileBrowseField(max_length=200)
+
+    def __unicode__(self):
+        return self.file.filename
 
     def save(self, *args, **kwargs):
         super(File, self).save(*args, **kwargs)
