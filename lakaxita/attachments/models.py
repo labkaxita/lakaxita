@@ -9,6 +9,7 @@ import oembed
 from oembed.consumer import OEmbedConsumer
 from polymorphic import PolymorphicModel
 from autoslug import AutoSlugField
+from filebrowser.fields import FileBrowseField
 
 oembed_consumer = OEmbedConsumer()
 
@@ -88,8 +89,7 @@ class File(MetaAttachment):
             ('rich', _('rich')),
             )
 
-    file = models.FileField(upload_to='attachment_files', 
-            verbose_name=_('file'))
+    file = FileBrowseField(max_length=200)
     type = models.CharField(max_length=10, choices=type_choices, 
             verbose_name=_('type'))
 
