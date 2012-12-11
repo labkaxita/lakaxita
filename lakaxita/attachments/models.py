@@ -81,17 +81,14 @@ class File(MetaAttachment):
         verbose_name = _('file')
         verbose_name_plural = _('files')
 
-    type_choices = (
-            ('link', _('link')),
-            ('photo', _('photo')),
-            ('video', _('video')),
-            ('audio', _('audio')),
-            ('rich', _('rich')),
-            )
+    types = {
+            'Image': 'photo',
+            'Document': 'rich',
+            'Video': 'video',
+            'Audio': 'audio',
+            }
 
     file = FileBrowseField(max_length=200)
-    type = models.CharField(max_length=10, choices=type_choices, 
-            verbose_name=_('type'))
 
     def save(self, *args, **kwargs):
         super(File, self).save(*args, **kwargs)
@@ -106,5 +103,10 @@ class File(MetaAttachment):
                 )
 
     @property
+    def type(self):
+        return self.types[self.file.filetype]
+
+    @property
     def oembed_type(self):
-        return 'video' if self.type == 'audio' else unicode(self.type)
+        return 'video' if self.type == 'audio' else self.type
+
