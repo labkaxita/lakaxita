@@ -1,15 +1,15 @@
 from oembed.providers import DjangoProvider
 import oembed
 
-from lakaxita.attachments.models import File
+from lakaxita.attachments.models import InternalAttachment
 
 
-class FileProvider(DjangoProvider):
+class InternalAttachmentProvider(DjangoProvider):
     provides = True
     resource_type = 'rich'
 
     class Meta:
-        model = File
+        model = InternalAttachment
         named_view = 'attachments:file'
         fields_to_match = {'slug': 'slug'}
         resource_template_names = {
@@ -28,6 +28,7 @@ class FileProvider(DjangoProvider):
                 obj.type,
                 self._meta.template_name,
                 )
-        return super(FileProvider, self).request_resource(url, **kwargs)
+        return super(InternalAttachmentProvider, self).request_resource(
+                url, **kwargs)
 
-oembed.site.register(FileProvider)
+oembed.site.register(InternalAttachmentProvider)

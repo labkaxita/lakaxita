@@ -14,7 +14,7 @@ from filebrowser.fields import FileBrowseField
 oembed_consumer = OEmbedConsumer()
 
 
-class MetaAttachment(PolymorphicModel):
+class Attachment(PolymorphicModel):
     class Meta:
         ordering = ('-creation',)
 
@@ -66,10 +66,10 @@ class MetaAttachment(PolymorphicModel):
             return self.metadata['thumbnail']
 
 
-class Attachment(MetaAttachment):
+class ExternalAttachment(Attachment):
     class Meta:
-        verbose_name = _('attachment')
-        verbose_name_plural = _('attachments')
+        verbose_name = _('external attachment')
+        verbose_name_plural = _('external attachments')
 
     def __unicode__(self):
         return self.title if self.title else self.oembed
@@ -79,10 +79,10 @@ class Attachment(MetaAttachment):
         return self.title if self.title else self.pk
 
 
-class File(MetaAttachment):
+class InternalAttachment(Attachment):
     class Meta:
-        verbose_name = _('file')
-        verbose_name_plural = _('files')
+        verbose_name = _('internal attachment')
+        verbose_name_plural = _('internal attachments')
 
     types = {
             'Image': 'photo',
@@ -101,10 +101,10 @@ class File(MetaAttachment):
         return self.file.filename
 
     def save(self, *args, **kwargs):
-        super(File, self).save(*args, **kwargs)
+        super(InternalAttachment, self).save(*args, **kwargs)
         if not self.oembed:
             self.oembed = self.get_oembed_url()
-        return super(File, self).save(*args, **kwargs)
+        return super(InternalAttachment, self).save(*args, **kwargs)
 
     def get_oembed_url(self):
         return 'http://{domain}{path}'.format(

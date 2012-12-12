@@ -60,7 +60,7 @@ class Dashboard(Dashboard):
             column=2,
             children=(
                 [_('Internal Attachments'), '/admin/filebrowser/browse', False],
-                [_('External Attachments'), '/admin/attachments/attachment', False],
+                [_('External Attachments'), '/admin/attachments/externalattachment', False],
                 ),
         ))
 
