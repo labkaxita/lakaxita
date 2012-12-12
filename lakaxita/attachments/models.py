@@ -102,8 +102,7 @@ class InternalAttachment(Attachment):
 
     def save(self, *args, **kwargs):
         super(InternalAttachment, self).save(*args, **kwargs)
-        if not self.oembed:
-            self.oembed = self.get_oembed_url()
+        self.oembed = self.get_oembed_url()
         return super(InternalAttachment, self).save(*args, **kwargs)
 
     def get_oembed_url(self):
