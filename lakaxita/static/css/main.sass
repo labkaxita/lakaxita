@@ -1,4 +1,65 @@
+div#djDebug
+    display: none !important
+$darkgrey: #1a1a1a
+$objects: #d36216
+$groups: #228622
+$gallery: #862272
+$news: #86860e
+$contact: #0c7070
+
+a
+    color: white
+    text-decoration: none
+
+body 
+    font-family: Comfortaa
+    background: $darkgrey
+    color: white
+
 header
     div#logo
+        position: fixed
+        top: 0
+        left: 0
+        width: 15%
+        background: black
+        h1
+            font-size: 1.2em
+            line-height: 1em
+            width: 65%
+            display: inline
         img
-            width: 6em
+            width: 30%
+            display: inline-block
+    ul#license
+        position: fixed
+        top: 0
+        right: 0
+        width: 15%
+        background: black
+        margin: 0
+        li
+            list-style: none
+nav
+    position: fixed
+    bottom: 0
+    width: 100%
+    left: 0
+    ul
+        margin: 0
+        padding: 0
+        li
+            display: inline-block
+            width: 20%
+        li#objects
+            background: $objects
+        li#groups
+            background: $groups
+        li#gallery
+            background: $gallery
+        li#news
+            background: $news
+        li#contact
+            background: $contact
+        
+
