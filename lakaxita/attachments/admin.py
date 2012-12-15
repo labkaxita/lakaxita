@@ -41,5 +41,5 @@ class ExternalAttachmentAdmin(admin.ModelAdmin):
     pass
 
 
+admin.site.register(Attachment, AttachmentAdmin)
 admin.site.register(ExternalAttachment, ExternalAttachmentAdmin)
-#admin.site.register(Attachment, AttachmentAdmin)
