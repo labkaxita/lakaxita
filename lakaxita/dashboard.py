@@ -59,8 +59,12 @@ class Dashboard(Dashboard):
             layout='inline',
             column=2,
             children=(
-                [_('Internal Attachments'), '/admin/filebrowser/browse', False],
-                [_('External Attachments'), '/admin/attachments/externalattachment', False],
+                [_('Internal Attachments'), 
+                    reverse('filebrowser:fb_browse'),
+                    False],
+                [_('External Attachments'), 
+                    reverse('admin:attachments_externalattachment_changelist'),
+                    False],
                 ),
         ))
 
