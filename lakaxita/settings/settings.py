@@ -14,6 +14,7 @@ TIME_ZONE = 'Europe/Paris'
 LANGUAGE_CODE = 'eu'
 LANGUAGES = (
         ('eu', 'Euskara'),
+        ('es', 'Castellano'),
         )
 LOCALE_PATHS = ( os.path.join(DIR, 'locale'), )
 
@@ -96,19 +97,19 @@ INSTALLED_APPS = (
     'polymorphic',
     'mptt',
 
-    'grappelli.dashboard',
-    'grappelli',
-    'grappelli_modeltranslation',
-    'modeltranslation',
-    'filebrowser',
-    'django.contrib.admin',
-    
     'lakaxita',
     'lakaxita.news',
     'lakaxita.groups',
     'lakaxita.gallery',
     'lakaxita.lost_found',
     'lakaxita.attachments',
+
+    'grappelli.dashboard',
+    'grappelli',
+    'grappelli_modeltranslation',
+    'modeltranslation',
+    'filebrowser',
+    'django.contrib.admin',
 )
 
 LOGGING = {
