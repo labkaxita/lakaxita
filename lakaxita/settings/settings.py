@@ -98,6 +98,8 @@ INSTALLED_APPS = (
 
     'grappelli.dashboard',
     'grappelli',
+    'grappelli_modeltranslation',
+    'modeltranslation',
     'filebrowser',
     'django.contrib.admin',
     
@@ -146,6 +148,8 @@ COMPRESS_PRECOMPILERS = (
 GRAPPELLI_INDEX_DASHBOARD = 'lakaxita.dashboard.Dashboard'
 GRAPPELLI_ADMIN_TITLE = 'lakaxita'
 
+MODELTRANSLATION_TRANSLATION_FILES = ('lakaxita.translation',)
+
 BADBROWSER_SUGGEST = ('firefox', 'chrome', 'safari', 'opera')
 BADBROWSER_REQUIREMENTS = (
     ('firefox', '3.0'),
@@ -159,3 +163,4 @@ djcelery.setup_loader()
 
 BROKER_URL = 'django://'
 CELERY_IMPORTS = ('lakaxita.lost_found.tasks',)
+
