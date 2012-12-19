@@ -11,6 +11,5 @@ python:
 install:
     - python bootstrap.py
     - bin/buildout -c devel.cfg
-    - bin/django syncdb --migrate
 
-script: bin/django test
+script: bin/django test lakaxita
