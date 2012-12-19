@@ -30,7 +30,7 @@ class Attachment(PolymorphicModel):
     @property
     def metadata(self):
         try:
-            return oembed.site.oembed(self.oembed).get_data()
+            return oembed.site.embed(self.oembed).get_data()
         except:
             return {}
 
