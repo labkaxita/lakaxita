@@ -1,3 +1,5 @@
+from django.conf import settings
+
 from oembed.providers import DjangoProvider
 from oembed.utils import cleaned_sites
 import oembed
@@ -21,6 +23,12 @@ class InternalAttachmentProvider(DjangoProvider):
 
     def title(self, obj):
         return obj.file.filename
+
+    def author_name(self, obj):
+        return settings.ATTACHMENTS['author_name']
+
+    def author_url(self, obj):
+        return settings.ATTACHMENTS['author_url']
 
     def request_resource(self, url, **kwargs):
         obj = self.get_object(url)

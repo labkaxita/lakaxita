@@ -167,3 +167,7 @@ djcelery.setup_loader()
 BROKER_URL = 'django://'
 CELERY_IMPORTS = ('lakaxita.lost_found.tasks',)
         
+ATTACHMENTS = {
+        'author_name': 'Irungo Lakaxita Gaztetxea',
+        'author_url': 'https://lakaxita.org',
+        }

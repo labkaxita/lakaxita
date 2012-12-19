@@ -1,7 +1,10 @@
+import urllib2
 from datetime import date
+
 from django.utils import unittest
 from django.test import Client
 from django.db import models
+from django.conf import settings
 
 from milkman.generators import random_image
 
@@ -30,18 +33,21 @@ class InternalAttachmentTestCase(unittest.TestCase):
         self.attachment.save()
 
     def test_oembed_creation(self):
-        self.attachment.full_clean()
+        self.assertTrue(self.attachment.is_oembed_valid())
         self.assertEqual(self.attachment.oembed, 
                 self.attachment.get_oembed_url())
         self.assertEqual(self.attachment.get_oembed_url(), 
                 'http://{domain}/attachments/file/{slug}/'.format(
                     domain='localhost:8000', slug=self.attachment.slug))
 
-    def test_type(self):
-        self.assertEqual(self.attachment.file.filetype, 'Image')
+    def test_metadata(self):
+        self.assertEqual(self.attachment.title, self.attachment.file.filename)
+        self.assertEqual(self.attachment.metadata['url'], self.attachment.oembed)
+        self.assertEqual(self.attachment.type, 'photo')
+        self.assertEqual(self.attachment.author, settings.ATTACHMENTS['author_name'])
+        self.assertEqual(self.attachment.author_url, settings.ATTACHMENTS['author_url'])
+        self.assertTrue('img' in self.attachment.html)
 
-    def test_oembed_type(self):
-        pass
 
     def tearDown(self):
         self.attachment.file.delete()
@@ -50,15 +56,25 @@ class InternalAttachmentTestCase(unittest.TestCase):
 
 class ExternalAttachmentTestCase(unittest.TestCase):
     def setUp(self):
-        self.arginano = ExternalAttachment(
-                oembed='http://youtu.be/27PJBU-WNzI')
+        arginano = 'http://youtu.be/27PJBU-WNzI'
+        jaion = 'http://youtu.be/-auzpsG_aVI'
+        for url in arginano, jaion:
+            try:
+                response = urllib2.urlopen(url)
+            except urllib2.URLError:
+                self.skipTest('can not get {}'.format(url))
+            else:
+                if response.getcode() is not 200:
+                    self.skipTest('can not get {}'.format(url))
+
+        self.arginano = ExternalAttachment(oembed=arginano)
         self.arginano.save()
 
-        self.jaion = ExternalAttachment(oembed='http://youtu.be/-auzpsG_aVI')
+        self.jaion = ExternalAttachment(oembed=jaion)
         self.jaion.save()
 
     def test_title(self):
-        print(self.arginano.title)
+        pass
 
     def test_ordering(self):
         self.arginano.creation = date(1, 1, 1)
