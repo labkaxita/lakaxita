@@ -2,25 +2,35 @@ from datetime import date
 from django.utils import unittest
 from django.test import Client
 from django.db import models
-from django.contrib.sites.models import Site
 
 from milkman.generators import random_image
 
 from lakaxita.attachments.models import ExternalAttachment, InternalAttachment
 
 
+def fake_oembed_site():
+    from django.contrib.sites.models import Site
+    import oembed
+    from lakaxita.attachments.oembed_providers import InternalAttachmentProvider
+
+    site = Site.objects.get_current()
+    site.domain = 'localhost:8000'
+    site.save()
+
+    oembed.site = oembed.sites.ProviderSite()
+    oembed.site.register(InternalAttachmentProvider)
+
 
 class InternalAttachmentTestCase(unittest.TestCase):
     def setUp(self):
-        site = Site.objects.get_current()
-        site.domain = 'localhost:8000'
-        site.save()
+        fake_oembed_site()
 
         rand_image = random_image(models.FileField())
         self.attachment = InternalAttachment(file=rand_image)
         self.attachment.save()
 
     def test_oembed_creation(self):
+        self.attachment.full_clean()
         self.assertEqual(self.attachment.oembed, 
                 self.attachment.get_oembed_url())
         self.assertEqual(self.attachment.get_oembed_url(), 

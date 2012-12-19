@@ -22,9 +22,6 @@ class InternalAttachmentProvider(DjangoProvider):
     def title(self, obj):
         return obj.file.filename
 
-    def get_cleaned_sites(self):
-        return cleaned_sites()
-
     def request_resource(self, url, **kwargs):
         obj = self.get_object(url)
         self.resource_type = obj.oembed_type
