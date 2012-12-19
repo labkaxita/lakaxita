@@ -4,6 +4,7 @@ from django.utils.translation import ugettext as _
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site
+from django.core.exceptions import ValidationError
 
 import oembed
 from oembed.consumer import OEmbedConsumer
@@ -27,17 +28,23 @@ class Attachment(PolymorphicModel):
     def get_absolute_url(self):
         return 'attachments:detail', (), {'slug': self.slug}
 
-    def is_correct(self):
+    def clean(self):
         try:
             oembed.site.embed(self.oembed)
         except Exception, msg:
+            raise ValidationError(msg)
+
+    def is_oembed_valid(self):
+        try:
+            self.clean()
+        except ValidationError:
             return False
         else:
             return True
 
     @property
     def metadata(self):
-        if self.is_correct():
+        if self.is_oembed_valid():
             return oembed.site.embed(self.oembed).get_data()
         else:
             return {}
