@@ -1,4 +1,5 @@
 from oembed.providers import DjangoProvider
+from oembed.utils import cleaned_sites
 import oembed
 
 from lakaxita.attachments.models import InternalAttachment
@@ -20,6 +21,9 @@ class InternalAttachmentProvider(DjangoProvider):
 
     def title(self, obj):
         return obj.file.filename
+
+    def get_cleaned_sites(self):
+        return cleaned_sites()
 
     def request_resource(self, url, **kwargs):
         obj = self.get_object(url)
