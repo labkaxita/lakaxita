@@ -86,7 +86,7 @@ class ItemListTestCase(unittest.TestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_template(self):
-        self.assertEqual(self.response.template[0].name, 
+        self.assertEqual(self.response.templates[0].name, 
                 'lost_found/item_list.yammy')
 
     def test_context(self):
@@ -109,7 +109,7 @@ class ItemDetailTestCase(unittest.TestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_template(self):
-        self.assertEqual(self.response.template[0].name, 
+        self.assertEqual(self.response.templates[0].name, 
                 'lost_found/item_detail.yammy')
 
     def test_context(self):
@@ -131,7 +131,7 @@ class CreateNotificationTestCase(unittest.TestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_template(self):
-        self.assertEqual(self.response.template.name,
+        self.assertEqual(self.response.templates[0].name,
                 'lost_found/notify.yammy')
 
     def test_context(self):
