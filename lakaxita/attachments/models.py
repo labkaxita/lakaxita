@@ -27,11 +27,19 @@ class Attachment(PolymorphicModel):
     def get_absolute_url(self):
         return 'attachments:detail', (), {'slug': self.slug}
 
+    def is_correct(self):
+        try:
+            oembed.site.embed(self.oembed)
+        except Exception, msg:
+            return False
+        else:
+            return True
+
     @property
     def metadata(self):
-        try:
+        if self.is_correct():
             return oembed.site.embed(self.oembed).get_data()
-        except:
+        else:
             return {}
 
     @property
@@ -105,8 +113,9 @@ class InternalAttachment(Attachment):
         self.oembed = self.get_oembed_url()
         return super(InternalAttachment, self).save(*args, **kwargs)
 
-    def get_oembed_url(self):
-        return 'http://{domain}{path}'.format(
+    def get_oembed_url(self, ssl=False):
+        return 'http{ssl}://{domain}{path}'.format(
+                ssl=('s' if ssl else ''),
                 domain=Site.objects.get_current().domain,
                 path=reverse('attachments:file', kwargs={'slug': self.slug}),
                 )
