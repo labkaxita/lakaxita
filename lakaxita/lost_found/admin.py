@@ -10,7 +10,7 @@ from grappelli_modeltranslation.admin import (TranslationTabularInline,
 from lakaxita.lost_found.models import Item, Notification
 
 
-class NotificationInline(TranslationTabularInline):
+class NotificationInline(admin.TabularInline):
     model = Notification
     extra = 0
     fields = ('title', 'reply_to', 'date', 'text')
@@ -60,7 +60,8 @@ class ItemAdmin(AdminImageMixin, TranslationAdmin):
     mark_not_returned.short_description = _('Mark as not returned')
 
 
-class NotificationAdmin(TranslationAdmin):
+
+class NotificationAdmin(admin.ModelAdmin):
     search_fields = ('title', 'reply_to', 'text')
     date_hierarchy = 'date'
     fields = ('title', 'item', 'reply_to', 'date', 'text')
