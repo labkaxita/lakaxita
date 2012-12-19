@@ -99,19 +99,19 @@ INSTALLED_APPS = (
     'polymorphic',
     'mptt',
 
-    'lakaxita',
-    'lakaxita.news',
-    'lakaxita.groups',
-    'lakaxita.gallery',
-    'lakaxita.lost_found',
-    'lakaxita.attachments',
-
     'grappelli.dashboard',
     'grappelli',
     'grappelli_modeltranslation',
     'modeltranslation',
     'filebrowser',
     'django.contrib.admin',
+
+    'lakaxita',
+    'lakaxita.news',
+    'lakaxita.groups',
+    'lakaxita.gallery',
+    'lakaxita.lost_found',
+    'lakaxita.attachments',
 )
 
 LOGGING = {
@@ -134,7 +134,7 @@ LOGGING = {
 
 
 THUMBNAIL_EXTENSION = 'png'
-JQUERY_URL = 'js/jquery.min.js'
+JQUERY_URL = 'js/jquery.js'
 
 MARKITUP_FILTER = ('markdown.markdown', {})
 MARKITUP_SET = 'markitup/sets/markdown'
@@ -166,4 +166,4 @@ djcelery.setup_loader()
 
 BROKER_URL = 'django://'
 CELERY_IMPORTS = ('lakaxita.lost_found.tasks',)
-
+        
