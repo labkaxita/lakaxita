@@ -19,7 +19,7 @@ class InternalAttachmentProvider(DjangoProvider):
                 }
 
     def title(self, obj):
-        return obj.name
+        return obj.file.filename
 
     def request_resource(self, url, **kwargs):
         obj = self.get_object(url)
