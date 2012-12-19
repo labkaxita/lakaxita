@@ -4,61 +4,62 @@ from django.test import Client
 from django.db import models
 from django.contrib.sites.models import Site
 
-from milkman.dairy import milkman
 from milkman.generators import random_image
 
-from lakaxita.attachments.models import Attachment, File
+from lakaxita.attachments.models import ExternalAttachment, InternalAttachment
 
 
-class FileTestCase(unittest.TestCase):
+
+class InternalAttachmentTestCase(unittest.TestCase):
     def setUp(self):
-        self.att_file = File(name='photo', type='photo')
-        self.att_file.file.name = random_image(self.att_file.file.field)
-        self.att_file.save()
+        site = Site.objects.get_current()
+        site.domain = 'localhost:8000'
+        site.save()
+
+        rand_image = random_image(models.FileField())
+        self.attachment = InternalAttachment(file=rand_image)
+        self.attachment.save()
 
     def test_oembed_creation(self):
-        self.assertEqual(self.att_file.oembed, self.att_file.get_oembed_url())
-        self.assertEqual(
-                self.att_file.get_oembed_url(), 
-                'http://{domain}/attachments/file/{pk}/'.format(
-                    domain=Site.objects.get_current().domain, pk=self.att_file.pk))
+        self.assertEqual(self.attachment.oembed, 
+                self.attachment.get_oembed_url())
+        self.assertEqual(self.attachment.get_oembed_url(), 
+                'http://{domain}/attachments/file/{slug}/'.format(
+                    domain='localhost:8000', slug=self.attachment.slug))
+
+    def test_type(self):
+        self.assertEqual(self.attachment.file.filetype, 'Image')
 
     def test_oembed_type(self):
-        for choice, _ in self.att_file.type_choices:
-            self.att_file.type = choice
-            if choice == 'audio':
-                self.assertEqual(self.att_file.oembed_type, 'video')
-            else:
-                self.assertEqual(self.att_file.oembed_type, choice)
+        pass
 
     def tearDown(self):
-        self.att_file.file.delete()
-        self.att_file.delete()
+        self.attachment.file.delete()
+        self.attachment.delete()
 
 
-class AttachmentTestCase(unittest.TestCase):
+class ExternalAttachmentTestCase(unittest.TestCase):
     def setUp(self):
-        self.att_file = File(name='photo', type='photo')
-        self.att_file.file.name = random_image(self.att_file.file.field)
-        self.att_file.save()
+        self.arginano = ExternalAttachment(
+                oembed='http://youtu.be/27PJBU-WNzI')
+        self.arginano.save()
 
-        self.hey = Attachment(name='hey', oembed=self.att_file.oembed)
-        self.hey.save()
+        self.jaion = ExternalAttachment(oembed='http://youtu.be/-auzpsG_aVI')
+        self.jaion.save()
 
-        self.bingo = Attachment(name='bingo', oembed=self.att_file.oembed)
-        self.bingo.save()
+    def test_title(self):
+        print(self.arginano.title)
 
     def test_ordering(self):
-        self.hey.creation = date(1, 1, 1)
-        self.hey.save()
+        self.arginano.creation = date(1, 1, 1)
+        self.arginano.save()
 
-        self.bingo.creation = date(1, 1, 2)
-        self.bingo.save()
+        self.jaion.creation = date(1, 1, 2)
+        self.jaion.save()
 
-        self.assertEqual(list(Attachment.objects.all()), [self.bingo, self.hey])
+        self.assertEqual(list(ExternalAttachment.objects.all()), 
+                [self.jaion, self.arginano])
 
     def tearDown(self):
-        self.att_file.file.delete()
-        self.att_file.delete()
-        self.hey.delete()
-        self.bingo.delete()
+        self.arginano.delete()
+        self.jaion.delete()
