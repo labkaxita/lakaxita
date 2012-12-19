@@ -90,6 +90,10 @@ class ExternalAttachment(Attachment):
         return self.title if self.title else self.oembed
 
     @property
+    def type(self):
+        return self.metadata['type']
+
+    @property
     def _slug(self):
         return self.title if self.title else self.pk
 
