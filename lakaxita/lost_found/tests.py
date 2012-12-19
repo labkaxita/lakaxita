@@ -80,7 +80,7 @@ class ItemListTestCase(unittest.TestCase):
         self.client = Client()
         self.jacket = milkman.deliver(Item, lost=date(1, 1, 1))
         self.trousers = milkman.deliver(Item, lost=date(1, 1, 2))
-        self.response = self.client.get(self.url)
+        self.response = self.client.get(self.url, follow=True)
 
     def test_status(self):
         self.assertEqual(self.response.status_code, 200)
@@ -103,7 +103,7 @@ class ItemDetailTestCase(unittest.TestCase):
         self.jacket = milkman.deliver(Item, name='jacket')
         self.url = '/lost_found/jacket/'
         self.client = Client()
-        self.response = self.client.get(self.url)
+        self.response = self.client.get(self.url, follow=True)
 
     def test_status(self):
         self.assertEqual(self.response.status_code, 200)
@@ -123,9 +123,9 @@ class ItemDetailTestCase(unittest.TestCase):
 class CreateNotificationTestCase(unittest.TestCase):
     def setUp(self):
         self.jacket = milkman.deliver(Item, name='jacket')
-        self.url = '/lost_found/jacket/notify/'
+        self.url = '/eu/lost_found/jacket/notify/'
         self.client = Client()
-        self.response = self.client.get(self.url)
+        self.response = self.client.get(self.url, follow=True)
 
     def test_status(self):
         self.assertEqual(self.response.status_code, 200)
@@ -145,7 +145,7 @@ class CreateNotificationTestCase(unittest.TestCase):
                 'text': 'how are you?',
                 'date': '0001-01-01',
                 }
-        post_response = self.client.post(self.url, data=data)
+        post_response = self.client.post(self.url, data=data, follow=True)
         self.assertEqual(post_response.status_code, 200)
         self.assertEqual(post_response.content, '')
         notifications = Notification.objects.filter(
@@ -160,7 +160,7 @@ class CreateNotificationTestCase(unittest.TestCase):
                 'text': 'how are you?',
                 'date': '0001-01-01',
                 }
-        post_response = self.client.post(self.url, data=data)
+        post_response = self.client.post(self.url, data=data, follow=True)
         self.assertEqual(post_response.status_code, 200)
         self.assertNotEqual(post_response.content, '')
 
