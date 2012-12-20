@@ -23,8 +23,7 @@ def rename_attachment_file(sender, **kwargs):
         attachment = InternalAttachment(file=new_file)
     else:
         attachment.file = new_file
-    finally:
-        attachment.save()
+    attachment.save()
 signals.filebrowser_post_rename.connect(rename_attachment_file)
 
 
