@@ -7,6 +7,8 @@ from django.db import models
 from django.conf import settings
 
 from milkman.generators import random_image
+from filebrowser.fields import FileObject
+from filebrowser import signals
 
 from lakaxita.attachments.models import ExternalAttachment, InternalAttachment
 
@@ -52,6 +54,41 @@ class InternalAttachmentTestCase(unittest.TestCase):
     def tearDown(self):
         self.attachment.file.delete()
         self.attachment.delete()
+
+
+class InternalAttachmentSignalsTestCase(unittest.TestCase):
+    def setUp(self):
+        self.filename = 'random_name'
+        self.file_obj = FileObject(self.filename)
+
+    def test_create_signal(self):
+        signals.filebrowser_post_upload.send(
+                sender=None, path='', file=self.file_obj)
+        attachments = InternalAttachment.objects.all()
+        self.assertEqual(attachments.count(), 1)
+        self.assertEqual(attachments[0].file.filename, self.filename)
+
+    def test_rename_signal(self):
+        new_name = 'some_other_name'
+        attachment = InternalAttachment(file=self.filename)
+        attachment.save()
+
+        signals.filebrowser_post_rename.send(
+                sender=None, path=self.file_obj.path, 
+                name=self.file_obj.filename, new_name=new_name)
+        attachments = InternalAttachment.objects.all()
+        self.assertEqual(attachments.count(), 1)
+        self.assertEqual(attachments[0].file.filename, new_name)
+
+    def test_delete_signal(self):
+        attachment = InternalAttachment(file=self.filename)
+        signals.filebrowser_pre_delete.send(
+                sender=None, path=self.file_obj.path, 
+                name=self.file_obj.filename)
+        self.assertEqual(InternalAttachment.objects.count(), 0)
+
+    def tearDown(self):
+        InternalAttachment.objects.delete()
 
 
 class ExternalAttachmentTestCase(unittest.TestCase):
