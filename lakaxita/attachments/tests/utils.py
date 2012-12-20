@@ -1,5 +1,9 @@
+import urllib2
+
 from django.contrib.sites.models import Site
+
 import oembed
+
 from lakaxita.attachments.oembed_providers import InternalAttachmentProvider
 
 
@@ -12,3 +16,12 @@ def fake_oembed_site():
     oembed.site.register(InternalAttachmentProvider)
 
 
+def is_valid_response(url):
+    try:
+        response = urllib2.urlopen(url)
+    except urllib2.URLError:
+        return False
+    else:
+        if response.getcode() is not 200:
+            return False
+    return True

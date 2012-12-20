@@ -1,8 +1,9 @@
-import urllib2
+from __future__ import unicode_literals
+
 from datetime import date
 
 from django.utils import unittest
-from django.test import Client
+from django.test import TestCase, Client
 from django.db import models
 from django.conf import settings
 
@@ -11,13 +12,12 @@ from filebrowser.fields import FileObject
 from filebrowser import signals
 
 from lakaxita.attachments.models import ExternalAttachment, InternalAttachment
-from lakaxita.attachments.tests.utils import fake_oembed_site
+from lakaxita.attachments.tests.utils import fake_oembed_site, is_valid_response
 
 
-class InternalAttachmentTestCase(unittest.TestCase):
+class InternalAttachmentTestCase(TestCase):
     def setUp(self):
         fake_oembed_site()
-
         rand_image = random_image(models.FileField())
         self.attachment = InternalAttachment(file=rand_image)
         self.attachment.save()
@@ -44,7 +44,7 @@ class InternalAttachmentTestCase(unittest.TestCase):
         self.attachment.delete()
 
 
-class InternalAttachmentSignalsTestCase(unittest.TestCase):
+class InternalAttachmentSignalsTestCase(TestCase):
     def setUp(self):
         self.filename = 'random_name'
         self.file_obj = FileObject(self.filename)
@@ -60,7 +60,6 @@ class InternalAttachmentSignalsTestCase(unittest.TestCase):
         new_name = 'some_other_name'
         attachment = InternalAttachment(file=self.filename)
         attachment.save()
-
         signals.filebrowser_post_rename.send(
                 sender=None, path=self.file_obj.path, 
                 name=self.file_obj.filename, new_name=new_name)
@@ -79,22 +78,15 @@ class InternalAttachmentSignalsTestCase(unittest.TestCase):
         InternalAttachment.objects.delete()
 
 
-class ExternalAttachmentTestCase(unittest.TestCase):
+class ExternalAttachmentTestCase(TestCase):
     def setUp(self):
         arginano = 'http://youtu.be/27PJBU-WNzI'
         jaion = 'http://youtu.be/-auzpsG_aVI'
         for url in arginano, jaion:
-            try:
-                response = urllib2.urlopen(url)
-            except urllib2.URLError:
+            if not is_valid_response(url):
                 self.skipTest('can not get {}'.format(url))
-            else:
-                if response.getcode() is not 200:
-                    self.skipTest('can not get {}'.format(url))
-
         self.arginano = ExternalAttachment(oembed=arginano)
         self.arginano.save()
-
         self.jaion = ExternalAttachment(oembed=jaion)
         self.jaion.save()
 
@@ -104,7 +96,6 @@ class ExternalAttachmentTestCase(unittest.TestCase):
     def test_ordering(self):
         self.arginano.creation = date(1, 1, 1)
         self.arginano.save()
-
         self.jaion.creation = date(1, 1, 2)
         self.jaion.save()
 

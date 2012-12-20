@@ -1,5 +1,5 @@
 from datetime import date
-from django.utils import unittest
+from django.test import TestCase
 from django.test import Client
 from django.http import HttpRequest, QueryDict
 from django.contrib.admin import site
@@ -15,7 +15,15 @@ from lakaxita.lost_found.admin import (
                                         )
 
 
-class ItemTestCase(unittest.TestCase):
+class TestCase(TestCase):
+    def assertQuerysetEqual(self, *args, **kwargs):
+        print args
+        if not kwargs.has_key('transform'):
+            kwargs['transform'] = lambda obj: obj
+        super(TestCase, self).assertQuerysetEqual(*args, **kwargs)
+
+
+class ItemTestCase(TestCase):
     def setUp(self):
         self.jacket = milkman.deliver(Item)
         self.trousers = milkman.deliver(Item)
@@ -27,7 +35,7 @@ class ItemTestCase(unittest.TestCase):
         self.trousers.lost = date(1, 1, 2)
         self.trousers.save()
 
-        self.assertEqual(list(Item.objects.all()), [self.trousers, self.jacket])
+        self.assertQuerysetEqual(Item.objects.all(), [self.trousers, self.jacket])
 
     def test_has_been_returned(self):
         self.jacket.found = None
@@ -43,8 +51,8 @@ class ItemTestCase(unittest.TestCase):
         self.trousers.found = date(1, 1, 1)
         self.trousers.save()
 
-        self.assertEqual(list(Item.objects.not_returned()), [self.jacket])
-        self.assertEqual(list(Item.objects.returned()), [self.trousers])
+        self.assertQuerysetEqual(Item.objects.not_returned(), [self.jacket])
+        self.assertQuerysetEqual(Item.objects.returned(), [self.trousers])
 
     def tearDown(self):
         self.jacket.delete()
@@ -52,7 +60,7 @@ class ItemTestCase(unittest.TestCase):
 
 
 
-class NotificationTestCase(unittest.TestCase):
+class NotificationTestCase(TestCase):
     def setUp(self):
         self.hi = milkman.deliver(Notification)
         self.hello = milkman.deliver(Notification)
@@ -64,17 +72,14 @@ class NotificationTestCase(unittest.TestCase):
         self.hello.date = date(1, 1, 2)
         self.hello.save()
 
-        self.assertEqual(
-                list(Notification.objects.all()), 
-                [self.hello, self.hi]
-                )
+        self.assertQuerysetEqual(Notification.objects.all(), [self.hello, self.hi])
 
     def tearDown(self):
         self.hi.delete()
         self.hello.delete()
 
 
-class ItemListTestCase(unittest.TestCase):
+class ItemListTestCase(TestCase):
     def setUp(self):
         self.url = '/lost_found/'
         self.client = Client()
@@ -86,8 +91,7 @@ class ItemListTestCase(unittest.TestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_template(self):
-        self.assertEqual(self.response.templates[0].name, 
-                'lost_found/item_list.yammy')
+        self.assertTemplateUsed(self.response, 'lost_found/item_list.yammy')
 
     def test_context(self):
         self.assertEqual(self.response.context['item_list'], 
@@ -98,7 +102,7 @@ class ItemListTestCase(unittest.TestCase):
         self.trousers.delete()
 
 
-class ItemDetailTestCase(unittest.TestCase):
+class ItemDetailTestCase(TestCase):
     def setUp(self):
         self.jacket = milkman.deliver(Item, name='jacket')
         self.url = '/lost_found/jacket/'
@@ -109,8 +113,7 @@ class ItemDetailTestCase(unittest.TestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_template(self):
-        self.assertEqual(self.response.templates[0].name, 
-                'lost_found/item_detail.yammy')
+        self.assertTemplateUsed(self.response, 'lost_found/item_detail.yammy')
 
     def test_context(self):
         self.assertEqual(self.response.context['item'], self.jacket)
@@ -120,7 +123,7 @@ class ItemDetailTestCase(unittest.TestCase):
         self.jacket.delete()
 
 
-class CreateNotificationTestCase(unittest.TestCase):
+class CreateNotificationTestCase(TestCase):
     def setUp(self):
         self.jacket = milkman.deliver(Item, name='jacket')
         self.url = '/eu/lost_found/jacket/notify/'
@@ -131,8 +134,7 @@ class CreateNotificationTestCase(unittest.TestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_template(self):
-        self.assertEqual(self.response.templates[0].name,
-                'lost_found/notify.yammy')
+        self.assertTemplateUsed(self.response, 'lost_found/notify.yammy')
 
     def test_context(self):
         self.assertEqual(self.response.context['item'], self.jacket)
@@ -168,7 +170,7 @@ class CreateNotificationTestCase(unittest.TestCase):
         self.jacket.delete()
 
 
-class AdminTestCase(unittest.TestCase):
+class AdminTestCase(TestCase):
     def setUp(self):
         self.jacket = milkman.deliver(Item)
         self.trousers = milkman.deliver(Item)
@@ -196,8 +198,8 @@ class AdminTestCase(unittest.TestCase):
                 model_admin=ItemAdmin,
                 )
         
-        self.assertEqual(
-                list(returned_filter.queryset(request, Item.objects.all())),
+        self.assertQuerysetEqual(
+                returned_filter.queryset(request, Item.objects.all()),
                 [self.jacket],
                 )
 
@@ -217,8 +219,8 @@ class AdminTestCase(unittest.TestCase):
                 model_admin=ItemAdmin,
                 )
         
-        self.assertEqual(
-                list(returned_filter.queryset(request, Item.objects.all())),
+        self.assertQuerysetEqual(
+                returned_filter.queryset(request, Item.objects.all()),
                 [self.trousers],
                 )
 
