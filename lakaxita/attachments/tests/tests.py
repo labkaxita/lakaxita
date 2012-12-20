@@ -11,19 +11,7 @@ from filebrowser.fields import FileObject
 from filebrowser import signals
 
 from lakaxita.attachments.models import ExternalAttachment, InternalAttachment
-
-
-def fake_oembed_site():
-    from django.contrib.sites.models import Site
-    import oembed
-    from lakaxita.attachments.oembed_providers import InternalAttachmentProvider
-
-    site = Site.objects.get_current()
-    site.domain = 'localhost:8000'
-    site.save()
-
-    oembed.site = oembed.sites.ProviderSite()
-    oembed.site.register(InternalAttachmentProvider)
+from lakaxita.attachments.tests.utils import fake_oembed_site
 
 
 class InternalAttachmentTestCase(unittest.TestCase):
