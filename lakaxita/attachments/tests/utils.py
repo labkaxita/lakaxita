@@ -1,4 +1,5 @@
 import urllib2
+from functools import wraps
 
 from django.contrib.sites.models import Site
 
@@ -25,3 +26,19 @@ def is_valid_response(url):
         if response.getcode() is not 200:
             return False
     return True
+
+def skipIfNotValidResponse(func, *urls):
+    @wraps(func)
+    def wrapper(self, *args, **kwargs):
+        for url in urls:
+            attrs = url.split('.')
+            obj = self
+            for attr in attrs:
+                if hasattr(obj, attr):
+                    obj = getattr(obj, attr)
+                else:
+                    obj = url
+            url = obj
+            if not is_valid_response(url):
+                self.skipTest('can not get {}'.format(url))
+        return func(self, *args, **kwargs)

@@ -12,7 +12,7 @@ from filebrowser.fields import FileObject
 from filebrowser import signals
 
 from lakaxita.attachments.models import ExternalAttachment, InternalAttachment
-from lakaxita.attachments.tests.utils import fake_oembed_site, is_valid_response
+from lakaxita.attachments.tests.utils import fake_oembed_site, skipIfNotValidResponse
 
 
 class InternalAttachmentTestCase(TestCase):
@@ -82,24 +82,25 @@ class ExternalAttachmentTestCase(TestCase):
     def setUp(self):
         arginano = 'http://youtu.be/27PJBU-WNzI'
         jaion = 'http://youtu.be/-auzpsG_aVI'
-        for url in arginano, jaion:
-            if not is_valid_response(url):
-                self.skipTest('can not get {}'.format(url))
         self.arginano = ExternalAttachment(oembed=arginano)
         self.arginano.save()
         self.jaion = ExternalAttachment(oembed=jaion)
         self.jaion.save()
 
-    def test_title(self):
-        pass
+    @skipIfNotValidResponse('arginano.oembed', 'jaion.oembed')
+    def test_metadata(self):
+        self.assertEqual(self.arginano.title, 'Karlos Argui\xf1ano - Lakaxita gaztetxea')
+        self.assertEqual(self.arginano.type, 'video')
+        self.assertEqual(self.arginano.author, 'Lakaxita Gaztetxea')
+        self.assertEqual(self.arginano.author_url, 'http://www.youtube.com/user/lakaxita')
+        self.assertTrue('iframe' in self.arginano.html)
 
     def test_ordering(self):
         self.arginano.creation = date(1, 1, 1)
         self.arginano.save()
         self.jaion.creation = date(1, 1, 2)
         self.jaion.save()
-
-        self.assertEqual(list(ExternalAttachment.objects.all()), 
+        self.assertQuerysetEqual(ExternalAttachment.objects.all(),
                 [self.jaion, self.arginano])
 
     def tearDown(self):
