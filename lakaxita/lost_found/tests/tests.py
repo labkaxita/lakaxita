@@ -1,11 +1,11 @@
 from datetime import date
-from django.test import TestCase
 from django.test import Client
 from django.http import HttpRequest, QueryDict
 from django.contrib.admin import site
 
 from milkman.dairy import milkman
 
+from lakaxita.tests.utils import TestCase
 from lakaxita.lost_found.models import Item, Notification
 from lakaxita.lost_found.forms import NotificationForm
 from lakaxita.lost_found.admin import (
@@ -13,14 +13,6 @@ from lakaxita.lost_found.admin import (
                                         ReturnedItemFilter, 
                                         ItemAdmin,
                                         )
-
-
-class TestCase(TestCase):
-    def assertQuerysetEqual(self, *args, **kwargs):
-        print args
-        if not kwargs.has_key('transform'):
-            kwargs['transform'] = lambda obj: obj
-        super(TestCase, self).assertQuerysetEqual(*args, **kwargs)
 
 
 class ItemTestCase(TestCase):

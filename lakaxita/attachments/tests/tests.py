@@ -11,13 +11,13 @@ from milkman.generators import random_image
 from filebrowser.fields import FileObject
 from filebrowser import signals
 
+from lakaxita.tests.utils import TestCase
 from lakaxita.attachments.models import ExternalAttachment, InternalAttachment
-from lakaxita.attachments.tests.utils import fake_oembed_site, skipIfNotValidResponse
 
 
 class InternalAttachmentTestCase(TestCase):
     def setUp(self):
-        fake_oembed_site()
+        self.fake_oembed_site()
         rand_image = random_image(models.FileField())
         self.attachment = InternalAttachment(file=rand_image)
         self.attachment.save()
@@ -87,7 +87,7 @@ class ExternalAttachmentTestCase(TestCase):
         self.jaion = ExternalAttachment(oembed=jaion)
         self.jaion.save()
 
-    @skipIfNotValidResponse('arginano.oembed', 'jaion.oembed')
+    @TestCase.skipIfNotValidResponse('arginano.oembed', 'jaion.oembed')
     def test_metadata(self):
         self.assertEqual(self.arginano.title, 'Karlos Argui\xf1ano - Lakaxita gaztetxea')
         self.assertEqual(self.arginano.type, 'video')
