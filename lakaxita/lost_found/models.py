@@ -2,9 +2,11 @@ from datetime import date
 from django.db import models
 from django.utils.translation import ugettext as _
 
-from markitup.fields import MarkupField
 from autoslug import AutoSlugField
 from sorl.thumbnail import ImageField
+
+#from markitup.fields import MarkupField
+MarkupField = models.TextField
 
 
 class ItemManager(models.Manager):

@@ -29,10 +29,10 @@ urlpatterns = patterns('',
         url(r'^oembed/', include('oembed.urls')),
         url(r'^feedback/', include('feedback.urls')),
         url(r'^badbrowser/', include('django_badbrowser.urls')),
-
         url(r'^admin/filebrowser/', include(site.urls)),
         url(r'^grappelli/', include('grappelli.urls')),
         url(r'^admin/', include(admin.site.urls)),
+        url(r'^markitup/', include('markitup.urls')),
 )
 
 

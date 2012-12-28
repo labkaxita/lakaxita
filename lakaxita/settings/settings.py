@@ -14,6 +14,7 @@ TIME_ZONE = 'Europe/Paris'
 LANGUAGE_CODE = 'eu'
 LANGUAGES = (
         ('eu', 'Euskara'),
+        ('es', 'Castellano'),
         )
 LOCALE_PATHS = ( os.path.join(DIR, 'locale'), )
 
@@ -44,6 +45,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'localeurl.middleware.LocaleURLMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -73,6 +75,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 INSTALLED_APPS = (
+    'localeurl',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -98,9 +101,11 @@ INSTALLED_APPS = (
 
     'grappelli.dashboard',
     'grappelli',
+    'grappelli_modeltranslation',
+    'modeltranslation',
     'filebrowser',
     'django.contrib.admin',
-    
+
     'lakaxita',
     'lakaxita.news',
     'lakaxita.groups',
@@ -129,7 +134,7 @@ LOGGING = {
 
 
 THUMBNAIL_EXTENSION = 'png'
-JQUERY_URL = 'js/jquery.min.js'
+JQUERY_URL = 'js/jquery.js'
 
 MARKITUP_FILTER = ('markdown.markdown', {})
 MARKITUP_SET = 'markitup/sets/markdown'
@@ -146,6 +151,8 @@ COMPRESS_PRECOMPILERS = (
 GRAPPELLI_INDEX_DASHBOARD = 'lakaxita.dashboard.Dashboard'
 GRAPPELLI_ADMIN_TITLE = 'lakaxita'
 
+MODELTRANSLATION_TRANSLATION_FILES = ('lakaxita.translation',)
+
 BADBROWSER_SUGGEST = ('firefox', 'chrome', 'safari', 'opera')
 BADBROWSER_REQUIREMENTS = (
     ('firefox', '3.0'),
@@ -159,3 +166,8 @@ djcelery.setup_loader()
 
 BROKER_URL = 'django://'
 CELERY_IMPORTS = ('lakaxita.lost_found.tasks',)
+        
+ATTACHMENTS = {
+        'author_name': 'Irungo Lakaxita Gaztetxea',
+        'author_url': 'https://lakaxita.org',
+        }

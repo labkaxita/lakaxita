@@ -57,3 +57,7 @@ SERVER_EMAIL = 'system@lakaxita'
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 X_FRAME_OPTIONS = 'DENY'
+
+
+INSTALLED_APPS += ('raven.contrib.django',)
+SENTRY_DSN = 'https://8be3d66e72604e20bb74712f39926d69:186dc82c9a4749129a9b9652cde82390@app.getsentry.com/4320'

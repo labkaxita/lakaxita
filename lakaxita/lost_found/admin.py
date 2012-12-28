@@ -3,7 +3,10 @@ from django.contrib import admin
 from django.core import urlresolvers
 from django.utils.translation import ugettext as _
 
+from markitup.widgets import AdminMarkItUpWidget
 from sorl.thumbnail.admin import AdminImageMixin
+#from grappelli_modeltranslation.admin import (TranslationTabularInline, 
+#                                                TranslationAdmin,)
 
 from lakaxita.lost_found.models import Item, Notification
 
@@ -56,6 +59,11 @@ class ItemAdmin(AdminImageMixin, admin.ModelAdmin):
     def mark_not_returned(self, request, queryset):
         queryset.update(found=None)
     mark_not_returned.short_description = _('Mark as not returned')
+
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        if db_field.name == 'description':
+            kwargs['widget'] = AdminMarkItUpWidget()
+        return super(ItemAdmin, self).formfield_for_dbfield(db_field, **kwargs)
 
 
 class NotificationAdmin(admin.ModelAdmin):

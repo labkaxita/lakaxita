@@ -12,3 +12,4 @@ src
 .sass-cache
 assets
 build
+.env

@@ -4,6 +4,7 @@ from django.utils.translation import ugettext as _
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site
+from django.core.exceptions import ValidationError
 
 import oembed
 from oembed.consumer import OEmbedConsumer
@@ -27,11 +28,25 @@ class Attachment(PolymorphicModel):
     def get_absolute_url(self):
         return 'attachments:detail', (), {'slug': self.slug}
 
+    def clean(self):
+        try:
+            oembed.site.embed(self.oembed)
+        except Exception, msg:
+            raise ValidationError(msg)
+
+    def is_oembed_valid(self):
+        try:
+            self.clean()
+        except ValidationError:
+            return False
+        else:
+            return True
+
     @property
     def metadata(self):
-        try:
-            return oembed.site.oembed(self.oembed).get_data()
-        except:
+        if self.is_oembed_valid():
+            return oembed.site.embed(self.oembed).get_data()
+        else:
             return {}
 
     @property
@@ -75,6 +90,10 @@ class ExternalAttachment(Attachment):
         return self.title if self.title else self.oembed
 
     @property
+    def type(self):
+        return self.metadata['type']
+
+    @property
     def _slug(self):
         return self.title if self.title else self.pk
 
@@ -105,8 +124,9 @@ class InternalAttachment(Attachment):
         self.oembed = self.get_oembed_url()
         return super(InternalAttachment, self).save(*args, **kwargs)
 
-    def get_oembed_url(self):
-        return 'http://{domain}{path}'.format(
+    def get_oembed_url(self, ssl=False):
+        return 'http{ssl}://{domain}{path}'.format(
+                ssl=('s' if ssl else ''),
                 domain=Site.objects.get_current().domain,
                 path=reverse('attachments:file', kwargs={'slug': self.slug}),
                 )

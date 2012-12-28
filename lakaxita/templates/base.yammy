@@ -1,4 +1,4 @@
-{% load static compress i18n %}
+{% load static compress i18n localeurl_tags %}
 
 <!doctype html/>
 
@@ -39,6 +39,15 @@ html
 
     body
         header
+            ul
+                {% for lang in LANGUAGES %}
+                {% ifequal lang.0 LANGUAGE_CODE %}
+                li.selected {{ lang.0 }}
+                {% else %}
+                li
+                    a [href="{{ request.path|chlocale:lang.0 }}"] {{ lang.0 }}
+                {% endifequal %}
+                {% endfor %}
             div#logo
                 h1 lakaxita gaztetxea
                 img
