@@ -1,5 +1,3 @@
-div#djDebug
-    display: none !important
 $darkgrey: #1a1a1a
 $objects: #d36216
 $groups: #228622
@@ -56,6 +54,7 @@ nav
     bottom: 0
     width: 100%
     left: 0
+    z-index: 10000
     ul
         margin: 0
         padding: 0
@@ -68,6 +67,7 @@ nav
             img
                 width: 15%
                 vertical-align: middle
+                margin-left: 3%
         li#objects
             background: $objects
         li#groups
@@ -80,3 +80,58 @@ nav
             background: $contact
              
 
+div#about
+    margin: 4em auto
+    width: 50%
+    div#text
+        display: inline-block
+        width: 70%
+        margin: 0 2.5% 0 0
+        h2
+            margin: 0
+            text-align: right
+        p
+            font-size: .9em
+            text-align: right
+    div#image        
+        display: inline-block
+        width: 27.5%
+        img
+            width: 100%
+
+div.slide
+    width: 80%
+    margin: 0 auto
+    h2
+        margin: 0 0 0 2.5%
+    ul.list
+        padding: 0
+        margin: 0
+        li
+            position: relative
+            display: inline-block
+            width: 20%
+            margin: 2.5%
+            vertical-align: top
+            img.slide
+                width: 100%
+                box-shadow: 0 0 1em #999999
+            p.hover
+                display: none
+                font-weight: bold    
+                position: absolute
+                top: 2em
+                left: 2.5em
+                font-size: 1.5em
+            img.group
+                width: 15%
+                position: absolute
+                top: -10%
+                right: -10%
+                border-radius: 100%
+                border: black solid .15em
+        li:hover
+            p.hover
+                display: inline
+            img.slide
+                opacity: .5

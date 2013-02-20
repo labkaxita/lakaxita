@@ -3,25 +3,70 @@
 
 {% block content %}
 div#about
-    h2
-    p
-    img
+    div#text
+        h2
+            Lakaxita Gaztetxea
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum interdum tellus nunc. Donec sit amet sagittis massa. Sed lobortis posuere magna nec adipiscing. Donec sodales mattis egestas. Morbi magna justo, ultrices at dictum quis, elementum nec nisl. Integer vel dui lorem, vitae viverra urna. Praesent mollis consectetur aliquet. Vivamus sem urna, lacinia sed congue sed, vulputate in metus. raesent mollis consectetur aliquet.
+    div#image    
+        img
+            - src {% static 'imgs/lakaxita.jpg' %}
+            - alt lakaxita gaztetxea
 
 div.slide
-    h2
+    h2 BERRIAK
     ul.list
         li
-            h3
-            img
-            p.date
+            img.slide
+                - src {% static 'imgs/prueba.jpg' %}
+            h3 Hau izenburu bat da
+            p.hover 2012-12-20
             img.group
+                - src {% static 'imgs/bilgune.jpg' %}
+        li
+            img.slide
+                - src {% static 'imgs/prueba2.jpg' %}
+            h3 Hau izenburu bat da
+            p.hover 2013-03-12
+            img.group
+                - src {% static 'imgs/stop.jpg' %}
+        li
+            img.slide
+                - src {% static 'imgs/prueba.jpg' %}
+            h3 Hau izenburu bat da
+            p.hover 2012-12-20
+            img.group
+                - src {% static 'imgs/bilgune.jpg' %}
+        li
+            img.slide
+                - src {% static 'imgs/prueba2.jpg' %}
+            h3 Hau izenburu bat da
+            p.hover 2013-03-12
+            img.group
+                - src {% static 'imgs/stop.jpg' %}
+                
 div.slide
-    h2
+    h2 GALERIA
     ul.list
         li
-            h3
-            img
-            p.date
-            img.group
+            img.slide
+                - src {% static 'imgs/prueba.jpg' %}
+            h3 Hau izenburu bat da
+            p.hover Kategoria
+        li
+            img.slide
+                - src {% static 'imgs/prueba2.jpg' %}
+            h3 Hau izenburu bat da
+            p.hover Kategoria
+        li
+            img.slide
+                - src {% static 'imgs/prueba.jpg' %}
+            h3 Hau izenburu bat da
+            p.hover Kategoria
+        li
+            img.slide
+                - src {% static 'imgs/prueba2.jpg' %}
+            h3 Hau izenburu bat da
+            p.hover Kategoria
+            
 
 {% endblock content %}
