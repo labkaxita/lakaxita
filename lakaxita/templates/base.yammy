@@ -39,15 +39,6 @@ html
 
     body
         header
-            ul
-                {% for lang in LANGUAGES %}
-                {% ifequal lang.0 LANGUAGE_CODE %}
-                li.selected {{ lang.0 }}
-                {% else %}
-                li
-                    a [href="{{ request.path|chlocale:lang.0 }}"] {{ lang.0 }}
-                {% endifequal %}
-                {% endfor %}
             div#logo
                 h1 lakaxita gaztetxea
                 img
@@ -64,29 +55,43 @@ html
                     img
                         - src {% static 'imgs/by-sa1.svg' %}
                         - alt by-sa
+                ul#language
+                    {% for lang in LANGUAGES %}
+                    {% ifequal lang.0 LANGUAGE_CODE %}
+                    li.selected {{ lang.0 }}
+                    {% else %}
+                    li
+                        a [href="{{ request.path|chlocale:lang.0 }}"] {{ lang.0 }}
+                    {% endifequal %}
+                    {% endfor %}
 
         nav
             ul
                 li#objects
                     a [href="{% url lost_found:list %}"]
-                        | {% trans 'objetos perdidos' %}
+                        | {% trans 'GALDUTAKO GAUZAK' %}
                         img
+                            - src {% static 'imgs/galduak.svg' %}
                 li#groups
                     a [href=""]
-                        | {% trans 'eragileak' %}
+                        | {% trans 'ERAGILEAK' %}
                         img
+                            - src {% static 'imgs/eragileak.svg' %}
                 li#gallery
                     a [href=""]
-                        | {% trans 'galeria' %}
+                        | {% trans 'GALERIA' %}
                         img
+                            - src {% static 'imgs/galeria.svg' %}
                 li#news
                     a [href="{% url news:list %}"]
-                        | {% trans 'berriak' %}
+                        | {% trans 'BERRIAK' %}
                         img
+                            - src {% static 'imgs/berriak.svg' %}
                 li#contact
                     a [href=""]
-                        | {% trans 'kontaktua' %}
+                        | {% trans 'KONTAKTUA' %}
                         img
+                            - src {% static 'imgs/kontaktua.svg' %}
                 
 
 
