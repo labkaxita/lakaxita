@@ -24,8 +24,8 @@ article
     {% endthumbnail %}
 
 section.attachments
-    {% for attachment in news.attachments %}
-    {{ attachment }}
+    {% for attachment in news.attachments.select_related %}
+    {{ attachment.html }}
     {% endfor %}
 
 {% endblock content %}
