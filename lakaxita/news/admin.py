@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext as _
 
 from sorl.thumbnail.admin import AdminImageMixin
+from grappelli_modeltranslation.admin import TranslationAdmin
 
 from lakaxita.news.models import News
 from lakaxita.groups.models import Group
@@ -24,7 +25,7 @@ class PublishedNewsFilter(admin.SimpleListFilter):
             return queryset.not_published()
 
 
-class NewsAdmin(AdminImageMixin, admin.ModelAdmin):
+class NewsAdmin(AdminImageMixin, TranslationAdmin):
     search_fields = ('name',)
     date_hierarchy = 'published'
     list_display = ('title', 'frontpage', 'published', 'has_been_published', 

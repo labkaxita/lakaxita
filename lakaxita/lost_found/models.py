@@ -5,8 +5,7 @@ from django.utils.translation import ugettext as _
 from autoslug import AutoSlugField
 from sorl.thumbnail import ImageField
 
-#from markitup.fields import MarkupField
-MarkupField = models.TextField
+from markitup.fields import MarkupField
 
 
 class ItemManager(models.Manager):
