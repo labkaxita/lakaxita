@@ -3,6 +3,8 @@ from functools import wraps
 
 from django.test import TestCase
 from django.contrib.sites.models import Site
+from django.core.management import call_command
+from django.db import connections, DEFAULT_DB_ALIAS
 
 import oembed
 
@@ -21,6 +23,23 @@ def is_valid_response(url):
 
 
 class TestCase(TestCase):
+    synced = False
+
+    @classmethod
+    def setUpClass(cls):
+        """
+        Prepare database:
+        * Call syncdb to create tables for tests.models (since during
+        default testrunner's db creation modeltranslation.tests was not in INSTALLED_APPS
+        """
+        super(TestCase, cls).setUpClass()
+        if not TestCase.synced:
+            # In order to perform only one syncdb
+            TestCase.synced = True
+            call_command('syncdb', verbosity=0, migrate=False, interactive=False,
+                         database=connections[DEFAULT_DB_ALIAS].alias, 
+                         load_initial_data=False)
+
     def assertQuerysetEqual(self, *args, **kwargs):
         if not kwargs.has_key('transform'):
             kwargs['transform'] = lambda obj: obj
