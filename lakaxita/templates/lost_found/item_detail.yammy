@@ -1,5 +1,5 @@
 {% extends 'base.yammy' %}
-{% load static i18n thumbnail markitup_tags %}
+{% load static i18n thumbnail %}
 
 {% block extra_js %}
 script
@@ -10,7 +10,7 @@ script
 {% block content %}
 
 {{ item }}
-{{ item.description|render_markup }}
+{{ item.description }}
 
 {{ item.has_been_returned }}
 {{ item.lost }} - {{ item.found }}
