@@ -95,7 +95,7 @@ class ExternalAttachment(Attachment):
 
     @property
     def _slug(self):
-        return self.title if self.title else self.pk
+        return self.title if self.title else str(self.pk)
 
 
 class InternalAttachment(Attachment):
