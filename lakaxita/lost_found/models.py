@@ -26,7 +26,8 @@ class Item(models.Model):
         verbose_name_plural = _('Items')
 
     name = models.CharField(max_length=100, verbose_name=_('name'))
-    description = MarkupField(blank=True, verbose_name=_('description'))
+    description = MarkupField(blank=True, default='', 
+            verbose_name=_('description'))
     image = ImageField(blank=True, upload_to='lost_found', 
             verbose_name=_('image'))
     lost = models.DateField(default=date.today, verbose_name=_('lost date'))

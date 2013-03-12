@@ -14,7 +14,7 @@ class Category(MPTTModel):
         verbose_name_plural = _('categories')
 
     name = models.CharField(max_length=50, verbose_name=_('name'))
-    description = MarkupField(max_length=500, blank=True, 
+    description = MarkupField(max_length=500, blank=True, default='',
             verbose_name=_('description'))
     attachments = models.ManyToManyField(Attachment, 
             verbose_name=_('attachments'))
