@@ -106,3 +106,8 @@ class ExternalAttachmentTestCase(TestCase):
     def tearDown(self):
         self.arginano.delete()
         self.jaion.delete()
+
+
+class AttachmentDetailTestCase(TestCase):
+    def setUp(self):
+        pass
