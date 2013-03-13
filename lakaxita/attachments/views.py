@@ -1,11 +1,11 @@
 from django.views.generic import RedirectView, DetailView
 from django.shortcuts import get_object_or_404
 
-from lakaxita.attachments.models import ExternalAttachment, InternalAttachment
+from lakaxita.attachments.models import Attachment, InternalAttachment
 
 
 class AttachmentDetail(DetailView):
-    model = ExternalAttachment
+    model = Attachment
     template_name = 'attachments/attachment_detail.yammy'
     context_object_name = 'attachment'
 
