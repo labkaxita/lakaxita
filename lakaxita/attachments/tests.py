@@ -110,4 +110,32 @@ class ExternalAttachmentTestCase(TestCase):
 
 class AttachmentDetailTestCase(TestCase):
     def setUp(self):
-        pass
+        self.client = Client()
+
+        self.fake_oembed_site()
+        rand_image = random_image(models.FileField())
+        self.internal = InternalAttachment(file=rand_image)
+        self.internal.save()
+
+        external = 'http://youtu.be/-auzpsG_aVI'
+        self.external = ExternalAttachment(oembed=external)
+        self.external.save()
+
+        self.responses = {
+                self.internal: self.client.get(
+                    self.internal.get_absolute_url(), follow=True),
+                self.external: self.client.get(
+                    self.external.get_absolute_url(), follow=True),
+                }
+
+    def test_status(self):
+        for response in self.responses.values():
+            self.assertEqual(response.status_code, 200)
+
+    def test_template(self):
+        for response in self.responses.values():
+            self.assertTemplateUsed(response, 'attachments/attachment_detail.yammy')
+
+    def test_context(self):
+        for attachment, response in self.responses.items():
+            self.assertEqual(response.context['attachment'], attachment)
