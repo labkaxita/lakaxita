@@ -97,6 +97,7 @@ INSTALLED_APPS = (
     'polymorphic',
     'mptt',
     'tastypie',
+    'backbone_tastypie',
 
     'grappelli.dashboard',
     'grappelli',

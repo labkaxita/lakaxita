@@ -20,6 +20,18 @@ html
             - src {% static 'js/jquery.js' %}
         script
             - type text/javascript
+            - src {% static 'js/underscore.js' %}
+        script
+            - type text/javascript
+            - src {% static 'js/backbone.js' %}
+        script
+            - type text/javascript
+            - src {% static 'js/backbone-tastypie.js' %}
+        script
+            - type text/javascript
+            - src {% static 'js/lakaxita.js' %}
+        script
+            - type text/javascript
             - src {% static 'feedback/jquery.form.js' %}
         script
             - type text/javascript
