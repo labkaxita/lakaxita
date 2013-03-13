@@ -35,7 +35,7 @@ class Dashboard(Dashboard):
             _('Others'),
             column=1,
             collapsible=True,
-            models=('oembed.*', 'feedback.*', 'lakaxita.groups.*'),
+            models=('oembed.*', 'lakaxita.groups.*'),
         ))
 
 #       # append an app list module for "Applications"

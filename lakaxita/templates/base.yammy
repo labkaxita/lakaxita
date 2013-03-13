@@ -30,20 +30,6 @@ html
         script
             - type text/javascript
             - src {% static 'js/lakaxita.js' %}
-        script
-            - type text/javascript
-            - src {% static 'feedback/jquery.form.js' %}
-        script
-            - type text/javascript
-            - src {% static 'feedback/main.js' %}
-        script [type="text/javascript"]
-            $(function(){
-                feedback.init({
-                    'button':$('a#feedback'),
-                    'drop':$('#feedback_drop'),
-                    'popup':$('#feedback_popup')
-                });
-            });
         {% block extra_js %}{% endblock extra_js %}
         {% endcompress %}
 

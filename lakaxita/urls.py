@@ -33,7 +33,6 @@ urlpatterns = patterns('',
         #url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 
         url(r'^oembed/', include('oembed.urls')),
-        url(r'^feedback/', include('feedback.urls')),
         url(r'^badbrowser/', include('django_badbrowser.urls')),
         url(r'^admin/filebrowser/', include(site.urls)),
         url(r'^grappelli/', include('grappelli.urls')),

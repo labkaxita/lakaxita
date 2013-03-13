@@ -87,7 +87,6 @@ INSTALLED_APPS = (
     'south',
     'compressor',
     'sorl.thumbnail',
-    'feedback',
     'preferences',
     'django_badbrowser',
     'oembed',
