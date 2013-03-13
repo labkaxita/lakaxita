@@ -12,9 +12,13 @@ import oembed
 oembed.autodiscover()
 
 from lakaxita.views import BaseView
+from lakaxita.api import api
+
+
 
 
 urlpatterns = patterns('',
+        url('^', include(api.urls)),
         url(r'^$', BaseView.as_view(), name='base'),
         url(r'^news/', include('lakaxita.news.urls', 
             namespace='news')),
