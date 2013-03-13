@@ -102,6 +102,9 @@ class ItemDetailTestCase(TestCase):
         self.client = Client()
         self.response = self.client.get(self.url, follow=True)
 
+    def test_url(self):
+        self.assertEqual(self.url, self.jacket.get_absolute_url())
+
     def test_status(self):
         self.assertEqual(self.response.status_code, 200)
 
