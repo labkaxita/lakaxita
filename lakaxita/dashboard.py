@@ -51,7 +51,7 @@ class Dashboard(Dashboard):
             _('Administration'),
             column=1,
             collapsible=True,
-            models=('django.contrib.*', 'monkey_team.*'),
+            models=('django.contrib.*',),
         ))
         
         self.children.append(modules.LinkList(

@@ -52,7 +52,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'monkey_team.middleware.MonkeyTeamMiddleware',
     'django_badbrowser.middleware.BrowserSupportDetection',
 )
 
@@ -90,7 +89,6 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'feedback',
     'preferences',
-    'monkey_team',
     'django_badbrowser',
     'oembed',
     'markitup',
