@@ -18,7 +18,6 @@ from lakaxita.api import api
 
 
 urlpatterns = patterns('',
-        url('^', include(api.urls)),
         url(r'^$', BaseView.as_view(), name='base'),
         url(r'^news/', include('lakaxita.news.urls', 
             namespace='news')),
@@ -38,6 +37,8 @@ urlpatterns = patterns('',
         url(r'^grappelli/', include('grappelli.urls')),
         url(r'^admin/', include(admin.site.urls)),
         url(r'^markitup/', include('markitup.urls')),
+
+        url('^', include(api.urls)),
 )
 
 
