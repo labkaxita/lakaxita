@@ -1,0 +1,12 @@
+{% verbatim %}
+
+img.slide
+    - src {{ image }}
+h3 
+    | {{ title }}
+p.hover 
+    | {{ hover }}
+img.group
+    - src {{ status }}
+
+{% endverbatim %}

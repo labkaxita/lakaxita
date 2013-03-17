@@ -45,27 +45,27 @@ html
         nav
             ul
                 li#objects
-                    a [href="{% url lost_found:list %}"]
+                    a [href="#lost_found"]
                         | {% trans 'GALDUTAKO GAUZAK' %}
                         img
                             - src {% static 'imgs/galduak.svg' %}
                 li#groups
-                    a [href=""]
+                    a [href="#groups"]
                         | {% trans 'ERAGILEAK' %}
                         img
                             - src {% static 'imgs/eragileak.svg' %}
                 li#gallery
-                    a [href=""]
+                    a [href="#gallery"]
                         | {% trans 'GALERIA' %}
                         img
                             - src {% static 'imgs/galeria.svg' %}
                 li#news
-                    a [href="{% url news:list %}"]
+                    a [href="#news"]
                         | {% trans 'BERRIAK' %}
                         img
                             - src {% static 'imgs/berriak.svg' %}
                 li#contact
-                    a [href=""]
+                    a [href="#contact"]
                         | {% trans 'KONTAKTUA' %}
                         img
                             - src {% static 'imgs/kontaktua.svg' %}
@@ -77,7 +77,10 @@ html
 
 
         script#index-template [type="text/x-handlebars-template"]
-            <p> Hau prueba bat da </p>
+            {% include 'index.yammy' %}
+
+        script#item-template [type="text/x-handlebars-template"]
+            {% include 'item.yammy' %}
 
         {% compress js %}
         script
@@ -97,7 +100,13 @@ html
             - src {% static 'js/handlebars.js' %}
         script
             - type text/javascript
-            - src {% static 'js/lakaxita.js' %}
+            - src {% static 'js/lakaxita/router.js' %}
+        script
+            - type text/javascript
+            - src {% static 'js/lakaxita/views.js' %}
+        script
+            - type text/javascript
+            - src {% static 'js/lakaxita/collections.js' %}
         script
             $(function() { Lakaxita.boot('section#content'); });
         {% block extra_js %}{% endblock extra_js %}

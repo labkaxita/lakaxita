@@ -14,6 +14,12 @@ class ItemResource(ModelResource):
         queryset = Item.objects.all()
         resource_name = 'lost_found'
 
+    returned = fields.BooleanField()
+
+    def dehydrate(self, bundle):
+        bundle.data['returned'] = bundle.obj.found is not None
+        return bundle
+
 
 class AttachmentResource(ModelResource):
     class Meta:
