@@ -19,20 +19,31 @@
         routes: {
             '': 'index',
             'lost_found': 'lost_found',
+            'lost_found/:slug/': 'lost_found_detail',
             'groups': 'groups',
             'gallery': 'gallery',
             'news': 'news',
             'contact': 'contact',
         },
-        index: function() {
-            var view = new Lakaxita.Index();
+        render: function(view) {
             this.el.empty();
             this.el.append(view.render().el);
         },
+        index: function() {
+            var view = new Lakaxita.Index();
+            this.render(view);
+        },
         lost_found: function() {
             var lost_items = new Lakaxita.LostItems();
+            lost_items.fetch();
             var view = new Lakaxita.ItemList({collection: lost_items});
-            this.el.append(view.render().el);
+            this.render(view);
+        },
+        lost_found_detail: function(slug) {
+            var lost_items = new Lakaxita.LostItems();
+            lost_items.fetch();
+            var view = new Lakaxita.ItemDetail({collection: lost_items, slug: slug});
+            this.render(view);
         },
         groups: function() {
             this.el.empty();
