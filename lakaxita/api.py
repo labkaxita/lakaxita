@@ -13,24 +13,22 @@ class ItemResource(ModelResource):
     class Meta:
         queryset = Item.objects.all()
         resource_name = 'lost_found'
-
-    returned = fields.BooleanField()
-
-    def dehydrate(self, bundle):
-        bundle.data['returned'] = bundle.obj.found is not None
-        return bundle
+        include_absolute_url = True
+        fields = ['name', 'description', 'image', 'lost', 'found', 'slug']
 
 
 class AttachmentResource(ModelResource):
     class Meta:
         queryset = Attachment.objects.all()
         resource_name = 'attachments'
+        include_absolute_url = True
 
 
 class CategoryResource(ModelResource):
     class Meta:
         queryset = Category.objects.root_nodes()
         resource_name = 'gallery'
+        include_absolute_url = True
 
     children = fields.ToManyField('self', 'children')
     parent = fields.ForeignKey('self', 'parent', null=True)
@@ -41,6 +39,7 @@ class GroupResource(ModelResource):
     class Meta:
         queryset = Group.objects.all()
         resource_name = 'groups'
+        include_absolute_url = True
 
 
 class NewsResource(ModelResource):
@@ -49,6 +48,7 @@ class NewsResource(ModelResource):
     class Meta:
         queryset = News.objects.published()
         resource_name = 'news'
+        include_absolute_url = True
 
 api = Api(api_name='api')
 for resource in (ItemResource, CategoryResource, AttachmentResource,
