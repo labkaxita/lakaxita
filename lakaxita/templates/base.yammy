@@ -12,26 +12,6 @@ html
             - href {% static 'css/main.sass' %}
         {% block extra_css %}{% endblock extra_css %}
         {% endcompress %}
-
-        {% compress js %}
-        script
-            - type text/javascript
-            - src {% static 'js/jquery.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/underscore.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/backbone.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/backbone-tastypie.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/lakaxita.js' %}
-        {% block extra_js %}{% endblock extra_js %}
-        {% endcompress %}
-
         {% block extra_headers %}{% endblock extra_headers %}
 
     body
@@ -94,3 +74,31 @@ html
 
         section#content
             {% block content %}{% endblock content %}
+
+
+        script#index-template [type="text/x-handlebars-template"]
+            <p> Hau prueba bat da </p>
+
+        {% compress js %}
+        script
+            - type text/javascript
+            - src {% static 'js/jquery.js' %}
+        script
+            - type text/javascript
+            - src {% static 'js/underscore.js' %}
+        script
+            - type text/javascript
+            - src {% static 'js/backbone.js' %}
+        script
+            - type text/javascript
+            - src {% static 'js/backbone-tastypie.js' %}
+        script
+            - type text/javascript
+            - src {% static 'js/handlebars.js' %}
+        script
+            - type text/javascript
+            - src {% static 'js/lakaxita.js' %}
+        script
+            $(function() { Lakaxita.boot('section#content'); });
+        {% block extra_js %}{% endblock extra_js %}
+        {% endcompress %}

@@ -1,33 +1,68 @@
-var NewsList = Backbone.Collection.extend({
-    model: Backbone.Model.extend(),
-    url: '/api/news/'
-});
-var News = new NewsList();
+(function() {
+    var Lakaxita = {};
+    window.Lakaxita = Lakaxita;
 
+    var template = function(name) {
+        return Handlebars.compile($('#'+name+'-template').html());
+    };
 
-var GalleryList = Backbone.Collection.extend({
-    model: Backbone.Model.extend(),
-    url: '/api/gallery/'
-});
-var Gallery = new GalleryList();
+    Lakaxita.boot = function(container) {
+        container = $(container);
+        var router = new Lakaxita.Router({'el': container});
+        Backbone.history.start();
+    };
 
+    Lakaxita.Router = Backbone.Router.extend({
+        initialize: function(options) {
+            this.el = options.el;
+        },
+        routes: {
+            '': 'index',
+            'lost_found': 'lost_found',
+        },
+        index: function() {
+            var view = new Lakaxita.Index();
+            this.el.empty();
+            this.el.append(view.render());
+        },
+        lost_found: function() {
+        },
+    });
 
-var GroupList = Backbone.Collection.extend({
-    model: Backbone.Model.extend(),
-    url: '/api/groups/'
-});
-var Groups = new GroupList();
+    Lakaxita.Index = Backbone.View.extend({
+        template: template('index'),
+        initialize: function() {
+            this.news = new Lakaxita.News();
+            this.news.on('all', this.render, this);
+            this.news.fetch();
+        },
+        render: function() {
+            return this.$el.html(this.template(this));
+        },
+    });
 
+    Lakaxita.News = Backbone.Collection.extend({
+        model: Backbone.Model.extend(),
+        url: '/api/news/'
+    });
 
-var ItemList = Backbone.Collection.extend({
-    model: Backbone.Model.extend(),
-    url: '/api/lost_found/'
-});
-var Items = new ItemList();
+    Lakaxita.Gallery = Backbone.Collection.extend({
+        model: Backbone.Model.extend(),
+        url: '/api/gallery/'
+    });
 
+    Lakaxita.Groups = Backbone.Collection.extend({
+        model: Backbone.Model.extend(),
+        url: '/api/groups/'
+    });
 
-var AttachmentList = Backbone.Collection.extend({
-    model: Backbone.Model.extend(),
-    url: '/api/attachments/'
-});
-var Attachments = new AttachmentList();
+    Lakaxita.LostItems = Backbone.Collection.extend({
+        model: Backbone.Model.extend(),
+        url: '/api/lost_found/'
+    });
+
+    Lakaxita.Attachments = Backbone.Collection.extend({
+        model: Backbone.Model.extend(),
+        url: '/api/attachments/'
+    });
+})()
