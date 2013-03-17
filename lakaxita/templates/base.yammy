@@ -1,11 +1,10 @@
-{% load static compress i18n localeurl_tags %}
+{% load static compress i18n %}
 
 <!doctype html/>
 
 html
     head
         title lakaxita{% block title %}{% endblock title %}
-        
         {% compress css %}
         link
             - rel stylesheet
@@ -59,7 +58,7 @@ html
                     li.selected {{ lang.0 }}
                     {% else %}
                     li
-                        a [href="{{ request.path|chlocale:lang.0 }}"] {{ lang.0 }}
+                        a [href="{{ request.path }}"] {{ lang.0 }}
                     {% endifequal %}
                     {% endfor %}
 
