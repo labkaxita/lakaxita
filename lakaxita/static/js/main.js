@@ -1,5 +1,8 @@
 require.config({
     baseUrl: '/static/js/',
+    paths: {
+        'text': 'lib/text'
+    },
     shim: {
         'lib/handlebars': {
             exports: 'Handlebars',

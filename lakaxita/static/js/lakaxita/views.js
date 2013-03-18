@@ -2,13 +2,15 @@ define(['lakaxita/collections', 'lib/backbone'], function(Collections, Backbone)
 
     /*__________HELPERS__________*/
 
-    get_template = function(name) {
-        return Handlebars.compile($('#'+name+'-template').html());
-    };
 
     View = Backbone.View.extend({
         render: function() {
-            this.$el.html(this.template(this));
+            /* FIXME there must be a better way */
+            var view = this
+            require(['text!'+this.template], function(template) {
+                var template = Handlebars.compile(template);
+                view.$el.html(template(view));
+            });
             return this;
         },
     });
@@ -29,7 +31,7 @@ define(['lakaxita/collections', 'lib/backbone'], function(Collections, Backbone)
     /*__________INDEX__________*/
 
     Index = View.extend({
-        template: get_template('index'),
+        template: 'templates/index.html',
         initialize: function() {
             this.news = new Collections.News();
             this.news.fetch();
@@ -42,7 +44,7 @@ define(['lakaxita/collections', 'lib/backbone'], function(Collections, Backbone)
 
     Item = View.extend({
         tagName: 'li',
-        template: get_template('item'),
+        template: 'templates/item.html',
         title: function() { return this.model.title(); },
         hover: function() { return this.model.date(); },
         image: function() { return this.model.thumbnail(); },
@@ -59,7 +61,7 @@ define(['lakaxita/collections', 'lib/backbone'], function(Collections, Backbone)
 
     ItemDetail = Item.extend({
         tagName: 'article',
-        template: get_template('item-detail'),
+        template: 'templates/item_detail.html',
         image: function() { return this.model.image(); },
     });
 

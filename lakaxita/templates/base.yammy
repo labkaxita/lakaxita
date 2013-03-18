@@ -75,16 +75,6 @@ html
         section#content
             {% block content %}{% endblock content %}
 
-
-        script#index-template [type="text/x-handlebars-template"]
-            {% include 'index.yammy' %}
-
-        script#item-template [type="text/x-handlebars-template"]
-            {% include 'item.yammy' %}
-
-        script#item-detail-template [type="text/x-handlebars-template"]
-            {% include 'item_detail.yammy' %}
-
         {% compress js %}
         script
             - type text/javascript
