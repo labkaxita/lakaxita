@@ -3,9 +3,9 @@ from django.db import models
 from django.utils.translation import ugettext as _
 
 from autoslug import AutoSlugField
-from sorl.thumbnail import ImageField
-
 from markitup.fields import MarkupField
+
+from lakaxita.fields import ThumbnailField
 
 
 class ItemManager(models.Manager):
@@ -28,8 +28,9 @@ class Item(models.Model):
     name = models.CharField(max_length=100, verbose_name=_('name'))
     description = MarkupField(blank=True, default='', 
             verbose_name=_('description'))
-    image = ImageField(blank=True, upload_to='lost_found', 
+    image = models.ImageField(blank=True, upload_to='lost_found', 
             verbose_name=_('image'))
+    thumbnail = ThumbnailField(source='image')
     lost = models.DateField(default=date.today, verbose_name=_('lost date'))
     found = models.DateField(blank=True, null=True, 
             verbose_name=_('found date'))

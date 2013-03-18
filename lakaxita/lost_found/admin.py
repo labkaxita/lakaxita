@@ -4,7 +4,7 @@ from django.core import urlresolvers
 from django.utils.translation import ugettext as _
 
 from markitup.widgets import AdminMarkItUpWidget
-from sorl.thumbnail.admin import AdminImageMixin
+from imagekit.admin import AdminThumbnail
 from grappelli_modeltranslation.admin import TranslationAdmin
 
 from lakaxita.lost_found.models import Item, Notification
@@ -37,14 +37,17 @@ class ReturnedItemFilter(admin.SimpleListFilter):
             return queryset.filter(found__isnull=True)
 
 
-class ItemAdmin(AdminImageMixin, TranslationAdmin):
+class ItemAdmin(TranslationAdmin):
     search_fields = ('name', 'description')
     date_hierarchy = 'lost'
     fields = ('name', ('lost', 'found'), 'image', 'description')
-    list_display = ('name', 'lost', 'found', 'has_been_returned')
+    list_display = ('name', 'lost', 'found', 'has_been_returned', 
+            'admin_thumbnail')
     list_filter = (ReturnedItemFilter,)
     inlines = [NotificationInline]
     actions = ['mark_returned', 'mark_not_returned']
+
+    admin_thumbnail = AdminThumbnail(image_field='thumbnail')
 
     def has_been_returned(self, obj):
         return obj.has_been_returned

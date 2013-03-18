@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext as _
 
-from sorl.thumbnail.admin import AdminImageMixin
+from imagekit.admin import AdminThumbnail
 from grappelli_modeltranslation.admin import TranslationAdmin
 
 from lakaxita.news.models import News
@@ -25,11 +25,11 @@ class PublishedNewsFilter(admin.SimpleListFilter):
             return queryset.not_published()
 
 
-class NewsAdmin(AdminImageMixin, TranslationAdmin):
+class NewsAdmin(TranslationAdmin):
     search_fields = ('name',)
     date_hierarchy = 'published'
     list_display = ('title', 'frontpage', 'published', 'has_been_published', 
-            'group')
+            'group', 'admin_thumbnail')
     list_filter = ('frontpage', 'published', PublishedNewsFilter, 'group')
     filter_horizontal = ('attachments',)
     fieldsets = (
@@ -51,6 +51,7 @@ class NewsAdmin(AdminImageMixin, TranslationAdmin):
                     )}),
                 )
 
+    admin_thumbnail = AdminThumbnail(image_field='thumbnail')
 
     def has_been_published(self, obj):
         return obj.is_published

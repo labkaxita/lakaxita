@@ -85,7 +85,7 @@ INSTALLED_APPS = (
 
     'south',
     'compressor',
-    'sorl.thumbnail',
+    'imagekit',
     'preferences',
     'django_badbrowser',
     'oembed',
@@ -131,7 +131,6 @@ LOGGING = {
 }
 
 
-THUMBNAIL_EXTENSION = 'png'
 JQUERY_URL = 'js/jquery.js'
 
 MARKITUP_FILTER = ('markdown.markdown', {})

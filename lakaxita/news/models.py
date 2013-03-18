@@ -4,8 +4,8 @@ from django.utils.translation import ugettext as _
 
 from markitup.fields import MarkupField
 from autoslug import AutoSlugField
-from sorl.thumbnail import ImageField
 
+from lakaxita.fields import ThumbnailField
 from lakaxita.groups.models import Group
 from lakaxita.attachments.models import Attachment
 
@@ -42,7 +42,8 @@ class News(models.Model):
 
     title = models.CharField(max_length=100, verbose_name=_('title'))
     text = MarkupField(verbose_name=_('text'))
-    image = ImageField(blank=True, upload_to='news', verbose_name=_('image'))
+    image = models.ImageField(blank=True, upload_to='news', verbose_name=_('image'))
+    thumbnail = ThumbnailField(source='image')
     attachments = models.ManyToManyField(Attachment, blank=True, null=True,
             verbose_name=_('attachments'))
 
