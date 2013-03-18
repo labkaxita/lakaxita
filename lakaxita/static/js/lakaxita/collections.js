@@ -1,20 +1,21 @@
-(function() {
-    Lakaxita.News = Backbone.Collection.extend({
+define(['lib/backbone'], function(Backbone) {
+
+    News = Backbone.Collection.extend({
         model: Backbone.Model.extend(),
         url: '/api/news/'
     });
 
-    Lakaxita.Gallery = Backbone.Collection.extend({
+    Gallery = Backbone.Collection.extend({
         model: Backbone.Model.extend(),
         url: '/api/gallery/'
     });
 
-    Lakaxita.Groups = Backbone.Collection.extend({
+    Groups = Backbone.Collection.extend({
         model: Backbone.Model.extend(),
         url: '/api/groups/'
     });
 
-    Lakaxita.LostItems = Backbone.Collection.extend({
+    LostItems = Backbone.Collection.extend({
         url: '/api/lost_found/',
         model: Backbone.Model.extend({
             absolute_url: function() { return this.get('absolute_url'); },
@@ -32,8 +33,16 @@
         }),
     });
 
-    Lakaxita.Attachments = Backbone.Collection.extend({
+    Attachments = Backbone.Collection.extend({
         model: Backbone.Model.extend(),
         url: '/api/attachments/'
     });
-})()
+
+    return {
+        News: News,
+        Gallery: Gallery,
+        Groups: Groups,
+        LostItems: LostItems,
+        Attachments: Attachments,
+    }
+})

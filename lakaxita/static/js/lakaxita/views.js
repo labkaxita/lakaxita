@@ -1,15 +1,19 @@
-(function() {
+define(['lakaxita/collections', 'lib/backbone'], function(Collections, Backbone) {
 
     /*__________HELPERS__________*/
 
-    Lakaxita.View = Backbone.View.extend({
+    get_template = function(name) {
+        return Handlebars.compile($('#'+name+'-template').html());
+    };
+
+    View = Backbone.View.extend({
         render: function() {
             this.$el.html(this.template(this));
             return this;
         },
     });
 
-    Lakaxita.CollectionView = Backbone.View.extend({
+    CollectionView = Backbone.View.extend({
         tagName: 'ul',
         render: function(event) {
             this.$el.empty();
@@ -24,10 +28,10 @@
 
     /*__________INDEX__________*/
 
-    Lakaxita.Index = Lakaxita.View.extend({
-        template: Lakaxita.get_template('index'),
+    Index = View.extend({
+        template: get_template('index'),
         initialize: function() {
-            this.news = new Lakaxita.News();
+            this.news = new Collections.News();
             this.news.fetch();
             this.news.on('sync', this.render, this);
         },
@@ -36,9 +40,9 @@
 
     /*__________LOST_FOUND__________*/
 
-    Lakaxita.Item = Lakaxita.View.extend({
+    Item = View.extend({
         tagName: 'li',
-        template: Lakaxita.get_template('item'),
+        template: get_template('item'),
         title: function() { return this.model.title(); },
         hover: function() { return this.model.date(); },
         image: function() { return this.model.thumbnail(); },
@@ -46,17 +50,22 @@
         url: function() { return this.model.absolute_url(); },
     });
 
-    Lakaxita.ItemList = Lakaxita.CollectionView.extend({
-        subView: Lakaxita.Item,
+    ItemList = CollectionView.extend({
+        subView: Item,
         initialize: function(options) {
             this.collection.on('sync', this.render, this);
         },
     });
 
-    Lakaxita.ItemDetail = Lakaxita.Item.extend({
+    ItemDetail = Item.extend({
         tagName: 'article',
-        template: Lakaxita.get_template('item-detail'),
+        template: get_template('item-detail'),
         image: function() { return this.model.image(); },
     });
 
-})()
+    return {
+        Index: Index,
+        ItemList: ItemList,
+        ItemDetail: ItemDetail,
+    };
+})

@@ -1,18 +1,6 @@
-(function() {
-    var Lakaxita = {};
-    window.Lakaxita = Lakaxita;
+define(['lakaxita/views', 'lakaxita/collections'], function(Views, Collections) {
 
-    Lakaxita.get_template = function(name) {
-        return Handlebars.compile($('#'+name+'-template').html());
-    };
-
-    Lakaxita.boot = function(container) {
-        container = $(container);
-        var router = new Lakaxita.Router({'el': container});
-        Backbone.history.start();
-    };
-
-    Lakaxita.Router = Backbone.Router.extend({
+    Router = Backbone.Router.extend({
         initialize: function(options) {
             this.el = options.el;
         },
@@ -30,20 +18,20 @@
             'contact': 'contact',
         },
         index: function() {
-            var view = new Lakaxita.Index();
+            var view = new Views.Index();
             this.render(view);
         },
         lost_found: function() {
-            var lost_items = new Lakaxita.LostItems();
+            var lost_items = new Collections.LostItems(),
+                view = new Views.ItemList({collection: lost_items});
             lost_items.fetch();
-            var view = new Lakaxita.ItemList({collection: lost_items});
             this.render(view);
         },
         lost_found_detail: function(slug) {
-            var lost_items = new Lakaxita.LostItems();
+            var lost_items = new Collections.LostItems();
             lost_items.on('sync', function() {
-                var model = lost_items.where({slug: slug})[0];
-                var view = new Lakaxita.ItemDetail({model: model});
+                var model = lost_items.where({slug: slug})[0],
+                    view = new Views.ItemDetail({model: model});
                 this.render(view);
             }, this);
             lost_items.fetch();
@@ -61,4 +49,6 @@
             this.el.empty();
         },
     });
-})()
+
+    return Router;
+})

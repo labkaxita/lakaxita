@@ -88,29 +88,6 @@ html
         {% compress js %}
         script
             - type text/javascript
-            - src {% static 'js/jquery.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/underscore.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/backbone.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/backbone-tastypie.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/handlebars.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/lakaxita/router.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/lakaxita/views.js' %}
-        script
-            - type text/javascript
-            - src {% static 'js/lakaxita/collections.js' %}
-        script
-            $(function() { Lakaxita.boot('section#content'); });
-        {% block extra_js %}{% endblock extra_js %}
+            - src {% static  'js/lib/require.js' %}
+            - data-main {% static 'js/main.js' %}
         {% endcompress %}
