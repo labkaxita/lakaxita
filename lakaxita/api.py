@@ -14,7 +14,12 @@ class ItemResource(ModelResource):
         queryset = Item.objects.all()
         resource_name = 'lost_found'
         include_absolute_url = True
-        fields = ['name', 'description', 'image', 'lost', 'found', 'slug']
+        fields = ['name', 'description', 'image', 'thumbnail', 'lost', 'found',
+                'slug']
+
+    def dehydrate(self, bundle):
+        bundle.data['thumbnail'] = bundle.obj.thumbnail.url
+        return bundle
 
 
 class AttachmentResource(ModelResource):
