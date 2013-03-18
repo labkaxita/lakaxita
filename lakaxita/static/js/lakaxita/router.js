@@ -16,6 +16,10 @@
         initialize: function(options) {
             this.el = options.el;
         },
+        render: function(view) {
+            this.el.empty();
+            this.el.append(view.render().el);
+        },
         routes: {
             '': 'index',
             'lost_found': 'lost_found',
@@ -24,10 +28,6 @@
             'gallery': 'gallery',
             'news': 'news',
             'contact': 'contact',
-        },
-        render: function(view) {
-            this.el.empty();
-            this.el.append(view.render().el);
         },
         index: function() {
             var view = new Lakaxita.Index();
@@ -41,9 +41,12 @@
         },
         lost_found_detail: function(slug) {
             var lost_items = new Lakaxita.LostItems();
+            lost_items.on('sync', function() {
+                var model = lost_items.where({slug: slug})[0];
+                var view = new Lakaxita.ItemDetail({model: model});
+                this.render(view);
+            }, this);
             lost_items.fetch();
-            var view = new Lakaxita.ItemDetail({collection: lost_items, slug: slug});
-            this.render(view);
         },
         groups: function() {
             this.el.empty();
