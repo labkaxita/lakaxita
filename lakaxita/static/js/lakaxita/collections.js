@@ -21,6 +21,7 @@
             title: function() { return this.get('name'); },
             date: function() { return this.get('lost'); },
             image: function() { return this.get('image'); },
+            thumbnail: function() { return this.get('thumbnail'); },
             returned: function() { 
                 if (this.get('found') == null) {
                     return 'http://localhost:8000/static/admin/img/icon-yes.gif'; 

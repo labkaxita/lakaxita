@@ -22,7 +22,7 @@
     });
 
 
-    /*__________LOST_FOUND__________*/
+    /*__________INDEX__________*/
 
     Lakaxita.Index = Lakaxita.View.extend({
         template: Lakaxita.get_template('index'),
@@ -33,12 +33,15 @@
         },
     });
 
+
+    /*__________LOST_FOUND__________*/
+
     Lakaxita.Item = Lakaxita.View.extend({
         tagName: 'li',
         template: Lakaxita.get_template('item'),
         title: function() { return this.model.title(); },
         hover: function() { return this.model.date(); },
-        image: function() { return this.model.image(); },
+        image: function() { return this.model.thumbnail(); },
         status: function() { return this.model.returned(); },
         url: function() { return this.model.absolute_url(); },
     });
@@ -51,13 +54,9 @@
     });
 
     Lakaxita.ItemDetail = Lakaxita.Item.extend({
-        initialize: function() {
-            console.log(this.collection);
-            var a = this.collection.findWhere({slug: this.options.slug});
-            console.log(a);
-        },
-        template: Lakaxita.get_template('item-detail'),
         tagName: 'article',
+        template: Lakaxita.get_template('item-detail'),
+        image: function() { return this.model.image(); },
     });
 
 })()
