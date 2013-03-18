@@ -10,16 +10,17 @@ define([
             Collections
             ) { 
 
-    boot = function(container) {
-        container = $(container);
-        var router = new Router({'el': container});
-        Backbone.history.start();
+
+    function App() {
+        this.boot = function(container) {
+            container = $(container);
+            var router = new Router({'el': container});
+            Backbone.history.start();
+        };
+        this.Router = Router;
+        this.Views = Views;
+        this.Collections = Collections;
     };
 
-    return {
-        boot: boot,
-        Router: Router,
-        Views: Views,
-        Collections: Collections,
-    };
+    return App
 });
