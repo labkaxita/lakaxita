@@ -1,12 +1,13 @@
 import urllib2
 from functools import wraps
 
-from django.test import TestCase
+from django.test import TestCase, LiveServerTestCase
 from django.contrib.sites.models import Site
 from django.core.management import call_command
 from django.db import connections, DEFAULT_DB_ALIAS
 
 import oembed
+from selenium.webdriver.firefox.webdriver import WebDriver
 
 from lakaxita.attachments.oembed_providers import InternalAttachmentProvider
 
@@ -73,3 +74,15 @@ class TestCase(TestCase):
                 return func(self, *args, **kwargs)
             return wrapper
         return decorator
+
+
+class LiveServerTestCase(LiveServerTestCase, TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.selenium = WebDriver()
+        super(LiveServerTestCase, cls).setUpClass()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.selenium.quit()
+        super(LiveServerTestCase, cls).tearDownClass()
