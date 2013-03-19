@@ -1,35 +1,45 @@
 require.config({
     baseUrl: '/static/js/',
     paths: {
-        'text': 'lib/text'
+        'text': 'lib/text',
+        'handlebars': 'lib/handlebars',
+        'underscore': 'lib/underscore',
+        'jquery': 'lib/jquery',
+        'backbone.subroute': 'lib/backbone.subroute',
+        'backbone-tastypie': 'backbone-tastypie',
+        'backbone': 'lib/backbone',
     },
     shim: {
-        'lib/handlebars': {
+        'handlebars': {
             exports: 'Handlebars',
         },
-        'lib/underscore': {
+        'underscore': {
             exports: '_',
         },
-        'lib/jquery': {
+        'jquery': {
             exports: '$',
+        },
+        'backbone.subroute': {
+            exports: 'Backbone',
+            deps: ['backbone'],
         },
         'backbone-tastypie': {
             exports: 'Backbone',
-            deps: ['lib/backbone'],
+            deps: ['backbone',],
         },
-        'lib/backbone': {
+        'backbone': {
             exports: 'Backbone',
             deps: [
-                'lib/underscore',
-                'lib/handlebars', 
-                'lib/jquery',
+                'underscore',
+                'handlebars', 
+                'jquery',
             ],
         },
     },
 });
 
 define(['lakaxita/app', 'backbone-tastypie'], function(App) {
-    Lakaxita = new App()
-    window.Lakaxita = Lakaxita
+    Lakaxita = new App();
+    window.Lakaxita = Lakaxita;
     Lakaxita.boot('section#content');
 });

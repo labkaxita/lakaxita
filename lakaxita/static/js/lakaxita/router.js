@@ -1,52 +1,32 @@
-define(['lakaxita/views', 'lakaxita/collections'], function(Views, Collections) {
+define([
+        'backbone',
+        'lakaxita/lost_found/router',
+        ], function(Backbone, LostFoundRouter) {
 
     Router = Backbone.Router.extend({
         initialize: function(options) {
+            this.options = options;
+            this.options['createTrailingSlashRoutes'] = true;
             this.el = options.el;
+            this.$el = $(options.el);
         },
-        render: function(view) {
-            this.el.empty();
-            this.el.append(view.render().el);
-        },
+
         routes: {
-            '': 'index',
-            'lost_found': 'lost_found',
-            'lost_found/:slug/': 'lost_found_detail',
-            'groups': 'groups',
-            'gallery': 'gallery',
-            'news': 'news',
-            'contact': 'contact',
+            'lost_found/(*subroute)': 'invokeLostFound',
         },
-        index: function() {
-            var view = new Views.Index();
-            this.render(view);
-        },
-        lost_found: function() {
-            var lost_items = new Collections.LostItems(),
-                view = new Views.ItemList({collection: lost_items});
-            lost_items.fetch();
-            this.render(view);
-        },
-        lost_found_detail: function(slug) {
-            var lost_items = new Collections.LostItems();
-            lost_items.on('sync', function() {
-                var model = lost_items.where({slug: slug})[0],
-                    view = new Views.ItemDetail({model: model});
-                this.render(view);
-            }, this);
-            lost_items.fetch();
+
+        invokeLostFound: function(subroute) {
+            if (!Router.LostFound) {
+                Router.LostFound = new LostFoundRouter('lost_found/', this.options);
+                };
         },
         groups: function() {
-            this.el.empty();
         },
         gallery: function() {
-            this.el.empty();
         },
         news: function() {
-            this.el.empty();
         },
         contact: function() {
-            this.el.empty();
         },
     });
 
