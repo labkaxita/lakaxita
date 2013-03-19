@@ -2,6 +2,7 @@ from lakaxita.settings.settings import *
 
 DEBUG=True
 TEMPLATE_DEBUG=DEBUG
+REQUIRE_DEBUG = DEBUG
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 

@@ -33,6 +33,7 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+STATICFILES_STORAGE = 'require.storage.OptimizedCachedStaticFilesStorage'
 
 SECRET_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
@@ -96,6 +97,7 @@ INSTALLED_APPS = (
     'mptt',
     'tastypie',
     'backbone_tastypie',
+    'require',
 
     'grappelli.dashboard',
     'grappelli',
@@ -156,6 +158,10 @@ BADBROWSER_REQUIREMENTS = (
     ('chrome', '3.0'),
     ('microsoft internet explorer', '8'),
 )
+
+REQUIRE_BASE_URL = 'js'
+REQUIRE_JS = 'lib/require.js'
+REQUIRE_ENVIRONMENT_ARGS = ['./bin/node']
 
 # add to WSGI too
 import djcelery

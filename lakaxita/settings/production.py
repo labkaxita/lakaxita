@@ -11,6 +11,7 @@ except ImportError:
         secret_key_file.write("SECRET_KEY = '{}'".format(SECRET_KEY))
 
 DEBUG = False
+REQUIRE_DEBUG = DEBUG
 TEMPLATE_DEBUG = DEBUG
 SEND_BROKEN_LINK_EMAILS = DEBUG
 
