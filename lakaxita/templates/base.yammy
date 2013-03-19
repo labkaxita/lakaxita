@@ -17,7 +17,7 @@ html
     body
         header
             a#logo
-                -href #
+                -href #/
                 h1 lakaxita gaztetxea
                 img
                     - src {% static 'imgs/lakaxita.svg' %}
@@ -46,27 +46,27 @@ html
         nav
             ul
                 li#objects
-                    a [href="#/lost_found"]
+                    a [href="#/lost_found/"]
                         | {% trans 'GALDUTAKO GAUZAK' %}
                         img
                             - src {% static 'imgs/galduak.svg' %}
                 li#groups
-                    a [href="#/groups"]
+                    a [href="#/groups/"]
                         | {% trans 'ERAGILEAK' %}
                         img
                             - src {% static 'imgs/eragileak.svg' %}
                 li#gallery
-                    a [href="#/gallery"]
+                    a [href="#/gallery/"]
                         | {% trans 'GALERIA' %}
                         img
                             - src {% static 'imgs/galeria.svg' %}
                 li#news
-                    a [href="#/news"]
+                    a [href="#/news/"]
                         | {% trans 'BERRIAK' %}
                         img
                             - src {% static 'imgs/berriak.svg' %}
                 li#contact
-                    a [href="#/contact"]
+                    a [href="#/contact/"]
                         | {% trans 'KONTAKTUA' %}
                         img
                             - src {% static 'imgs/kontaktua.svg' %}
