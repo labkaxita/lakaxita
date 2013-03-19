@@ -16,7 +16,8 @@ html
 
     body
         header
-            div#logo
+            a#logo
+                -href #
                 h1 lakaxita gaztetxea
                 img
                     - src {% static 'imgs/lakaxita.svg' %}
