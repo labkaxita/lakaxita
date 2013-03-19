@@ -7,7 +7,7 @@ define([
     Router = Routers.SubRouter.extend({
         routes: {
             '': 'scroll',
-            '/:slug/': 'detail',
+            ':slug/': 'detail',
         },
         scroll: function() {
             var lost_items = new Collections.LostItems(),
