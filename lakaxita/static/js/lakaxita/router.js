@@ -12,7 +12,7 @@ define([
         },
 
         routes: {
-            'lost_found/(*subroute)': 'invokeLostFound',
+            'lost_found(/*subroute)': 'invokeLostFound',
         },
 
         invokeLostFound: function(subroute) {

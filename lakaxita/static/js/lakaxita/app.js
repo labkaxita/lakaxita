@@ -10,8 +10,8 @@ define([
     function App() {
         this.boot = function(container) {
             container = $(container);
-            Backbone.history.start();
             var router = new Router({el: container});
+            Backbone.history.start();
         };
         this.Router = Router;
     };

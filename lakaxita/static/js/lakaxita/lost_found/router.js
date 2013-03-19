@@ -10,7 +10,6 @@ define([
             '/:slug/': 'detail',
         },
         scroll: function() {
-            console.log('scroll');
             var lost_items = new Collections.LostItems(),
                 view = new Views.ItemList({collection: lost_items});
             lost_items.fetch();
