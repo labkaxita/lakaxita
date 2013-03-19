@@ -31,7 +31,7 @@ define(['lakaxita/collections', 'lib/backbone'], function(Collections, Backbone)
     /*__________INDEX__________*/
 
     Index = View.extend({
-        template: 'templates/index.html',
+        template: 'templates/home.html',
         initialize: function() {
             this.news = new Collections.News();
             this.news.fetch();
