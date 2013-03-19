@@ -1,0 +1,32 @@
+form#notification
+    label 
+        - for title
+        | Title *:
+
+    input#title
+        - type text
+        - name title
+        - required required
+        - maxlength 100
+
+    label
+        - for reply_to
+        | Reply to *:
+
+    input#reply_to
+        - type email
+        - name reply_to
+        - required required
+
+    label
+        - for text
+        | Text:
+
+    textarea#text
+        - type text
+        - name text
+        - size 1000
+
+    input
+        - type submit
+        - value Submit

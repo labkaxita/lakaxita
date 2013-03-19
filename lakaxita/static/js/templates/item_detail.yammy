@@ -1,8 +1,10 @@
 img.slide
     - src {{ image }}
+button#form [value="nirea da!"]
 h3 
     | {{ title }}
 p.hover 
     | {{ hover }}
 img.group
     - src {{ status }}
+

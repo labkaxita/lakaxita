@@ -1,7 +1,7 @@
 define(['backbone'], function(Backbone) {
 
-    LostItems = Backbone.Collection.extend({
-        url: '/api/lost_found/',
+    Items = Backbone.Collection.extend({
+        url: '/api/lost_items/',
         model: Backbone.Model.extend({
             absolute_url: function() { return this.get('absolute_url'); },
             title: function() { return this.get('name'); },
@@ -18,5 +18,9 @@ define(['backbone'], function(Backbone) {
         }),
     });
 
-    return {LostItems: LostItems};
+    Notifications = Backbone.Collection.extend({
+        url: '/api/lost_item_notifications/',
+    });
+
+    return {Items: Items, Notifications: Notifications};
 })

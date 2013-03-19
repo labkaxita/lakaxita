@@ -1,18 +1,20 @@
 from tastypie.resources import ModelResource
 from tastypie import fields
 from tastypie.api import Api
+from tastypie.authorization import Authorization
 
 from lakaxita.news.models import News
 from lakaxita.attachments.models import Attachment
 from lakaxita.groups.models import Group
 from lakaxita.gallery.models import Category
-from lakaxita.lost_found.models import Item
+from lakaxita.lost_found.models import Item, Notification
 
 
 class ItemResource(ModelResource):
     class Meta:
+        allowed_methods = ['get']
         queryset = Item.objects.all()
-        resource_name = 'lost_found'
+        resource_name = 'lost_items'
         include_absolute_url = True
         fields = ['name', 'description', 'image', 'thumbnail', 'lost', 'found',
                 'slug']
@@ -20,6 +22,18 @@ class ItemResource(ModelResource):
     def dehydrate(self, bundle):
         bundle.data['thumbnail'] = bundle.obj.thumbnail.url
         return bundle
+
+
+class NotificationResource(ModelResource):
+    class Meta:
+        allowed_methods = ['post']
+        authorization = Authorization()
+        queryset = Notification.objects.all()
+        resource_name = 'lost_item_notifications'
+        include_absolute_url = True
+        fields = ['title', 'reply_to', 'text', 'item']
+
+    item = fields.ForeignKey(ItemResource, 'item')
 
 
 class AttachmentResource(ModelResource):
@@ -56,6 +70,6 @@ class NewsResource(ModelResource):
         include_absolute_url = True
 
 api = Api(api_name='api')
-for resource in (ItemResource, CategoryResource, AttachmentResource,
-                GroupResource, NewsResource):
+for resource in (ItemResource, NotificationResource, CategoryResource, 
+                AttachmentResource, GroupResource, NewsResource):
     api.register(resource())
