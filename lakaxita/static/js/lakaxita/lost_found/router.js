@@ -11,7 +11,7 @@ define([
         },
         scroll: function() {
             var items = new Collections.Items(),
-                view = new Views.ItemList({collection: items});
+                view = new Views.ItemScroll({collection: items});
             items.fetch();
             this.renderScroll(view);
         },

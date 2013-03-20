@@ -10,7 +10,7 @@ define(['lakaxita/utils/views', 'lakaxita/lost_found/collections'], function(Vie
         url: function() { return this.model.absolute_url(); },
     });
 
-    ItemList = Views.ScrollView.extend({
+    ItemScroll = Views.ScrollView.extend({
         subView: Item,
         initialize: function(options) {
             this.collection.on('sync', this.render, this);
@@ -53,7 +53,7 @@ define(['lakaxita/utils/views', 'lakaxita/lost_found/collections'], function(Vie
     });
 
     return {
-        ItemList: ItemList,
+        ItemScroll: ItemScroll,
         ItemDetail: ItemDetail,
     };
 })
