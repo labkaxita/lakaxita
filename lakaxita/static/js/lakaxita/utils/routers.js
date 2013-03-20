@@ -1,6 +1,10 @@
-define(['backbone.subroute', 'backbone'], function(subroute, Backbone) {
+define(['backbone.subroute', 'backbone', 'underscore'], function(subroute, Backbone, _) {
 
     SubRouter = Backbone.SubRoute.extend({
+        constructor: function(options) {
+            this._routes = _.clone(this.routes);
+            Backbone.SubRoute.prototype.constructor.call(this, options);
+        },
         initialize: function(options) {
             this.el = options.el;
             this.$el = $(options.el);
@@ -10,7 +14,7 @@ define(['backbone.subroute', 'backbone'], function(subroute, Backbone) {
         },
         renderScroll: function(view) {
             this.$el.find('ul.scroll').remove();
-            this.el.append(view.render().el);
+            this.$el.append(view.render().el);
         },
     });
 
