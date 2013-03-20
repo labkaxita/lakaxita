@@ -15,7 +15,6 @@ class ItemResource(ModelResource):
         allowed_methods = ['get']
         queryset = Item.objects.all()
         resource_name = 'lost_items'
-        include_absolute_url = True
         fields = ['name', 'description', 'image', 'thumbnail', 'lost', 'found',
                 'slug']
 
@@ -30,7 +29,6 @@ class NotificationResource(ModelResource):
         authorization = Authorization()
         queryset = Notification.objects.all()
         resource_name = 'lost_item_notifications'
-        include_absolute_url = True
         fields = ['title', 'reply_to', 'text', 'item']
 
     item = fields.ForeignKey(ItemResource, 'item')
@@ -40,14 +38,12 @@ class AttachmentResource(ModelResource):
     class Meta:
         queryset = Attachment.objects.all()
         resource_name = 'attachments'
-        include_absolute_url = True
 
 
 class CategoryResource(ModelResource):
     class Meta:
         queryset = Category.objects.root_nodes()
         resource_name = 'gallery'
-        include_absolute_url = True
 
     children = fields.ToManyField('self', 'children')
     parent = fields.ForeignKey('self', 'parent', null=True)
@@ -58,7 +54,6 @@ class GroupResource(ModelResource):
     class Meta:
         queryset = Group.objects.all()
         resource_name = 'groups'
-        include_absolute_url = True
 
 
 class NewsResource(ModelResource):
@@ -67,7 +62,6 @@ class NewsResource(ModelResource):
     class Meta:
         queryset = News.objects.published()
         resource_name = 'news'
-        include_absolute_url = True
 
 api = Api(api_name='api')
 for resource in (ItemResource, NotificationResource, CategoryResource, 
