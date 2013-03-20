@@ -22,6 +22,7 @@ define([
             if (model) {
                 path = path.replace(':slug', model.get('slug'));
             };
+            path = '#' + path;
             return path;
         },
     });
