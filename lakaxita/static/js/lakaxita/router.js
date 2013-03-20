@@ -10,10 +10,9 @@ define([
             this.$el = $(options.el);
             this.options = options;
             this.options['createTrailingSlashRoutes'] = true;
-        },
-
-        subroutes: {
-            lost_found: new LostFoundRouter('lost_found/', this.options),
+            this.subroutes = {
+                lost_found: new LostFoundRouter('lost_found/', this.options),
+            };
         },
 
         reverse: function(route, subroute, model) {
