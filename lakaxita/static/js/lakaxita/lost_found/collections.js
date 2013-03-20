@@ -3,7 +3,6 @@ define(['backbone'], function(Backbone) {
     Items = Backbone.Collection.extend({
         url: '/api/lost_items/',
         model: Backbone.Model.extend({
-            absolute_url: function() { return this.get('absolute_url'); },
             title: function() { return this.get('name'); },
             date: function() { return this.get('lost'); },
             image: function() { return this.get('image'); },

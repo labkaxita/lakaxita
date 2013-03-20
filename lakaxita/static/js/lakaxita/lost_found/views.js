@@ -1,4 +1,7 @@
-define(['lakaxita/utils/views', 'lakaxita/lost_found/collections'], function(Views, Collections) {
+define([
+        'lakaxita/utils/views', 
+        'lakaxita/lost_found/collections',
+        ], function(Views, Collections) {
 
     Item = Views.View.extend({
         tagName: 'li',
@@ -7,7 +10,7 @@ define(['lakaxita/utils/views', 'lakaxita/lost_found/collections'], function(Vie
         hover: function() { return this.model.date(); },
         image: function() { return this.model.thumbnail(); },
         status: function() { return this.model.returned(); },
-        url: function() { return this.model.absolute_url(); },
+        url: function() { return this.reverse('lost_found', 'detail', this.model); },
     });
 
     ItemScroll = Views.ScrollView.extend({

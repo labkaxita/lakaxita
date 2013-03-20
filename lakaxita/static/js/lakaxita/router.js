@@ -20,7 +20,7 @@ define([
             var subroute = _.invert(route._routes)[subroute];
             var path = route.prefix + subroute;
             if (model) {
-                path = path.replace(':slug', model.slug());
+                path = path.replace(':slug', model.get('slug'));
             };
             return path;
         },
