@@ -5,7 +5,7 @@ define([
 
     Item = Views.View.extend({
         tagName: 'li',
-        template: 'templates/item.html',
+        template: 'templates/lost_found/item.html',
         title: function() { return this.model.title(); },
         hover: function() { return this.model.date(); },
         image: function() { return this.model.thumbnail(); },
@@ -22,7 +22,7 @@ define([
 
     ItemDetail = Item.extend({
         tagName: 'article',
-        template: 'templates/item_detail.html',
+        template: 'templates/lost_found/item_detail.html',
         image: function() { return this.model.image(); },
         events: {'click button': 'notify'},
         notify: function(event) {
@@ -41,7 +41,7 @@ define([
             this.collection.on('add', this.success, this);
         },
         tagName: 'form',
-        template: 'templates/notification_form.html',
+        template: 'templates/lost_found/notification_form.html',
         events: {'submit': 'submit'},
         submit: function(event) {
             event.preventDefault();
