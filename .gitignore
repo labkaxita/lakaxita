@@ -13,4 +13,5 @@ src
 assets
 build
 .env
-lakaxita/static/js/templates/*.html
+lakaxita/static/js/lakaxita/templates/*.html
+lakaxita/static/js/lakaxita/templates/*/*.html

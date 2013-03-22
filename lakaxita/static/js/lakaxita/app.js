@@ -1,12 +1,11 @@
 define([
-        'jquery', 
         'lakaxita/router', 
-        ], function ($, Router) { 
+        ], function (Router) { 
 
     function App() {
         this.boot = function(container) {
-            container = $(container);
             router = new Router({el: container});
+            router.boot();
             this.router = router;
             Backbone.View.prototype.reverse = function(route, subroute, model) { 
                 return router.reverse(route, subroute, model);

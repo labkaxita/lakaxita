@@ -1,8 +1,9 @@
 define([
         'backbone',
         'underscore',
+        'lakaxita/views',
         'lakaxita/lost_found/router',
-        ], function(Backbone, _, LostFoundRouter) {
+        ], function(Backbone, _, Views, LostFoundRouter) {
 
     Router = Backbone.Router.extend({
         initialize: function(options) {
@@ -13,6 +14,11 @@ define([
             this.subroutes = {
                 lost_found: new LostFoundRouter('lost_found/', this.options),
             };
+        },
+        
+        boot: function() {
+            var view = new Views.Base();
+            this.$el.html(view.render().el);
         },
 
         reverse: function(route, subroute, model) {

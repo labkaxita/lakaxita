@@ -41,5 +41,5 @@ require.config({
 define(['lakaxita/app', 'backbone-tastypie'], function(App) {
     Lakaxita = new App();
     window.Lakaxita = Lakaxita;
-    Lakaxita.boot('section#content');
+    Lakaxita.boot('body');
 });
