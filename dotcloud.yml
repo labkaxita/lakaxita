@@ -1,7 +1,6 @@
 www:
     type: python
     postbuild: ./.dotcloud/postbuild.sh
-    postinstall: ./.dotcloud/postinstall.sh
     config:
         python_version: v2.7
 db:

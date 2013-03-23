@@ -13,15 +13,16 @@ except ImportError:
     with open(os.path.join(DIR, 'secret_key.py'), 'w') as secret_key_file:
         secret_key_file.write("SECRET_KEY = '{}'".format(SECRET_KEY))
 
+
 DEBUG = False
 REQUIRE_DEBUG = DEBUG
 TEMPLATE_DEBUG = DEBUG
 SEND_BROKEN_LINK_EMAILS = DEBUG
 
 
-STATIC_ROOT = '~/volatile/static/'
+STATIC_ROOT = '/home/dotcloud/volatile/static/'
 STATIC_URL = '/static/'
-MEDIA_ROOT = '~/data/media/'
+MEDIA_ROOT = '/home/dotcloud/data/media/'
 MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = os.path.join(STATIC_URL, 'grappelli')
 
@@ -35,8 +36,6 @@ ADMIN_MEDIA_PREFIX = os.path.join(STATIC_URL, 'grappelli')
 #                       'django.middleware.clickjacking.XFrameOptionsMiddleware',
 #                       )
 
-print env
-raise env
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
