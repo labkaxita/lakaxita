@@ -35,6 +35,8 @@ ADMIN_MEDIA_PREFIX = os.path.join(STATIC_URL, 'grappelli')
 #                       'django.middleware.clickjacking.XFrameOptionsMiddleware',
 #                       )
 
+print env
+raise env
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
