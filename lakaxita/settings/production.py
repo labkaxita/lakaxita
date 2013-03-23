@@ -1,5 +1,8 @@
-# -*- coding: utf-8 -*-
+import json
 from settings import *
+
+with open('/home/dotcloud/environment.json') as f:
+      env = json.load(f)
 
 try:
     from secret_key import SECRET_KEY
@@ -16,30 +19,30 @@ TEMPLATE_DEBUG = DEBUG
 SEND_BROKEN_LINK_EMAILS = DEBUG
 
 
-STATIC_ROOT = '/home/lakaxita/webapps/static/static/'
-STATIC_URL = '/files/static/'
-MEDIA_ROOT = '/home/lakaxita/webapps/static/media/'
-MEDIA_URL = '/files/media/'
+STATIC_ROOT = '~/volatile/static/'
+STATIC_URL = '/static/'
+MEDIA_ROOT = '~/data/media/'
+MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = os.path.join(STATIC_URL, 'grappelli')
 
-CACHE_BACKEND = 'memcached://unix:/home/lakaxita/webapps/lakaxita/memcached.sock'
-CACHE_MIDDLEWARE_SECONDS = 90
-MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',
-                    'django.middleware.gzip.GZipMiddleware') +\
-                    MIDDLEWARE_CLASSES + \
-                    ('django.middleware.http.ConditionalGetMiddleware',
-                    'django.middleware.cache.FetchFromCacheMiddleware',
-                    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-                    )
+#   CACHE_BACKEND = 'memcached://unix:/home/lakaxita/webapps/lakaxita/memcached.sock'
+#   CACHE_MIDDLEWARE_SECONDS = 90
+#   MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',
+#                       'django.middleware.gzip.GZipMiddleware') +\
+#                       MIDDLEWARE_CLASSES + \
+#                       ('django.middleware.http.ConditionalGetMiddleware',
+#                       'django.middleware.cache.FetchFromCacheMiddleware',
+#                       'django.middleware.clickjacking.XFrameOptionsMiddleware',
+#                       )
 
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': '',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': '',
+            'NAME': 'lakaxita',
+            'USER': env['DOTCLOUD_DB_SQL_LOGIN'],
+            'PASSWORD': env['DOTCLOUD_DB_SQL_PASSWORD'],
+            'HOST': env['DOTCLOUD_DB_SQL_HOST'],
+            'PORT': int(env['DOTCLOUD_DB_SQL_PORT']),
             }
         }
 
@@ -47,13 +50,12 @@ DATABASES = {
 ADMINS = (('Unai Zalakain', '{}@{}'.format('contact', 'unaizalakain.info')))
 MANAGERS = ADMINS
 
-FEEDBACK_EMAIL = ''
-EMAIL_SUBJECT_PREFIX = '[BM]'
-EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_SUBJECT_PREFIX = '[LAKAXITA]'
+EMAIL_HOST = ''
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = 'system@lakaxita'
-SERVER_EMAIL = 'system@lakaxita'
+DEFAULT_FROM_EMAIL = ''
+SERVER_EMAIL = ''
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
