@@ -142,9 +142,11 @@ MARKITUP_AUTO_PREVIEW = True
 OEMBED_DEFAULT_PARSE_HTML = False
 
 SASS = os.path.join(os.path.dirname(DIR), 'bin/sass')
+PYSCSS = os.path.join(os.path.dirname(DIR), 'bin/pyscss')
 COMPRESS_OUTPUT_DIR = 'cache'
 COMPRESS_PRECOMPILERS = (
                 ('text/x-sass', '%s {infile} {outfile}' % SASS),
+                ('text/x-scss', '%s {infile} -o {outfile}' % PYSCSS),
                 )
 
 GRAPPELLI_INDEX_DASHBOARD = 'lakaxita.dashboard.Dashboard'

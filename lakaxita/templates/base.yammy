@@ -8,8 +8,8 @@ html
         {% compress css %}
         link
             - rel stylesheet
-            - type text/x-sass
-            - href {% static 'css/main.sass' %}
+            - type text/x-scss
+            - href {% static 'css/main.scss' %}
         {% block extra_css %}{% endblock extra_css %}
         {% endcompress %}
         {% block extra_headers %}{% endblock extra_headers %}
