@@ -1,5 +1,7 @@
 #!/bin/sh
-./.dotcloud/createdb.py
-./.dotcloud/mkadmin.py
+ls
+ls ./bin
+./bin/python .dotcloud/createdb.py
+./bin/python .dotcloud/mkadmin.py
 ./bin/django syncdb --migrate --noinput
 ./bin/django collectstatic --noinput
