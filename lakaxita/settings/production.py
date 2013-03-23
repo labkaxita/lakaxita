@@ -1,7 +1,7 @@
 import json
 from settings import *
 
-with open('/home/dotcloud/environment.json') as f:
+with open('/home/dotcloud/env.json') as f:
       env = json.load(f)
 
 try:

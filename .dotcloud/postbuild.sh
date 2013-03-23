@@ -1,3 +1,4 @@
+cp ./environment.json ./env.json
 python bootstrap.py
 ./bin/buildout -c production.cfg -N
 cp ./bin/django.wsgi ./wsgi.py
