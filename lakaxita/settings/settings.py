@@ -164,7 +164,11 @@ BADBROWSER_REQUIREMENTS = (
 REQUIRE_BASE_URL = 'js'
 REQUIRE_JS = 'lib/require.js'
 REQUIRE_ENVIRONMENT_ARGS = ['./bin/node']
-REQUIRE_STANDALONE_MODULES = {'main': {'out': 'main-built.js'}}
+REQUIRE_BUILD_PROFILE = 'main.build.js'
+#REQUIRE_STANDALONE_MODULES = {'main': {
+#    'out': 'main-built.js',
+#    'build_profile': 'main.build.js',
+#    }}
 
 # add to WSGI too
 import djcelery
