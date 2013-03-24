@@ -1,4 +1,4 @@
-{% load static compress i18n %}
+{% load static compress require %}
 
 <!doctype html/>
 
@@ -15,7 +15,4 @@ html
         {% block extra_headers %}{% endblock extra_headers %}
 
     body
-        script
-            - type text/javascript
-            - src {% static  'js/lib/require.js' %}
-            - data-main {% static 'js/main.js' %}
+        {% require_module 'main' %}
