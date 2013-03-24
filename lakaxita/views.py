@@ -1,3 +1,5 @@
+from os import path
+
 from django.views.generic import TemplateView
 
 from lakaxita.news.models import News
@@ -12,3 +14,10 @@ class BaseView(TemplateView):
         context['news_list'] = News.objects.frontpage()
         context['category_list'] = Category.objects.root_nodes()
         return context
+
+
+class JSTemplateView(TemplateView):
+    def get_template_names(self):
+        p = path.join('js', self.kwargs['path'])
+        return [ '{path}.{ext}'.format(path=p, ext=ext) for ext in\
+                ('yammy', 'html') ]

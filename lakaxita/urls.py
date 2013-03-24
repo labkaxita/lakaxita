@@ -11,7 +11,7 @@ from filebrowser.sites import site
 import oembed
 oembed.autodiscover()
 
-from lakaxita.views import BaseView
+from lakaxita.views import BaseView, JSTemplateView
 from lakaxita.api import api
 
 
@@ -39,6 +39,7 @@ urlpatterns = patterns('',
         url(r'^markitup/', include('markitup.urls')),
 
         url('^', include(api.urls)),
+        url('^template/(?P<path>.+)/$', JSTemplateView.as_view(), name='template'),
 )
 
 

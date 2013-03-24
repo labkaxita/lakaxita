@@ -1,3 +1,4 @@
+{% verbatim %}
 a 
     - href {{ url }}
     img.slide
@@ -8,3 +9,4 @@ a
         | {{ hover }}
     img.group
         - src {{ status }}
+{% endverbatim %}

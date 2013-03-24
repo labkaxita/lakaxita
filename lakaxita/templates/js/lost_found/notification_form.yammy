@@ -1,7 +1,9 @@
+{% load i18n %}
+
 form#notification
     label 
         - for title
-        | Title *:
+        | {% trans 'Title' %} *:
 
     input#title
         - type text
@@ -11,7 +13,7 @@ form#notification
 
     label
         - for reply_to
-        | Reply to *:
+        | {% trans 'Reply to' %} *:
 
     input#reply_to
         - type email
@@ -20,7 +22,7 @@ form#notification
 
     label
         - for text
-        | Text:
+        | {% trans 'Text' %}:
 
     textarea#text
         - type text
@@ -29,4 +31,4 @@ form#notification
 
     input
         - type submit
-        - value Submit
+        - value {% trans 'Submit' %}

@@ -4,7 +4,7 @@ define([
 
     Base = Views.View.extend({
         tagName: 'div',
-        template: 'base.html',
+        template: 'base',
     });
 
     return {
