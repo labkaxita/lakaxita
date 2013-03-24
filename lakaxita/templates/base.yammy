@@ -15,9 +15,7 @@ html
         {% block extra_headers %}{% endblock extra_headers %}
 
     body
-        {% compress js %}
         script
             - type text/javascript
             - src {% static  'js/lib/require.js' %}
             - data-main {% static 'js/main.js' %}
-        {% endcompress %}
