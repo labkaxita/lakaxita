@@ -18,7 +18,7 @@ define([
         
         boot: function() {
             var view = new Views.Base();
-            this.$el.html(view.render().el);
+            this.$el.replaceWith(view.render().el);
         },
 
         reverse: function(route, subroute, model) {

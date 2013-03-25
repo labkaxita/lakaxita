@@ -14,5 +14,6 @@ html
         {% endcompress %}
         {% block extra_headers %}{% endblock extra_headers %}
 
-    body
+    body.loading
+        h2 loading...
         {% require_module 'main' %}

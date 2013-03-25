@@ -3,7 +3,7 @@ define([
         ], function(Views) {
 
     Base = Views.View.extend({
-        tagName: 'div',
+        tagName: 'body',
         template: 'base',
     });
 
