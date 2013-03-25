@@ -5,11 +5,8 @@
     removeCombined: true,
     modules: [
         {
-            name: 'backbone-tastypie',
+            name: 'main',
             include: ['backbone'],
-        },
-        {
-            name: 'lakaxita/app',
         },
     ],
 })
