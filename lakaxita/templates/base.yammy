@@ -4,16 +4,16 @@
 
 html
     head
-        title lakaxita{% block title %}{% endblock title %}
+        title lakaxita
         {% compress css %}
         link
             - rel stylesheet
             - type text/x-scss
             - href {% static 'css/main.scss' %}
-        {% block extra_css %}{% endblock extra_css %}
         {% endcompress %}
-        {% block extra_headers %}{% endblock extra_headers %}
 
     body.loading
         h2 loading...
         {% require_module 'main' %}
+        section#nav
+        section#content

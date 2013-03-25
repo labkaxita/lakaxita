@@ -1,24 +1,29 @@
 define([
         'backbone',
         'underscore',
+        'jquery',
         'lakaxita/views',
         'lakaxita/lost_found/router',
-        ], function(Backbone, _, Views, LostFoundRouter) {
+        ], function(Backbone, _, $, Views, LostFoundRouter) {
 
     Router = Backbone.Router.extend({
         initialize: function(options) {
-            this.el = options.el;
-            this.$el = $(options.el);
-            this.options = options;
-            this.options['createTrailingSlashRoutes'] = true;
+            this.content = options.content;
+            this.nav = options.nav;
+            this.loadNav();
+
+            var options = {
+                el: this.content,
+                createTrailingSlashRoutes: true,
+            };
             this.subroutes = {
-                lost_found: new LostFoundRouter('lost_found/', this.options),
+                lost_found: new LostFoundRouter('lost_found/', options),
             };
         },
-        
-        boot: function() {
-            var view = new Views.Base();
-            this.$el.replaceWith(view.render().el);
+
+        loadNav: function() {
+            var view = new Views.Nav();
+            $(this.nav).html(view.render().el);
         },
 
         reverse: function(route, subroute, model) {

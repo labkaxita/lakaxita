@@ -48,7 +48,3 @@ nav
                 | {% trans 'KONTAKTUA' %}
                 img
                     - src {% static 'imgs/kontaktua.svg' %}
-        
-
-
-section#content

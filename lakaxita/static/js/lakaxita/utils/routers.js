@@ -9,17 +9,12 @@ define(['backbone.subroute', 'backbone', 'underscore'], function(subroute, Backb
             this.el = options.el;
             this.$el = $(options.el);
         },
-        renderPage: function(view) {
+        renderContent: function(view) {
             this.$el.html(view.render().el);
         },
-        renderContent: function(view) {
-            var $el = this.$el.find('section#content');
-            $el.html(view.render().el);
-        },
         renderScroll: function(view) {
-            var $el = this.$el.find('section#content');
-            $el.find('ul.scroll').remove();
-            $el.append(view.render().el);
+            this.$el.find('ul.scroll').remove();
+            this.$el.append(view.render().el);
         },
     });
 

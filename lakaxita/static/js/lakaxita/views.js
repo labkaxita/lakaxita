@@ -2,12 +2,12 @@ define([
         'lakaxita/utils/views', 
         ], function(Views) {
 
-    Base = Views.View.extend({
+    Nav = Views.View.extend({
         tagName: 'body',
-        template: 'base',
+        template: 'nav',
     });
 
     return {
-        Base: Base,
+        Nav: Nav,
     };
 })
