@@ -18,7 +18,7 @@ define([
         detail: function(slug) {
             var items = new Collections.Items();
             items.on('sync', function() {
-                var model = items.where({slug: slug})[0],
+                var model = items.findWhere({slug: slug}),
                     view = new Views.ItemDetail({model: model});
                 this.renderContent(view);
             }, this);
