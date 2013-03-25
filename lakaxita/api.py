@@ -19,7 +19,10 @@ class ItemResource(ModelResource):
                 'slug']
 
     def dehydrate(self, bundle):
-        bundle.data['thumbnail'] = bundle.obj.thumbnail.url
+        thumbnail = None
+        if bundle.obj.image:
+            thumbnail = bundle.obj.thumbnail.url
+        bundle.data['thumbnail'] = thumbnail
         return bundle
 
 
