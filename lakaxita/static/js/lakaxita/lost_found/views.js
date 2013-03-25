@@ -15,9 +15,6 @@ define([
 
     ItemScroll = Views.ScrollView.extend({
         subView: Item,
-        initialize: function(options) {
-            this.collection.on('sync', this.render, this);
-        },
     });
 
     ItemDetail = Item.extend({

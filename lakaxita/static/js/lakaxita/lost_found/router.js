@@ -11,16 +11,16 @@ define([
         },
         scroll: function() {
             var items = new Collections.Items(),
-                view = new Views.ItemScroll({collection: items});
+                view = new Views.ItemScroll({collection: items, el: this.el});
             items.fetch();
-            this.renderScroll(view);
         },
         detail: function(slug) {
-            var items = new Collections.Items();
+            var items = new Collections.Items(),
+                view = new Views.ItemDetail({el: this.el});
             items.on('sync', function() {
-                var model = items.findWhere({slug: slug}),
-                    view = new Views.ItemDetail({model: model});
-                this.renderContent(view);
+                var model = items.findWhere({slug: slug});
+                view.model = model;
+                view.render();
             }, this);
             items.fetch();
         },

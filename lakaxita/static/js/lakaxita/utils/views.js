@@ -15,8 +15,11 @@ define(['backbone', 'text'], function(Backbone) {
     ScrollView = Backbone.View.extend({
         tagName: 'ul',
         className: 'scroll',
+        initialize: function() {
+            this.collection.on('sync', this.render, this);
+        },
         render: function() {
-            this.$el.empty();
+            this.$el.find('ul.scroll').remove();
             this.collection.each(function(model) {
                 var view = new this.subView({model: model});
                 this.$el.append(view.render().el);
