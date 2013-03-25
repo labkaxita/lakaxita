@@ -3,7 +3,6 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 
-from infinite_pagination import InfinitePaginator
 
 from lakaxita.lost_found.models import Item
 from lakaxita.lost_found.forms import NotificationForm
@@ -13,7 +12,6 @@ class ItemList(ListView):
     model = Item
     allow_empty = True
     paginate_by = 10
-    paginator_class = InfinitePaginator
     template_name = 'lost_found/item_list.yammy'
     context_object_name = 'item_list'
 

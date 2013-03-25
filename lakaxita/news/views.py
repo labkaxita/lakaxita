@@ -1,7 +1,6 @@
 from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404
 
-from infinite_pagination import InfinitePaginator
 
 from lakaxita.groups.models import Group
 from lakaxita.news.models import News
@@ -11,7 +10,6 @@ class NewsList(ListView):
     queryset = News.objects.published()
     allow_empty = True
     paginate_by = 10
-    paginator_class = InfinitePaginator
     template_name = 'news/news_list.yammy'
     context_object_name = 'news_list'
 
@@ -19,7 +17,6 @@ class NewsList(ListView):
 class NewsGroupDetail(ListView):
     allow_empty = True
     paginate_by = 10
-    paginator_class = InfinitePaginator
     template_name = 'news/news_list.yammy'
     context_object_name = 'news_list'
 

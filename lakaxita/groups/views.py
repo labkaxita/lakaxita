@@ -1,7 +1,5 @@
 from django.views.generic import ListView, DetailView
 
-from infinite_pagination import InfinitePaginator
-
 from lakaxita.groups.models import Group
 
 
@@ -9,7 +7,6 @@ class GroupList(ListView):
     model = Group
     allow_empty = True
     paginate_by = 10
-    paginator_class = InfinitePaginator
     template_name = 'groups/group_list.yammy'
     context_object_name = 'group_list'
 
