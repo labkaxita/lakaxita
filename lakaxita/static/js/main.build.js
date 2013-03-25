@@ -3,7 +3,12 @@
     optimize: 'uglify',
     removeCombined: true,
     modules: [
-        {name: 'backbone-tastypie'},
-        {name: 'lakaxita/app'},
+        {
+            name: 'backbone-tastypie',
+            include: ['backbone'],
+        },
+        {
+            name: 'lakaxita/app',
+        },
     ],
 })
