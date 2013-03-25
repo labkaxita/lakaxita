@@ -4,7 +4,7 @@ define(['backbone', 'text'], function(Backbone) {
         render: function() {
             /* FIXME there must be a better way */
             var view = this
-            require(['text!/template/'+this.template], function(template) {
+            require(['text!/template/'+this.template+'/'], function(template) {
                 var template = Handlebars.compile(template);
                 view.$el.html(template(view));
             });
