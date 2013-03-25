@@ -92,7 +92,6 @@ INSTALLED_APPS = (
     'oembed',
     'markitup',
     'djcelery',
-    'infinite_pagination',
     'polymorphic',
     'mptt',
     'tastypie',
