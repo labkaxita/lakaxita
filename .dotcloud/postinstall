@@ -1,5 +1,7 @@
 #!/bin/sh
+./bin/buildout -c production.cfg -N
 ./bin/python .dotcloud/createdb.py
 ./bin/python .dotcloud/mkadmin.py
 ./bin/django syncdb --migrate --noinput
 ./bin/django collectstatic --noinput
+cp ./bin/django.wsgi ./wsgi.py
