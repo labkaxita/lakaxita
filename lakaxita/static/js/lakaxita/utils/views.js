@@ -1,10 +1,13 @@
 define(['backbone', 'text'], function(Backbone) {
 
     View = Backbone.View.extend({
+        template_uri: function() {
+            return 'text!/template/'+this.template+'/';
+        },
         render: function() {
             /* FIXME there must be a better way */
             var view = this
-            require(['text!/template/'+this.template+'/'], function(template) {
+            require([this.template_uri()], function(template) {
                 var template = Handlebars.compile(template);
                 view.$el.html(template(view));
             });
