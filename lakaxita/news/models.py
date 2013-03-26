@@ -41,7 +41,7 @@ class News(models.Model):
         verbose_name_plural = _('news ')
 
     title = models.CharField(max_length=100, verbose_name=_('title'))
-    text = MarkupField(verbose_name=_('text'))
+    text = MarkupField(default='', verbose_name=_('text'))
     image = models.ImageField(blank=True, upload_to='news', verbose_name=_('image'))
     thumbnail = ThumbnailField(source='image')
     attachments = models.ManyToManyField(Attachment, blank=True, null=True,
