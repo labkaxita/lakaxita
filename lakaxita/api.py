@@ -10,20 +10,22 @@ from lakaxita.gallery.models import Category
 from lakaxita.lost_found.models import Item, Notification
 
 
-class ItemResource(ModelResource):
-    class Meta:
-        allowed_methods = ['get']
-        queryset = Item.objects.all()
-        resource_name = 'lost_items'
-        fields = ['name', 'description', 'image', 'thumbnail', 'lost', 'found',
-                'slug']
-
+class ThumbnailResource(object):
     def dehydrate(self, bundle):
         thumbnail = None
         if bundle.obj.image:
             thumbnail = bundle.obj.thumbnail.url
         bundle.data['thumbnail'] = thumbnail
         return bundle
+
+
+class ItemResource(ThumbnailResource, ModelResource):
+    class Meta:
+        allowed_methods = ['get']
+        queryset = Item.objects.all()
+        resource_name = 'lost_items'
+        fields = ['name', 'description', 'image', 'thumbnail', 'lost', 'found',
+                'slug']
 
 
 class NotificationResource(ModelResource):
@@ -59,12 +61,16 @@ class GroupResource(ModelResource):
         resource_name = 'groups'
 
 
-class NewsResource(ModelResource):
-    group = fields.ForeignKey(GroupResource, 'group', null=True)
-
+class NewsResource(ThumbnailResource, ModelResource):
     class Meta:
+        allowed_methods = ['get']
         queryset = News.objects.published()
         resource_name = 'news'
+        fields = ['title', 'text', 'image', 'attachments', 'frontpage', 'group', 'event', 'slug']
+
+    group = fields.ForeignKey(GroupResource, 'group', null=True)
+    attachments = fields.ToManyField(AttachmentResource, 'attachments')
+
 
 api = Api(api_name='api')
 for resource in (ItemResource, NotificationResource, CategoryResource, 
