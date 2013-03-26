@@ -12,8 +12,8 @@ html
             - href {% static 'css/main.scss' %}
         {% endcompress %}
 
-    body.loading
-        h2 loading...
+    body
         {% require_module 'main' %}
         section#nav
         section#content
+            h2 loading...
