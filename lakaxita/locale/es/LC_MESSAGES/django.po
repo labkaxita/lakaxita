@@ -1,0 +1,280 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-27 00:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: dashboard.py:13
+msgid "News"
+msgstr ""
+
+#: dashboard.py:20
+msgid "Gallery"
+msgstr ""
+
+#: dashboard.py:27
+msgid "Lost and Found"
+msgstr ""
+
+#: dashboard.py:35
+msgid "Others"
+msgstr ""
+
+#: dashboard.py:51
+msgid "Administration"
+msgstr ""
+
+#: dashboard.py:58
+msgid "Multimedia"
+msgstr ""
+
+#: dashboard.py:62
+msgid "Internal Attachments"
+msgstr ""
+
+#: dashboard.py:65
+msgid "External Attachments"
+msgstr ""
+
+#: dashboard.py:72
+msgid "Support"
+msgstr ""
+
+#: dashboard.py:76
+msgid "Contact the developer"
+msgstr ""
+
+#: dashboard.py:86
+msgid "Recent Actions"
+msgstr ""
+
+#: attachments/models.py:22
+msgid "oembed"
+msgstr ""
+
+#: attachments/models.py:86
+msgid "external attachment"
+msgstr ""
+
+#: attachments/models.py:87
+msgid "external attachments"
+msgstr ""
+
+#: attachments/models.py:103
+msgid "internal attachment"
+msgstr ""
+
+#: attachments/models.py:104
+msgid "internal attachments"
+msgstr ""
+
+#: gallery/admin.py:18 news/admin.py:44
+msgid "Media"
+msgstr ""
+
+#: gallery/admin.py:22 news/admin.py:40
+msgid "Meta"
+msgstr ""
+
+#: gallery/models.py:13
+msgid "category"
+msgstr ""
+
+#: gallery/models.py:14
+msgid "categories"
+msgstr ""
+
+#: gallery/models.py:16 groups/models.py:15 lost_found/models.py:28
+msgid "name"
+msgstr ""
+
+#: gallery/models.py:18 groups/models.py:17 lost_found/models.py:30
+msgid "description"
+msgstr ""
+
+#: gallery/models.py:20 news/models.py:48
+msgid "attachments"
+msgstr ""
+
+#: gallery/models.py:23
+msgid "parent"
+msgstr ""
+
+#: groups/models.py:12 groups/models.py:22
+msgid "group"
+msgstr ""
+
+#: groups/models.py:13
+msgid "groups"
+msgstr ""
+
+#: groups/models.py:19 lost_found/models.py:32 news/models.py:45
+msgid "image"
+msgstr ""
+
+#: lost_found/admin.py:24 lost_found/admin.py:55
+msgid "has been returned"
+msgstr ""
+
+#: lost_found/admin.py:29
+msgid "Returned"
+msgstr ""
+
+#: lost_found/admin.py:30
+msgid "Not returned"
+msgstr ""
+
+#: lost_found/admin.py:59
+msgid "Mark as returned"
+msgstr ""
+
+#: lost_found/admin.py:63
+msgid "Mark as not returned"
+msgstr ""
+
+#: lost_found/admin.py:86 lost_found/models.py:64
+msgid "item"
+msgstr ""
+
+#: lost_found/models.py:25
+msgid "Item"
+msgstr ""
+
+#: lost_found/models.py:26
+msgid "Items"
+msgstr ""
+
+#: lost_found/models.py:34
+msgid "lost date"
+msgstr ""
+
+#: lost_found/models.py:36
+msgid "found date"
+msgstr ""
+
+#: lost_found/models.py:55
+msgid "Notification"
+msgstr ""
+
+#: lost_found/models.py:56
+msgid "Notifications"
+msgstr ""
+
+#: lost_found/models.py:58 news/models.py:43
+msgid "title"
+msgstr ""
+
+#: lost_found/models.py:59
+msgid "reply to"
+msgstr ""
+
+#: lost_found/models.py:61 news/models.py:44
+msgid "text"
+msgstr ""
+
+#: news/admin.py:12 news/admin.py:59
+msgid "has been published"
+msgstr ""
+
+#: news/admin.py:17
+msgid "Published"
+msgstr ""
+
+#: news/admin.py:18
+msgid "Not published"
+msgstr ""
+
+#: news/models.py:40
+msgid "news"
+msgstr ""
+
+#: news/models.py:41
+msgid "news "
+msgstr ""
+
+#: news/models.py:50
+msgid "publish on"
+msgstr ""
+
+#: news/models.py:51
+msgid "on frontpage"
+msgstr ""
+
+#: news/models.py:53
+msgid "group it belongs to"
+msgstr ""
+
+#: news/models.py:55
+msgid "event date"
+msgstr ""
+
+#: templates/js/nav.yammy:12
+msgid "content"
+msgstr "contenido"
+
+#: templates/js/nav.yammy:17
+msgid "webpage"
+msgstr "página web"
+
+#: templates/js/nav.yammy:37
+msgid "LOST & FOUND"
+msgstr "OBJETOS PERDIDOS"
+
+#: templates/js/nav.yammy:42
+msgid "GROUPS"
+msgstr "COLECTIVOS"
+
+#: templates/js/nav.yammy:47
+msgid "GALLERY"
+msgstr "GALERÍA"
+
+#: templates/js/nav.yammy:52
+msgid "NEWS"
+msgstr "NOTICIAS"
+
+#: templates/js/nav.yammy:57
+msgid "CONTACT"
+msgstr "CONTACTO"
+
+#: templates/js/lost_found/item_detail.yammy:7
+msgid "it's mine!"
+msgstr "es mío!"
+
+#: templates/js/lost_found/notification_form.yammy:6
+msgid "Title"
+msgstr "Título"
+
+#: templates/js/lost_found/notification_form.yammy:16
+msgid "Reply to"
+msgstr "Remitente"
+
+#: templates/js/lost_found/notification_form.yammy:25
+msgid "Text"
+msgstr "Texto"
+
+#: templates/js/lost_found/notification_form.yammy:34
+msgid "Submit"
+msgstr "Enviar"
+
+#: templates/lost_found/item_detail.yammy:22
+#: templates/lost_found/notify.yammy:6
+msgid "Notify"
+msgstr "Nitificar"
+
+#: templates/lost_found/item_detail.yammy:25
+msgid "Your notification has been send correctly!"
+msgstr "Tu notificación ha sido enviada con éxito!"
