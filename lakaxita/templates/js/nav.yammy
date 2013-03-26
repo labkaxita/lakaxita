@@ -9,42 +9,51 @@ header
             - alt lakaxita
     ul#license
         li
-            | {% trans 'edukia' %}
+            | {% trans 'content' %}
             img
                 - src {% static 'imgs/by-sa1.svg' %}
                 - alt by-sa
         li
-            | {% trans 'webgunea' %}
+            | {% trans 'webpage' %}
             img
                 - src {% static 'imgs/by-sa1.svg' %}
                 - alt by-sa
         ul#language
-            | EGITEKO
+            div#csrf.hidden {{ csrf_token }}
+            {% for lang in LANGUAGES %}
+            {% if lang.0 == LANGUAGE_CODE %}
+            li.selected {{ lang.0 }}
+            {% else %}
+            li
+                a[href="#"] {{ lang.0 }}
+            {% endif %}
+            {% endfor %}
+
 
 nav
     ul
         li#objects
             a [href="#/lost_found/"]
-                | {% trans 'GALDUTAKO GAUZAK' %}
+                | {% trans 'LOST & FOUND' %}
                 img
                     - src {% static 'imgs/galduak.svg' %}
         li#groups
             a [href="#/groups/"]
-                | {% trans 'ERAGILEAK' %}
+                | {% trans 'GROUPS' %}
                 img
                     - src {% static 'imgs/eragileak.svg' %}
         li#gallery
             a [href="#/gallery/"]
-                | {% trans 'GALERIA' %}
+                | {% trans 'GALLERY' %}
                 img
                     - src {% static 'imgs/galeria.svg' %}
         li#news
             a [href="#/news/"]
-                | {% trans 'BERRIAK' %}
+                | {% trans 'NEWS' %}
                 img
                     - src {% static 'imgs/berriak.svg' %}
         li#contact
             a [href="#/contact/"]
-                | {% trans 'KONTAKTUA' %}
+                | {% trans 'CONTACT' %}
                 img
                     - src {% static 'imgs/kontaktua.svg' %}
