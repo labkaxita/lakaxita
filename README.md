@@ -32,7 +32,7 @@ Development
     git clone https://github.com/labkaxita/lakaxita.git
     cd lakaxita
     python bootstrap.py
-    ./bin/buildout -c buildout.d/devel.cfg
+    ./bin/buildout
     ./bin/django syncdb --migrate
     ./bin/django runserver
 
