@@ -19,7 +19,6 @@ header
                 - src {% static 'imgs/by-sa1.svg' %}
                 - alt by-sa
         ul#language
-            div#csrf.hidden {{ csrf_token }}
             {% for lang in LANGUAGES %}
             {% if lang.0 == LANGUAGE_CODE %}
             li.selected {{ lang.0 }}
