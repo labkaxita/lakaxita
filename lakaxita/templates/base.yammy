@@ -15,5 +15,6 @@ html
     body
         {% require_module 'main' %}
         section#nav
+            {% include 'js/nav.yammy' %}
         section#content
             h2 loading...
