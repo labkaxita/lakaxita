@@ -44,7 +44,7 @@ Deployment
     pip install dotcloud
     dotcloud setup
     dotcloud check
-    dotcloud connect --git www.0
+    dotcloud connect --git lakaxita
 
 ### Deploy
     dotcloud push
