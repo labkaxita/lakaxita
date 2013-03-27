@@ -22,8 +22,7 @@ define([
         },
 
         loadNav: function() {
-            var view = new Views.Nav();
-            $(this.nav).html(view.render().el);
+            var view = new Views.Nav({el: $(this.nav)});
         },
 
         reverse: function(route, subroute, model) {
