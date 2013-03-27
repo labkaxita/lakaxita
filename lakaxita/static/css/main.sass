@@ -1,0 +1,140 @@
+$darkgrey: #1a1a1a
+$objects: #d36216
+$groups: #228622
+$gallery: #862272
+$news: #86860e
+$contact: #0c7070
+
+a
+    color: white
+    text-decoration: none
+
+body
+    font-family: Comfortaa
+    background-color: $darkgrey
+    background: url("../imgs/okupa.svg") no-repeat top center $darkgrey
+    color: white
+
+header
+    a#logo
+        position: fixed
+        top: 0
+        left: 0
+        width: 15%
+        z-index: 10
+        background: black
+        padding: 1%
+        h1
+            font-size: 1.5em
+            line-height: 1em
+            width: 60%
+            display: inline-block
+            margin: 0
+        img
+            width: 40%
+            display: inline-block
+    ul#license
+        position: fixed
+        top: 0
+        right: 0
+        z-index: 10
+        background: black
+        margin: 0
+        text-align: right
+        padding: 1%
+        li
+            list-style: none
+        ul#language
+            margin-top: 0.5em
+            li
+                font-size: 0.8em
+                display: inline
+                border: 0.15em solid white
+                border-radius: 100%
+                padding: 0.4em
+
+nav
+    position: fixed
+    bottom: 0
+    width: 100%
+    left: 0
+    z-index: 10000
+    ul
+        margin: 0
+        padding: 0
+        li
+            display: inline-block
+            width: 18%
+            font-weight: bold
+            padding: 1%
+            text-align: center
+            img
+                width: 15%
+                vertical-align: middle
+                margin-left: 3%
+        li#objects
+            background: $objects
+        li#groups
+            background: $groups
+        li#gallery
+            background: $gallery
+        li#news
+            background: $news
+        li#contact
+            background: $contact
+
+div#about
+    margin: 4em auto
+    width: 50%
+    div#text
+        display: inline-block
+        width: 70%
+        margin: 0 2.5% 0 0
+        h2
+            margin: 0
+            text-align: right
+        p
+            font-size: 0.9em
+            text-align: right
+    div#image
+        display: inline-block
+        width: 27.5%
+        img
+            width: 100%
+
+div.slide
+    width: 80%
+    margin: 0 auto
+    h2
+        margin: 0 0 0 2.5%
+    ul.list
+        padding: 0
+        margin: 0
+        li
+            position: relative
+            display: inline-block
+            width: 20%
+            margin: 2.5%
+            vertical-align: top
+            img.slide
+                width: 100%
+                box-shadow: 0 0 1em #999999
+            p.hover
+                display: none
+                font-weight: bold
+                position: absolute
+                top: 2em
+                left: 2.5em
+                font-size: 1.5em
+            img.group
+                width: 15%
+                position: absolute
+                top: -10%
+                right: -10%
+                border-radius: 100%
+                border: black solid 0.15em
+        li:hover
+            p.hover
+                display: inline
+            img.slide
+                opacity: 0.5

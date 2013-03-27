@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+from time import sleep
+from os.path import dirname, join
+from os import system
+
+PROJECT_DIR = dirname(dirname(__file__))
+SASS_CONVERT = join(PROJECT_DIR, 'bin/sass-convert')
+CSS = join(PROJECT_DIR, 'lakaxita/static/css/main.{}')
+
+CMD = '{sass_convert} -F sass -T scss --indent 4 {source} {destination}'.format(
+        sass_convert=SASS_CONVERT,
+        source=(CSS.format('sass')),
+        destination=(CSS.format('scss')),
+        )
+
+
+while 1:
+    try:
+        system(CMD)
+        sleep(1)
+    except KeyboardInterrupt:
+        break
