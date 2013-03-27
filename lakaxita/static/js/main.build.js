@@ -7,6 +7,7 @@
         {
             name: 'main',
             include: ['backbone'],
+            insertRequire: ['main']
         },
     ],
 })
