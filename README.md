@@ -4,8 +4,30 @@ Lakaxita Gaztetxea's web page
 =============================
 
 
-Development mode installation
-----------------------------
+Main components
+===============
+
+- buildout: build environment.
+- django: backend web framework.
+- django-modeltranslation: model translation.
+- django-tastypie: public API.
+- require.js: JS module loading.
+- backbone.js: JS frontend framework.
+- djangoembed: use and produce oembeds.
+
+Optimizers and converters 
+-------------------------
+
+- django-require: r.js optimizer interface.
+- yammy: python html to html converter.
+- pyScss: scss to css converter.
+
+
+Installation
+============
+
+Development
+-----------
 
     git clone https://github.com/labkaxita/lakaxita.git
     cd lakaxita
@@ -15,16 +37,14 @@ Development mode installation
     ./bin/django runserver
 
 
-Configure dotcloud
-------------------
+Deployment
+----------
 
+### Configuration
     pip install dotcloud
     dotcloud setup
     dotcloud check
     dotcloud connect --git www.0
 
-
-Push commits to dotcloud
-------------------------
-
+### Deploy
     dotcloud push
