@@ -3,4 +3,3 @@
 ./bin/python .dotcloud/mkadmin.py
 ./bin/django syncdb --migrate --noinput
 ./bin/django collectstatic --noinput
-./bin/django compilemessages

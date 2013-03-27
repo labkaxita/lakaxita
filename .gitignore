@@ -1,4 +1,3 @@
-*.mo
 .ditz-config
 bin
 fabfile.py
