@@ -1,4 +1,4 @@
-class NodeBackend(object):
+class NodeEnvironment(object):
     def __init__(self, environment):
         self.env = environment
 
