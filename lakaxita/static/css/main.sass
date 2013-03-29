@@ -10,9 +10,9 @@ a
     text-decoration: none
 
 body
-    font-family: Comfortaa
+    font-family: Quicksand
     background-color: $darkgrey
-    background: url("../imgs/okupa.svg") no-repeat top center $darkgrey
+    background: url("/static/imgs/okupa.svg") no-repeat top center $darkgrey
     color: white
 
 header
@@ -138,3 +138,14 @@ div.slide
                 display: inline
             img.slide
                 opacity: 0.5
+
+@-moz-keyframes rotate
+    from
+        -moz-transform: rotate(0deg)
+    to
+        -moz-transform: rotate(360deg)
+    
+section#content
+    img#loading
+        width: 30%
+        margin: 0 35%

@@ -17,4 +17,6 @@ html
         section#nav
             {% include 'js/nav.yammy' %}
         section#content
-            h2 loading...
+            img#loading
+                - src {% static 'imgs/jaion.gif' %}
+                - alt loading...
