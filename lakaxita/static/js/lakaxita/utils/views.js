@@ -5,8 +5,7 @@ define(['backbone', 'text'], function(Backbone) {
             return 'text!/template/'+this.template+'/';
         },
         render: function() {
-            /* FIXME there must be a better way */
-            var view = this
+            var view = this;
             require([this.template_uri()], function(template) {
                 var template = Handlebars.compile(template);
                 view.$el.html(template(view));
@@ -22,7 +21,7 @@ define(['backbone', 'text'], function(Backbone) {
             this.collection.on('sync', this.render, this);
         },
         render: function() {
-            this.$el.find('ul.scroll').remove();
+            this.$el.empty();
             this.collection.each(function(model) {
                 var view = new this.subView({model: model});
                 this.$el.append(view.render().el);

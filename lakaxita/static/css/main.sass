@@ -102,42 +102,37 @@ div#about
         img
             width: 100%
 
-div.slide
-    width: 80%
-    margin: 0 auto
-    h2
-        margin: 0 0 0 2.5%
-    ul.list
-        padding: 0
-        margin: 0
-        li
-            position: relative
-            display: inline-block
-            width: 20%
-            margin: 2.5%
-            vertical-align: top
-            img.slide
-                width: 100%
-                box-shadow: 0 0 1em #999999
-            p.hover
-                display: none
-                font-weight: bold
-                position: absolute
-                top: 2em
-                left: 2.5em
-                font-size: 1.5em
-            img.group
-                width: 15%
-                position: absolute
-                top: -10%
-                right: -10%
-                border-radius: 100%
-                border: black solid 0.15em
-        li:hover
-            p.hover
-                display: inline
-            img.slide
-                opacity: 0.5
+ul.scroll
+    padding: 0
+    margin: 0
+    li
+        position: relative
+        display: inline-block
+        width: 20%
+        margin: 2.5%
+        vertical-align: top
+        img.slide
+            width: 100%
+            box-shadow: 0 0 1em #999999
+        p.hover
+            display: none
+            font-weight: bold
+            position: absolute
+            top: 2em
+            left: 2.5em
+            font-size: 1.5em
+        img.group
+            width: 15%
+            position: absolute
+            top: -10%
+            right: -10%
+            border-radius: 100%
+            border: black solid 0.15em
+    li:hover
+        p.hover
+            display: inline
+        img.slide
+            opacity: 0.5
 
 @-moz-keyframes rotate
     from

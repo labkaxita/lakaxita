@@ -8,14 +8,11 @@ define([
 
     Router = Backbone.Router.extend({
         initialize: function(options) {
+            options.createTrailingSlashRoutes = true;
             this.content = options.content;
+            this.scroll = options.scroll;
             this.nav = options.nav;
             this.loadNav();
-
-            var options = {
-                el: this.content,
-                createTrailingSlashRoutes: true,
-            };
             this.subroutes = {
                 lost_found: new LostFoundRouter('lost_found/', options),
             };

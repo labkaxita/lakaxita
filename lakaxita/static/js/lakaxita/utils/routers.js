@@ -6,8 +6,8 @@ define(['backbone.subroute', 'backbone', 'underscore'], function(subroute, Backb
             Backbone.SubRoute.prototype.constructor.call(this, prefix, options);
         },
         initialize: function(options) {
-            this.el = options.el;
-            this.$el = $(options.el);
+            this.content = options.content;
+            this.scroll = options.scroll;
         },
     });
 
