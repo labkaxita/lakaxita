@@ -5,7 +5,7 @@ define([
 
     Item = Views.View.extend({
         tagName: 'li',
-        template: 'lost_found/item',
+        template: 'scroll_item',
         title: function() { return this.model.title(); },
         hover: function() { return this.model.date(); },
         image: function() { return this.model.thumbnail(); },
