@@ -4,10 +4,14 @@ require.config({
         'text': 'lib/text',
         'handlebars': 'lib/handlebars',
         'underscore': 'lib/underscore',
-        'jquery': 'lib/jquery',
         'backbone.subroute': 'lib/backbone.subroute',
         'backbone-tastypie': 'backbone-tastypie',
         'backbone': 'lib/backbone',
+        'jquery': 'lib/jquery',
+        'jquery.ui': 'lib/jquery.ui',
+        'jquery.kinetic': 'lib/jquery.kinetic',
+        'jquery.mousewheel': 'lib/jquery.mousewheel',
+        'jquery.smoothdivscroll': 'lib/jquery.smoothdivscroll',
     },
     shim: {
         'handlebars': {
@@ -18,6 +22,27 @@ require.config({
         },
         'jquery': {
             exports: '$',
+        },
+        'jquery.ui': {
+            exports: '$',
+            deps: ['jquery'],
+        },
+        'jquery.kinetic': {
+            exports: '$',
+            deps: ['jquery'],
+        },
+        'jquery.mousewheel': {
+            exports: '$',
+            deps: ['jquery'],
+        },
+        'jquery.smoothdivscroll': {
+            exports: '$',
+            deps: [
+                'jquery', 
+                'jquery.ui', 
+                'jquery.mousewheel', 
+                'jquery.kinetic',
+            ],
         },
         'backbone.subroute': {
             exports: 'Backbone',
@@ -38,12 +63,17 @@ require.config({
     },
 });
 
-define(['lakaxita/app', 'backbone-tastypie'], function(App) {
+define([
+        'lakaxita/app', 
+        'backbone-tastypie',
+        'jquery.smoothdivscroll',
+        ], function(App) {
+
     Lakaxita = new App();
     window.Lakaxita = Lakaxita;
     Lakaxita.boot({
         content: 'section#content', 
-        scroll: 'ul#menu.scroll',
+        scroll: 'section#menu ul.scroll',
         nav: 'section#nav',
     });
 });

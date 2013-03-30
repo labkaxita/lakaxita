@@ -20,4 +20,5 @@ html
             img#loading
                 - src {% static 'imgs/jaion.gif' %}
                 - alt loading...
-        ul#menu.scroll
+        section#menu
+            ul.scroll
