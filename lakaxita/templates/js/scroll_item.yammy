@@ -7,7 +7,7 @@ a
         | {{ title }}
     p.hover 
         | {{ hover }}
-    {{#if image}}
+    {{#if status}}
     img.group
         - src {{ status }}
     {{/if}}
