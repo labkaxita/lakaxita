@@ -8,7 +8,7 @@ class ThumbnailField(ImageSpecField):
             cachefile_backend=None, cachefile_strategy=None, spec=None,
             id=None):
 
-        processors = [ResizeToFill(100, 100)]
+        processors = [ResizeToFill(300, 300)]
         format = 'JPEG'
         options = {'quality': 60}
 
