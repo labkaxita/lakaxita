@@ -1,9 +1,24 @@
 $darkgrey: #1a1a1a;
-$objects: #d36216;
-$groups: #228622;
-$gallery: #862272;
-$news: #86860e;
-$contact: #0c7070;
+
+.lost-found {
+    background: #d36216;
+}
+
+.groups {
+    background: #228622;
+}
+
+.gallery {
+    background: #862272;
+}
+
+.news {
+    background: #86860e;
+}
+
+.contact {
+    background: #0c7070;
+}
 
 a {
     color: white;
@@ -85,21 +100,6 @@ nav {
                 margin-left: 3%;
             }
         }
-        li#objects {
-            background: $objects;
-        }
-        li#groups {
-            background: $groups;
-        }
-        li#gallery {
-            background: $gallery;
-        }
-        li#news {
-            background: $news;
-        }
-        li#contact {
-            background: $contact;
-        }
     }
 }
 
@@ -133,7 +133,6 @@ section#menu {
     position: absolute;
     bottom: 2em;
     left: 0;
-    background: $objects;
 }
 
 ul.scroll {
