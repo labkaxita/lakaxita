@@ -73,7 +73,7 @@ define([
     window.Lakaxita = Lakaxita;
     Lakaxita.boot({
         content: 'section#content', 
-        scroll: 'section#menu ul.scroll',
+        scroll: 'section#menu',
         nav: 'section#nav',
     });
 });

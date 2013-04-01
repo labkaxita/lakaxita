@@ -21,4 +21,3 @@ html
                 - src {% static 'imgs/jaion.gif' %}
                 - alt loading...
         section#menu
-            ul.scroll

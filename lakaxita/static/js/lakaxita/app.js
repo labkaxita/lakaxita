@@ -19,7 +19,7 @@ define([
         };
 
         this.setupScrolling = function(el) {
-            $(el).parent().kinetic();
+            $(el).kinetic();
         };
     };
 

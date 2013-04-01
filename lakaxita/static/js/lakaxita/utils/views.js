@@ -17,7 +17,14 @@ define(['backbone', 'text'], function(Backbone) {
     ScrollView = Backbone.View.extend({
         tagName: 'ul',
         className: 'scroll',
-        initialize: function() {
+        initialize: function(options) {
+            // make the el defined in the view child of 
+            // the one that is passed alog
+            var original_el = this.$el;
+            options.el = null;
+            this._configure(options);
+            this._ensureElement();
+            original_el.html(this.$el);
             this.collection.on('sync', this.render, this);
         },
         render: function() {
