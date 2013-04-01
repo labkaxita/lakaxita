@@ -1,5 +1,18 @@
 $darkgrey: #1a1a1a;
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    font-family: Quicksand;
+    background-color: $darkgrey;
+    background: url("/static/imgs/okupa.svg") no-repeat top center $darkgrey;
+    color: white;
+    min-width: 500px;
+}
+
 .lost-found {
     background: #d36216;
 }
@@ -18,19 +31,6 @@ $darkgrey: #1a1a1a;
 
 .contact {
     background: #0c7070;
-}
-
-a {
-    color: white;
-    text-decoration: none;
-}
-
-body {
-    font-family: Quicksand;
-    background-color: $darkgrey;
-    background: url("/static/imgs/okupa.svg") no-repeat top center $darkgrey;
-    color: white;
-    min-width: 500px;
 }
 
 header {

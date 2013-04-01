@@ -1,15 +1,17 @@
-define(['backbone', 'text'], function(Backbone) {
+define(['backbone', 'lakaxita/utils/loading', 'text'], function(Backbone, Loading) {
 
     View = Backbone.View.extend({
         template_uri: function() {
             return 'text!/template/'+this.template+'/';
         },
         render: function() {
+            Loading.show();
             var view = this;
             require([this.template_uri()], function(template) {
                 var template = Handlebars.compile(template);
                 view.$el.html(template(view));
             });
+            Loading.hide();
             return this;
         },
     });
@@ -28,11 +30,13 @@ define(['backbone', 'text'], function(Backbone) {
             this.collection.on('sync', this.render, this);
         },
         render: function() {
+            Loading.show();
             this.$el.empty();
             this.collection.each(function(model) {
                 var view = new this.subView({model: model});
                 this.$el.append(view.render().el);
             }, this);
+            Loading.hide();
             return this;
         },
     });
