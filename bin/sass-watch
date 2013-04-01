@@ -17,13 +17,17 @@ CONVERT = '{sass_convert} -F sass -T scss --indent 4 {source} {destination}'.for
         )
 
 
+def convert():
+    print('Converting...')
+    system(CONVERT)
+    print('OK\n')
+
 run = True
 while run:
+    convert()
     try:
         if system(TAILF) == 0:
-            print('Converting...')
-            system(CONVERT)
-            print('OK\n')
+            convert()
         else:
             run = False
     except KeyboardInterrupt:
