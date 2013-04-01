@@ -180,6 +180,8 @@ ul.scroll {
 section#content {
     img#loading {
         width: 30%;
-        margin: 0 35%;
+        position: fixed;
+        top: 0;
+        left: 35%;
     }
 }
