@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Lakaxita by labkaxita</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/labkaxita/lakaxita">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Lakaxita</h1>
+            <h2>Webpage of Lakaxita squad house</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/labkaxita/lakaxita/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/labkaxita/lakaxita/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <p><a href="https://travis-ci.org/labkaxita/lakaxita"><img src="https://travis-ci.org/labkaxita/lakaxita.png" alt="Build Status"></a></p>
+
+<h1>Lakaxita Gaztetxea's web page</h1>
+
+<h1>Main components</h1>
+
+<ul>
+<li>buildout: build environment.</li>
+<li>django: backend web framework.</li>
+<li>django-modeltranslation: model translation.</li>
+<li>django-tastypie: public API.</li>
+<li>require.js: JS module loading.</li>
+<li>backbone.js: JS frontend framework.</li>
+<li>djangoembed: use and produce oembeds.</li>
+</ul><h2>Optimizers and converters </h2>
+
+<ul>
+<li>django-require: r.js optimizer interface.</li>
+<li>yammy: python html to html converter.</li>
+<li>pyScss: scss to css converter.</li>
+</ul><h1>Installation</h1>
+
+<h2>Development</h2>
+
+<pre><code>git clone https://github.com/labkaxita/lakaxita.git
+cd lakaxita
+python bootstrap.py
+./bin/buildout
+./bin/django syncdb --migrate
+./bin/django runserver
+</code></pre>
+
+<h2>Deployment</h2>
+
+<h3>Configuration</h3>
+
+<pre><code>pip install dotcloud
+dotcloud setup
+dotcloud check
+dotcloud connect --git lakaxita
+</code></pre>
+
+<h3>Deploy</h3>
+
+<pre><code>dotcloud push
+</code></pre>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/labkaxita">labkaxita</a> can be found on <a href="https://github.com/labkaxita/lakaxita">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
