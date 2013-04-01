@@ -41,10 +41,13 @@ Deployment
 ----------
 
 ### Configuration
-    pip install dotcloud
-    dotcloud setup
+    git clone https://github.com/labkaxita/lakaxita.git
+    cd lakaxita
+    pip install dotcloud # system wide or virtualenv
+    dotcloud setup # dotcloud user & pass
     dotcloud check
     dotcloud connect --git lakaxita
 
 ### Deploy
+    # push latests git commits
     dotcloud push
