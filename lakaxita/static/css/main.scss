@@ -80,12 +80,8 @@ header {
                 font-size: 0.8em;
                 display: inline;
                 border: 0.15em solid white;
-                border-radius: 100%;
                 padding: 0.4em;
                 margin: 0 0 0 20%;
-            }
-            li:last-child {
-                display: none;
             }
         }
     }
@@ -147,6 +143,12 @@ section#menu {
     left: 0;
 }
 
+img.slide {
+    width: 100%;
+    box-shadow: 0 0 1em #999999;
+    background: #999999;
+}
+
 ul.scroll {
     padding: 0;
     margin: 0;
@@ -157,11 +159,6 @@ ul.scroll {
         width: 12%;
         margin: 2% 2% 3% 2%;
         vertical-align: top;
-        img.slide {
-            width: 100%;
-            box-shadow: 0 0 1em #999999;
-            background: #999999;
-        }
         p.hover {
             display: none;
             font-weight: bold;
@@ -172,7 +169,7 @@ ul.scroll {
             text-align: center;
             font-size: 1.5em;
         }
-        img.group {
+        img.status {
             width: 15%;
             position: absolute;
             top: -10%;
@@ -201,5 +198,8 @@ section#content {
         position: fixed;
         top: 0;
         left: 35%;
+    }
+    section.detail {
+        background: #e6e6e6;
     }
 }

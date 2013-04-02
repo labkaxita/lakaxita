@@ -8,7 +8,7 @@ a
     p.hover 
         | {{ hover }}
     {{#if status}}
-    img.group
+    img.status
         - src {{ status }}
     {{/if}}
 {% endverbatim %}

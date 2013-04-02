@@ -1,15 +1,18 @@
 {% load i18n %}
 
-{% verbatim %}
-img.slide
-    - src {{ image }}
-{% endverbatim %}
-button#form [value="{% trans "it's mine!" %}"]
-{% verbatim %}
-h3 
-    | {{ title }}
-p.hover 
-    | {{ hover }}
-img.group
-    - src {{ status }}
-{% endverbatim %}
+section.detail
+    {% verbatim %}
+    img.slide
+        - src {{ image }}
+    {% endverbatim %}
+    button#form [value="{% trans "it's mine!" %}"]
+    {% verbatim %}
+    h3 
+        | {{ title }}
+    p.hover 
+        | {{ hover }}
+    {{#if status}}
+    img.status
+        - src {{ status }}
+    {{/if}}
+    {% endverbatim %}
