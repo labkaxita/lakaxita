@@ -1,6 +1,0 @@
-{% load i18n %}
-
-form [method=post][action="{% url lost_found:notify slug=item.slug %}"]
-    {% csrf_token %}
-    {{ form.as_p }}
-    input [type="submit"][value="{% trans 'Notify' %}"]
