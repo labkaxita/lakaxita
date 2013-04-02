@@ -76,12 +76,14 @@ header {
             margin: 0;
             display: inline-block;
             vertical-align: middle;
+            font-size: 0.8em;
             li {
-                font-size: 0.8em;
                 display: inline;
-                border: 0.15em solid white;
-                padding: 0.4em;
                 margin: 0 0 0 20%;
+                a {
+                    border: 0.15em solid white;
+                    padding: 0.4em;
+                }
             }
         }
     }
