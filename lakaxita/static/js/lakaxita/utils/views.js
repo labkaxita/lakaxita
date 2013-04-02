@@ -1,4 +1,8 @@
-define(['backbone', 'lakaxita/utils/loading', 'text'], function(Backbone, Loading) {
+define([
+        'backbone', 
+        'lakaxita/utils/loading', 
+        'text',
+        ], function(Backbone, Loading) {
 
     View = Backbone.View.extend({
         template_uri: function() {
@@ -27,6 +31,7 @@ define(['backbone', 'lakaxita/utils/loading', 'text'], function(Backbone, Loadin
             this._configure(options);
             this._ensureElement();
             original_el.html(this.$el);
+
             this.collection.on('sync', this.render, this);
         },
         render: function() {
@@ -38,6 +43,9 @@ define(['backbone', 'lakaxita/utils/loading', 'text'], function(Backbone, Loadin
             }, this);
             Loading.hide();
             return this;
+        },
+        events: {
+            'click li > a': 'remove',
         },
     });
 
