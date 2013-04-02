@@ -31,27 +31,27 @@ header
 nav
     ul
         li.lost-found
-            a [href="#/lost_found/"]
+            a
                 | {% trans 'LOST & FOUND' %}
                 img
                     - src {% static 'imgs/galduak.svg' %}
         li.groups
-            a [href="#/groups/"]
+            a
                 | {% trans 'GROUPS' %}
                 img
                     - src {% static 'imgs/eragileak.svg' %}
         li.gallery
-            a [href="#/gallery/"]
+            a
                 | {% trans 'GALLERY' %}
                 img
                     - src {% static 'imgs/galeria.svg' %}
         li.news
-            a [href="#/news/"]
+            a
                 | {% trans 'NEWS' %}
                 img
                     - src {% static 'imgs/berriak.svg' %}
         li.contact
-            a [href="#/contact/"]
+            a
                 | {% trans 'CONTACT' %}
                 img
                     - src {% static 'imgs/kontaktua.svg' %}

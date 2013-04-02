@@ -7,13 +7,13 @@ define([
         this.Router = Router;
 
         this.boot = function(options) {
-            this.setupScrolling(options.scroll);
+            this.setupScrolling(options.menu);
 
             router = new this.Router(options);
             this.router = router;
 
-            Backbone.View.prototype.reverse = function(route, subroute, model) { 
-                return router.reverse(route, subroute, model);
+            Backbone.View.prototype.reverse = function(route, model) { 
+                return router.reverse(route, model);
             };
             Backbone.history.start();
         };

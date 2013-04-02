@@ -4,7 +4,6 @@ require.config({
         'text': 'lib/text',
         'handlebars': 'lib/handlebars',
         'underscore': 'lib/underscore',
-        'backbone.subroute': 'lib/backbone.subroute',
         'backbone-tastypie': 'backbone-tastypie',
         'backbone': 'lib/backbone',
         'jquery': 'lib/jquery',
@@ -44,10 +43,6 @@ require.config({
                 'jquery.kinetic',
             ],
         },
-        'backbone.subroute': {
-            exports: 'Backbone',
-            deps: ['backbone'],
-        },
         'backbone-tastypie': {
             exports: 'Backbone',
             deps: ['backbone',],
@@ -73,7 +68,7 @@ define([
     window.Lakaxita = Lakaxita;
     Lakaxita.boot({
         content: 'section#content', 
-        scroll: 'section#menu',
+        menu: 'section#menu',
         nav: 'section#nav',
     });
 });
