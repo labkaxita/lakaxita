@@ -193,13 +193,21 @@ ul.scroll {
 }
 
 section#content {
+    margin: 10%;
     img#loading {
         width: 30%;
         position: fixed;
         top: 0;
         left: 35%;
     }
-    section.detail {
+    div.detail {
         background: #e6e6e6;
+        section.left {
+            width: 20%;
+            margin-right: 5%;
+        }
+        section.right {
+            width: 75%;
+        }
     }
 }
