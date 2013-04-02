@@ -7,17 +7,18 @@ header
         img
             - src {% static 'imgs/lakaxita.svg' %}
             - alt lakaxita
-    ul#license
-        li
-            | {% trans 'content' %}
-            img
-                - src {% static 'imgs/by-sa1.svg' %}
-                - alt by-sa
-        li
-            | {% trans 'webpage' %}
-            img
-                - src {% static 'imgs/by-sa1.svg' %}
-                - alt by-sa
+    div#info
+        ul#license
+            li
+                | {% trans 'content' %}
+                img
+                    - src {% static 'imgs/by-sa1.svg' %}
+                    - alt by-sa
+            li
+                | {% trans 'webpage' %}
+                img
+                    - src {% static 'imgs/by-sa1.svg' %}
+                    - alt by-sa
         ul#language
             {% for lang in LANGUAGES %}
             {% if lang.0 == LANGUAGE_CODE %}
