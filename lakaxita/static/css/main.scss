@@ -167,6 +167,9 @@ ul.scroll {
             border-radius: 100%;
             border: black solid 0.15em;
         }
+        h3 {
+            white-space: normal;
+        }
     }
     li:hover {
         p.hover {
@@ -177,16 +180,6 @@ ul.scroll {
         }
     }
 }
-
-@-moz-keyframes rotate {
-    from {
-        -moz-transform: rotate(0deg);
-    }
-    to {
-        -moz-transform: rotate(360deg);
-    }
-}
-
 
 section#content {
     img#loading {
