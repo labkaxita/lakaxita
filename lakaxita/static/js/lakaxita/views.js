@@ -25,7 +25,7 @@ define([
             this.render();
         },
         lostFound: function(event) {
-            LostFound.scroll(this.menu);
+            this.menuView = LostFound.scroll(this.menu);
         },
     });
 
