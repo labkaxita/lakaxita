@@ -4,6 +4,7 @@ define(['backbone'], function(Backbone) {
         url: '/api/lost_items/',
         model: Backbone.Model.extend({
             title: function() { return this.get('name'); },
+            description: function() { return this.get('description'); },
             date: function() { return this.get('lost'); },
             image: function() { return this.get('image'); },
             thumbnail: function() { return this.get('thumbnail'); },

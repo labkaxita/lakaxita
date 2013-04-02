@@ -7,6 +7,7 @@ define([
         tagName: 'li',
         template: 'scroll_item',
         title: function() { return this.model.title(); },
+        description: function() { return this.model.description(); },
         hover: function() { return this.model.date(); },
         image: function() { return this.model.thumbnail(); },
         status: function() { return this.model.returned(); },
