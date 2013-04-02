@@ -10,4 +10,5 @@
             insertRequire: ['main']
         },
     ],
+    optimizeCss: 'standard',
 })
