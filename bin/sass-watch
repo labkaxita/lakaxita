@@ -1,34 +1,6 @@
-#!/usr/bin/env python
+#!/bin/sh
 
-from os.path import dirname, join
-from os import system
+SASS='lakaxita/static/css/main.sass'
+CSS='lakaxita/static/css/main.css'
 
-PROJECT_DIR = dirname(dirname(__file__))
-SASS_CONVERT = join(PROJECT_DIR, 'bin/sass-convert')
-CSS = join(PROJECT_DIR, 'lakaxita/static/css/main.{}')
-SASS = CSS.format('sass')
-SCSS = CSS.format('scss')
-
-TAILF = 'tailf {source} > /dev/null'.format(source=SASS)
-CONVERT = '{sass_convert} -F sass -T scss --indent 4 {source} {destination}'.format(
-        sass_convert=SASS_CONVERT,
-        source=SASS,
-        destination=SCSS,
-        )
-
-
-def convert():
-    print('Converting...')
-    system(CONVERT)
-    print('OK\n')
-
-run = True
-while run:
-    convert()
-    try:
-        if system(TAILF) == 0:
-            convert()
-        else:
-            run = False
-    except KeyboardInterrupt:
-        run = False
+./bin/sass --trace --watch "$SASS:$CSS"

@@ -1,0 +1,174 @@
+a {
+  color: white;
+  text-decoration: none; }
+
+body {
+  font-family: Quicksand;
+  background-color: #1a1a1a;
+  background: url("/static/imgs/okupa.svg") no-repeat top center #1a1a1a;
+  color: white;
+  min-width: 500px; }
+
+.lost-found {
+  background: #d36216; }
+
+.groups {
+  background: #228622; }
+
+.gallery {
+  background: #862272; }
+
+.news {
+  background: #86860e; }
+
+.contact {
+  background: #0c7070; }
+
+header a#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15%;
+  z-index: 10;
+  background: black;
+  padding: 1%; }
+  header a#logo h1 {
+    font-size: 1.5em;
+    line-height: 1em;
+    width: 60%;
+    display: inline-block;
+    margin: 0; }
+  header a#logo img {
+    width: 40%;
+    display: inline-block; }
+header div#info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: black;
+  margin: 0;
+  text-align: right;
+  padding: 1%; }
+  header div#info ul#license {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle; }
+    header div#info ul#license li {
+      list-style: none; }
+  header div#info ul#language {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0.8em; }
+    header div#info ul#language li {
+      display: inline;
+      margin: 0 0 0 20%; }
+      header div#info ul#language li a {
+        border: 0.15em solid white;
+        padding: 0.4em; }
+
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  z-index: 10000; }
+  nav ul {
+    margin: 0;
+    padding: 0; }
+    nav ul li {
+      display: inline-block;
+      width: 18%;
+      font-weight: bold;
+      padding: 1%;
+      text-align: center;
+      cursor: pointer; }
+      nav ul li img {
+        width: 15%;
+        vertical-align: middle;
+        margin-left: 3%; }
+
+div#about {
+  margin: 4em auto;
+  width: 50%; }
+  div#about div#text {
+    display: inline-block;
+    width: 70%;
+    margin: 0 2.5% 0 0; }
+    div#about div#text h2 {
+      margin: 0;
+      text-align: right; }
+    div#about div#text p {
+      font-size: 0.9em;
+      text-align: right; }
+  div#about div#image {
+    display: inline-block;
+    width: 27.5%; }
+    div#about div#image img {
+      width: 100%; }
+
+section#menu {
+  overflow: hidden;
+  position: absolute;
+  bottom: 2em;
+  left: 0; }
+
+img.slide {
+  width: 100%;
+  box-shadow: 0 0 1em #999999;
+  background: #999999; }
+
+ul.scroll {
+  padding: 0;
+  margin: 0;
+  white-space: nowrap; }
+  ul.scroll li {
+    position: relative;
+    display: inline-block;
+    width: 12%;
+    margin: 2% 2% 3% 2%;
+    vertical-align: top; }
+    ul.scroll li p.hover {
+      display: none;
+      font-weight: bold;
+      position: absolute;
+      width: 100%;
+      top: 2em;
+      left: 0;
+      text-align: center;
+      font-size: 1.5em; }
+    ul.scroll li img.status {
+      width: 15%;
+      position: absolute;
+      top: -10%;
+      right: -10%;
+      border-radius: 100%;
+      border: black solid 0.15em; }
+    ul.scroll li h3 {
+      white-space: normal;
+      font-size: 1em; }
+  ul.scroll li:hover p.hover {
+    display: inline; }
+  ul.scroll li:hover img.slide {
+    opacity: 0.5; }
+
+section#content {
+  margin: 10%; }
+  section#content img#loading {
+    width: 30%;
+    position: fixed;
+    top: 0;
+    left: 35%; }
+  section#content section.left {
+    width: 20%;
+    margin-right: 5%;
+    display: inline-block; }
+  section#content section.right {
+    width: 75%;
+    display: inline-block;
+    margin: 0;
+    vertical-align: top; }
+    section#content section.right h3 {
+      margin-top: 0; }
