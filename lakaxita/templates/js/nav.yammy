@@ -20,9 +20,7 @@ header
                 - alt by-sa
         ul#language
             {% for lang in LANGUAGES %}
-            {% if lang.0 == LANGUAGE_CODE %}
-            li.selected {{ lang.0 }}
-            {% else %}
+            {% if lang.0 != LANGUAGE_CODE %}
             li
                 a[href="#"] {{ lang.0 }}
             {% endif %}
