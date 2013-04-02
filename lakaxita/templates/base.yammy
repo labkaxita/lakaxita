@@ -1,16 +1,14 @@
-{% load static compress require %}
+{% load static require %}
 
 <!doctype html/>
 
 html
     head
         title lakaxita
-        {% compress css %}
         link
             - rel stylesheet
             - type text/x-scss
             - href {% static 'css/main.scss' %}
-        {% endcompress %}
 
     body
         {% require_module 'main' %}

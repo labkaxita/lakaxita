@@ -30,7 +30,6 @@ STATICFILES_DIRS = [os.path.join(DIR, 'static')]
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 STATICFILES_STORAGE = 'require.storage.OptimizedCachedStaticFilesStorage'
@@ -85,7 +84,6 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
 
     'south',
-    'compressor',
     'imagekit',
     'preferences',
     'django_badbrowser',
@@ -139,14 +137,6 @@ MARKITUP_SET = 'markitup/sets/markdown'
 MARKITUP_SKIN = 'markitup/skins/markitup'
 MARKITUP_AUTO_PREVIEW = True
 OEMBED_DEFAULT_PARSE_HTML = False
-
-SASS = os.path.join(os.path.dirname(DIR), 'bin/sass')
-PYSCSS = os.path.join(os.path.dirname(DIR), 'bin/pyscss')
-COMPRESS_OUTPUT_DIR = 'cache'
-COMPRESS_PRECOMPILERS = (
-                ('text/x-sass', '%s {infile} {outfile}' % SASS),
-                ('text/x-scss', '%s {infile} -o {outfile}' % PYSCSS),
-                )
 
 GRAPPELLI_INDEX_DASHBOARD = 'lakaxita.dashboard.Dashboard'
 GRAPPELLI_ADMIN_TITLE = 'lakaxita'
