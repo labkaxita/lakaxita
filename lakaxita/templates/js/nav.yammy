@@ -3,10 +3,11 @@
 header
     a#logo
         -href #/
-        h1 lakaxita gaztetxea
-        img
-            - src {% static 'imgs/lakaxita.svg' %}
-            - alt lakaxita
+        h1 
+            | lakaxita gaztetxea
+            img
+                - src {% static 'imgs/lakaxita.svg' %}
+                - alt lakaxita
     div#info
         ul#license
             li
