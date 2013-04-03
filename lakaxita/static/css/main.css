@@ -176,7 +176,8 @@ section#content {
     margin-right: 5%;
     display: inline-block; }
     section#content section.left div#return {
-      font-size: 0.8em; }
+      font-size: 0.8em;
+      margin: 1em 0; }
   section#content section.right {
     width: 75%;
     display: inline-block;
@@ -184,3 +185,5 @@ section#content {
     vertical-align: top; }
     section#content section.right h3 {
       margin-top: 0; }
+    section#content section.right p.hover {
+      color: #fafafa; }
