@@ -130,7 +130,7 @@ LOGGING = {
 }
 
 
-JQUERY_URL = 'js/jquery.js'
+JQUERY_URL = 'js/lib/jquery.js'
 
 MARKITUP_FILTER = ('markdown.markdown', {})
 MARKITUP_SET = 'markitup/sets/markdown'
