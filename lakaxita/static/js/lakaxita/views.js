@@ -1,9 +1,11 @@
 define([
         'lakaxita/utils/views', 
         'lakaxita/lost_found/app',
+        'lakaxita/news/app',
         ], function(
             Views,
-            LostFound
+            LostFound,
+            News
             ) {
 
     Nav = Views.View.extend({
@@ -16,6 +18,7 @@ define([
             'click ul#language > li > a': 'language',
 
             'click nav .lost-found > a': 'lostFound',
+            'click nav .news > a': 'news',
         },
         language: function(event) {
             event.preventDefault();
@@ -26,6 +29,9 @@ define([
         },
         lostFound: function(event) {
             this.menuView = LostFound.scroll(this.menu);
+        },
+        news: function(event) {
+            this.menuView = News.scroll(this.menu);
         },
     });
 

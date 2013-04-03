@@ -4,7 +4,8 @@ define([
         'jquery',
         'lakaxita/views',
         'lakaxita/lost_found/app',
-        ], function(Backbone, _, $, Views, LostFound) {
+        'lakaxita/news/app',
+        ], function(Backbone, _, $, Views, LostFound, News) {
 
     Router = Backbone.Router.extend({
         initialize: function(options) {
@@ -26,6 +27,7 @@ define([
 
         routes: {
             'lost_found/:slug/': 'lostFoundDetail',
+            'news/:slug/': 'newsDetail',
         },
 
         loadNav: function() {
@@ -34,6 +36,10 @@ define([
 
         lostFoundDetail: function(slug) {
             this.contentView = LostFound.detail(this.content, slug);
+        },
+
+        newsDetail: function(slug) {
+            this.contentView = News.detail(this.content, slug);
         },
     });
 
