@@ -4,15 +4,23 @@
     section.left
         img.slide
             - src {{ image }}
-        {{#if status}}
+        div#return
+            {{# if status}}
+            img.status
+                - src {{ status }}
+            | Has been already returned
+            {{ else }}
+            img.status
+                - src {{ status }}
+            | It hasn't been returned
+            {{/if}}
+
     section.right
         h3 
             | {{ title }}
-            img.status
-                - src {{ status }}
-            {{/if}}
         p.hover 
             | Date of discovery: {{ hover }}
+
         div.body
             {{{ description }}}
 
