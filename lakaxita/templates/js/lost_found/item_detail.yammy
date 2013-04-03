@@ -4,6 +4,10 @@
     section.left
         img.slide
             - src {{ image }}
+
+        p.hover 
+            | Date of discovery: {{ hover }}
+
         div#return
             img.status
                 - src {{ status }}
@@ -29,8 +33,6 @@
     section.right
         h3 
             | {{ title }}
-        p.hover 
-            | Date of discovery: {{ hover }}
 
         div.body
             {{{ description }}}
