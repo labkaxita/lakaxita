@@ -42,7 +42,10 @@ define([
         },
         tagName: 'form',
         template: 'lost_found/notification_form',
-        events: {'submit': 'submit'},
+        events: {
+            'submit': 'submit',
+            'click #close': 'remove',
+        },
         submit: function(event) {
             event.preventDefault();
             this.collection.create({

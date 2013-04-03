@@ -29,6 +29,10 @@ form#notification
         - name text
         - size 1000
 
-    input
+    input#submit
         - type submit
         - value {% trans 'Submit' %}
+
+    input#close
+        - type button
+        - value {% trans 'Close' %}
