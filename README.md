@@ -21,6 +21,7 @@ Optimizers and converters
 - django-require: r.js optimizer interface.
 - yammy: python html to html converter.
 - sass: sass to css converter.
+- fontcustom: svg to font converter.
 
 
 Installation
