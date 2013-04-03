@@ -30,6 +30,7 @@ define([
                 collection: new Collections.Notifications(),
                 item: this.model.id,
             });
+            this.$('form').remove();
             this.$el.append(view.render().el);
         },
     });
