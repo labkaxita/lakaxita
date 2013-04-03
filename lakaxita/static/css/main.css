@@ -1,3 +1,7 @@
+@import url(/static/fontcustom/fontcustom.css);
+[class^="icon-"] {
+  font-size: 2em; }
+
 a {
   color: white;
   text-decoration: none; }

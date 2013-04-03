@@ -5,21 +5,15 @@ header
         -href #/
         h1 
             | lakaxita gaztetxea
-            img
-                - src {% static 'imgs/lakaxita.svg' %}
-                - alt lakaxita
+            div.icon-lakaxita
     div#info
         ul#license
             li
                 | {% trans 'content' %}
-                img
-                    - src {% static 'imgs/by-sa1.svg' %}
-                    - alt by-sa
+                span.icon-by-sa1 by-sa
             li
                 | {% trans 'webpage' %}
-                img
-                    - src {% static 'imgs/by-sa1.svg' %}
-                    - alt by-sa
+                span.icon-by-sa1 by-sa
         ul#language
             {% for lang in LANGUAGES %}
             {% if lang.0 != LANGUAGE_CODE %}
@@ -34,25 +28,20 @@ nav
         li.lost-found
             a
                 | {% trans 'LOST & FOUND' %}
-                img
-                    - src {% static 'imgs/galduak.svg' %}
+                span.icon-lostfound
         li.groups
             a
                 | {% trans 'GROUPS' %}
-                img
-                    - src {% static 'imgs/eragileak.svg' %}
+                span.icon-groups
         li.gallery
             a
                 | {% trans 'GALLERY' %}
-                img
-                    - src {% static 'imgs/galeria.svg' %}
+                span.icon-gallery
         li.news
             a
                 | {% trans 'NEWS' %}
-                img
-                    - src {% static 'imgs/berriak.svg' %}
+                span.icon-news
         li.contact
             a
                 | {% trans 'CONTACT' %}
-                img
-                    - src {% static 'imgs/kontaktua.svg' %}
+                span.icon-contact

@@ -32,9 +32,29 @@ Development
     git clone https://github.com/labkaxita/lakaxita.git
     cd lakaxita
     python bootstrap.py
+    aptitude install fontforge ttfautohint
     ./bin/buildout
     ./bin/django syncdb --migrate
     ./bin/django runserver
+
+
+### SASS -> CSS converter
+    
+    ./bin/sass-watch
+
+
+### SVG -> font converter
+
+#### Installation
+
+    wget http://people.mozilla.com/~jkew/woff/woff-code-latest.zip
+    unzip woff-code-latest.zip -d sfnt2woff && cd sfnt2woff && make && \
+    su -c  'mv sfnt2woff /usr/local/bin/' && cd .. && \
+    rm -r woff-code-latest.zip sfnt2woff
+
+#### Usage
+
+    ./bin/font-watch
 
 
 Deployment
