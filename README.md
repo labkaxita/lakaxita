@@ -38,21 +38,12 @@ Development
     ./bin/django runserver
 
 
-### SASS -> CSS converter
+### SASS to CSS compiler
     
     ./bin/sass-watch
 
 
-### SVG -> font converter
-
-#### Installation
-
-    wget http://people.mozilla.com/~jkew/woff/woff-code-latest.zip
-    unzip woff-code-latest.zip -d sfnt2woff && cd sfnt2woff && make && \
-    su -c  'mv sfnt2woff /usr/local/bin/' && cd .. && \
-    rm -r woff-code-latest.zip sfnt2woff
-
-#### Usage
+### SVG to font conmpiler
 
     ./bin/font-watch
 
