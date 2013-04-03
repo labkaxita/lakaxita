@@ -45,6 +45,8 @@ It's very useful to load some example data in development. This data can be gene
 
     ./bin/django loaddata example_data.json
 
+BTW, all the example photos are taken from flickr under a creative commons license and no modifications are intended.
+
 
 ### SASS to CSS compiler
     
