@@ -20,7 +20,7 @@ Optimizers and converters
 
 - django-require: r.js optimizer interface.
 - yammy: python html to html converter.
-- pyScss: scss to css converter.
+- sass: sass to css converter.
 
 
 Installation
