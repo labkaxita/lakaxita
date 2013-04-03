@@ -50,15 +50,15 @@ DATABASES = {
         }
 
 
-ADMINS = (('Unai Zalakain', '{}@{}'.format('contact', 'unaizalakain.info')))
-MANAGERS = ADMINS
+#ADMINS = (('Unai Zalakain', '{}@{}'.format('contact', 'unaizalakain.info')))
+#MANAGERS = ADMINS
 
-EMAIL_SUBJECT_PREFIX = '[LAKAXITA]'
-EMAIL_HOST = ''
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = ''
-SERVER_EMAIL = ''
+#EMAIL_SUBJECT_PREFIX = '[LAKAXITA]'
+#EMAIL_HOST = ''
+#EMAIL_HOST_USER = ''
+#EMAIL_HOST_PASSWORD = ''
+#DEFAULT_FROM_EMAIL = ''
+#SERVER_EMAIL = ''
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
