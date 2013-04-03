@@ -38,20 +38,16 @@ header a#logo {
   position: absolute;
   top: 0;
   left: 0;
-  width: 15%;
   z-index: 10;
   background: black;
   padding: 1%; }
   header a#logo h1 {
     font-size: 1.4em;
     line-height: 1em;
-    width: 60%;
-    display: inline-block;
     margin: 0; }
-  header a#logo img {
-    width: 38%;
-    display: inline-block;
-    margin-left: 2%; }
+    header a#logo h1 img {
+      width: 4em;
+      vertical-align: middle; }
 header div#info {
   position: absolute;
   top: 0;
