@@ -5,15 +5,20 @@ header
         -href #/
         h1 
             | lakaxita gaztetxea
-            div.icon-lakaxita
+        span.icon-lakaxita
+
     div#info
         ul#license
             li
                 | {% trans 'content' %}
-                span.icon-by-sa1 by-sa
+                img
+                    - src {% static 'imgs/by-sa1.svg' %}
+                    - alt CC by sa
             li
                 | {% trans 'webpage' %}
-                span.icon-by-sa1 by-sa
+                img
+                    - src {% static 'imgs/by-sa1.svg' %}
+                    - alt CC by sa
         ul#language
             {% for lang in LANGUAGES %}
             {% if lang.0 != LANGUAGE_CODE %}
