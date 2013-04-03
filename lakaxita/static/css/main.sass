@@ -1,13 +1,16 @@
-$darkgrey: #1e1e1e
-$grey: #828282
+$black: #1e1e1e
+$darkgrey: #323232
+$grey: #828282 
 $lightgrey: #6a6a6a
+$white: #fafafa
+$font: Quicksand
 
 a
     color: white
     text-decoration: none
 
 body
-    font-family: Quicksand
+    font-family: $font
     background: url("/static/imgs/okupa.svg") no-repeat top center $darkgrey
     color: white
     min-width: 500px
@@ -25,14 +28,15 @@ body
 
 button
     padding: .3em
-    margin: auto .5em
-    color: $darkgrey
-    font-family: Quicksand
+    margin: .5em
+    color: $white 
+    font-family: $font
     font-size: 1.1em
     font-weight: bold
-    background: $grey
-    border: outset $lightgrey .2em
+    background: $darkgrey
+    border: outset $darkgrey .1em
     border-radius: 10%
+    cursor: pointer
 
 
 header

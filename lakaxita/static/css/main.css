@@ -4,7 +4,7 @@ a {
 
 body {
   font-family: Quicksand;
-  background: url("/static/imgs/okupa.svg") no-repeat top center #1e1e1e;
+  background: url("/static/imgs/okupa.svg") no-repeat top center #323232;
   color: white;
   min-width: 500px; }
 
@@ -25,14 +25,15 @@ body {
 
 button {
   padding: 0.3em;
-  margin: auto 0.5em;
-  color: #1e1e1e;
+  margin: 0.5em;
+  color: #fafafa;
   font-family: Quicksand;
   font-size: 1.1em;
   font-weight: bold;
-  background: #828282;
-  border: outset #6a6a6a 0.2em;
-  border-radius: 10%; }
+  background: #323232;
+  border: outset #323232 0.1em;
+  border-radius: 10%;
+  cursor: pointer; }
 
 header a#logo {
   position: absolute;
