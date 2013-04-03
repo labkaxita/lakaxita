@@ -5,14 +5,20 @@
         img.slide
             - src {{ image }}
         div#return
-            {{# if status}}
             img.status
                 - src {{ status }}
-            | Has been already returned
-            {{ else }}
-            img.status
-                - src {{ status }}
-            | It hasn't been returned
+            {{#if status}}
+
+            {% endverbatim %}
+            | {% trans 'It has been already returned' %}
+            {% verbatim %}
+
+            {{else}}
+
+            {% endverbatim %}
+            | {% trans 'It has not been returned yet' %}
+            {% verbatim %}
+
             {{/if}}
 
     section.right
@@ -26,5 +32,4 @@
 
 {% endverbatim %}
 button.form 
-    -value it's mine!
-    | It's mine!
+    | {% trans 'It is mine!' %}
