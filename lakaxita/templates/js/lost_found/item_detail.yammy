@@ -5,16 +5,18 @@
         img.slide
             - src {{ image }}
         {{#if status}}
-        img.status
-            - src {{ status }}
-        {{/if}}
     section.right
         h3 
             | {{ title }}
+            img.status
+                - src {{ status }}
+            {{/if}}
         p.hover 
-            | {{ hover }}
+            | Date of discovery: {{ hover }}
         div.body
             {{{ description }}}
 
 {% endverbatim %}
-button#form [value="it's mine!"]
+button.form 
+    -value it's mine!
+    | It's mine!

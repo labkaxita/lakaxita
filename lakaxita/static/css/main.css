@@ -4,8 +4,7 @@ a {
 
 body {
   font-family: Quicksand;
-  background-color: #1a1a1a;
-  background: url("/static/imgs/okupa.svg") no-repeat top center #1a1a1a;
+  background: url("/static/imgs/okupa.svg") no-repeat top center #1e1e1e;
   color: white;
   min-width: 500px; }
 
@@ -23,6 +22,17 @@ body {
 
 .contact {
   background: #0c7070; }
+
+button {
+  padding: 0.3em;
+  margin: auto 0.5em;
+  color: #1e1e1e;
+  font-family: Quicksand;
+  font-size: 1.1em;
+  font-weight: bold;
+  background: #828282;
+  border: outset #6a6a6a 0.2em;
+  border-radius: 10%; }
 
 header a#logo {
   position: absolute;
@@ -117,8 +127,8 @@ section#menu {
 
 img.slide {
   width: 100%;
-  box-shadow: 0 0 1em #999999;
-  background: #999999; }
+  box-shadow: 0 0 1em #828282;
+  background: #828282; }
 
 ul.scroll {
   padding: 0;

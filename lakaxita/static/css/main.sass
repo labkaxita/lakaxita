@@ -1,4 +1,6 @@
-$darkgrey: #1a1a1a
+$darkgrey: #1e1e1e
+$grey: #828282
+$lightgrey: #6a6a6a
 
 a
     color: white
@@ -6,7 +8,6 @@ a
 
 body
     font-family: Quicksand
-    background-color: $darkgrey
     background: url("/static/imgs/okupa.svg") no-repeat top center $darkgrey
     color: white
     min-width: 500px
@@ -21,6 +22,17 @@ body
     background: #86860e
 .contact
     background: #0c7070
+
+button
+    padding: .3em
+    margin: auto .5em
+    color: $darkgrey
+    font-family: Quicksand
+    font-size: 1.1em
+    font-weight: bold
+    background: $grey
+    border: outset $lightgrey .2em
+    border-radius: 10%
 
 
 header
@@ -116,8 +128,8 @@ section#menu
     left: 0
 img.slide
     width: 100%
-    box-shadow: 0 0 1em #999999
-    background: #999999
+    box-shadow: 0 0 1em $grey
+    background: $grey
 
 ul.scroll
     padding: 0
