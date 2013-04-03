@@ -39,6 +39,13 @@ Development
     ./bin/django runserver
 
 
+### Example data
+
+It's very useful to load some example data in development. This data can be generated automagically but it's always better to have more realistic input:
+
+    ./bin/django loaddata example_data.json
+
+
 ### SASS to CSS compiler
     
     ./bin/sass-watch
