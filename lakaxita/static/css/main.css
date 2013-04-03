@@ -4,7 +4,7 @@ a {
 
 body {
   font-family: Quicksand;
-  background: url("/static/imgs/okupa.svg") no-repeat top center #323232;
+  background: url("/static/imgs/okupa.svg") no-repeat top center #1e1e1e;
   color: white;
   min-width: 500px; }
 
@@ -30,9 +30,8 @@ button {
   font-family: Quicksand;
   font-size: 1.1em;
   font-weight: bold;
-  background: #323232;
-  border: outset #323232 0.1em;
-  border-radius: 10%;
+  background: #1e1e1e;
+  border: outset #060606 0.1em;
   cursor: pointer; }
 
 header a#logo {
