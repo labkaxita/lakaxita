@@ -21,6 +21,11 @@
 
             {{/if}}
 
+        {% endverbatim %}
+        button.form 
+            | {% trans 'It is mine!' %}
+        {% verbatim %}
+
     section.right
         h3 
             | {{ title }}
@@ -31,5 +36,3 @@
             {{{ description }}}
 
 {% endverbatim %}
-button.form 
-    | {% trans 'It is mine!' %}
