@@ -26,6 +26,9 @@ define([
             document.cookie = 'django_language='+lang;
             require.undef(this.template_uri());
             this.render();
+            if (this.menuView) {
+                this.menuView.collection.fetch();
+            };
         },
         lostFound: function(event) {
             this.menuView = LostFound.scroll(this.menu);
