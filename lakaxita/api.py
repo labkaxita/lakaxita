@@ -66,7 +66,8 @@ class NewsResource(ThumbnailResource, ModelResource):
         allowed_methods = ['get']
         queryset = News.objects.published()
         resource_name = 'news'
-        fields = ['title', 'text', 'image', 'attachments', 'frontpage', 'group', 'event', 'slug']
+        fields = ['title', 'text', 'image', 'attachments', 'frontpage', 
+                'group', 'event', 'slug', 'published']
 
     group = fields.ForeignKey(GroupResource, 'group', null=True)
     attachments = fields.ToManyField(AttachmentResource, 'attachments')

@@ -1,0 +1,40 @@
+{% load i18n %}
+
+{% verbatim %}
+    section.left
+        img.slide
+            - src {{ image }}
+
+        p.hover 
+            | Date of discovery: {{ hover }}
+
+        div#return
+            img.status
+                - src {{ status }}
+            {{#if status}}
+
+            {% endverbatim %}
+            | {% trans 'It has been already returned' %}
+            {% verbatim %}
+
+            {{else}}
+
+            {% endverbatim %}
+            | {% trans 'It has not been returned yet' %}
+            {% verbatim %}
+
+            {{/if}}
+
+        {% endverbatim %}
+        button.form 
+            | {% trans 'It is mine!' %}
+        {% verbatim %}
+
+    section.right
+        h3 
+            | {{ title }}
+
+        div.body
+            {{{ description }}}
+
+{% endverbatim %}

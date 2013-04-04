@@ -7,11 +7,11 @@ define([
         tagName: 'li',
         template: 'scroll_item',
         title: function() { return this.model.title(); },
-        description: function() { return this.model.description(); },
+        text: function() { return this.model.text(); },
         hover: function() { return this.model.date(); },
         image: function() { return this.model.thumbnail(); },
-        status: function() { return this.model.returned(); },
-        url: function() { return this.reverse('lostFoundDetail', this.model); },
+        status: function() { return this.model.group(); },
+        url: function() { return this.reverse('newsDetail', this.model); },
     });
 
     NewsScroll = Views.ScrollView.extend({
