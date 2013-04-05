@@ -3,8 +3,8 @@ define([
         'lakaxita/base/views', 
         ], function(App, Views) {
 
-    Nav = new App.View(Views.Nav);
-    Frontpage = new App.View(Views.Frontpage);
+    Nav = new App.generateView(Views.Nav);
+    Frontpage = new App.generateView(Views.Frontpage);
 
     return {Nav: Nav.run, Frontpage: Frontpage.run};
 })

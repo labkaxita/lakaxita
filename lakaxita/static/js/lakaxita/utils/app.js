@@ -1,6 +1,6 @@
 define([], function() {
 
-    View = function(view) {
+    generateView = function(view) {
         this.view = view;
 
         this.run = _.bind(function(options) {
@@ -9,7 +9,7 @@ define([], function() {
         }, this);
     };
 
-    Scroll = function(collection, view) {
+    generateScroll = function(collection, view) {
         this.collection = collection;
         this.view = view;
 
@@ -21,7 +21,7 @@ define([], function() {
         }, this);
     };
 
-    Detail = function(collection, view) {
+    generateDetail = function(collection, view) {
         this.collection = collection;
         this.view = view;
 
@@ -38,5 +38,9 @@ define([], function() {
         }, this);
     };
     
-    return {Scroll: Scroll, Detail: Detail, View: View};
+    return {
+        generateView: generateView,
+        generateScroll: generateScroll,
+        generateDetail: generateDetail,
+    };
 })
