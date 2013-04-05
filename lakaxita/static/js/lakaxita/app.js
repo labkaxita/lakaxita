@@ -19,7 +19,7 @@ define([
         };
 
         this.setupScrolling = function(el) {
-            $(el).kinetic();
+            $(el).kinetic({cursor: 'ew-resize'});
         };
     };
 
