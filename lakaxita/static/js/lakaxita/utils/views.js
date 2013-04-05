@@ -1,8 +1,9 @@
 define([
         'backbone', 
+        'zen',
         'lakaxita/utils/loading', 
         'text',
-        ], function(Backbone, Loading) {
+        ], function(Backbone, zen, Loading) {
 
     View = Backbone.View.extend({
         template_uri: function() {
@@ -21,25 +22,20 @@ define([
     });
 
     ScrollView = Backbone.View.extend({
-        tagName: 'ul',
-        className: 'scroll',
+        list: 'ul.scroll',
         initialize: function(options) {
-            // make the el defined in the view child of 
-            // the one that is passed alog
-            var original_el = this.$el;
-            options.el = null;
-            this._configure(options);
-            this._ensureElement();
-            original_el.html(this.$el);
-
+            if (! this.$list) {
+                this.$list = zen(this.list);
+            };
+            this.$el.html(this.$list);
             this.collection.on('sync', this.render, this);
         },
         render: function() {
             Loading.show();
-            this.$el.empty();
+            this.$list.empty();
             this.collection.each(function(model) {
                 var view = new this.subView({model: model});
-                this.$el.append(view.render().el);
+                this.$list.append(view.render().el);
             }, this);
             Loading.hide();
             return this;

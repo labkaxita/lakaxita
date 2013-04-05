@@ -15,7 +15,7 @@ define([
     });
 
     ItemScroll = Views.ScrollView.extend({
-        className: 'lost-found scroll',
+        list: 'ul.scroll.lost-found',
         subView: Item,
     });
 

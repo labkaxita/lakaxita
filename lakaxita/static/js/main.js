@@ -6,6 +6,8 @@ require.config({
         'underscore': 'lib/underscore',
         'backbone-tastypie': 'backbone-tastypie',
         'backbone': 'lib/backbone',
+        'zen_coding': 'lib/zen_coding',
+        'zen': 'lib/zen',
         'jquery': 'lib/jquery',
         'jquery.ui': 'lib/jquery.ui',
         'jquery.kinetic': 'lib/jquery.kinetic',
@@ -18,6 +20,10 @@ require.config({
         },
         'underscore': {
             exports: '_',
+        },
+        'zen': {
+            exports: 'zen',
+            deps: ['zen_coding', 'jquery'],
         },
         'jquery': {
             exports: '$',
