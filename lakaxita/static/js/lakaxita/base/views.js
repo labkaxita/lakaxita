@@ -1,8 +1,12 @@
 define([
-        'lakaxita/utils/views', 
+        'backbone',
+        'zen',
+        'lakaxita/utils/views',
         'lakaxita/lost_found/app',
         'lakaxita/news/app',
         ], function(
+            Backbone,
+            zen,
             Views,
             LostFound,
             News
@@ -12,7 +16,6 @@ define([
         initialize: function(options) {
             this.menu = options.menu;
         },
-        tagName: 'body',
         template: 'nav',
         events: {
             'click ul#language > li > a': 'language',
@@ -31,10 +34,10 @@ define([
             };
         },
         lostFound: function(event) {
-            this.menuView = LostFound.scroll(this.menu);
+            this.menuView = LostFound.Scroll({el: this.menu});
         },
         news: function(event) {
-            this.menuView = News.scroll(this.menu);
+            this.menuView = News.Scroll({el: this.menu});
         },
     });
 

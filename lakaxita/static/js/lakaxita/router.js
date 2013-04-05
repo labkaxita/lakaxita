@@ -1,15 +1,13 @@
 define([
         'backbone',
         'underscore',
-        'jquery',
-        'lakaxita/views',
+        'lakaxita/base/app',
         'lakaxita/lost_found/app',
         'lakaxita/news/app',
-        ], function(Backbone, _, $, Views, LostFound, News) {
+        ], function(Backbone, _, Base, LostFound, News) {
 
     Router = Backbone.Router.extend({
         initialize: function(options) {
-            options.createTrailingSlashRoutes = true;
             this.content = options.content;
             this.menu = options.menu;
             this.nav = options.nav;
@@ -31,15 +29,15 @@ define([
         },
 
         loadNav: function() {
-            this.navView = new Views.Nav({el: this.nav, menu: this.menu});
+            this.navView = Base.Nav({el: this.nav, menu: this.menu});
         },
 
         lostFoundDetail: function(slug) {
-            this.contentView = LostFound.detail(this.content, slug);
+            this.contentView = LostFound.Detail({el: this.content, slug: slug});
         },
 
         newsDetail: function(slug) {
-            this.contentView = News.detail(this.content, slug);
+            this.contentView = News.Detail({el: this.content, slug: slug});
         },
     });
 
