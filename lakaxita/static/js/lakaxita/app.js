@@ -1,6 +1,6 @@
 define([
         'lakaxita/router', 
-        'jquery.smoothdivscroll',
+        'jquery.kinetic',
         ], function (Router, $) { 
 
     function App() {

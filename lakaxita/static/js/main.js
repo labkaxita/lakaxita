@@ -61,7 +61,7 @@ require.config({
 define([
         'lakaxita/app', 
         'backbone-tastypie',
-        'jquery.smoothdivscroll',
+        //'jquery.smoothdivscroll',
         ], function(App) {
 
     Lakaxita = new App();
