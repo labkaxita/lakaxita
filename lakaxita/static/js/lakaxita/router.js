@@ -24,12 +24,18 @@ define([
         },
 
         routes: {
+            '': 'frontpage',
+            '/': 'frontpage',
             'lost_found/:slug/': 'lostFoundDetail',
             'news/:slug/': 'newsDetail',
         },
 
         loadNav: function() {
             this.navView = Base.Nav({el: this.nav, menu: this.menu});
+        },
+
+        frontpage: function() {
+            this.contentView = Base.Frontpage({el: this.content});
         },
 
         lostFoundDetail: function(slug) {
