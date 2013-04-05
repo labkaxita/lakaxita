@@ -41,7 +41,10 @@ define([
             return this;
         },
         events: {
-            'click li > a': 'remove',
+            'click li > a': 'empty',
+        },
+        empty: function() {
+            this.$el.empty();
         },
     });
 
