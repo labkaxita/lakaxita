@@ -1,38 +1,44 @@
 {% load i18n %}
 
-form#notification
-    label 
-        - for title
-        | {% trans 'Title' %} *:
+div.popupbackground
 
-    input#title
-        - type text
-        - name title
-        - required required
-        - maxlength 100
+    form#notification.popup
+        div
+            label 
+                - for title
+                | {% trans 'Title' %} *:
 
-    label
-        - for reply_to
-        | {% trans 'Reply to' %} *:
+            input#title
+                - type text
+                - name title
+                - required required
+                - maxlength 100
 
-    input#reply_to
-        - type email
-        - name reply_to
-        - required required
+        div
+            label
+                - for reply_to
+                | {% trans 'Reply to' %} *:
 
-    label
-        - for text
-        | {% trans 'Text' %}:
+            input#reply_to
+                - type email
+                - name reply_to
+                - required required
 
-    textarea#text
-        - type text
-        - name text
-        - size 1000
+        div
+            label
+                - for text
+                | {% trans 'Text' %}:
 
-    input#submit
-        - type submit
-        - value {% trans 'Submit' %}
+            textarea#text
+                - type text
+                - name text
+                - size 1000
 
-    input#close
-        - type button
-        - value {% trans 'Close' %}
+        div
+            input#submit
+                - type submit
+                - value {% trans 'Submit' %}
+
+            input#close
+                - type button
+                - value {% trans 'Close' %}

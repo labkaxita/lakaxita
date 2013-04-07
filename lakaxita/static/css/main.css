@@ -31,7 +31,7 @@ body {
 .contact {
   background: #0c7070; }
 
-button {
+button, input#submit, input#close {
   padding: 0.3em;
   margin: 0.5em;
   color: #fafafa;
@@ -40,6 +40,25 @@ button {
   background: #1e1e1e;
   border: outset #060606 0.1em;
   cursor: pointer; }
+
+.popupbackground {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: red;
+  z-index: 10000;
+  background: rgba(26, 26, 26, 0.8); }
+
+.popup {
+  background: #323232;
+  width: 50%;
+  position: fixed;
+  top: 20%;
+  left: 25%;
+  border: 0.1em solid #828282;
+  padding: 2%; }
 
 header a#logo {
   position: absolute;
@@ -52,10 +71,6 @@ header a#logo {
     margin: 0;
     display: inline-block;
     font-size: 1.4em; }
-    header a#logo h1 .icon-lakaxita {
-      display: inline-block;
-      margin: 0;
-      vertical-align: middle; }
 header div#info {
   position: absolute;
   top: 0;
@@ -192,3 +207,9 @@ section#content {
       margin-top: 0; }
     section#content section.right p.hover {
       color: #fafafa; }
+  section#content form#notification div {
+    margin-bottom: 2em; }
+    section#content form#notification div label {
+      vertical-align: top; }
+  section#content form#notification div:last-child {
+    margin-bottom: 0; }

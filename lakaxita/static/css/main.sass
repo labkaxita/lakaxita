@@ -36,7 +36,7 @@ body
 .contact
     background: #0c7070
 
-button
+button, input#submit, input#close
     padding: .3em
     margin: .5em
     color: $lightergrey 
@@ -45,6 +45,26 @@ button
     background: $darkergrey
     border: outset #060606 .1em
     cursor: pointer
+
+.popupbackground
+    position: fixed
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    background: red
+    z-index: 10000
+    background: rgba(26, 26, 26, .8)
+
+.popup
+    background: $darkgrey
+    width: 50%
+    position: fixed
+    top: 20%
+    left: 25%
+    border: .1em solid $grey
+    padding: 2%
+
 
 
 header
@@ -60,10 +80,6 @@ header
             display: inline-block
             font-size: 1.4em
             .icon-lakaxita
-                display: inline-block
-                margin: 0
-                vertical-align: middle
-
 
     div#info
         position: absolute
@@ -203,4 +219,12 @@ section#content
             margin-top: 0
         p.hover
             color: $lightergrey
+    
+    form#notification
+        div
+            margin-bottom: 2em
+            label
+                vertical-align: top
+        div:last-child
+            margin-bottom: 0
 
