@@ -12,11 +12,11 @@ define([
         published: function() { return this.model.published(); },
         image: function() { return this.model.thumbnail(); },
         group: function() { return this.model.group(); },
-        status: function() { return this.model.group(); },
-        hover: function() { return this.model.published(); },
         url: function() { 
             return this.router.getReverse('newsDetail', this.model);
         },
+        icon: function() { return this.model.group()/*.image*/; },
+        hover: function() { return this.model.published(); },
     });
 
     NewsScroll = Views.ScrollView.extend({

@@ -9,19 +9,18 @@
             | Date of discovery: {{ date }}
 
         div#return
-            {{#if status}}
+            img.icon
+                - src {{ icon }}
+
+            {{#if returned}}
 
             {% endverbatim %}
-            img.status
-                - src {% static 'imgs/true.svg' %}
             | {% trans 'It has been already returned' %}
             {% verbatim %}
 
             {{else}}
 
             {% endverbatim %}
-            img.status
-                - src {% static 'imgs/false.svg' %}
             | {% trans 'It has not been returned yet' %}
             {% verbatim %}
 

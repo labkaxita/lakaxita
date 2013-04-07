@@ -9,11 +9,18 @@ define([
         title: function() { return this.model.title(); },
         description: function() { return this.model.description(); },
         date: function() { return this.model.date(); },
-        hover: function() { return this.model.date(); },
         image: function() { return this.model.thumbnail(); },
-        status: function() { return this.model.returned(); },
+        returned: function() { return this.model.returned(); },
         url: function() { 
             return this.router.getReverse('lostFoundDetail', this.model);
+        },
+        hover: function() { return this.model.date(); },
+        icon: function() {
+            if (this.returned()) {
+                return this.getStatic('imgs/true.svg');
+            } else {
+                return this.getStatic('imgs/false.svg');
+            };
         },
     });
 

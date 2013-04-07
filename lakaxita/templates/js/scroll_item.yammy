@@ -7,8 +7,8 @@ a
         | {{ title }}
     p.hover 
         | {{ hover }}
-    {{#if status}}
-    img.status
-        - src {{ status }}
+    {{#if icon}}
+    img.icon
+        - src {{ icon }}
     {{/if}}
 {% endverbatim %}
