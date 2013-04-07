@@ -184,7 +184,7 @@ section#menu {
         left: 0;
         text-align: center;
         font-size: 1.5em; }
-      section#menu ul.scroll li img.status {
+      section#menu ul.scroll li img.icon {
         width: 15%;
         position: absolute;
         top: -10%;

@@ -8,12 +8,15 @@ define([
         template: 'scroll_item',
         title: function() { return this.model.title(); },
         text: function() { return this.model.text(); },
-        hover: function() { return this.model.date(); },
+        event: function() { return this.model.event(); },
+        published: function() { return this.model.published(); },
         image: function() { return this.model.thumbnail(); },
-        status: function() { return this.model.group(); },
+        group: function() { return this.model.group(); },
         url: function() { 
             return this.router.getReverse('newsDetail', this.model);
         },
+        icon: function() { return this.model.group()/*.image*/; },
+        hover: function() { return this.model.published(); },
     });
 
     NewsScroll = Views.ScrollView.extend({
