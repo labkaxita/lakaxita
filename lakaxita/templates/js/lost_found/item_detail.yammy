@@ -9,15 +9,19 @@
             | Date of discovery: {{ hover }}
 
         div#return
+            {{#if status}}
+
             img.status
                 - src {{ status }}
-            {{#if status}}
 
             {% endverbatim %}
             | {% trans 'It has been already returned' %}
             {% verbatim %}
 
             {{else}}
+
+            img.status
+                - src {{ status }}
 
             {% endverbatim %}
             | {% trans 'It has not been returned yet' %}

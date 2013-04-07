@@ -6,35 +6,21 @@
             - src {{ image }}
 
         p.hover 
-            | Date of discovery: {{ hover }}
+            | Date: {{ hover }}
 
-        div#return
-            img.status
-                - src {{ status }}
-            {{#if status}}
-
-            {% endverbatim %}
-            | {% trans 'It has been already returned' %}
-            {% verbatim %}
-
-            {{else}}
-
-            {% endverbatim %}
-            | {% trans 'It has not been returned yet' %}
-            {% verbatim %}
-
-            {{/if}}
-
-        {% endverbatim %}
-        button.form 
-            | {% trans 'It is mine!' %}
-        {% verbatim %}
 
     section.right
+        img.group
+            - src {{ group }}
+            - alt {{ group_name }}
         h3 
             | {{ title }}
 
+        p.date
+            | {{ event }}
+            
+
         div.body
-            {{{ description }}}
+            {{{ text }}}
 
 {% endverbatim %}

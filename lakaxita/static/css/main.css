@@ -66,11 +66,16 @@ header a#logo {
   left: 0;
   z-index: 10;
   background: black;
-  padding: 1%; }
+  padding: 1%;
+  width: 20%; }
   header a#logo h1 {
     margin: 0;
-    display: inline-block;
-    font-size: 1.4em; }
+    display: inline;
+    font-size: 1.4em;
+    width: 60%; }
+  header a#logo img {
+    display: inline;
+    width: 25%; }
 header div#info {
   position: absolute;
   top: 0;

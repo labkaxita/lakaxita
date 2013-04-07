@@ -5,7 +5,9 @@ header
         -href #/
         h1 
             | lakaxita gaztetxea
-            span.icon-lakaxita
+        img
+            - src {% static 'imgs/lakaxita.svg' %}
+            - alt lakaxita gaztetxea
 
     div#info
         ul#license
@@ -33,20 +35,30 @@ nav
         li.lost-found
             a
                 | {% trans 'LOST & FOUND' %}
-                span.icon-lostfound
+                img
+                    - src {% static 'imgs/lostfound.svg' %}
+                    - alt {% trans 'lost & found' %}
         li.groups
             a
                 | {% trans 'GROUPS' %}
-                span.icon-groups
+                img
+                    - src {% static 'imgs/groups.svg' %}
+                    - alt {% trans 'groups' %}
         li.gallery
             a
                 | {% trans 'GALLERY' %}
-                span.icon-gallery
+                img
+                    - src {% static 'imgs/gallery.svg' %}
+                    - alt {% trans 'gallery' %}
         li.news
             a
                 | {% trans 'NEWS' %}
-                span.icon-news
+                img
+                    - src {% static 'imgs/news.svg' %}
+                    - alt {% trans 'news' %}
         li.contact
             a
                 | {% trans 'CONTACT' %}
-                span.icon-contact
+                img
+                    - src {% static 'imgs/contact.svg' %}
+                    - alt {% trans 'contact' %}
