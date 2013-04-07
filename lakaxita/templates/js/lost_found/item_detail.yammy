@@ -1,29 +1,27 @@
-{% load i18n %}
+{% load i18n static %}
 
 {% verbatim %}
     section.left
         img.slide
             - src {{ image }}
 
-        p.hover 
-            | Date of discovery: {{ hover }}
+        p.date
+            | Date of discovery: {{ date }}
 
         div#return
             {{#if status}}
 
-            img.status
-                - src {{ status }}
-
             {% endverbatim %}
+            img.status
+                - src {% static 'imgs/true.svg' %}
             | {% trans 'It has been already returned' %}
             {% verbatim %}
 
             {{else}}
 
-            img.status
-                - src {{ status }}
-
             {% endverbatim %}
+            img.status
+                - src {% static 'imgs/false.svg' %}
             | {% trans 'It has not been returned yet' %}
             {% verbatim %}
 
