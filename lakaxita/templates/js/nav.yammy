@@ -5,7 +5,7 @@ header
         -href #/
         h1 
             | lakaxita gaztetxea
-        span.icon-lakaxita
+            span.icon-lakaxita
 
     div#info
         ul#license

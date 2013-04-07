@@ -1,6 +1,10 @@
 @import url(/static/fontcustom/fontcustom.css);
 [class^="icon-"] {
-  font-size: 2em; }
+  line-height: 0.8em;
+  font-size: 8em;
+  padding-top: 0.2em;
+  margin-bottom: -0.7em;
+  vertical-align: bottom; }
 
 a {
   color: white;
@@ -45,11 +49,12 @@ header a#logo {
   background: black;
   padding: 1%; }
   header a#logo h1 {
-    font-size: 1.4em;
-    line-height: 1em;
-    margin: 0; }
-    header a#logo h1 img {
-      width: 4em;
+    margin: 0;
+    display: inline-block;
+    font-size: 1.4em; }
+    header a#logo h1 .icon-lakaxita {
+      display: inline-block;
+      margin: 0;
       vertical-align: middle; }
 header div#info {
   position: absolute;
