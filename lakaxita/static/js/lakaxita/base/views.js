@@ -27,7 +27,7 @@ define([
             event.preventDefault();
             var lang = this.$(event.target).text();
             document.cookie = 'django_language='+lang;
-            require.undef(this.template_uri());
+            require.undef(this.getRequireTemplate());
             this.render();
             if (this.menuView) {
                 this.menuView.collection.fetch();
