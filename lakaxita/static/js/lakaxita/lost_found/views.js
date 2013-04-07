@@ -11,7 +11,9 @@ define([
         hover: function() { return this.model.date(); },
         image: function() { return this.model.thumbnail(); },
         status: function() { return this.model.returned(); },
-        url: function() { return this.reverse('lostFoundDetail', this.model); },
+        url: function() { 
+            return this.router.getReverse('lostFoundDetail', this.model);
+        },
     });
 
     ItemScroll = Views.ScrollView.extend({

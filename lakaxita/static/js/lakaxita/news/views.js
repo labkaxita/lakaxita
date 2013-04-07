@@ -11,7 +11,9 @@ define([
         hover: function() { return this.model.date(); },
         image: function() { return this.model.thumbnail(); },
         status: function() { return this.model.group(); },
-        url: function() { return this.reverse('newsDetail', this.model); },
+        url: function() { 
+            return this.router.getReverse('newsDetail', this.model);
+        },
     });
 
     NewsScroll = Views.ScrollView.extend({

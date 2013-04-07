@@ -14,7 +14,7 @@ define([
             this.loadNav();
         },
 
-        reverse: function(route, model) {
+        getReverse: function(route, model) {
             var path = _.invert(this.routes)[route];
             if (model) {
                 path = path.replace(':slug', model.get('slug'));

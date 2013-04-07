@@ -6,13 +6,19 @@ define([
         ], function(Backbone, zen, Loading) {
 
     View = Backbone.View.extend({
-        template_uri: function() {
-            return 'text!/template/'+this.template+'/';
+        getStatic: function(url) {
+            return '/static/'+url;
+        },
+        getTemplate: function(url) {
+            return '/template/'+this.template+'/';
+        },
+        getRequireTemplate: function(url) {
+            return 'text!'+this.getTemplate(url);
         },
         render: function() {
             Loading.show();
             var view = this;
-            require([this.template_uri()], function(template) {
+            require([this.getRequireTemplate(this.template)], function(template) {
                 var template = Handlebars.compile(template);
                 view.$el.html(template(view));
             });
