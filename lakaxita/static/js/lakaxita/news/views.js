@@ -17,7 +17,7 @@ define([
     });
 
     NewsScroll = Views.ScrollView.extend({
-        list: 'ul.scroll.news',
+        className: 'news',
         subView: News,
     });
 

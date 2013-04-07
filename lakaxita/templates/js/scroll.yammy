@@ -1,0 +1,15 @@
+{% load static %}
+
+img.arrow#left
+    - src {% static 'imgs/left_arrow.svg' %}
+
+{% verbatim %}
+ul.scroll
+    {{#each subviews}}
+    li
+        {{{ this.html }}}
+    {{/each}}
+{% endverbatim %}
+
+img.arrow#right
+    - src {% static 'imgs/right_arrow.svg' %}

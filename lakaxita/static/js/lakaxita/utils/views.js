@@ -1,9 +1,10 @@
 define([
         'backbone', 
+        'underscore',
         'zen',
         'lakaxita/utils/loading', 
         'text',
-        ], function(Backbone, zen, Loading) {
+        ], function(Backbone, _, zen, Loading) {
 
     View = Backbone.View.extend({
         getStatic: function(url) {
@@ -15,40 +16,45 @@ define([
         getRequireTemplate: function(url) {
             return 'text!'+this.getTemplate(url);
         },
-        render: function() {
-            Loading.show();
-            var view = this;
+        loadTemplate: function(callback) {
             require([this.getRequireTemplate(this.template)], function(template) {
                 var template = Handlebars.compile(template);
-                view.$el.html(template(view));
+                return callback(template);
             });
+        },
+        render: function() {
+            Loading.show();
+            this.loadTemplate(_.bind(function(template) {
+                var rendered = template(this);
+                this.$el.html(rendered);
+            }, this));
             Loading.hide();
             return this;
         },
     });
 
     ScrollView = View.extend({
-        list: 'ul.scroll',
+        template: 'scroll',
         initialize: function(options) {
-            if (! this.$list) {
-                this.$list = zen(this.list);
-            };
-            this.$el.html(this.$list);
-            left = zen('img#left').attr('src', this.getStatic('imgs/left_arrow.svg'));
-            right = zen('img#right').attr('src', this.getStatic('imgs/right_arrow.svg'));
-            this.$list.before(left);
-            this.$list.after(right);
             this.collection.on('sync', this.render, this);
         },
         render: function() {
             Loading.show();
-            this.$list.empty();
+
+            var subview_elements = [];
             this.collection.each(function(model) {
                 var view = new this.subView({model: model});
-                this.$list.append(view.render().el);
+                element = view.render().$el;
+                subview_elements.push(element);
             }, this);
+
+            this.loadTemplate(_.bind(function(template) {
+                var rendered = template({subviews: subview_elements});
+                this.$el.html(rendered);
+            }, this));
+
+            this.$el.addClass(this.className);
             Loading.hide();
-            return this;
         },
         events: {
             'click li > a': 'empty',
