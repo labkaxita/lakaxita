@@ -27,15 +27,17 @@ define([
         },
     });
 
-    ScrollView = Backbone.View.extend({
+    ScrollView = View.extend({
         list: 'ul.scroll',
         initialize: function(options) {
             if (! this.$list) {
                 this.$list = zen(this.list);
             };
             this.$el.html(this.$list);
-            this.$list.before(zen('div#left'));
-            this.$list.after(zen('div#right'));
+            left = zen('img#left').attr('src', this.getStatic('imgs/left_arrow.svg'));
+            right = zen('img#right').attr('src', this.getStatic('imgs/right_arrow.svg'));
+            this.$list.before(left);
+            this.$list.after(right);
             this.collection.on('sync', this.render, this);
         },
         render: function() {
