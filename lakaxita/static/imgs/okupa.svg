@@ -14,7 +14,7 @@
    id="svg2"
    sodipodi:version="0.32"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="6 dokumentu berria"
+   sodipodi:docname="okupa.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.1">
   <defs
@@ -26,8 +26,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.58242188"
-     inkscape:cx="469.52753"
+     inkscape:zoom="1.9383728"
+     inkscape:cx="358.8677"
      inkscape:cy="264.82033"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -56,7 +56,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -66,7 +66,7 @@
      id="layer1"
      transform="translate(0,-690.36215)">
     <path
-       style="color:#000000;fill:#999999;fill-opacity:0.14900662;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       style="color:#000000;fill:#414141;fill-opacity:0.14900662;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        d="M 500 -0.125 L 420.6875 35.5625 L 432.875 47.75 L 370.75 109.875 C 344.07202 66.633422 295.85558 37.71875 240.78125 37.71875 C 156.811 37.71875 88.71875 104.87801 88.71875 187.6875 C 88.71875 207.12045 92.457377 225.67695 99.28125 242.71875 L 43.4375 298.5625 L 19.78125 274.90625 L 0.25 294.40625 L 23.90625 318.09375 L 7.0625 334.9375 L 26.5625 354.4375 L 43.40625 337.59375 L 67.0625 361.25 L 86.59375 341.71875 L 62.9375 318.0625 L 112.625 268.375 C 139.6417 310.01569 186.93774 337.625 240.78125 337.625 C 324.75161 337.625 392.8125 270.497 392.8125 187.6875 C 392.8125 169.54847 389.54704 152.15679 383.5625 136.0625 L 452.375 67.25 L 464.3125 79.1875 L 500 -0.125 z M 240.78125 68.03125 C 287.52175 68.03125 328.06054 94.110076 348.3125 132.3125 L 241.21875 239.40625 L 277.65625 103.34375 L 277.875 103.125 L 277.75 103 L 258.34375 83.625 L 123.5 218.46875 C 120.85564 208.64885 119.4375 198.32881 119.4375 187.6875 C 119.4375 121.61609 173.7837 68.03125 240.78125 68.03125 z M 238.625 142.375 L 202.1875 278.40625 L 202.1875 278.4375 L 221.71875 297.9375 L 358.9375 160.6875 C 360.96464 169.36126 362.0625 178.40677 362.0625 187.6875 C 362.0625 253.75891 307.77892 307.28125 240.78125 307.28125 C 195.30448 307.28125 155.67899 282.6054 134.90625 246.09375 L 238.625 142.375 z "
        transform="translate(0,690.36215)"
        id="path10799-8" />
