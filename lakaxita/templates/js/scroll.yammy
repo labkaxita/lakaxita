@@ -1,7 +1,10 @@
 {% load static %}
-
 img.arrow#left
     - src {% static 'imgs/left_arrow.svg' %}
+    - alt left
+img.arrow#right
+    - src {% static 'imgs/right_arrow.svg' %}
+    - alt right
 
 {% verbatim %}
 ul.scroll
@@ -11,5 +14,3 @@ ul.scroll
     {{/each}}
 {% endverbatim %}
 
-img.arrow#right
-    - src {% static 'imgs/right_arrow.svg' %}
