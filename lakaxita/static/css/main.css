@@ -153,7 +153,8 @@ section#menu {
   overflow: hidden;
   position: absolute;
   bottom: 2em;
-  left: 0; }
+  left: 0;
+  width: 100%; }
   section#menu img#left {
     position: fixed;
     left: 0;
@@ -188,8 +189,7 @@ section#menu {
         position: absolute;
         top: -10%;
         right: -10%;
-        border-radius: 100%;
-        border: black solid 0.15em; }
+        border-radius: 100%; }
       section#menu ul.scroll li h3 {
         white-space: normal;
         font-size: 1em; }
