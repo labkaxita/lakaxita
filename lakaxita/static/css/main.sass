@@ -153,50 +153,63 @@ div#about
         img
             width: 100%
 
-section#menu
-    overflow: hidden
-    position: absolute
-    bottom: 2em
-    left: 0
 img.slide
     width: 100%
     box-shadow: 0 0 1em $grey
     background: $grey
 
-ul.scroll
-    padding: 0
-    margin: 0
-    white-space: nowrap
-    li
-        position: relative
-        display: inline-block
-        width: 12%
-        margin: 2% 2% 3% 2%
-        vertical-align: top
-        p.hover
-            display: none
-            font-weight: bold
-            position: absolute
-            width: 100%
-            top: 2em
-            left: 0
-            text-align: center
-            font-size: 1.5em
-        img.status
-            width: 15%
-            position: absolute
-            top: -10%
-            right: -10%
-            border-radius: 100%
-            border: black solid 0.15em
-        h3
-            white-space: normal
-            font-size: 1em
-    li:hover
-        p.hover
-            display: inline
-        img.slide
-            opacity: 0.5
+section#menu
+    overflow: hidden
+    position: absolute
+    bottom: 2em
+    left: 0
+    img#left
+        position: absolute
+        left: 0
+        top: 35%
+        z-index: 2
+        cursor: pointer
+    img#right
+        position: absolute
+        right: 0
+        top: 35%
+        z-index: 2
+        cursor: pointer
+
+    ul.scroll
+        padding: 0
+        margin: 0
+        white-space: nowrap
+        li
+            position: relative
+            display: inline-block
+            width: 12%
+            margin: 2% 2% 3% 2%
+            vertical-align: top
+            p.hover
+                display: none
+                font-weight: bold
+                position: absolute
+                width: 100%
+                top: 2em
+                left: 0
+                text-align: center
+                font-size: 1.5em
+            img.status
+                width: 15%
+                position: absolute
+                top: -10%
+                right: -10%
+                border-radius: 100%
+                border: black solid 0.15em
+            h3
+                white-space: normal
+                font-size: 1em
+        li:hover
+            p.hover
+                display: inline
+            img.slide
+                opacity: 0.5
 
 section#content
     margin: 10%
