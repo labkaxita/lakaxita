@@ -6,13 +6,16 @@
             - src {{ image }}
 
         p.hover 
-            | Date: {{ hover }}
+            {% endverbatim %}
+            | Date: 
+            {% verbatim %}
+            {{ published }}
 
 
     section.right
         img.group
-            - src {{ group }}
-            - alt {{ group_name }}
+            - src {{ group.image }}
+            - alt {{ group.name }}
         h3 
             | {{ title }}
 

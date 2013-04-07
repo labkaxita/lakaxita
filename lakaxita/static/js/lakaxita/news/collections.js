@@ -5,7 +5,7 @@ define(['backbone'], function(Backbone) {
         model: Backbone.Model.extend({
             title: function() { return this.get('title'); },
             text: function() { return this.get('text'); },
-            date: function() { return this.get('event'); },
+            event: function() { return this.get('event'); },
             published: function() { return this.get('published'); },
             image: function() { return this.get('image'); },
             thumbnail: function() { return this.get('thumbnail'); },

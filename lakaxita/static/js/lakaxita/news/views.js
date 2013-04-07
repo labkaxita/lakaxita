@@ -8,9 +8,12 @@ define([
         template: 'scroll_item',
         title: function() { return this.model.title(); },
         text: function() { return this.model.text(); },
-        hover: function() { return this.model.date(); },
+        event: function() { return this.model.event(); },
+        published: function() { return this.model.published(); },
         image: function() { return this.model.thumbnail(); },
+        group: function() { return this.model.group(); },
         status: function() { return this.model.group(); },
+        hover: function() { return this.model.date(); },
         url: function() { 
             return this.router.getReverse('newsDetail', this.model);
         },
