@@ -9,10 +9,7 @@ require.config({
         'zen_coding': 'lib/zen_coding',
         'zen': 'lib/zen',
         'jquery': 'lib/jquery',
-        'jquery.ui': 'lib/jquery.ui',
         'jquery.kinetic': 'lib/jquery.kinetic',
-        'jquery.mousewheel': 'lib/jquery.mousewheel',
-        'jquery.smoothdivscroll': 'lib/jquery.smoothdivscroll',
     },
     shim: {
         'handlebars': {
@@ -28,26 +25,9 @@ require.config({
         'jquery': {
             exports: '$',
         },
-        'jquery.ui': {
-            exports: '$',
-            deps: ['jquery'],
-        },
         'jquery.kinetic': {
             exports: '$',
             deps: ['jquery'],
-        },
-        'jquery.mousewheel': {
-            exports: '$',
-            deps: ['jquery'],
-        },
-        'jquery.smoothdivscroll': {
-            exports: '$',
-            deps: [
-                'jquery', 
-                'jquery.ui', 
-                'jquery.mousewheel', 
-                'jquery.kinetic',
-            ],
         },
         'backbone-tastypie': {
             exports: 'Backbone',
@@ -67,7 +47,6 @@ require.config({
 define([
         'lakaxita/app', 
         'backbone-tastypie',
-        //'jquery.smoothdivscroll',
         ], function(App) {
 
     Lakaxita = new App();
