@@ -1,6 +1,6 @@
 define(['backbone'], function(Backbone) {
 
-    Items = Backbone.Model.extend({
+    Item = Backbone.Model.extend({
         title: function() { return this.get('name'); },
         description: function() { return this.get('description'); },
         date: function() { return this.get('lost'); },
@@ -9,5 +9,5 @@ define(['backbone'], function(Backbone) {
         returned: function() { return this.get('found') == null; },
     });
 
-    return {Items: Items};
+    return {Item: Item};
 })
