@@ -1,9 +1,9 @@
 define([
         'lakaxita/utils/views', 
-        'lakaxita/news/collections',
+        'lakaxita/groups/collections',
         ], function(Views, Collections) {
 
-    News = Views.View.extend({
+    Group = Views.View.extend({
         tagName: 'li',
         template: 'scroll_item',
         title: function() { return this.model.title(); },
@@ -15,28 +15,23 @@ define([
         url: function() { 
             return this.router.getReverse('newsDetail', this.model);
         },
+        icon: function() { return this.model.group()/*.image*/; },
         hover: function() { return this.model.published(); },
-        icon: function() { 
-            var group = this.model.group();
-            if (group) {
-                return group.image();
-            };
-        },
     });
 
-    NewsScroll = Views.ScrollView.extend({
+    GroupScroll = Views.ScrollView.extend({
         className: 'news',
-        subView: News,
+        subView: Group,
     });
 
-    NewsDetail = News.extend({
+    GroupDetail = News.extend({
         tagName: 'article',
-        template: 'news/news_detail',
+        template: 'groups/group_detail',
         image: function() { return this.model.image(); },
     });
 
     return {
-        NewsScroll: NewsScroll,
-        NewsDetail: NewsDetail,
+        GroupScroll: GroupScroll,
+        GroupDetail: GroupDetail,
     };
 })

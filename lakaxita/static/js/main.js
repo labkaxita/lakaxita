@@ -5,6 +5,7 @@ require.config({
         'handlebars': 'lib/handlebars',
         'underscore': 'lib/underscore',
         'backbone-tastypie': 'backbone-tastypie',
+        'backbone.relational': 'lib/backbone.relational',
         'backbone': 'lib/backbone',
         'zen_coding': 'lib/zen_coding',
         'zen': 'lib/zen',
@@ -29,6 +30,10 @@ require.config({
             exports: '$',
             deps: ['jquery'],
         },
+        'backbone.relational': {
+            exports: 'Backbone',
+            deps: ['backbone-tastypie', 'backbone'],
+        },
         'backbone-tastypie': {
             exports: 'Backbone',
             deps: ['backbone',],
@@ -46,7 +51,7 @@ require.config({
 
 define([
         'lakaxita/app', 
-        'backbone-tastypie',
+        'backbone.relational',
         ], function(App) {
 
     Lakaxita = new App();
