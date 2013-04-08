@@ -7,6 +7,16 @@ define([
         ], function(Backbone, _, zen, Loading) {
 
     View = Backbone.View.extend({
+        getContext: function() {
+            var context = _.extend(this.model);
+            var extraContext = _.extend(this.extraContext);
+            view = this;
+            _.each(_.functions(extraContext), function(name) {
+                func = _.bind(extraContext[name], view);
+                context[name] = func;
+            });
+            return context;
+        },
         getStatic: function(url) {
             return '/static/'+url;
         },
@@ -25,7 +35,7 @@ define([
         render: function() {
             Loading.show();
             this.loadTemplate(_.bind(function(template) {
-                var rendered = template(this);
+                var rendered = template(this.getContext());
                 this.$el.html(rendered);
             }, this));
             Loading.hide();

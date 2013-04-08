@@ -6,21 +6,17 @@ define([
     News = Views.View.extend({
         tagName: 'li',
         template: 'scroll_item',
-        title: function() { return this.model.title(); },
-        text: function() { return this.model.text(); },
-        event: function() { return this.model.event(); },
-        published: function() { return this.model.published(); },
-        image: function() { return this.model.thumbnail(); },
-        group: function() { return this.model.group(); },
-        url: function() { 
-            return this.router.getReverse('newsDetail', this.model);
-        },
-        hover: function() { return this.model.published(); },
-        icon: function() { 
-            var group = this.model.group();
-            if (group) {
-                return group.image();
-            };
+        extraContext: {
+            hover: function() { return this.model.published(); },
+            icon: function() { 
+                var group = this.model.group();
+                if (group) {
+                    return group.image();
+                };
+            },
+            url: function() { 
+                return this.router.getReverse('newsDetail', this.model);
+            },
         },
     });
 
@@ -32,7 +28,6 @@ define([
     NewsDetail = News.extend({
         tagName: 'article',
         template: 'news/news_detail',
-        image: function() { return this.model.image(); },
     });
 
     return {

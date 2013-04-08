@@ -2,7 +2,7 @@
 a 
     - href {{ url }}
     img.slide
-        - src {{ image }}
+        - src {{ thumbnail }}
     h3 
         | {{ title }}
     p.hover 
