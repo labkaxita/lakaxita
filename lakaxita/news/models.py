@@ -27,10 +27,10 @@ class QuerySet(models.query.QuerySet):
         return self.published().filter(frontpage=True)
 
     def published(self):
-        return self.filter(published__gte=date.today())
+        return self.filter(published__lte=date.today())
 
     def not_published(self):
-        return self.filter(published__lt=date.today())
+        return self.filter(published__gt=date.today())
     
 
 class News(models.Model):
