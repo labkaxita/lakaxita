@@ -1,4 +1,10 @@
 @import url(/static/fontcustom/fontcustom.css);
+img#beta {
+  width: 5%;
+  position: fixed;
+  right: 0;
+  top: 5em; }
+
 [class^="icon-"] {
   line-height: 0.8em;
   font-size: 8em;

@@ -12,6 +12,9 @@ html
 
     body
         {% require_module 'main' %}
+        img#beta
+            - src {% static 'imgs/beta.svg' %}
+            - alt beta
         section#nav
             {% include 'js/nav.yammy' %}
         section#content
