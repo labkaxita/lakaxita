@@ -1,10 +1,11 @@
 define([
         'lakaxita/utils/app',
-        'lakaxita/base/views', 
-        ], function(App, Views) {
+        'lakaxita/base/nav', 
+        'lakaxita/base/frontpage', 
+        ], function(App, NavView, FrontpageView) {
 
-    Nav = new App.generateView(Views.Nav);
-    Frontpage = new App.generateView(Views.Frontpage);
+    Nav = new App.generateView(NavView);
+    Frontpage = new App.generateView(FrontpageView);
 
     return {Nav: Nav.run, Frontpage: Frontpage.run};
 })

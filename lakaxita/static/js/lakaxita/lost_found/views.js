@@ -6,33 +6,29 @@ define([
     Item = Views.View.extend({
         tagName: 'li',
         template: 'scroll_item',
-        title: function() { return this.model.title(); },
-        description: function() { return this.model.description(); },
-        date: function() { return this.model.date(); },
-        image: function() { return this.model.thumbnail(); },
-        returned: function() { return this.model.returned(); },
-        url: function() { 
-            return this.router.getReverse('lostFoundDetail', this.model);
-        },
-        hover: function() { return this.model.date(); },
-        icon: function() {
-            if (this.returned()) {
-                return this.getStatic('imgs/true.svg');
-            } else {
-                return this.getStatic('imgs/false.svg');
-            };
+        extraContext: {
+            hover: function() { return this.model.date(); },
+            url: function() { 
+                return this.router.getReverse('lostFoundDetail', this.model);
+            },
+            icon: function() {
+                if (this.model.returned()) {
+                    return this.getStatic('imgs/true.svg');
+                } else {
+                    return this.getStatic('imgs/false.svg');
+                };
+            },
         },
     });
 
     ItemScroll = Views.ScrollView.extend({
-        className: 'lost-found',
+        classReplacement: 'scroll lost-found',
         subView: Item,
     });
 
     ItemDetail = Item.extend({
         tagName: 'article',
         template: 'lost_found/item_detail',
-        image: function() { return this.model.image(); },
         events: {'click button': 'notify'},
         notify: function(event) {
             event.preventDefault();

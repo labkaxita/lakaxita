@@ -5,14 +5,13 @@ require.config({
         'handlebars': 'lib/handlebars',
         'underscore': 'lib/underscore',
         'backbone-tastypie': 'backbone-tastypie',
+        'backbone.relational': 'lib/backbone.relational',
+        'backbone.fetch-cache': 'lib/backbone.fetch-cache',
         'backbone': 'lib/backbone',
         'zen_coding': 'lib/zen_coding',
         'zen': 'lib/zen',
         'jquery': 'lib/jquery',
-        'jquery.ui': 'lib/jquery.ui',
         'jquery.kinetic': 'lib/jquery.kinetic',
-        'jquery.mousewheel': 'lib/jquery.mousewheel',
-        'jquery.smoothdivscroll': 'lib/jquery.smoothdivscroll',
     },
     shim: {
         'handlebars': {
@@ -28,30 +27,25 @@ require.config({
         'jquery': {
             exports: '$',
         },
-        'jquery.ui': {
-            exports: '$',
-            deps: ['jquery'],
-        },
         'jquery.kinetic': {
             exports: '$',
             deps: ['jquery'],
         },
-        'jquery.mousewheel': {
-            exports: '$',
-            deps: ['jquery'],
-        },
-        'jquery.smoothdivscroll': {
-            exports: '$',
+        'backbone.relational': {
+            exports: 'Backbone',
             deps: [
-                'jquery', 
-                'jquery.ui', 
-                'jquery.mousewheel', 
-                'jquery.kinetic',
-            ],
+                'backbone-tastypie', 
+                'backbone.fetch-cache',
+                'backbone',
+                ],
         },
         'backbone-tastypie': {
             exports: 'Backbone',
             deps: ['backbone',],
+        },
+        'backbone.fetch-cache': {
+            exports: 'Backbone',
+            deps: ['backbone'],
         },
         'backbone': {
             exports: 'Backbone',
@@ -66,8 +60,7 @@ require.config({
 
 define([
         'lakaxita/app', 
-        'backbone-tastypie',
-        //'jquery.smoothdivscroll',
+        'backbone.relational',
         ], function(App) {
 
     Lakaxita = new App();
