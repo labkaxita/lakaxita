@@ -30,7 +30,7 @@ define([
             require.undef(this.getRequireTemplate());
             this.render();
             if (this.menuView) {
-                this.menuView.collection.fetch();
+                this.menuView.collection.fetch({prefill: true});
             };
         },
         lostFound: function(event) {

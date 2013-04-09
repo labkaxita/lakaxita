@@ -16,7 +16,7 @@ define([], function() {
         this.run = _.bind(function(options) {
             var collection = new this.collection(),
                 view = new this.view({collection: collection, el: options.el});
-            collection.fetch();
+            collection.fetch({prefill: true});
             return view;
         }, this);
     };
@@ -33,7 +33,7 @@ define([], function() {
                 view.model = model;
                 view.render();
             });
-            collection.fetch();
+            collection.fetch({prefill: true});
             return view;
         }, this);
     };

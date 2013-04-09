@@ -6,6 +6,7 @@ require.config({
         'underscore': 'lib/underscore',
         'backbone-tastypie': 'backbone-tastypie',
         'backbone.relational': 'lib/backbone.relational',
+        'backbone.fetch-cache': 'lib/backbone.fetch-cache',
         'backbone': 'lib/backbone',
         'zen_coding': 'lib/zen_coding',
         'zen': 'lib/zen',
@@ -32,11 +33,19 @@ require.config({
         },
         'backbone.relational': {
             exports: 'Backbone',
-            deps: ['backbone-tastypie', 'backbone'],
+            deps: [
+                'backbone-tastypie', 
+                'backbone.fetch-cache',
+                'backbone',
+                ],
         },
         'backbone-tastypie': {
             exports: 'Backbone',
             deps: ['backbone',],
+        },
+        'backbone.fetch-cache': {
+            exports: 'Backbone',
+            deps: ['backbone'],
         },
         'backbone': {
             exports: 'Backbone',
