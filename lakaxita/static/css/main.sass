@@ -164,21 +164,24 @@ img.slide
     background: $grey
 
 section#menu
-    overflow: hidden
     position: absolute
     bottom: 2em
     left: 0
     width: 100%
-    img#left
+
+
+section.scroll
+    overflow: hidden
+
+    img.arrow
         position: fixed
+        margin-top: 8%
+        z-index: 2
+        cursor: pointer
+    img.arrow#left
         left: 0
-        z-index: 2
-        cursor: pointer
-    img#right
-        position: fixed
+    img.arrow#right
         right: 0
-        z-index: 2
-        cursor: pointer
 
     ul.scroll
         padding: 0
@@ -213,6 +216,7 @@ section#menu
                 display: inline
             img.slide
                 opacity: 0.5
+
 
 section#content
     margin: 10%
