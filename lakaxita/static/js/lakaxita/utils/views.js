@@ -63,7 +63,10 @@ define([
                 this.$el.html(rendered);
             }, this));
 
-            this.$el.addClass(this.className);
+            if (this.classReplacement) {
+                this.$el.removeClass().addClass(this.classReplacement);
+            };
+
             Loading.hide();
         },
         events: {
