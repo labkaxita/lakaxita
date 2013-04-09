@@ -66,6 +66,7 @@ class NewsResource(ThumbnailResource, ModelResource):
         allowed_methods = ['get']
         queryset = News.objects.published()
         resource_name = 'news'
+        filtering = {'frontpage': ['exact']}
         fields = ['title', 'text', 'image', 'attachments', 'frontpage', 
                 'group', 'event', 'slug', 'published']
 

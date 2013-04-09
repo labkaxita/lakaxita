@@ -7,6 +7,7 @@ define([
         ], function(Backbone, _, zen, Loading) {
 
     View = Backbone.View.extend({
+        data: {},
         getContext: function() {
             var context = _.extend(this.model);
             var extraContext = _.extend(this.extraContext);

@@ -12,7 +12,7 @@ define([
     Frontpage = Backbone.View.extend({
         initialize: function(options) {
             this.news = zen('section#news');
-            this.newsView = News.Scroll({el: this.news});
+            this.newsView = News.FrontpageScroll({el: this.news});
             this.$el.append(this.news);
 
             /* TODO: when gallery app ready

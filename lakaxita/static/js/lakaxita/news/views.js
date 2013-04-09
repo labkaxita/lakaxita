@@ -25,12 +25,18 @@ define([
         subView: News,
     });
 
+    FrontpageNewsScroll = NewsScroll.extend({
+        classReplacement: 'scroll',
+        data: {frontpage: true},
+    });
+
     NewsDetail = News.extend({
         tagName: 'article',
         template: 'news/news_detail',
     });
 
     return {
+        FrontpageNewsScroll: FrontpageNewsScroll,
         NewsScroll: NewsScroll,
         NewsDetail: NewsDetail,
     };
