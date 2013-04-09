@@ -11,16 +11,33 @@ header
 
     div#info
         ul#license
+            span[style="display: none;"]
+                - xmlns:dct="http://purl.org/dc/terms/
+                - property dct:title
+                | Lakaxita
+
             li
                 | {% trans 'content' %}
-                img
-                    - src {% static 'imgs/by-sa1.svg' %}
-                    - alt CC by sa
+                a
+                    - rel license
+                    - href http://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+                    img
+                        - src {% static 'imgs/by-sa1.svg' %}
+                        - alt Creative Commons Attribution-ShareAlike 3.0 Unported License
             li
-                | {% trans 'webpage' %}
-                img
-                    - src {% static 'imgs/by-sa1.svg' %}
-                    - alt CC by sa
+                a
+                    - xmlns:cc http://creativecommons.org/ns#
+                    - href https://github.com/labkaxita/lakaxita
+                    - property cc:attributionName
+                    - rel cc:attributionURL
+                    | {% trans 'webpage' %}
+                a
+                    - rel license
+                    - href http://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+                    img
+                        - src {% static 'imgs/by-sa1.svg' %}
+                        - alt Creative Commons Attribution-ShareAlike 3.0 Unported License
+
         ul#language
             {% for lang in LANGUAGES %}
             {% if lang.0 != LANGUAGE_CODE %}
