@@ -18,6 +18,9 @@ define([
                     return this.getStatic('imgs/false.svg');
                 };
             },
+            default_image: function() {
+                return this.getStatic('imgs/scroll_lostfound.svg');
+            },
         },
     });
 

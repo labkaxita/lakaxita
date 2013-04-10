@@ -1,12 +1,21 @@
 {% verbatim %}
 a 
     - href {{ url }}
+
+    {{#if thumbnail}}
     img.slide
         - src {{ thumbnail }}
+    {{else}}
+    img.slide
+        - src {{ default_image }}
+    {{/if}}
+
     h3 
         | {{ title }}
+
     p.hover 
         | {{ hover }}
+
     {{#if icon}}
     img.icon
         - src {{ icon }}

@@ -17,6 +17,9 @@ define([
             url: function() { 
                 return this.router.getReverse('newsDetail', this.model);
             },
+            default_image: function() {
+                return this.getStatic('imgs/scroll_news.svg');
+            },
         },
     });
 
