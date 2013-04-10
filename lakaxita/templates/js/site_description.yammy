@@ -1,0 +1,8 @@
+{% verbatim %}
+
+img
+    - src {{ thumbnail }}
+
+{{{ description }}}
+
+{% endverbatim %}

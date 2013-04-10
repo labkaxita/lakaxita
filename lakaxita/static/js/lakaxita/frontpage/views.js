@@ -2,36 +2,59 @@ define([
         'backbone',
         'zen',
         'jquery.kinetic',
+        'lakaxita/utils/views',
+        'lakaxita/utils/app',
+        'lakaxita/frontpage/collections',
         'lakaxita/news/app',
         ], function(
             Backbone,
             zen,
             $,
-            News
+            Views,
+            App,
+            FrontpageCollections,
+            NewsApp
             ) {
 
 
+    SiteDescription = Views.View.extend({
+        template: 'site_description',
+    });
+
     Frontpage = Backbone.View.extend({
         initialize: function(options) {
-            this.news = zen('section#news');
-            this.newsView = News.FrontpageScroll({el: this.news});
-
             this.$el.empty();
-            this.news.kinetic({cursor: 'ew-resize'});
+
+            this.setupDescription();
+            this.setupNews();
+            // this.setupGallery();
+
+            this.$el.append(this.description);
             this.$el.append(this.news);
-            
-
-            /* TODO: when gallery app ready
-             * this.gallery = zen('section#gallery');
-             * this.galleryView = Gallery.Scroll({el: this.gallery});
-             * this.$el.append(this.gallery);
-             * this.galleryView.collection.on(
-             *                              'sync', 
-             *                              this.galleryView.render, 
-             *                              this.galleryView);
-             */
-
+            this.$el.append(this.gallery);
+        },
+        setupNews: function() {
+            this.news = zen('section#news');
+            this.news.kinetic({cursor: 'ew-resize'});
+            this.newsView = NewsApp.FrontpageScroll({el: this.news});
             this.newsView.collection.on('sync', this.newsView.render, this.newsView);
+        },
+        setupGallery: function() {
+            this.gallery = zen('section#gallery');
+            this.gallery.kinetic({cursor: 'ew-resize'});
+            this.galleryView = Gallery.Scroll({el: this.gallery});
+            this.galleryView.collection.on('sync', this.galleryView.render, 
+                                         this.galleryView);
+        },
+        setupDescription: function() {
+            collection = new FrontpageCollections.SiteDescription();
+            collection.fetch({prefill: true});
+            var model = collection.at(0);
+
+            this.description = zen('section#description');
+            this.descriptionView = new SiteDescription({model: model,
+                el: this.description});
+            this.descriptionView.render();
         },
     });
 

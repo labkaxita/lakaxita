@@ -14,7 +14,7 @@ class SiteDescription(Preferences):
         verbose_name = _('site description')
         verbose_name_plural = _('site description')
 
-    image = models.ImageField(blank=True, upload_to='preferences', 
+    image = models.ImageField(upload_to='preferences', 
             verbose_name=_('image'))
     thumbnail = ThumbnailField(source='image')
 

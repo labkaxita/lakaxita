@@ -10,6 +10,7 @@ define([
         data: {},
         getContext: function() {
             var context = _.extend(this.model);
+            console.log(context)
             var extraContext = _.extend(this.extraContext);
             view = this;
             _.each(_.functions(extraContext), function(name) {
