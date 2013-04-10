@@ -1,8 +1,10 @@
 define([
+        'backbone',
         'lakaxita/utils/views',
         'lakaxita/lost_found/app',
         'lakaxita/news/app',
         ], function(
+            Backbone,
             Views,
             LostFound,
             News
@@ -23,8 +25,7 @@ define([
             event.preventDefault();
             var lang = this.$(event.target).text();
             document.cookie = 'django_language='+lang;
-            require.undef(this.getRequireTemplate());
-            this.render();
+            Backbone.history.location.reload();
         },
         lostFound: function(event) {
             this.menuView = LostFound.Scroll({el: this.options.menu});
