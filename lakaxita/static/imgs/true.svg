@@ -14,7 +14,7 @@
    id="svg2"
    sodipodi:version="0.32"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="notreturned.svg"
+   sodipodi:docname="true.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.1">
   <defs
@@ -72,7 +72,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -82,12 +82,12 @@
      id="layer1"
      transform="translate(0,-952.36215)">
     <path
-       style="color:#000000;fill:#828282;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.25000000000000000px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.25000000000000000px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        d="M 50 0 C 22.385763 5.5511151e-15 1.2499407e-16 22.385763 0 50 C 0 77.614237 22.385763 100 50 100 C 77.614237 100 100 77.614237 100 50 C 100 22.385763 77.614237 -1.0977236e-14 50 0 z M 50 4.6875 C 75.025403 4.6875 95.3125 24.974597 95.3125 50 C 95.3125 75.025403 75.025403 95.3125 50 95.3125 C 24.974597 95.3125 4.6875 75.025403 4.6875 50 C 4.6875 24.974597 24.974597 4.6875 50 4.6875 z "
        transform="translate(0,952.36215)"
        id="path6237" />
     <path
-       style="font-size:111.51595306px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#828282;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;font-family:Quicksand;-inkscape-font-specification:Quicksand"
+       style="font-size:111.51595305999998686px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;font-family:Quicksand;-inkscape-font-specification:Quicksand"
        d="m 17.602057,1006.6267 c -0.515765,-0.014 -0.953451,0.1275 -1.34375,0.4063 -1.263856,1.0408 -1.454635,2.2944 -0.5625,3.7812 l 1.03125,1.4375 1.0625,1.4375 1.03125,1.4375 0.65625,0.875 c 0.170143,0.1388 0.3152,0.3043 0.4375,0.5 l 2,2.6875 1.96875,2.6875 2,2.6875 1.96875,2.6875 1.96875,2.6875 2,2.6875 1.96875,2.6875 1.96875,2.6875 1.96875,-2.6875 41.871527,-56.75324 1.0625,-1.4375 c 0.892078,-1.5612 0.631237,-2.81475 -0.78125,-3.78127 -0.520455,-0.37165 -1.162857,-0.49239 -1.90625,-0.34375 -0.669141,0.0744 -1.241481,0.43655 -1.6875,1.03125 l -40.527777,55.19071 -15.84375,-21.4999 c -0.371732,-0.5947 -0.963478,-0.9569 -1.78125,-1.0313 -0.185862,-0.037 -0.359328,-0.058 -0.53125,-0.063 z"
        id="path7253-5"
        inkscape:connector-curvature="0"
