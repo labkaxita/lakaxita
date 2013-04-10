@@ -7,8 +7,9 @@ define([
         this.Router = Router;
 
         this.boot = function(options) {
-            this.setupScrolling(options.menu);
-            this.router = new this.Router(options);
+            this.options = options;
+            this.setupScrolling(this.options.menu);
+            this.router = new this.Router(this.options);
             this.bindRouter();
             Backbone.history.start();
         };

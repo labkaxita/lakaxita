@@ -10,7 +10,7 @@ define([
 
     Nav = Views.View.extend({
         initialize: function(options) {
-            this.menu = options.menu;
+            this.options = options;
         },
         template: 'nav',
         events: {
@@ -30,10 +30,10 @@ define([
             };
         },
         lostFound: function(event) {
-            this.menuView = LostFound.Scroll({el: this.menu});
+            this.menuView = LostFound.Scroll({el: this.options.menu});
         },
         news: function(event) {
-            this.menuView = News.Scroll({el: this.menu});
+            this.menuView = News.Scroll({el: this.options.menu});
         },
     });
 

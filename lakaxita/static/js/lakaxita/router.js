@@ -8,9 +8,7 @@ define([
 
     Router = Backbone.Router.extend({
         initialize: function(options) {
-            this.content = options.content;
-            this.menu = options.menu;
-            this.nav = options.nav;
+            this.options = options;
             this.loadNav();
         },
 
@@ -31,19 +29,28 @@ define([
         },
 
         loadNav: function() {
-            this.navView = Base.Nav({el: this.nav, menu: this.menu});
+            this.navView = Base.Nav({
+                el: this.options.nav, 
+                menu: this.options.menu,
+            });
         },
 
         frontpage: function() {
-            this.contentView = Base.Frontpage({el: this.content});
+            this.contentView = Base.Frontpage({el: this.options.content});
         },
 
         lostFoundDetail: function(slug) {
-            this.contentView = LostFound.Detail({el: this.content, slug: slug});
+            this.contentView = LostFound.Detail({
+                el: this.options.content, 
+                slug: slug,
+            });
         },
 
         newsDetail: function(slug) {
-            this.contentView = News.Detail({el: this.content, slug: slug});
+            this.contentView = News.Detail({
+                el: this.options.content, 
+                slug: slug,
+            });
         },
     });
 
