@@ -2,15 +2,13 @@ define([
         'backbone', 
         'underscore',
         'zen',
-        'lakaxita/utils/loading', 
         'text',
-        ], function(Backbone, _, zen, Loading) {
+        ], function(Backbone, _, zen) {
 
     View = Backbone.View.extend({
         data: {},
         getContext: function() {
             var context = _.extend(this.model);
-            console.log(context)
             var extraContext = _.extend(this.extraContext);
             view = this;
             _.each(_.functions(extraContext), function(name) {
@@ -35,12 +33,10 @@ define([
             });
         },
         render: function() {
-            Loading.show();
             this.loadTemplate(_.bind(function(template) {
                 var rendered = template(this.getContext());
                 this.$el.html(rendered);
             }, this));
-            Loading.hide();
             return this;
         },
     });
@@ -51,8 +47,6 @@ define([
             this.collection.on('sync', this.render, this);
         },
         render: function() {
-            Loading.show();
-
             var subview_elements = [];
             this.collection.each(function(model) {
                 var view = new this.subView({model: model});
@@ -68,8 +62,6 @@ define([
             if (this.classReplacement) {
                 this.$el.removeClass().addClass(this.classReplacement);
             };
-
-            Loading.hide();
         },
         events: {
             'click li > a': 'empty',

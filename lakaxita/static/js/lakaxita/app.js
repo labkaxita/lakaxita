@@ -10,6 +10,7 @@ define([
         this.boot = function(options) {
             this.options = options;
             this.setupScrolling(this.options.menu);
+            this.setupLoading();
             this.router = new this.Router(this.options);
             this.bindRouter();
             Backbone.history.start();
@@ -29,6 +30,16 @@ define([
             if (this.router.navView.menuView && event.pageY < menu.offset().top) {
                 this.router.navView.menuView.empty();
             };
+        };
+
+        this.setupLoading = function() {
+            var loading = $('img#loading');
+            $(document).ajaxStart(function() {
+                loading.show();
+            });
+            $(document).ajaxStop(function() {
+                loading.hide();
+            });
         };
     };
 
