@@ -1,10 +1,12 @@
 define([
         'backbone',
         'zen',
+        'jquery.kinetic',
         'lakaxita/news/app',
         ], function(
             Backbone,
             zen,
+            $,
             News
             ) {
 
@@ -15,7 +17,9 @@ define([
             this.newsView = News.FrontpageScroll({el: this.news});
 
             this.$el.empty();
+            this.news.kinetic({cursor: 'ew-resize'});
             this.$el.append(this.news);
+            
 
             /* TODO: when gallery app ready
              * this.gallery = zen('section#gallery');
