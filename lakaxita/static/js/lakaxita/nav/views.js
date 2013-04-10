@@ -25,9 +25,6 @@ define([
             document.cookie = 'django_language='+lang;
             require.undef(this.getRequireTemplate());
             this.render();
-            if (this.menuView) {
-                this.menuView.collection.fetch({prefill: true});
-            };
         },
         lostFound: function(event) {
             this.menuView = LostFound.Scroll({el: this.options.menu});
