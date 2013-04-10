@@ -1,235 +1,35 @@
-@import url(/static/fontcustom/fontcustom.css);
-img#beta {
-  width: 5%;
-  position: fixed;
-  right: 0;
-  top: 5em; }
+/*
+Errno::ENOENT: No such file or directory - lakaxita/static/css/main.sass
 
-[class^="icon-"] {
-  line-height: 0.8em;
-  font-size: 8em;
-  padding-top: 0.2em;
-  margin-bottom: -0.7em;
-  vertical-align: bottom; }
-
-a {
-  color: white;
-  text-decoration: none; }
-
-body {
-  font-family: Quicksand;
-  background: url("/static/imgs/okupa.svg") no-repeat top center #1e1e1e;
-  color: white;
-  min-width: 500px; }
-
-.lost-found {
-  background: #d36216; }
-
-.groups {
-  background: #228622; }
-
-.gallery {
-  background: #862272; }
-
-.news {
-  background: #86860e; }
-
-.contact {
-  background: #0c7070; }
-
-button, input#submit, input#close {
-  padding: 0.3em;
-  margin: 0.5em;
-  color: #fafafa;
-  font-family: Quicksand;
-  font-weight: bold;
-  background: #1e1e1e;
-  border: outset #060606 0.1em;
-  cursor: pointer; }
-
-.popupbackground {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background: red;
-  z-index: 10000;
-  background: rgba(26, 26, 26, 0.8); }
-
-.popup {
-  background: #323232;
-  width: 50%;
-  position: fixed;
-  top: 20%;
-  left: 25%;
-  border: 0.1em solid #828282;
-  padding: 2%; }
-
-header a#logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  background: black;
-  padding: 1%;
-  width: 20%; }
-  header a#logo h1 {
-    margin: 0;
-    display: inline;
-    font-size: 1.4em;
-    width: 60%; }
-  header a#logo img {
-    display: inline;
-    width: 25%; }
-header div#info {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: black;
-  margin: 0;
-  text-align: right;
-  padding: 1%; }
-  header div#info ul#license {
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-    vertical-align: middle; }
-    header div#info ul#license li {
-      list-style: none; }
-  header div#info ul#language {
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 0.8em; }
-    header div#info ul#language li {
-      display: inline;
-      margin: 0 0 0 20%; }
-      header div#info ul#language li a {
-        border: 0.15em solid white;
-        padding: 0.4em; }
-
-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  left: 0;
-  z-index: 10000; }
-  nav ul {
-    margin: 0;
-    padding: 0; }
-    nav ul li {
-      display: inline-block;
-      width: 18%;
-      font-weight: bold;
-      padding: 1%;
-      text-align: center;
-      cursor: pointer; }
-      nav ul li img {
-        width: 15%;
-        vertical-align: middle;
-        margin-left: 3%; }
-
-div#about {
-  margin: 4em auto;
-  width: 50%; }
-  div#about div#text {
-    display: inline-block;
-    width: 70%;
-    margin: 0 2.5% 0 0; }
-    div#about div#text h2 {
-      margin: 0;
-      text-align: right; }
-    div#about div#text p {
-      font-size: 0.9em;
-      text-align: right; }
-  div#about div#image {
-    display: inline-block;
-    width: 27.5%; }
-    div#about div#image img {
-      width: 100%; }
-
-img.slide {
-  width: 100%;
-  box-shadow: 0 0 1em #828282;
-  background: #828282; }
-
-section#menu {
-  overflow: hidden;
-  position: absolute;
-  bottom: 2em;
-  left: 0;
-  width: 100%; }
-  section#menu img#left {
-    position: fixed;
-    left: 0;
-    z-index: 2;
-    cursor: pointer; }
-  section#menu img#right {
-    position: fixed;
-    right: 0;
-    z-index: 2;
-    cursor: pointer; }
-  section#menu ul.scroll {
-    padding: 0;
-    margin: 0;
-    white-space: nowrap; }
-    section#menu ul.scroll li {
-      position: relative;
-      display: inline-block;
-      width: 12%;
-      margin: 2% 2% 3% 2%;
-      vertical-align: top; }
-      section#menu ul.scroll li p.hover {
-        display: none;
-        font-weight: bold;
-        position: absolute;
-        width: 100%;
-        top: 2em;
-        left: 0;
-        text-align: center;
-        font-size: 1.5em; }
-      section#menu ul.scroll li img.icon {
-        width: 15%;
-        position: absolute;
-        top: -5%;
-        right: -5%;
-        border-radius: 100%; }
-      section#menu ul.scroll li h3 {
-        white-space: normal;
-        font-size: 1em; }
-    section#menu ul.scroll li:hover p.hover {
-      display: inline; }
-    section#menu ul.scroll li:hover img.slide {
-      opacity: 0.5; }
-
-section#content {
-  margin: 10%; }
-  section#content img#loading {
-    width: 30%;
-    position: fixed;
-    top: 0;
-    left: 35%; }
-  section#content section.left {
-    width: 20%;
-    margin-right: 5%;
-    display: inline-block; }
-    section#content section.left div#return {
-      font-size: 0.8em;
-      margin: 1em 0; }
-  section#content section.right {
-    width: 75%;
-    display: inline-block;
-    margin: 0;
-    vertical-align: top; }
-    section#content section.right h3 {
-      margin-top: 0; }
-    section#content section.right p.hover {
-      color: #fafafa; }
-  section#content form#notification div {
-    margin-bottom: 2em; }
-    section#content form#notification div label {
-      vertical-align: top; }
-  section#content form#notification div:last-child {
-    margin-bottom: 0; }
+Backtrace:
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/plugin/compiler.rb:339:in `read'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/plugin/compiler.rb:339:in `update_stylesheet'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/plugin/compiler.rb:203:in `update_stylesheets'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/plugin/compiler.rb:201:in `each'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/plugin/compiler.rb:201:in `update_stylesheets'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/plugin/compiler.rb:299:in `watch'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/listen-0.7.3/lib/listen/multi_listener.rb:108:in `call'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/listen-0.7.3/lib/listen/multi_listener.rb:108:in `on_change'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/listen-0.7.3/lib/listen/multi_listener.rb:117:in `initialize_adapter'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/listen-0.7.3/lib/listen/adapters/polling.rb:56:in `call'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/listen-0.7.3/lib/listen/adapters/polling.rb:56:in `poll'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/listen-0.7.3/lib/listen/adapters/polling.rb:32:in `start'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/listen-0.7.3/lib/listen/adapters/polling.rb:32:in `initialize'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/listen-0.7.3/lib/listen/adapters/polling.rb:32:in `new'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/listen-0.7.3/lib/listen/adapters/polling.rb:32:in `start'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/listen-0.7.3/lib/listen/multi_listener.rb:44:in `start'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/plugin/compiler.rb:307:in `watch'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/plugin.rb:107:in `send'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/plugin.rb:107:in `method_missing'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/exec.rb:445:in `watch_or_update'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/exec.rb:307:in `process_result'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/exec.rb:41:in `parse'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/../lib/sass/../sass/exec.rb:21:in `parse!'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/lib/ruby/gems/1.8/gems/sass-3.2.7/bin/sass:9
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/bin/sass:23:in `load'
+/home/koxta/proiektuak/lakaxita/lakaxita/parts/rubygems/bin/sass:23
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Errno::ENOENT: No such file or directory - lakaxita/static/css/main.sass"; }
