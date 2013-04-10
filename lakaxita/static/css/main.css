@@ -174,8 +174,6 @@ section.scroll {
     right: 0;
     z-index: 2;
     cursor: pointer; }
-    section.scroll img.arrow#right img.icon {
-      width: 5%; }
   section.scroll ul.scroll {
     padding: 0;
     margin: 0;
@@ -223,6 +221,8 @@ section#content {
     section#content section.left div#return {
       font-size: 0.8em;
       margin: 1em 0; }
+    section#content section.left img.icon {
+      width: 15%; }
   section#content section.right {
     width: 75%;
     display: inline-block;
