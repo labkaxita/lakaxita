@@ -55,13 +55,13 @@ nav
                 img
                     - src {% static 'imgs/lostfound.svg' %}
                     - alt {% trans 'lost & found' %}
-        li.groups
+        li.groups.future
             a
                 | {% trans 'GROUPS' %}
                 img
                     - src {% static 'imgs/groups.svg' %}
                     - alt {% trans 'groups' %}
-        li.gallery
+        li.gallery.future
             a
                 | {% trans 'GALLERY' %}
                 img
@@ -73,7 +73,7 @@ nav
                 img
                     - src {% static 'imgs/news.svg' %}
                     - alt {% trans 'news' %}
-        li.contact
+        li.contact.future
             a
                 | {% trans 'CONTACT' %}
                 img

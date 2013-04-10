@@ -22,6 +22,9 @@ body {
   color: white;
   min-width: 500px; }
 
+.future {
+  text-decoration: line-through; }
+
 .lost-found {
   background: #d36216; }
 
