@@ -222,7 +222,9 @@ section#content {
       font-size: 0.8em;
       margin: 1em 0; }
     section#content section.left img.icon {
-      width: 10%; }
+      width: 10%;
+      vertical-align: middle;
+      margin-right: 1%; }
   section#content section.right {
     width: 75%;
     display: inline-block;
