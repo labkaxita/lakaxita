@@ -70,7 +70,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
-    'preferences.context_processors.preferences_cp',
 )
 
 INSTALLED_APPS = (
@@ -109,6 +108,7 @@ INSTALLED_APPS = (
     'lakaxita.gallery',
     'lakaxita.lost_found',
     'lakaxita.attachments',
+    'lakaxita.preferences',
 )
 
 LOGGING = {

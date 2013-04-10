@@ -4,6 +4,7 @@ from lakaxita.lost_found.models import Item
 from lakaxita.news.models import News
 from lakaxita.gallery.models import Category
 from lakaxita.groups.models import Group
+from lakaxita.preferences.models import SiteDescription
 
 
 class ItemTO(TranslationOptions):
@@ -22,11 +23,16 @@ class GroupTO(TranslationOptions):
     fields = 'name', 'description'
 
 
+class SiteDescriptionTO(TranslationOptions):
+    fields = ['description']
+
+
 registry = (
         (Item, ItemTO),
         (News, NewsTO),
         (Category, CategoryTO),
         (Group, GroupTO),
+        (SiteDescription, SiteDescriptionTO),
         )
 
 for model, to in registry:

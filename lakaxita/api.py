@@ -8,6 +8,7 @@ from lakaxita.attachments.models import Attachment
 from lakaxita.groups.models import Group
 from lakaxita.gallery.models import Category
 from lakaxita.lost_found.models import Item, Notification
+from lakaxita.preferences.models import SiteDescription
 
 
 class ThumbnailResource(object):
@@ -74,7 +75,16 @@ class NewsResource(ThumbnailResource, ModelResource):
     attachments = fields.ToManyField(AttachmentResource, 'attachments')
 
 
+class SiteDescriptionResource(ThumbnailResource, ModelResource):
+    class Meta:
+        allowed_methods = ['get']
+        queryset = SiteDescription.objects.all()
+        resource_name = 'site_description'
+        fields = ['description', 'image']
+
+
 api = Api(api_name='api')
 for resource in (ItemResource, NotificationResource, CategoryResource, 
-                AttachmentResource, GroupResource, NewsResource):
+                AttachmentResource, GroupResource, NewsResource,
+                SiteDescriptionResource):
     api.register(resource())
