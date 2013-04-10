@@ -13,6 +13,8 @@ define([
         initialize: function(options) {
             this.news = zen('section#news');
             this.newsView = News.FrontpageScroll({el: this.news});
+
+            this.$el.empty();
             this.$el.append(this.news);
 
             /* TODO: when gallery app ready
