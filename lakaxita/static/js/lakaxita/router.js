@@ -1,10 +1,11 @@
 define([
         'backbone',
         'underscore',
-        'lakaxita/base/app',
+        'lakaxita/nav/app',
+        'lakaxita/frontpage/app',
         'lakaxita/lost_found/app',
         'lakaxita/news/app',
-        ], function(Backbone, _, Base, LostFound, News) {
+        ], function(Backbone, _, Nav, Frontpage, LostFound, News) {
 
     Router = Backbone.Router.extend({
         initialize: function(options) {
@@ -29,14 +30,14 @@ define([
         },
 
         loadNav: function() {
-            this.navView = Base.Nav({
+            this.navView = Nav.Nav({
                 el: this.options.nav, 
                 menu: this.options.menu,
             });
         },
 
         frontpage: function() {
-            this.contentView = Base.Frontpage({el: this.options.content});
+            this.contentView = Frontpage.Frontpage({el: this.options.content});
         },
 
         lostFoundDetail: function(slug) {

@@ -35,5 +35,5 @@ define([
         },
     });
 
-    return Frontpage;
+    return {Frontpage: Frontpage};
 })

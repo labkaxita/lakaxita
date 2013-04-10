@@ -37,5 +37,5 @@ define([
         },
     });
 
-    return Nav;
+    return {Nav: Nav};
 })
