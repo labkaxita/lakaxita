@@ -194,8 +194,8 @@ section.scroll {
       section.scroll ul.scroll li img.icon {
         width: 15%;
         position: absolute;
-        top: -10%;
-        right: -10%;
+        top: -5%;
+        right: -5%;
         border-radius: 100%; }
       section.scroll ul.scroll li h3 {
         white-space: normal;
