@@ -4,11 +4,12 @@
 
 html
     head
-        title lakaxita
+        title lakaxita gaztetxea
         link
             - rel stylesheet
             - type text/css
             - href {% static 'css/main.css' %}
+        link [rel="shortcut icon"][href="{% static 'imgs/favicon.png' %}"]
 
     body
         {% require_module 'main' %}
