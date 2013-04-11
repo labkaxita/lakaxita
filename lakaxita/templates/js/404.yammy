@@ -1,0 +1,6 @@
+{% load i18n %}
+
+p.error
+    {% blocktrans %}
+    We are sorry but we didn't found the requested page.
+    {% endblocktrans %}

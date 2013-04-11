@@ -4,5 +4,7 @@ define([
         ], function(App, Views) {
 
     Nav = new App.generateView(Views.Nav);
-    return {Nav: Nav.run};
+    NotFound = new App.generateView(Views.NotFound);
+
+    return {Nav: Nav.run, NotFound: NotFound.run};
 })

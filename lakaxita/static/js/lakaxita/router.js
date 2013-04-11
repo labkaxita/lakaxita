@@ -27,6 +27,7 @@ define([
             '/': 'frontpage',
             'lost_found/:slug/': 'lostFoundDetail',
             'news/:slug/': 'newsDetail',
+            '*path': 'notFound',
         },
 
         loadNav: function() {
@@ -52,6 +53,14 @@ define([
                 el: this.options.content, 
                 slug: slug,
             });
+        },
+
+        notFound: function(path) {
+            this.contentView = Nav.NotFound({
+                el: this.options.content,
+                path: path,
+            });
+            this.contentView.render();
         },
     });
 

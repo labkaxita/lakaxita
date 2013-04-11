@@ -32,5 +32,8 @@ define([
         },
     });
 
-    return {Nav: Nav};
+    NotFound = Views.View.extend({
+        template: '404',
+    });
+    return {Nav: Nav, NotFound: NotFound};
 })
