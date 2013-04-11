@@ -30,6 +30,12 @@ define([
         news: function(event) {
             this.menuView = News.Scroll({el: this.options.menu});
         },
+        emptyMenuIfOutside: function(event) {
+            var menu = $(this.options.menu);
+            if (this.menuView && event.pageY < menu.offset().top) {
+                this.menuView.empty();
+            };
+        },
     });
 
     NotFound = Views.View.extend({

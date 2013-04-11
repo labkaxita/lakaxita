@@ -32,14 +32,10 @@ define([
         };
 
         this.setupMenu = function() {
-            $('*').live('click', _.bind(this.emptyMenu, this));
-        };
-
-        this.emptyMenu = function(event) {
-            var menu = $(this.options.menu);
-            if (this.router.navView.menuView && event.pageY < menu.offset().top) {
-                this.router.navView.menuView.empty();
-            };
+            $('*').live('click', _.bind(
+                        this.router.navView.emptyMenuIfOutside, 
+                        this.router.navView,
+                        ));
         };
 
         this.setupLoading = function() {
