@@ -59,6 +59,10 @@ define([
                 this.$el.html(rendered);
                 this.kinetic = this.$('.kinetic');
                 this.kinetic.kinetic({cursor: 'ew-resize'});
+
+                // FIXME, dark magic: it seems that if object is accessed 
+                // scrollLeft and scrollRight work, else, they don't
+                this.kinetic;
             }, this));
 
             if (this.classReplacement) {
