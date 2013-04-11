@@ -194,10 +194,8 @@ section#menu
 
 
 section.scroll
-    overflow: hidden
-
     img.arrow
-        position: fixed
+        position: absolute
         margin-top: 8%
         z-index: 2
         cursor: pointer
@@ -208,38 +206,41 @@ section.scroll
         z-index: 2
         cursor: pointer
 
-    ul.scroll
-        padding: 0
-        margin: 0
-        white-space: nowrap
-        li
-            position: relative
-            display: inline-block
-            width: 15%
-            margin: 2% 2% 3% 2%
-            vertical-align: top
-            p.hover
-                display: none
-                position: absolute
-                width: 100%
-                top: 2em
-                left: 0
-                text-align: center
-            img.icon
+    .kinetic
+        overflow: hidden
+
+        ul.inner-scroll
+            padding: 0
+            margin: 0
+            white-space: nowrap
+            li
+                position: relative
+                display: inline-block
                 width: 15%
-                position: absolute
-                top: -5%
-                right: -5%
-                border-radius: 100%
-            h3
-                white-space: normal
-                font-size: .8em
-                font-weight: normal
-        li:hover
-            p.hover
-                display: inline
-            img.slide
-                opacity: 0.5
+                margin: 2% 2% 3% 2%
+                vertical-align: top
+                p.hover
+                    display: none
+                    position: absolute
+                    width: 100%
+                    top: 2em
+                    left: 0
+                    text-align: center
+                img.icon
+                    width: 15%
+                    position: absolute
+                    top: -5%
+                    right: -5%
+                    border-radius: 100%
+                h3
+                    white-space: normal
+                    font-size: .8em
+                    font-weight: normal
+            li:hover
+                p.hover
+                    display: inline
+                img.slide
+                    opacity: 0.5
 
 
 section#content

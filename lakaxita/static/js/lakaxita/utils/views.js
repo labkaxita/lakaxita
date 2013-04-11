@@ -57,11 +57,15 @@ define([
             this.loadTemplate(_.bind(function(template) {
                 var rendered = template({subviews: subview_elements});
                 this.$el.html(rendered);
+                this.kinetic = this.$('.kinetic');
+                this.kinetic.kinetic({cursor: 'ew-resize'});
             }, this));
 
             if (this.classReplacement) {
                 this.$el.removeClass().addClass(this.classReplacement);
             };
+
+            return this;
         },
         events: {
             'click li > a': 'empty',
@@ -72,10 +76,10 @@ define([
             this.$el.empty();
         },
         scrollLeft: function() {
-            this.$el.kinetic('start', {velocity: -10, decelerate: true});
+            this.kinetic.kinetic('start', {velocity: -10, decelerate: true});
         },
         scrollRight: function() {
-            this.$el.kinetic('start', {velocity: 10, decelerate: true});
+            this.kinetic.kinetic('start', {velocity: 10, decelerate: true});
         },
     });
 

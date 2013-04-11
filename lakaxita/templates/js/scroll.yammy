@@ -7,10 +7,11 @@ img.arrow#right
     - alt right
 
 {% verbatim %}
-ul.scroll
-    {{#each subviews}}
-    li
-        {{{ this.html }}}
-    {{/each}}
+div.kinetic
+    ul.inner-scroll
+        {{#each subviews}}
+        li
+            {{{ this.html }}}
+        {{/each}}
 {% endverbatim %}
 

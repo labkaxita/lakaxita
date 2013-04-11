@@ -9,7 +9,7 @@ define([
 
         this.boot = function(options) {
             this.options = options;
-            this.setupScrolling(this.options.menu);
+            $('*').live('click', _.bind(this.emptyMenu, this))
             this.setupLoading();
             this.router = new this.Router(this.options);
             this.bindRouter();
@@ -18,11 +18,6 @@ define([
 
         this.bindRouter = function() {
             Backbone.View.prototype.router = this.router;
-        };
-
-        this.setupScrolling = function(el) {
-            $(el).kinetic({cursor: 'ew-resize'});
-            $('*').live('click', _.bind(this.emptyMenu, this))
         };
 
         this.emptyMenu = function(event) {
