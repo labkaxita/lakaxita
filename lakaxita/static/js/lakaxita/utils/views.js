@@ -6,6 +6,9 @@ define([
         ], function(Backbone, _, zen) {
 
     View = Backbone.View.extend({
+        initialize: function(options) {
+            this.options = options;
+        },
         data: {},
         getContext: function() {
             var context = _.extend(this.model);
@@ -44,6 +47,7 @@ define([
     ScrollView = View.extend({
         template: 'scroll',
         initialize: function(options) {
+            this.options = options;
             this.collection.on('sync', this.render, this);
         },
         render: function() {

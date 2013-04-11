@@ -46,7 +46,6 @@ define([
 
     ItemNotificationForm = Views.View.extend({
         initialize: function(options) {
-            this.item = options.item;
             this.collection.on('add', this.success, this);
         },
         tagName: 'form',
@@ -61,7 +60,7 @@ define([
                 title: this.$('input#title').val(),
                 reply_to: this.$('input#reply_to').val(),
                 text: this.$('textarea#text').val(),
-                item: this.item,
+                item: this.options.item,
             });
         },
         success: function() { this.$el.empty(); },

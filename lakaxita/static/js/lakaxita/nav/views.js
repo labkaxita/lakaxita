@@ -11,9 +11,6 @@ define([
             ) {
 
     Nav = Views.View.extend({
-        initialize: function(options) {
-            this.options = options;
-        },
         template: 'nav',
         events: {
             'click ul#language > li > a': 'language',
