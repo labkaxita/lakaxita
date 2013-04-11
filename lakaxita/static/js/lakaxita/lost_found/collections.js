@@ -1,14 +1,14 @@
 define([
-        'backbone',
-        'lakaxita/lost_found/models'
-        ], function(Backbone, Models) {
+        'lakaxita/utils/collections',
+        'lakaxita/lost_found/models',
+        ], function(Collections, LostFoundModels) {
 
-    Items = Backbone.Collection.extend({
+    Items = Collections.Collection.extend({
         url: '/api/lost_items/',
-        model: Models.Item,
+        model: LostFoundModels.Item,
     });
 
-    Notifications = Backbone.Collection.extend({
+    Notifications = Collections.Collection.extend({
         url: '/api/lost_item_notifications/',
     });
 

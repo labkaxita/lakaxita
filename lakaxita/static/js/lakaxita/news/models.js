@@ -1,9 +1,9 @@
 define([
-        'backbone.relational',
+        'lakaxita/utils/models',
         'lakaxita/groups/models',
-        ], function(Backbone, GroupModels) {
+        ], function(Models, GroupModels) {
            
-    News = Backbone.RelationalModel.extend({
+    News = Models.Model.extend({
         title: function() { return this.get('title'); },
         text: function() { return this.get('text'); },
         event: function() { return this.get('event'); },

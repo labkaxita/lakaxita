@@ -1,6 +1,8 @@
-define(['backbone'], function(Backbone) {
+define([
+        'lakaxita/utils/models',
+        ], function(Models) {
 
-    Item = Backbone.Model.extend({
+    Item = Models.Model.extend({
         title: function() { return this.get('name'); },
         description: function() { return this.get('description'); },
         date: function() { return this.get('lost'); },

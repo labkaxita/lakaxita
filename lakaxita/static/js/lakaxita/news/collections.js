@@ -1,11 +1,11 @@
 define([
-        'backbone',
+        'lakaxita/utils/collections',
         'lakaxita/news/models',
-        ], function(Backbone, Models) {
+        ], function(Collections, NewsModels) {
 
-    News = Backbone.Collection.extend({
+    News = Collections.Collection.extend({
         url: '/api/news/',
-        model: Models.News,
+        model: NewsModels.News,
     });
 
     return {News: News};
