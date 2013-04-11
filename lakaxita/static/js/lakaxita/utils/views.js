@@ -69,8 +69,8 @@ define([
         },
         events: {
             'click li > a': 'empty',
-            'click #left': 'scrollLeft',
-            'click #right': 'scrollRight',
+            'click .left': 'scrollLeft',
+            'click .right': 'scrollRight',
         },
         empty: function() {
             this.$el.empty();
