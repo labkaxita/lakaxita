@@ -1,7 +1,7 @@
 @import url(/static/fontcustom/fontcustom.css);
 @font-face {
   font-family: "Titillium web";
-  src: url("../fonts/Titilliumi_Web/TitilliumWeb-Regular.ttf"); }
+  src: url("/static/fonts/Titilliumi_Web/TitilliumWeb-Regular.ttf"); }
 
 @font-face {
   font-family: "Titillium web";
@@ -37,7 +37,7 @@ a {
   text-decoration: none; }
 
 body {
-  font-family: "Titillium web", Verdana;
+  font-family: "Titillium web";
   background: url("/static/imgs/okupa.svg") no-repeat top center #1e1e1e;
   color: white;
   min-width: 500px; }
@@ -64,7 +64,7 @@ button, input#submit, input#close {
   padding: 0.3em;
   margin: 0.5em;
   color: #fafafa;
-  font-family: "Titillium web", Verdana;
+  font-family: "Titillium web";
   font-weight: bold;
   background: #1e1e1e;
   border: outset #060606 0.1em;
@@ -94,17 +94,11 @@ header a#logo {
   top: 0;
   left: 0;
   z-index: 10;
-  background: black;
   padding: 1%;
-  width: 20%; }
-  header a#logo h1 {
-    margin: 0;
-    display: inline;
-    font-size: 1.4em;
-    width: 60%; }
+  width: 20%;
+  background: black; }
   header a#logo img {
-    display: inline;
-    width: 25%; }
+    width: 100%; }
 header div#info {
   position: absolute;
   top: 0;

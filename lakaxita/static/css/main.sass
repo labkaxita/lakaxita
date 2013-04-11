@@ -5,16 +5,16 @@ $darkgrey: #323232
 $grey: #828282 
 $lightgrey: #6a6a6a
 $lightergrey: #fafafa
-$font: "Titillium web", Verdana
+$font: "Titillium web"
 
 @font-face
     font-family: "Titillium web"
-    src: url('../fonts/Titilliumi_Web/TitilliumWeb-Regular.ttf')
+    src: url("/static/fonts/Titilliumi_Web/TitilliumWeb-Regular.ttf")
 
 @font-face
     font-family: "Titillium web"
     font-weight: bold
-    src: url('../fonts/Titilliumi_Web/TitilliumWeb-Bold.ttf')
+    src: url("../fonts/Titilliumi_Web/TitilliumWeb-Bold.ttf")
 
 @font-face
     font-family: "Titillium web"
@@ -100,17 +100,11 @@ header
         top: 0
         left: 0
         z-index: 10
-        background: black
         padding: 1%
         width: 20%
-        h1
-            margin: 0
-            display: inline
-            font-size: 1.4em
-            width: 60%
+        background: black
         img
-            display: inline
-            width: 25%
+            width: 100%
 
     div#info
         position: absolute
