@@ -2,8 +2,9 @@ define([
         'backbone',
         'jquery.kinetic',
         'underscore',
+        'raven',
         'lakaxita/router', 
-        ], function (Backbone, $, _, Router) { 
+        ], function (Backbone, $, _, Raven, Router) { 
 
     function App() {
         this.Router = Router;
@@ -21,10 +22,19 @@ define([
         };
 
         this.setupErrorHandling = function() {
-            require.onError = function(error) {
-                Backbone.trigger('lakaxita:error', error);
+            Raven.config('https://public@getsentry.com/1').install();
+            errorHandler = function(error) {
+                Raven.captureException(error);
+                alert([
+                        'Houston we\'ve had a problem.',
+                        'We\'ve had a MAIN B BUS UNDERVOLT.',
+                        'Roger. MAIN B UNDERVOLT.',
+                        'Okay, stand by, 13. We\'re looking at it.',
+                        ].join('\n'));
                 throw error;
             };
+            require.onError = errorHandler;
+            window.onerror = errorHandler;
         };
 
         this.bindRouter = function(router) {
@@ -34,7 +44,7 @@ define([
         this.setupMenu = function() {
             $('*').live('click', _.bind(
                         this.router.navView.emptyMenuIfOutside, 
-                        this.router.navView,
+                        this.router.navView
                         ));
         };
 

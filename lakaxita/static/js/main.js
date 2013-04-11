@@ -3,6 +3,7 @@ require.config({
     baseUrl: '/static/js/',
     paths: {
         'text': 'lib/text',
+        'raven': 'lib/raven',
         'handlebars': 'lib/handlebars',
         'underscore': 'lib/underscore',
         'backbone-tastypie': 'backbone-tastypie',
