@@ -1,8 +1,9 @@
 {% verbatim %}
 
-img
-    - src {{ thumbnail }}
+section#description
+    img
+        - src {{ thumbnail }}
 
-{{{ description }}}
-
+    {{{ description }}}
 {% endverbatim %}
+

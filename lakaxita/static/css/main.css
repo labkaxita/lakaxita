@@ -126,9 +126,10 @@ nav {
       display: inline-block;
       width: 18%;
       font-weight: bold;
-      padding: 1%;
       text-align: center;
-      cursor: pointer; }
+      padding: 1%; }
+      nav ul li a {
+        cursor: pointer; }
       nav ul li img {
         width: 15%;
         vertical-align: middle;
