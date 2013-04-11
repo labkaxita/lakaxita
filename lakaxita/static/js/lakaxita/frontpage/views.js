@@ -35,13 +35,11 @@ define([
         },
         setupNews: function() {
             this.news = zen('section#news');
-            this.news.kinetic({cursor: 'ew-resize'});
             this.newsView = NewsApp.FrontpageScroll({el: this.news});
             this.newsView.collection.on('sync', this.newsView.render, this.newsView);
         },
         setupGallery: function() {
             this.gallery = zen('section#gallery');
-            this.gallery.kinetic({cursor: 'ew-resize'});
             this.galleryView = Gallery.Scroll({el: this.gallery});
             this.galleryView.collection.on('sync', this.galleryView.render, 
                                          this.galleryView);
