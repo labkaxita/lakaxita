@@ -213,9 +213,15 @@ section#content {
   margin: 10%; }
   section#content img#loading {
     width: 30%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 35%; }
+  section#content img.arrow#left {
+    left: 7%; }
+  section#content img.arrow#right {
+    right: 7%;
+    z-index: 2;
+    cursor: pointer; }
   section#content section.left {
     width: 20%;
     margin-right: 5%;
