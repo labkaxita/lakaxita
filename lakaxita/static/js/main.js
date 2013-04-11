@@ -1,4 +1,5 @@
 require.config({
+    catchError: true,
     baseUrl: '/static/js/',
     paths: {
         'text': 'lib/text',

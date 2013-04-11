@@ -1,23 +1,38 @@
 define([
+        'backbone',
         'jquery.kinetic',
         'underscore',
         'lakaxita/router', 
-        ], function ($, _, Router) { 
+        ], function (Backbone, $, _, Router) { 
 
     function App() {
         this.Router = Router;
 
         this.boot = function(options) {
             this.options = options;
-            $('*').live('click', _.bind(this.emptyMenu, this))
+            this.setupErrorHandling();
             this.setupLoading();
+
             this.router = new this.Router(this.options);
-            this.bindRouter();
+            this.bindRouter(this.router);
             Backbone.history.start();
+
+            this.setupMenu();
         };
 
-        this.bindRouter = function() {
-            Backbone.View.prototype.router = this.router;
+        this.setupErrorHandling = function() {
+            require.onError = function(error) {
+                Backbone.trigger('lakaxita:error', error);
+                throw error;
+            };
+        };
+
+        this.bindRouter = function(router) {
+            Backbone.View.prototype.router = router;
+        };
+
+        this.setupMenu = function() {
+            $('*').live('click', _.bind(this.emptyMenu, this));
         };
 
         this.emptyMenu = function(event) {
