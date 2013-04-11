@@ -184,9 +184,9 @@ section.scroll img.arrow {
   margin-top: 8%;
   z-index: 2;
   cursor: pointer; }
-section.scroll img.arrow#left {
+section.scroll img.arrow.left {
   left: 0; }
-section.scroll img.arrow#right {
+section.scroll img.arrow.right {
   right: 0;
   z-index: 2;
   cursor: pointer; }
