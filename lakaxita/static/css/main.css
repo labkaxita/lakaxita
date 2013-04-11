@@ -1,4 +1,24 @@
 @import url(/static/fontcustom/fontcustom.css);
+@font-face {
+  font-family: "Titillium web";
+  src: url("../fonts/Titilliumi_Web/TitilliumWeb-Regular.ttf"); }
+
+@font-face {
+  font-family: "Titillium web";
+  font-weight: bold;
+  src: url("../fonts/Titilliumi_Web/TitilliumWeb-Bold.ttf"); }
+
+@font-face {
+  font-family: "Titillium web";
+  font-style: italic;
+  src: url("../fonts/Titilliumi_Web/TitilliumWeb-Italic.ttf"); }
+
+@font-face {
+  font-family: "Titillium web";
+  font-weight: bold;
+  font-style: italic;
+  src: url("../fonts/Titilliumi_Web/TitilliumWeb-BoldItalic.ttf"); }
+
 img#beta {
   width: 5%;
   position: fixed;
@@ -17,7 +37,7 @@ a {
   text-decoration: none; }
 
 body {
-  font-family: Quicksand;
+  font-family: "Titillium web", Verdana;
   background: url("/static/imgs/okupa.svg") no-repeat top center #1e1e1e;
   color: white;
   min-width: 500px; }
@@ -44,7 +64,7 @@ button, input#submit, input#close {
   padding: 0.3em;
   margin: 0.5em;
   color: #fafafa;
-  font-family: Quicksand;
+  font-family: "Titillium web", Verdana;
   font-weight: bold;
   background: #1e1e1e;
   border: outset #060606 0.1em;
