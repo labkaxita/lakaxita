@@ -16,6 +16,7 @@ define([], function() {
         this.run = _.bind(function(options) {
             var collection = new this.collection(),
                 view = new this.view({collection: collection, el: options.el});
+            collection.on('sync', view.render, view);
             collection.fetch({prefill: true, data: view.data});
             return view;
         }, this);

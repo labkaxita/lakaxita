@@ -46,10 +46,6 @@ define([
 
     ScrollView = View.extend({
         template: 'scroll',
-        initialize: function(options) {
-            this.options = options;
-            this.collection.on('sync', this.render, this);
-        },
         render: function() {
             var subview_elements = [];
             this.collection.each(function(model) {
