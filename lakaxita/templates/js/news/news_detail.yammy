@@ -12,7 +12,7 @@
 
         p.hover 
             {% endverbatim %}
-            | Date: 
+            | {% trans 'Date' %}: 
             {% verbatim %}
             {{ published }}
 

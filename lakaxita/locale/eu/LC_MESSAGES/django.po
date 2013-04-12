@@ -1,18 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# LAKAXITA WEB PAGE TRANSLATIONS.
+# Copyright (C) 2013 Lakaxita Hacklab
+# This file is distributed under the same license as the Lakaxita package.
+# Unai Zalakain <unai@gisa-elkartea.org>, 2013
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-27 00:25+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2013-04-12 11:38+0200\n"
+"PO-Revision-Date: 2013-04-12 11:23+01\n"
+"Last-Translator: Unai Zalakain <unai@gisa-elkartea.org>\n"
+"Language-Team: basque\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,10 +103,11 @@ msgid "name"
 msgstr "izena"
 
 #: gallery/models.py:18 groups/models.py:17 lost_found/models.py:30
+#: preferences/models.py:21
 msgid "description"
 msgstr "deskribapena"
 
-#: gallery/models.py:20 news/models.py:48
+#: gallery/models.py:20 news/models.py:49
 msgid "attachments"
 msgstr "eranskinak"
 
@@ -118,11 +119,12 @@ msgstr "gurasoa"
 msgid "group"
 msgstr "eragilea"
 
-#: groups/models.py:13
+#: groups/models.py:13 templates/js/nav.yammy:61
 msgid "groups"
 msgstr "eragileak"
 
-#: groups/models.py:19 lost_found/models.py:32 news/models.py:45
+#: groups/models.py:19 lost_found/models.py:32 news/models.py:46
+#: preferences/models.py:18
 msgid "image"
 msgstr "irudia"
 
@@ -174,7 +176,7 @@ msgstr "Notifikazioa"
 msgid "Notifications"
 msgstr "Notifikazioak"
 
-#: lost_found/models.py:58 news/models.py:43
+#: lost_found/models.py:58 news/models.py:44
 msgid "title"
 msgstr "izenburua"
 
@@ -182,7 +184,7 @@ msgstr "izenburua"
 msgid "reply to"
 msgstr "erantzun honi"
 
-#: lost_found/models.py:61 news/models.py:44
+#: lost_found/models.py:61 news/models.py:45
 msgid "text"
 msgstr "testua"
 
@@ -198,83 +200,126 @@ msgstr "Argitaratua"
 msgid "Not published"
 msgstr "Ez argitaratua"
 
-#: news/models.py:40
+#: news/models.py:41 templates/js/nav.yammy:73
 msgid "news"
 msgstr "berria"
 
-#: news/models.py:41
+#: news/models.py:42
 msgid "news "
 msgstr "berriak"
 
-#: news/models.py:50
+#: news/models.py:51
 msgid "publish on"
 msgstr "argitarapen data"
 
-#: news/models.py:51
+#: news/models.py:52
 msgid "on frontpage"
 msgstr "portadan"
 
-#: news/models.py:53
+#: news/models.py:54
 msgid "group it belongs to"
 msgstr "eragilea"
 
-#: news/models.py:55
+#: news/models.py:56
 msgid "event date"
 msgstr "gertakariaren data"
 
-#: templates/js/nav.yammy:12
+#: preferences/models.py:14 preferences/models.py:15
+msgid "site description"
+msgstr "gunearen deskribapena"
+
+#: templates/js/404.yammy:4
+msgid ""
+"\n"
+"    We are sorry but we didn't found the requested page.\n"
+"    "
+msgstr ""
+"\n"
+"   Sentitzen dugu baina eskatutako orria ez dugu aurkitu.\n"
+"    "
+
+#: templates/js/nav.yammy:18
 msgid "content"
 msgstr "edukia"
 
-#: templates/js/nav.yammy:17
+#: templates/js/nav.yammy:31
 msgid "webpage"
 msgstr "webgunea"
 
-#: templates/js/nav.yammy:37
+#: templates/js/nav.yammy:52
 msgid "LOST & FOUND"
 msgstr "GALDUTAKO GAUZAK"
 
-#: templates/js/nav.yammy:42
+#: templates/js/nav.yammy:55
+msgid "lost & found"
+msgstr "galdutako gauzak"
+
+#: templates/js/nav.yammy:58
 msgid "GROUPS"
 msgstr "ERAGILEAK"
 
-#: templates/js/nav.yammy:47
+#: templates/js/nav.yammy:64
 msgid "GALLERY"
 msgstr "GALERIA"
 
-#: templates/js/nav.yammy:52
+#: templates/js/nav.yammy:67
+msgid "gallery"
+msgstr "galeria"
+
+#: templates/js/nav.yammy:70
 msgid "NEWS"
 msgstr "BERRIAK"
 
-#: templates/js/nav.yammy:57
+#: templates/js/nav.yammy:76
 msgid "CONTACT"
 msgstr "KONTAKTUA"
 
-#: templates/js/lost_found/item_detail.yammy:7
-msgid "it's mine!"
-msgstr "nirea da!"
+#: templates/js/nav.yammy:79
+msgid "contact"
+msgstr "kontaktua"
 
-#: templates/js/lost_found/notification_form.yammy:6
+#: templates/js/lost_found/item_detail.yammy:16
+msgid "Date of discovery"
+msgstr "Aurkitu den eguna"
+
+#: templates/js/lost_found/item_detail.yammy:27
+msgid "It has been already returned"
+msgstr "Iada bueltatu egin da"
+
+#: templates/js/lost_found/item_detail.yammy:33
+msgid "It has not been returned yet"
+msgstr "Oraindik ez da bueltatu"
+
+#: templates/js/lost_found/item_detail.yammy:40
+msgid "It is mine!"
+msgstr "Nirea da!"
+
+#: templates/js/lost_found/notification_form.yammy:9
 msgid "Title"
 msgstr "Izenburua"
 
-#: templates/js/lost_found/notification_form.yammy:16
+#: templates/js/lost_found/notification_form.yammy:20
 msgid "Reply to"
 msgstr "Erantzun honi"
 
-#: templates/js/lost_found/notification_form.yammy:25
+#: templates/js/lost_found/notification_form.yammy:30
 msgid "Text"
 msgstr "Testua"
 
-#: templates/js/lost_found/notification_form.yammy:34
+#: templates/js/lost_found/notification_form.yammy:40
 msgid "Submit"
 msgstr "Bidali"
 
-#: templates/lost_found/item_detail.yammy:22
-#: templates/lost_found/notify.yammy:6
-msgid "Notify"
-msgstr "Berri eman"
+#: templates/js/lost_found/notification_form.yammy:44
+msgid "Close"
+msgstr "Itxi"
 
-#: templates/lost_found/item_detail.yammy:25
-msgid "Your notification has been send correctly!"
-msgstr "Zure mezua ongi bidali da!"
+#: templates/js/news/news_detail.yammy:15
+msgid "Date"
+msgstr "Data"
+
+#~ msgid "Notify"
+#~ msgstr "Berri eman"
+
+#~ msgid "Your notification has been send correctly!"
+#~ msgstr "Zure mezua ongi bidali da!"

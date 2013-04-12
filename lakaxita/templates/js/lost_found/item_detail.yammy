@@ -12,7 +12,10 @@
         {{/if}}
 
         p.date
-            | Date of discovery: {{ date }}
+            {% endverbatim %}
+            | {% trans "Date of discovery" %}: 
+            {% verbatim %}
+            {{ date }}
 
         div#return
             img.icon
