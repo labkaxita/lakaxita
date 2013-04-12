@@ -4,8 +4,10 @@
     section.left
 
         {{#if image }}
-        img.slide
-            - src {{ image }}
+        a
+            - href {{ image }}
+            img.slide
+                - src {{ thumbnail }}
         {{else}}
         img.slide
             - src {{ default_image }}
