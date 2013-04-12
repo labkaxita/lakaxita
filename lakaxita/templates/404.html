@@ -1,0 +1,11 @@
+{% extends 'base.yammy' %}
+
+
+{% block content %}
+
+p.error
+    {% blocktrans %}
+    We are sorry but we didn't found the requested page. Anyway, a good idea would be to go to the <a href="/$/">frontpage</a>.
+    {% endblocktrans %}
+
+{% endblock content %}
