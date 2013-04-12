@@ -45,14 +45,16 @@ define([
                                          this.galleryView);
         },
         setupDescription: function() {
-            collection = new FrontpageCollections.SiteDescription();
+            var description = zen('section#description');
+            this.description = description;
+            var collection = new FrontpageCollections.SiteDescription();
+            collection.on('sync', function() {
+                var model = collection.at(0);
+                this.descriptionView = new SiteDescription({model: model,
+                    el: description});
+                this.descriptionView.render();
+            });
             collection.fetch({prefill: true});
-            var model = collection.at(0);
-
-            this.description = zen('section#description');
-            this.descriptionView = new SiteDescription({model: model,
-                el: this.description});
-            this.descriptionView.render();
         },
     });
 
