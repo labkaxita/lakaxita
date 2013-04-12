@@ -22,7 +22,12 @@ define([
         };
 
         this.setupErrorHandling = function() {
-            Raven.config('https://public@getsentry.com/1').install();
+            Raven.config([
+                    'https://8be3d66e72604e20bb74712f39926d69:',
+                    '186dc82c9a4749129a9b9652cde82390@',
+                    'app.getsentry.com/4320',
+                    ].join('')).install();
+
             errorHandler = function(error) {
                 Raven.captureException(error);
                 alert([
