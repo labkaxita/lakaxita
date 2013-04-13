@@ -4,7 +4,7 @@ from django.utils.translation import ugettext as _
 from preferences.models import Preferences
 from markitup.fields import MarkupField
 
-from lakaxita.fields import ThumbnailField
+from lakaxita.fields import SquareThumbnailField
 
 
 class SiteDescription(Preferences):
@@ -16,6 +16,6 @@ class SiteDescription(Preferences):
 
     image = models.ImageField(upload_to='preferences', 
             verbose_name=_('image'))
-    thumbnail = ThumbnailField(source='image')
+    thumbnail = SquareThumbnailField(source='image')
 
     description = MarkupField(default='', verbose_name=_('description'))
