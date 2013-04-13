@@ -88,7 +88,6 @@ INSTALLED_APPS = (
     'django_badbrowser',
     'oembed',
     'markitup',
-    'djcelery',
     'polymorphic',
     'mptt',
     'tastypie',
@@ -154,18 +153,7 @@ REQUIRE_BASE_URL = 'js'
 REQUIRE_JS = 'lib/require.js'
 REQUIRE_ENVIRONMENT = 'lakaxita.settings.require.NodeEnvironment'
 REQUIRE_BUILD_PROFILE = 'main.build.js'
-#REQUIRE_STANDALONE_MODULES = {'main': {
-#    'out': 'main-built.js',
-#    'build_profile': 'main.build.js',
-#    }}
 
-# add to WSGI too
-import djcelery
-djcelery.setup_loader()
-
-BROKER_URL = 'django://'
-CELERY_IMPORTS = ('lakaxita.lost_found.tasks',)
-        
 ATTACHMENTS = {
         'author_name': 'Irungo Lakaxita Gaztetxea',
         'author_url': 'https://lakaxita.org',
