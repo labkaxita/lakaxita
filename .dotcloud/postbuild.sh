@@ -1,6 +1,6 @@
 cp ./.dotcloud/postinstall ./postinstall
 cp ./.dotcloud/nginx.conf ./nginx.conf
-mkdir -p /home/dotcloud/data/media /home/dotcloud/volatile/static
+mkdir -p /home/dotcloud/data/media /home/dotcloud/volatile/static /home/dotcloud/cache
 sed -i 's/development/production/g' buildout.cfg
 python bootstrap.py
 ./bin/buildout -N

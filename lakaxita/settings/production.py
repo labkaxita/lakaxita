@@ -30,8 +30,8 @@ ADMIN_MEDIA_PREFIX = os.path.join(STATIC_URL, 'grappelli')
 
 CACHES = {
         'default': {
-            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-            'LOCATION': 'unix:/home/dotcloud/memcached.sock',
+            'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+            'LOCATION': '/home/dotcloud/cache/',
             'TIMEOUT': 300,
             },
         }
