@@ -3,6 +3,8 @@ from os import path
 from django.views.generic import TemplateView
 from django.template.base import TemplateDoesNotExist
 from django.http import Http404
+from django.views.decorators.vary import vary_on_cookie
+from django.utils.decorators import method_decorator
 
 
 class BaseView(TemplateView):
@@ -24,3 +26,8 @@ class JSTemplateView(TemplateView):
             raise Http404
         else:
             return response
+
+    @method_decorator(vary_on_cookie)
+    def dispatch(self, *args, **kwargs):
+        return super(JSTemplateView, self).dispatch(*args, **kwargs)
+

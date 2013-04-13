@@ -26,7 +26,7 @@ class ItemResource(ThumbnailResource, ModelResource):
         allowed_methods = ['get']
         queryset = Item.objects.all()
         resource_name = 'lost_items'
-        cache = SimpleCache(timeout=300)
+        cache = SimpleCache(timeout=300, varies=["Accept", "Cookie"])
         fields = ['name', 'description', 'image', 'thumbnail', 'lost', 'found',
                 'slug']
 
@@ -36,7 +36,7 @@ class NotificationResource(ModelResource):
         allowed_methods = ['post']
         authorization = Authorization()
         resource_name = 'lost_item_notifications'
-        cache = SimpleCache(timeout=300)
+        cache = SimpleCache(timeout=300, varies=["Accept", "Cookie"])
         queryset = Notification.objects.all()
         fields = ['title', 'reply_to', 'text', 'item']
 
@@ -48,7 +48,7 @@ class AttachmentResource(ModelResource):
         allowed_methods = ['get']
         queryset = Attachment.objects.all()
         resource_name = 'attachments'
-        cache = SimpleCache(timeout=300)
+        cache = SimpleCache(timeout=300, varies=["Accept", "Cookie"])
 
 
 class CategoryResource(ModelResource):
@@ -56,7 +56,7 @@ class CategoryResource(ModelResource):
         allowed_methods = ['get']
         queryset = Category.objects.root_nodes()
         resource_name = 'gallery'
-        cache = SimpleCache(timeout=300)
+        cache = SimpleCache(timeout=300, varies=["Accept", "Cookie"])
 
     children = fields.ToManyField('self', 'children')
     parent = fields.ForeignKey('self', 'parent', null=True)
@@ -68,7 +68,7 @@ class GroupResource(ModelResource):
         allowed_methods = ['get']
         queryset = Group.objects.all()
         resource_name = 'groups'
-        cache = SimpleCache(timeout=300)
+        cache = SimpleCache(timeout=300, varies=["Accept", "Cookie"])
 
 
 class NewsResource(ThumbnailResource, ModelResource):
@@ -76,7 +76,7 @@ class NewsResource(ThumbnailResource, ModelResource):
         allowed_methods = ['get']
         queryset = News.objects.published()
         resource_name = 'news'
-        cache = SimpleCache(timeout=300)
+        cache = SimpleCache(timeout=300, varies=["Accept", "Cookie"])
         filtering = {'frontpage': ['exact']}
         fields = ['title', 'text', 'image', 'attachments', 'frontpage', 
                 'group', 'event', 'slug', 'published']
@@ -90,7 +90,7 @@ class SiteDescriptionResource(ThumbnailResource, ModelResource):
         allowed_methods = ['get']
         queryset = SiteDescription.objects.all()
         resource_name = 'site_description'
-        cache = SimpleCache(timeout=300)
+        cache = SimpleCache(timeout=300, varies=["Accept", "Cookie"])
         fields = ['description', 'image']
 
 
