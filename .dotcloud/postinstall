@@ -1,5 +1,6 @@
 #!/bin/sh
 ./bin/python .dotcloud/createdb.py
 ./bin/python .dotcloud/mkadmin.py
-./bin/django syncdb --migrate --noinput
+./bin/django syncdb --migrate --noinput --no-initial-data
+./bin/django loaddata initial_data.json
 ./bin/django collectstatic --noinput
