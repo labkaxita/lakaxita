@@ -5,12 +5,12 @@ with open('/home/dotcloud/environment.json') as f:
       env = json.load(f)
 
 try:
-    from secret_key import SECRET_KEY
+    from lakaxita.settings.secret_key import SECRET_KEY
 except ImportError:
     from django.utils.crypto import get_random_string
     chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
     SECRET_KEY = get_random_string(50, chars)
-    with open(os.path.join(DIR, 'secret_key.py'), 'w') as secret_key_file:
+    with open(os.path.join(DIR, 'settings/secret_key.py'), 'w') as secret_key_file:
         secret_key_file.write("SECRET_KEY = '{}'".format(SECRET_KEY))
 
 
