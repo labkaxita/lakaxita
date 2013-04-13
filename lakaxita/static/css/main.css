@@ -95,7 +95,7 @@ header a#logo {
   left: 0;
   z-index: 10;
   padding: 1%;
-  width: 20%;
+  width: 15%;
   background: black; }
   header a#logo img {
     width: 100%; }
@@ -231,12 +231,26 @@ section#content {
     position: absolute;
     top: 0;
     left: 35%; }
-  section#content img.arrow#left {
+  section#content img.arrow.left {
     left: 7%; }
-  section#content img.arrow#right {
+  section#content img.arrow.right {
     right: 7%;
     z-index: 2;
     cursor: pointer; }
+  section#content section#description {
+    width: 80%;
+    margin: 5% auto; }
+    section#content section#description div#description_text {
+      display: inline-block;
+      width: 73%;
+      text-align: right;
+      font-size: 0.8em;
+      margin-right: 2%; }
+      section#content section#description div#description_text p {
+        margin: 0; }
+    section#content section#description img {
+      width: 25%;
+      vertical-align: top; }
   section#content section.left {
     width: 20%;
     margin-right: 5%;

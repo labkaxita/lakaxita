@@ -1,9 +1,11 @@
 {% verbatim %}
 
 section#description
+    div#description_text
+        {{{ description }}}
     img
         - src {{ thumbnail }}
+        - alt lakaxita gaztetxea
 
-    {{{ description }}}
 {% endverbatim %}
 
