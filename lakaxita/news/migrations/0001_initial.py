@@ -8,6 +8,7 @@ from django.db import models
 class Migration(SchemaMigration):
     depends_on = (
             ('lakaxita.groups', '0001_initial'),
+            ('lakaxita.attachments', '0001_initial'),
             )
 
     def forwards(self, orm):
