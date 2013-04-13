@@ -20,7 +20,11 @@ TEMPLATE_DEBUG = DEBUG
 SEND_BROKEN_LINK_EMAILS = DEBUG
 
 
-ALLOWED_HOSTS = ['lakaxita-unaizalakain.dotcloud.com']
+ALLOWED_HOSTS = [
+            'lakaxita-unaizalakain.dotcloud.com',
+            'lakaxita.org',
+            'www.lakaxita.org',
+            ]
 
 STATIC_ROOT = '/home/dotcloud/volatile/static/'
 STATIC_URL = '/static/'
