@@ -28,15 +28,22 @@ MEDIA_ROOT = '/home/dotcloud/data/media/'
 MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = os.path.join(STATIC_URL, 'grappelli')
 
-#   CACHE_BACKEND = 'memcached://unix:/home/lakaxita/webapps/lakaxita/memcached.sock'
-#   CACHE_MIDDLEWARE_SECONDS = 90
-#   MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',
-#                       'django.middleware.gzip.GZipMiddleware') +\
-#                       MIDDLEWARE_CLASSES + \
-#                       ('django.middleware.http.ConditionalGetMiddleware',
-#                       'django.middleware.cache.FetchFromCacheMiddleware',
-#                       'django.middleware.clickjacking.XFrameOptionsMiddleware',
-#                       )
+CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': 'unix:/home/dotcloud/memcached.sock',
+            'TIMEOUT': 300,
+            },
+        }
+
+CACHE_MIDDLEWARE_SECONDS = 300
+MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',
+                    'django.middleware.gzip.GZipMiddleware') +\
+                    MIDDLEWARE_CLASSES + \
+                    ('django.middleware.http.ConditionalGetMiddleware',
+                    'django.middleware.cache.FetchFromCacheMiddleware',
+                    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+                    )
 
 DATABASES = {
         'default': {
