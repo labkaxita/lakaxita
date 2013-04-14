@@ -20,8 +20,8 @@ html
             {% include 'js/nav.yammy' %}
         section#content
             {% block content %}
-            img#loading
-                - src {% static 'imgs/jaion.gif' %}
-                - alt loading...
             {% endblock content %}
+        img#loading
+            - src {% static 'imgs/jaion.gif' %}
+            - alt loading...
         section#menu
