@@ -1,7 +1,8 @@
 define([
         'backbone.relational',
         'underscore',
-        ], function(Backbone, _) {
+        'lakaxita/errors',
+        ], function(Backbone, _, Errors) {
  
     Model = Backbone.RelationalModel.extend({
         fetch: function(options) {
@@ -11,7 +12,7 @@ define([
                 if (error) {
                     error(model, response);
                 } else {
-                    Backbone.trigger('lakaxita:error', response);
+                    Errors.errorHandler(response);
                 };
             };
             return Backbone.RelationalModel.prototype.fetch.apply(this, [options]);
