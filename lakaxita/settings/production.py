@@ -42,12 +42,47 @@ CACHES = {
 
 CACHE_MIDDLEWARE_SECONDS = 300
 MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',
-                    'django.middleware.gzip.GZipMiddleware') +\
+                    'django.middleware.gzip.GZipMiddleware',
+                    'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',
+                    ) + \
                     MIDDLEWARE_CLASSES + \
                     ('django.middleware.http.ConditionalGetMiddleware',
                     'django.middleware.cache.FetchFromCacheMiddleware',
                     'django.middleware.clickjacking.XFrameOptionsMiddleware',
                     )
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'root': {
+        'level': 'WARNING',
+        'handlers': ['sentry'],
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s',
+            },
+    },
+    'handlers': {
+        'sentry': {
+            'level': 'ERROR',
+            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+        },
+        'console': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
+
 
 DATABASES = {
         'default': {
@@ -76,5 +111,7 @@ DATABASES = {
 X_FRAME_OPTIONS = 'DENY'
 
 
-INSTALLED_APPS += ('raven.contrib.django',)
-SENTRY_DSN = 'https://8be3d66e72604e20bb74712f39926d69:186dc82c9a4749129a9b9652cde82390@app.getsentry.com/4320'
+INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
+RAVEN_CONFIG = {
+        'dsn': 'https://8be3d66e72604e20bb74712f39926d69:186dc82c9a4749129a9b9652cde82390@app.getsentry.com/4320',
+        }
