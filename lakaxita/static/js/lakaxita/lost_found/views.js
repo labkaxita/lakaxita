@@ -38,9 +38,9 @@ define([
             var view = new ItemNotificationForm({
                 collection: new Collections.Notifications(),
                 item: this.model.id,
+                el: this.$('#notification-form'),
             });
-            this.$('form').remove();
-            this.$el.append(view.render().el);
+            view.render();
         },
     });
 
@@ -48,11 +48,10 @@ define([
         initialize: function(options) {
             this.collection.on('add', this.success, this);
         },
-        tagName: 'form',
         template: 'lost_found/notification_form',
         events: {
-            'submit': 'submit',
-            'click #close': 'remove',
+            'submit': 'empty',
+            'click #close': 'empty',
         },
         submit: function(event) {
             event.preventDefault();
@@ -63,7 +62,7 @@ define([
                 item: this.options.item,
             });
         },
-        success: function() { this.$el.empty(); },
+        empty: function() { this.$el.empty(); },
     });
 
     return {
