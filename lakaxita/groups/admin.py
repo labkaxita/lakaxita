@@ -14,7 +14,7 @@ class LakaxitaGroupAdmin(TranslationAdmin):
     list_display = ('name', 'admin_thumbnail')
     fields = ('name', 'group', 'image', 'description')
 
-    admin_thumbnail = AdminThumbnail(image_field='thumbnail')
+    admin_thumbnail = AdminThumbnail(image_field='scaled_image')
 
 
 admin.site.register(LakaxitaGroup, LakaxitaGroupAdmin)

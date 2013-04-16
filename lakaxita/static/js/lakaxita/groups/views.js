@@ -10,7 +10,6 @@ define([
         text: function() { return this.model.text(); },
         event: function() { return this.model.event(); },
         published: function() { return this.model.published(); },
-        image: function() { return this.model.thumbnail(); },
         group: function() { return this.model.group(); },
         url: function() { 
             return this.router.getReverse('newsDetail', this.model);

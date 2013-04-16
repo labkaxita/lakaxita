@@ -4,8 +4,9 @@ from django.utils.translation import ugettext as _
 
 from autoslug import AutoSlugField
 from markitup.fields import MarkupField
+from imagekit.models import ProcessedImageField, ImageSpecField
 
-from lakaxita.fields import ThumbnailField
+from lakaxita.settings.images import scaled_options, stretched_options
 
 
 class ItemManager(models.Manager):
@@ -28,12 +29,15 @@ class Item(models.Model):
     name = models.CharField(max_length=100, verbose_name=_('name'))
     description = MarkupField(blank=True, default='', 
             verbose_name=_('description'))
-    image = models.ImageField(blank=True, upload_to='lost_found', 
-            verbose_name=_('image'))
-    thumbnail = ThumbnailField(source='image')
+
     lost = models.DateField(default=date.today, verbose_name=_('lost date'))
     found = models.DateField(blank=True, null=True, 
             verbose_name=_('found date'))
+
+    image = models.ImageField(blank=True, upload_to='lost_found', 
+            verbose_name=_('image'))
+    scaled_image = ImageSpecField(source='image', **scaled_options)
+    stretched_image = ImageSpecField(source='image', **stretched_options)
 
     slug = AutoSlugField(populate_from='name', unique=True)
 

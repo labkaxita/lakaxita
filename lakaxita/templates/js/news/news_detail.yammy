@@ -6,7 +6,7 @@
         a 
             - href {{ image }}
             img.slide
-                - src {{ thumbnail }}
+                - src {{ scaled_image }}
         {{else}}
         img.slide
             - src {{ default_image }}

@@ -47,7 +47,7 @@ class ItemAdmin(TranslationAdmin):
     inlines = [NotificationInline]
     actions = ['mark_returned', 'mark_not_returned']
 
-    admin_thumbnail = AdminThumbnail(image_field='thumbnail')
+    admin_thumbnail = AdminThumbnail(image_field='scaled_image')
 
     def has_been_returned(self, obj):
         return obj.has_been_returned

@@ -12,26 +12,25 @@ from lakaxita.lost_found.models import Item, Notification
 from lakaxita.preferences.models import SiteDescription
 
 
-class ThumbnailResource(object):
+class Resource(object):
     def dehydrate(self, bundle):
-        thumbnail = None
-        if bundle.obj.image:
-            thumbnail = bundle.obj.thumbnail.url
-        bundle.data['thumbnail'] = thumbnail
+        for field in ['scaled_image', 'stretched_image']:
+            value = getattr(bundle.obj, field, None)
+            if hasattr(value, 'name') and value.name:
+                bundle.data[field] = value.url
         return bundle
 
 
-class ItemResource(ThumbnailResource, ModelResource):
+class ItemResource(Resource, ModelResource):
     class Meta:
         allowed_methods = ['get']
         queryset = Item.objects.all()
         resource_name = 'lost_items'
         cache = SimpleCache(timeout=300, varies=["Accept", "Cookie"])
-        fields = ['name', 'description', 'image', 'thumbnail', 'lost', 'found',
-                'slug']
+        fields = ['name', 'description', 'image', 'lost', 'found', 'slug']
 
 
-class NotificationResource(ModelResource):
+class NotificationResource(Resource, ModelResource):
     class Meta:
         allowed_methods = ['post']
         authorization = Authorization()
@@ -43,7 +42,7 @@ class NotificationResource(ModelResource):
     item = fields.ForeignKey(ItemResource, 'item')
 
 
-class AttachmentResource(ModelResource):
+class AttachmentResource(Resource, ModelResource):
     class Meta:
         allowed_methods = ['get']
         queryset = Attachment.objects.all()
@@ -51,7 +50,7 @@ class AttachmentResource(ModelResource):
         cache = SimpleCache(timeout=300, varies=["Accept", "Cookie"])
 
 
-class CategoryResource(ModelResource):
+class CategoryResource(Resource, ModelResource):
     class Meta:
         allowed_methods = ['get']
         queryset = Category.objects.root_nodes()
@@ -63,7 +62,7 @@ class CategoryResource(ModelResource):
     attachments = fields.ToManyField(AttachmentResource, 'attachments')
 
 
-class GroupResource(ModelResource):
+class GroupResource(Resource, ModelResource):
     class Meta:
         allowed_methods = ['get']
         queryset = Group.objects.all()
@@ -71,7 +70,7 @@ class GroupResource(ModelResource):
         cache = SimpleCache(timeout=300, varies=["Accept", "Cookie"])
 
 
-class NewsResource(ThumbnailResource, ModelResource):
+class NewsResource(Resource, ModelResource):
     class Meta:
         allowed_methods = ['get']
         queryset = News.objects.published()
@@ -85,7 +84,7 @@ class NewsResource(ThumbnailResource, ModelResource):
     attachments = fields.ToManyField(AttachmentResource, 'attachments')
 
 
-class SiteDescriptionResource(ThumbnailResource, ModelResource):
+class SiteDescriptionResource(Resource, ModelResource):
     class Meta:
         allowed_methods = ['get']
         queryset = SiteDescription.objects.all()

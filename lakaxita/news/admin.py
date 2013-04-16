@@ -51,7 +51,7 @@ class NewsAdmin(TranslationAdmin):
                     )}),
                 )
 
-    admin_thumbnail = AdminThumbnail(image_field='thumbnail')
+    admin_thumbnail = AdminThumbnail(image_field='scaled_image')
 
     def has_been_published(self, obj):
         return obj.is_published

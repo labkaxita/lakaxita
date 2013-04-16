@@ -3,9 +3,12 @@
 section#description
     div#description_text
         {{{ description }}}
-    img
-        - src {{ thumbnail }}
-        - alt lakaxita gaztetxea
+
+    a
+        - href {{ image }}
+        img
+            - src {{ scaled_image }}
+            - alt lakaxita gaztetxea
 
 {% endverbatim %}
 

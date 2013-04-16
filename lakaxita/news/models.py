@@ -4,8 +4,9 @@ from django.utils.translation import ugettext as _
 
 from markitup.fields import MarkupField
 from autoslug import AutoSlugField
+from imagekit.models import ImageSpecField
 
-from lakaxita.fields import ThumbnailField
+from lakaxita.settings.images import scaled_options, stretched_options
 from lakaxita.groups.models import Group
 from lakaxita.attachments.models import Attachment
 
@@ -43,8 +44,6 @@ class News(models.Model):
 
     title = models.CharField(max_length=100, verbose_name=_('title'))
     text = MarkupField(default='', verbose_name=_('text'))
-    image = models.ImageField(blank=True, upload_to='news', verbose_name=_('image'))
-    thumbnail = ThumbnailField(source='image')
     attachments = models.ManyToManyField(Attachment, blank=True, null=True,
             verbose_name=_('attachments'))
 
@@ -54,6 +53,11 @@ class News(models.Model):
             verbose_name=_('group it belongs to'))
     event = models.DateTimeField(blank=True, null=True, 
             verbose_name=_('event date'))
+
+    image = models.ImageField(blank=True, upload_to='news', 
+                    verbose_name=_('image'))
+    scaled_image = ImageSpecField(source='image', **scaled_options)
+    stretched_image = ImageSpecField(source='image', **stretched_options)
 
     slug = AutoSlugField(populate_from='title', unique=True)
 
