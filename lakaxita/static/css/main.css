@@ -180,7 +180,7 @@ img.slide {
   background: #828282; }
 
 section#menu {
-  position: absolute;
+  position: fixed;
   bottom: 2em;
   left: 0;
   width: 100%; }
