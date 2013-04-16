@@ -38,7 +38,7 @@ class News(models.Model):
     objects = QuerySetManager()
     queryset = QuerySet
     class Meta:
-        ordering = ['-published']
+        ordering = ['-published', '-id']
         verbose_name = _('news')
         verbose_name_plural = _('news ')
 
