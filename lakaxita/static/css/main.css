@@ -193,9 +193,7 @@ section.scroll img.arrow {
 section.scroll img.arrow.left {
   left: 0; }
 section.scroll img.arrow.right {
-  right: 0;
-  z-index: 2;
-  cursor: pointer; }
+  right: 0; }
 section.scroll .kinetic {
   overflow: hidden; }
   section.scroll .kinetic ul.inner-scroll {
@@ -232,12 +230,12 @@ section.scroll .kinetic {
 
 section#content {
   margin: 10%; }
+  section#content img.arrow {
+    z-index: 0; }
   section#content img.arrow.left {
     left: 7%; }
   section#content img.arrow.right {
-    right: 7%;
-    z-index: 2;
-    cursor: pointer; }
+    right: 7%; }
   section#content section#description {
     width: 80%;
     margin: 5% auto; }
