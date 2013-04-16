@@ -106,15 +106,21 @@ header div#info {
   background: black;
   margin: 0;
   text-align: right;
-  padding: 1%; }
+  padding: 1%;
+  width: 13%; }
   header div#info ul#license {
+    width: 85%;
     display: inline-block;
     padding: 0;
     margin: 0;
     vertical-align: middle; }
     header div#info ul#license li {
       list-style: none; }
+      header div#info ul#license li img {
+        width: 50%;
+        margin-left: 1%; }
   header div#info ul#language {
+    width: 15%;
     padding: 0;
     margin: 0;
     display: inline-block;
