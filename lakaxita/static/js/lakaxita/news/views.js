@@ -7,7 +7,18 @@ define([
         tagName: 'li',
         template: 'scroll_item',
         extraContext: {
-            hover: function() { return this.model.published(); },
+            hover: function() { 
+                function pad(n) {return n<10 ? '0'+n : n}
+                date = this.model.event();
+                data = date ? date : '';
+                if (date) {
+                    date = new Date(date);
+                    date = date.getFullYear() + '-'
+                        + pad(date.getMonth()) + '-' 
+                        + pad(date.getDate());
+                };
+                return date;
+            },
             icon: function() { 
                 var group = this.model.group();
                 if (group) {
