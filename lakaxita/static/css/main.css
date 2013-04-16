@@ -195,7 +195,9 @@ section.scroll img.arrow.left {
 section.scroll img.arrow.right {
   right: 0; }
 section.scroll .kinetic {
-  overflow: hidden; }
+  overflow: hidden;
+  width: 92%;
+  margin: 0 auto; }
   section.scroll .kinetic ul.inner-scroll {
     padding: 0;
     margin: 0;
