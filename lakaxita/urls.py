@@ -13,8 +13,7 @@ oembed.autodiscover()
 
 from lakaxita.views import BaseView, JSTemplateView
 from lakaxita.api import api
-
-
+from lakaxita.news.feeds import NewsFeed
 
 
 urlpatterns = patterns('',
@@ -28,6 +27,7 @@ urlpatterns = patterns('',
         url(r'^admin/', include(admin.site.urls)),
         url(r'^markitup/', include('markitup.urls')),
 
+        url(r'^news/feed/$', NewsFeed(), name='news_feed'),
         url('^', include(api.urls)),
         url('^template/(?P<path>.+)/$', JSTemplateView.as_view(), name='template'),
 )
