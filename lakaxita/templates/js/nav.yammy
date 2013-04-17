@@ -15,7 +15,12 @@ header
                 | Lakaxita
 
             li
-                | {% trans 'content' %}
+                a
+                    - xmlns:cc http://creativecommons.org/ns#
+                    - property cc:attributionName
+                    - rel cc:attributionURL
+                    - href https://github.com/labkaxita/lakaxita
+                    | {% trans 'content' %}
                 a
                     - rel license
                     - href http://creativecommons.org/licenses/by-sa/3.0/deed.en_US
@@ -24,17 +29,14 @@ header
                         - alt Creative Commons Attribution-ShareAlike 3.0 Unported License
             li
                 a
-                    - xmlns:cc http://creativecommons.org/ns#
                     - href https://github.com/labkaxita/lakaxita
-                    - property cc:attributionName
-                    - rel cc:attributionURL
                     | {% trans 'webpage' %}
                 a
                     - rel license
-                    - href http://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+                    - href https://www.gnu.org/licenses/agpl.html
                     img
-                        - src {% static 'imgs/by-sa1.svg' %}
-                        - alt Creative Commons Attribution-ShareAlike 3.0 Unported License
+                        - src {% static 'imgs/agpl.svg' %}
+                        - alt GNU AFFERO GENERAL PUBLIC LICENSE
 
         ul#language
             {% for lang in LANGUAGES %}
