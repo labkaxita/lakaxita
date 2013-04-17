@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /badbrowser/
+Disallow: /admin/
+Disallow: /grappelli/
+Disallow: /markitup/
+Disallow: /template/
