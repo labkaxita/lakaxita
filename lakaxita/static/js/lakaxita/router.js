@@ -18,7 +18,7 @@ define([
             if (model) {
                 path = path.replace(':slug', model.get('slug'));
             };
-            path = '#' + path;
+            path = '#/' + path;
             return path;
         },
 
