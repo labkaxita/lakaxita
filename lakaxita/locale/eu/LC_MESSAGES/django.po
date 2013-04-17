@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-12 11:38+0200\n"
+"POT-Creation-Date: 2013-04-17 12:09+0200\n"
 "PO-Revision-Date: 2013-04-12 11:23+01\n"
 "Last-Translator: Unai Zalakain <unai@gisa-elkartea.org>\n"
 "Language-Team: basque\n"
@@ -98,16 +98,16 @@ msgstr "kategoria"
 msgid "categories"
 msgstr "kategoriak"
 
-#: gallery/models.py:16 groups/models.py:15 lost_found/models.py:28
+#: gallery/models.py:16 groups/models.py:17 lost_found/models.py:29
 msgid "name"
 msgstr "izena"
 
-#: gallery/models.py:18 groups/models.py:17 lost_found/models.py:30
-#: preferences/models.py:21
+#: gallery/models.py:18 groups/models.py:19 lost_found/models.py:31
+#: preferences/models.py:22
 msgid "description"
 msgstr "deskribapena"
 
-#: gallery/models.py:20 news/models.py:49
+#: gallery/models.py:20 news/models.py:48
 msgid "attachments"
 msgstr "eranskinak"
 
@@ -115,16 +115,16 @@ msgstr "eranskinak"
 msgid "parent"
 msgstr "gurasoa"
 
-#: groups/models.py:12 groups/models.py:22
+#: groups/models.py:14 groups/models.py:26
 msgid "group"
 msgstr "eragilea"
 
-#: groups/models.py:13 templates/js/nav.yammy:61
+#: groups/models.py:15 templates/js/nav.yammy:61
 msgid "groups"
 msgstr "eragileak"
 
-#: groups/models.py:19 lost_found/models.py:32 news/models.py:46
-#: preferences/models.py:18
+#: groups/models.py:22 lost_found/models.py:38 news/models.py:58
+#: preferences/models.py:19
 msgid "image"
 msgstr "irudia"
 
@@ -148,43 +148,43 @@ msgstr "Bueltatuta bezala markatu"
 msgid "Mark as not returned"
 msgstr "Ez bueltatuta bezala markatu"
 
-#: lost_found/admin.py:86 lost_found/models.py:64
+#: lost_found/admin.py:86 lost_found/models.py:68
 msgid "item"
 msgstr "gauza"
 
-#: lost_found/models.py:25
+#: lost_found/models.py:26
 msgid "Item"
 msgstr "Gauza"
 
-#: lost_found/models.py:26
+#: lost_found/models.py:27
 msgid "Items"
 msgstr "Gauzak"
 
-#: lost_found/models.py:34
+#: lost_found/models.py:33
 msgid "lost date"
 msgstr "galdu den data"
 
-#: lost_found/models.py:36
+#: lost_found/models.py:35
 msgid "found date"
 msgstr "aurkitu den data"
 
-#: lost_found/models.py:55
+#: lost_found/models.py:59
 msgid "Notification"
 msgstr "Notifikazioa"
 
-#: lost_found/models.py:56
+#: lost_found/models.py:60
 msgid "Notifications"
 msgstr "Notifikazioak"
 
-#: lost_found/models.py:58 news/models.py:44
+#: lost_found/models.py:62 news/models.py:45
 msgid "title"
 msgstr "izenburua"
 
-#: lost_found/models.py:59
+#: lost_found/models.py:63
 msgid "reply to"
 msgstr "erantzun honi"
 
-#: lost_found/models.py:61 news/models.py:45
+#: lost_found/models.py:65 news/models.py:46
 msgid "text"
 msgstr "testua"
 
@@ -200,33 +200,37 @@ msgstr "Argitaratua"
 msgid "Not published"
 msgstr "Ez argitaratua"
 
-#: news/models.py:41 templates/js/nav.yammy:73
+#: news/models.py:42 templates/js/nav.yammy:73
 msgid "news"
 msgstr "berria"
 
-#: news/models.py:42
+#: news/models.py:43
 msgid "news "
 msgstr "berriak"
 
-#: news/models.py:51
+#: news/models.py:50
 msgid "publish on"
 msgstr "argitarapen data"
 
-#: news/models.py:52
+#: news/models.py:51
 msgid "on frontpage"
 msgstr "portadan"
 
-#: news/models.py:54
+#: news/models.py:53
 msgid "group it belongs to"
 msgstr "eragilea"
 
-#: news/models.py:56
+#: news/models.py:55
 msgid "event date"
 msgstr "gertakariaren data"
 
-#: preferences/models.py:14 preferences/models.py:15
+#: preferences/models.py:15 preferences/models.py:16
 msgid "site description"
 msgstr "gunearen deskribapena"
+
+#: templates/base.yammy:13
+msgid "news, lost & found objects, gallery and groups of lakaxita gaztetxea"
+msgstr "lakaxita gaztetxeko berriak, galdutako objetuak, galeria eta eragileak"
 
 #: templates/js/404.yammy:4
 msgid ""
@@ -278,19 +282,19 @@ msgstr "KONTAKTUA"
 msgid "contact"
 msgstr "kontaktua"
 
-#: templates/js/lost_found/item_detail.yammy:16
+#: templates/js/lost_found/item_detail.yammy:18
 msgid "Date of discovery"
 msgstr "Aurkitu den eguna"
 
-#: templates/js/lost_found/item_detail.yammy:27
+#: templates/js/lost_found/item_detail.yammy:29
 msgid "It has been already returned"
 msgstr "Iada bueltatu egin da"
 
-#: templates/js/lost_found/item_detail.yammy:33
+#: templates/js/lost_found/item_detail.yammy:35
 msgid "It has not been returned yet"
 msgstr "Oraindik ez da bueltatu"
 
-#: templates/js/lost_found/item_detail.yammy:40
+#: templates/js/lost_found/item_detail.yammy:42
 msgid "It is mine!"
 msgstr "Nirea da!"
 
@@ -314,7 +318,7 @@ msgstr "Bidali"
 msgid "Close"
 msgstr "Itxi"
 
-#: templates/js/news/news_detail.yammy:15
+#: templates/js/news/news_detail.yammy:17
 msgid "Date"
 msgstr "Data"
 
