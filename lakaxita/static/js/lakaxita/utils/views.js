@@ -2,8 +2,9 @@ define([
         'backbone', 
         'underscore',
         'zen',
+        'jquery.kinetic',
         'text',
-        ], function(Backbone, _, zen) {
+        ], function(Backbone, _, zen, $) {
 
     View = Backbone.View.extend({
         initialize: function(options) {
@@ -57,12 +58,7 @@ define([
             this.loadTemplate(_.bind(function(template) {
                 var rendered = template({subviews: subview_elements});
                 this.$el.html(rendered);
-                this.kinetic = this.$('.kinetic');
-                this.kinetic.kinetic({cursor: 'ew-resize'});
-
-                // FIXME, dark magic: it seems that if object is accessed 
-                // scrollLeft and scrollRight work, else, they don't
-                this.kinetic;
+                this.$('.kinetic').kinetic({cursor: 'ew-resize'});
             }, this));
 
             if (this.classReplacement) {
@@ -80,10 +76,10 @@ define([
             this.$el.empty();
         },
         scrollLeft: function() {
-            this.kinetic.kinetic('start', {velocity: -10, decelerate: true});
+            this.$('.kinetic').kinetic('start', {velocity: -10, decelerate: true});
         },
         scrollRight: function() {
-            this.kinetic.kinetic('start', {velocity: 10, decelerate: true});
+            this.$('.kinetic').kinetic('start', {velocity: 10, decelerate: true});
         },
     });
 
