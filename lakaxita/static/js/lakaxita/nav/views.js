@@ -22,6 +22,7 @@ define([
             event.preventDefault();
             var lang = this.$(event.target).text();
             document.cookie = 'django_language='+lang;
+            require.undef(this.getRequireTemplate());
             Backbone.history.location.reload();
         },
         lostFound: function(event) {
