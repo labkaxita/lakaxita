@@ -155,6 +155,8 @@ REQUIRE_JS = 'lib/require.js'
 REQUIRE_ENVIRONMENT = 'lakaxita.settings.require.NodeEnvironment'
 REQUIRE_BUILD_PROFILE = 'main.build.js'
 
+IMAGEKIT_CACHEFILE_DIR = 'cache/images'
+
 ATTACHMENTS = {
         'author_name': 'Irungo Lakaxita Gaztetxea',
         'author_url': 'https://lakaxita.org',
