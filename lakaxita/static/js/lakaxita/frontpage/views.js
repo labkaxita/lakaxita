@@ -25,36 +25,32 @@ define([
         initialize: function(options) {
             this.$el.empty();
 
-            this.setupDescription();
-            this.setupNews();
-            // this.setupGallery();
+            this.descriptionView = this.getDescriptionView();
+            this.$el.append(this.descriptionView.el);
 
-            this.$el.append(this.description);
-            this.$el.append(this.news);
-            this.$el.append(this.gallery);
+            this.newsView = this.getNewsView();
+            this.$el.append(this.newsView.el);
+            this.newsView.collection.fetch();
+
+            // this.galleryView = this.getGalleryView();
+            // this.$el.append(this.gallery.el);
         },
-        setupNews: function() {
-            this.news = zen('section#news');
-            this.newsView = NewsApp.FrontpageScroll({el: this.news});
-            this.newsView.collection.on('sync', this.newsView.render, this.newsView);
+        getNewsView: function() {
+            return NewsApp.FrontpageScroll({el: zen('section#news')});
         },
-        setupGallery: function() {
-            this.gallery = zen('section#gallery');
-            this.galleryView = Gallery.Scroll({el: this.gallery});
-            this.galleryView.collection.on('sync', this.galleryView.render, 
-                                         this.galleryView);
+        getGalleryView: function() {
+            return Gallery.Scroll({el: zen('section#gallery')});
         },
-        setupDescription: function() {
-            var description = zen('section#description');
-            this.description = description;
-            var collection = new FrontpageCollections.SiteDescription();
+        getDescriptionView: function() {
+            var collection = new FrontpageCollections.SiteDescription(),
+                view = new SiteDescription({el: zen('section#description')});
             collection.on('sync', function() {
                 var model = collection.at(0);
-                this.descriptionView = new SiteDescription({model: model,
-                    el: description});
-                this.descriptionView.render();
+                view.model = model;
+                view.render();
             });
             collection.fetch({prefill: true});
+            return view;
         },
     });
 
