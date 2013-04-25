@@ -32,14 +32,30 @@ MEDIA_ROOT = '/home/dotcloud/data/media/'
 MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = os.path.join(STATIC_URL, 'grappelli')
 
+#   CACHES = {
+#           'default': {
+#               'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#               'LOCATION': '/home/dotcloud/cache/',
+#               'TIMEOUT': 300,
+#               },
+#           }
+
 CACHES = {
         'default': {
-            'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-            'LOCATION': '/home/dotcloud/cache/',
+            'BACKEND': 'redis_cache.cache.RedisCache',
+            'LOCATION': '{host}:{port}:{db}'.format(
+                host=env['DOTCLOUD_CACHE_REDIS_HOST'],
+                port=env['DOTCLOUD_CACHE_REDIS_PORT'],
+                db=1,
+                ),
             'TIMEOUT': 300,
+            'OPTIONS': {
+                'PASSWORD': env['DOTCLOUD_CACHE_REDIS_PASSWORD'],
+                'CLIENT_CLASS': 'redis_cache.client.DefaultClient',
+                },
             },
         }
-
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 CACHE_MIDDLEWARE_SECONDS = 300
 MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',
                     'django.middleware.gzip.GZipMiddleware',
@@ -111,7 +127,10 @@ DATABASES = {
 X_FRAME_OPTIONS = 'DENY'
 
 
-INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
+INSTALLED_APPS += (
+        'raven.contrib.django.raven_compat',
+        )
+
 RAVEN_CONFIG = {
         'dsn': 'https://8be3d66e72604e20bb74712f39926d69:186dc82c9a4749129a9b9652cde82390@app.getsentry.com/4320',
         }
