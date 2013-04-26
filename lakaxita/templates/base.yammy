@@ -31,3 +31,6 @@ html
             - src {% static 'imgs/jaion.gif' %}
             - alt loading...
         section#menu
+
+
+        {% include 'stats.html' %} 
