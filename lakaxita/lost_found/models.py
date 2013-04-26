@@ -48,9 +48,8 @@ class Item(models.Model):
     def has_been_returned(self):
         return self.found is not None
 
-    @models.permalink
     def get_absolute_url(self):
-        return 'lost_found:detail', (), {'slug': self.slug}
+        return '/#/lost_found/{slug}/'.format(slug=self.slug)
 
 
 class Notification(models.Model):

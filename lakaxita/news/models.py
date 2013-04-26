@@ -68,6 +68,5 @@ class News(models.Model):
     def is_published(self):
         return self.published <= date.today()
 
-    @models.permalink
     def get_absolute_url(self):
-        return 'news:detail', (), {'slug': self.slug}
+        return '/#/news/{slug}/'.format(slug=self.slug)
